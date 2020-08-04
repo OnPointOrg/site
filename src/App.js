@@ -5,8 +5,8 @@ import {
   ColorModeProvider,
   CSSReset,
 } from "@chakra-ui/core";
-import LoginArea from "./components/Login";
-import SignUp from "./components/SignUp";
+import LoginArea from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
