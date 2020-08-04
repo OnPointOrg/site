@@ -7,13 +7,14 @@ import {
 } from "@chakra-ui/core";
 import LoginArea from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import VerifiedNav from "./components/VerifiedNav";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
         <CSSReset />
-        <LoginArea />
+        <VerifiedNav />
       </ColorModeProvider>
     </ThemeProvider>
   );
