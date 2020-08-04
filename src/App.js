@@ -8,6 +8,7 @@ import {
 // import LoginArea from "./pages/Login";
 // import SignUp from "./pages/SignUp";
 import VerifiedNav from "./components/VerifiedNav"
+import DefaultNav from "./components/DefaultNav";
 
 const App = () => {
   return (
