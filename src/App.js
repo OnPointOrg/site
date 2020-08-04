@@ -15,7 +15,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
         <CSSReset />
-        <VerifiedNav />
+        <DefaultNav />
       </ColorModeProvider>
     </ThemeProvider>
   );

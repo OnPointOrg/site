@@ -16,8 +16,12 @@ import {
   MenuDivider,
   Icon,
   Heading,
+  Button,
+  Image,
+  ButtonGroup
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
+import img from "../images/logo.png"
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -44,9 +48,11 @@ const DefaultNav = (props) => {
         {...props}
       >
         <Flex align="center" mr={5}>
-          <Heading as="h1" size="xl" letterSpacing={"-.1rem"} mr={10}>
-            Chakra UI
-          </Heading>
+          <Link href="/">
+              <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
+                <Image src={img} width="50px" alt="Logo"></Image>
+              </Heading>
+          </Link>
         </Flex>
 
         <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
@@ -68,13 +74,25 @@ const DefaultNav = (props) => {
           flexGrow={1}
         >
           <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
-            <Link href="/">About</Link>
+            <Link href="/">
+              <Button size="lg" variantColor="teal" variant="ghost">
+                About
+              </Button>
+            </Link>
           </Text>
           <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
-            <Link href="/">Blog</Link>
+            <Link href="/">
+              <Button size="lg" variantColor="teal" variant="ghost">
+                Blog
+              </Button>
+            </Link>
           </Text>
           <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
-            <Link href="/">Contact</Link>
+            <Link href="/">
+              <Button size="lg" variantColor="teal" variant="ghost">
+                Contact
+              </Button>
+            </Link>
           </Text>
         </Box>
 
@@ -84,29 +102,14 @@ const DefaultNav = (props) => {
         >
           <Flex justifyContent="space-between" color="gray.500">
             <Menu>
-              <MenuButton
-                px={6}
-                py={2}
-                transition="all 0.2s"
-                rounded="md"
-                borderWidth="1px"
-                _focus={{ outline: 0, boxShadow: "outline" }}
-                marginRight="2px"
-                marginLeft="-2px"
-              >
-                  <Avatar marginTop="2px" marginRight="5px" size="xs" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" /> Profile <Icon name="chevron-down" />
-              </MenuButton>
-              <MenuList>
-                <MenuGroup title="Profile">
-                  <MenuItem>My Account</MenuItem>
-                  <MenuItem>Dashboard</MenuItem>
-                </MenuGroup>
-                <MenuDivider />
-                <MenuGroup title="Help">
-                  <MenuItem>Docs</MenuItem>
-                  <MenuItem>FAQ</MenuItem>
-                </MenuGroup>
-              </MenuList>
+            <ButtonGroup spacing={4}>
+                <Button size="lg" variant="solid">
+                    Sign In
+                </Button>
+                <Button size="lg" variant="outline">
+                    Sign Up
+                </Button>
+            </ButtonGroup>
             </Menu>
             <Divider orientation="vertical" />
             <DarkModeLightModeButton />
