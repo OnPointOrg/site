@@ -55,7 +55,9 @@ const VerifiedNav = () => {
               href="/"
               aria-label="Chakra UI, Back to homepage"
             >
-              Home
+                <Stack isInline>
+                    
+                </Stack>
             </Box>
             
             <Flex justifyContent="space-between" color="gray.500">
@@ -74,7 +76,7 @@ const VerifiedNav = () => {
                 <MenuList>
                   <MenuGroup title="Profile">
                     <MenuItem>My Account</MenuItem>
-                    <MenuItem>Payments </MenuItem>
+                    <MenuItem>Dashboard</MenuItem>
                   </MenuGroup>
                   <MenuDivider />
                   <MenuGroup title="Help">
