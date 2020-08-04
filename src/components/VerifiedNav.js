@@ -1,12 +1,11 @@
 import React from "react";
 import {
   ThemeProvider,
+  theme,
   Box,
   Flex,
   Link,
-  Image,
   Text,
-  Stack,
   Avatar,
   Divider,
   Menu,
@@ -15,83 +14,106 @@ import {
   MenuItem,
   MenuGroup,
   MenuDivider,
-  MenuOptionGroup,
-  MenuItemOption,
-  IconButton,
-  ColorModeProvider,
-  useColorMode,
   Icon,
+  Heading,
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 
-const NavLink = ({ children, ...props }) => (
-  <Link px={2} color="white" {...props}>
-    {children}
-  </Link>
-);
+const breakpoints = ["360px", "768px", "1024px", "1440px"];
+breakpoints.sm = breakpoints[0];
+breakpoints.md = breakpoints[1];
+breakpoints.lg = breakpoints[2];
+breakpoints.xl = breakpoints[3];
 
-const VerifiedNav = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+const newTheme = {
+  ...theme,
+  breakpoints,
+};
+
+const VerifiedNav = (props) => {
+  const [show, setShow] = React.useState(false);
+  const handleToggle = () => setShow(!show);
   return (
-    <ThemeProvider>
-      <Box
-        // pos={landing ? "absolute" : "fixed"}
-        top="0"
-        zIndex="4"
-        // bg={bg[colorMode]}
-        left="0"
-        right="0"
-        borderBottomWidth="1px"
-        width="100%"
-        mx="auto"
-        px="10px"
+    <ThemeProvider theme={newTheme}>
+      <Flex
+        as="nav"
+        align="center"
+        justify="space-between"
+        wrap="wrap"
+        padding="1.5rem"
+        {...props}
       >
-        <Box mx="15px" my="10px" w="99%" h="100%">
-          <Flex size="100%" align="center" justify="space-between">
-            <Box
-              minWidth="40px"
-              as="a"
-              d="block"
-              href="/"
-              aria-label="Chakra UI, Back to homepage"
-            >
-                <Stack isInline>
-                    
-                </Stack>
-            </Box>
-            
-            <Flex justifyContent="space-between" color="gray.500">
-              <Menu>
-                <MenuButton
-                  px={4}
-                  py={2}
-                  transition="all 0.2s"
-                  rounded="md"
-                  borderWidth="1px"
-                  _focus={{ outline: 0, boxShadow: "outline" }}
-                  marginRight="2px"
-                >
-                  Profile <Icon name="chevron-down" />
-                </MenuButton>
-                <MenuList>
-                  <MenuGroup title="Profile">
-                    <MenuItem>My Account</MenuItem>
-                    <MenuItem>Dashboard</MenuItem>
-                  </MenuGroup>
-                  <MenuDivider />
-                  <MenuGroup title="Help">
-                    <MenuItem>Docs</MenuItem>
-                    <MenuItem>FAQ</MenuItem>
-                  </MenuGroup>
-                </MenuList>
-              </Menu>
-              <Divider orientation="vertical" />
-              <DarkModeLightModeButton />
-              {/* <MobileNav /> */}
-            </Flex>
+        <Flex align="center" mr={5}>
+          <Heading as="h1" size="xl" letterSpacing={"-.1rem"} mr={10}>
+            Chakra UI
+          </Heading>
+        </Flex>
+
+        <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+          <svg
+            fill="white"
+            width="12px"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </Box>
+
+        <Box
+          display={{ sm: show ? "block" : "none", md: "flex" }}
+          width={{ sm: "full", md: "auto" }}
+          alignItems="center"
+          flexGrow={1}
+        >
+          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+            <Link href="/">About</Link>
+          </Text>
+          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+            <Link href="/">Blog</Link>
+          </Text>
+          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+            <Link href="/">Contact</Link>
+          </Text>
+        </Box>
+
+        <Box
+          display={{ sm: show ? "block" : "none", md: "block" }}
+          mt={{ base: 4, md: 0 }}
+        >
+          <Flex justifyContent="space-between" color="gray.500">
+            <Menu>
+              <MenuButton
+                px={6}
+                py={2}
+                transition="all 0.2s"
+                rounded="md"
+                borderWidth="1px"
+                _focus={{ outline: 0, boxShadow: "outline" }}
+                marginRight="2px"
+                marginLeft="-2px"
+              >
+                  <Avatar marginTop="2px" marginRight="5px" size="xs" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" /> Profile <Icon name="chevron-down" />
+              </MenuButton>
+              <MenuList>
+                <MenuGroup title="Profile">
+                  <MenuItem>My Account</MenuItem>
+                  <MenuItem>Dashboard</MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuGroup title="Help">
+                  <MenuItem>Docs</MenuItem>
+                  <MenuItem>FAQ</MenuItem>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
+            <Divider orientation="vertical" />
+            <DarkModeLightModeButton />
           </Flex>
         </Box>
-      </Box>
+      </Flex>
+      <Divider />
     </ThemeProvider>
   );
 };
