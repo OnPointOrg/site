@@ -13,7 +13,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
         <CSSReset />
-        <SignUp />
+        <LoginArea />
       </ColorModeProvider>
     </ThemeProvider>
   );

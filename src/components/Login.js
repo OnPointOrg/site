@@ -13,6 +13,9 @@ import {
     Stack,
     Checkbox,
     Button,
+    InputGroup,
+    InputLeftElement,
+    Icon,
 } from "@chakra-ui/core";
 
 const VARIANT_COLOR = "teal";
@@ -67,14 +70,19 @@ const LoginForm = () => {
     return (
         <Box my={8} textAlign="left">
             <form>
-                <FormControl isRequired>
-                    <FormLabel>Email address</FormLabel>
-                    <Input type="email" placeholder="john@doe.org" />
+                <FormControl isRequired mt={4}>
+                    <FormLabel>Email</FormLabel>
+                    <InputGroup>
+                        <InputLeftElement children={<Icon name="email" />} />
+                        <Input type="email" placeholder="john@doe.org" />
+                    </InputGroup>
                 </FormControl>
-
-                <FormControl mt={4} isRequired>
+                <FormControl isRequired mt={4}>
                     <FormLabel>Password</FormLabel>
-                    <Input type="password" placeholder="notpassword123" />
+                    <InputGroup>
+                        <InputLeftElement children={<Icon name="lock" />} />
+                        <Input type="password" placeholder="notpassword123" />
+                    </InputGroup>
                 </FormControl>
 
                 <Stack isInline justifyContent="space-between" mt={4}>
@@ -90,7 +98,7 @@ const LoginForm = () => {
                     Sign In
                 </Button>
                 <Box mt={1}>
-                    <Link color={`${VARIANT_COLOR}.500`}>Need An Account? Register Here.</Link>
+                    Need An Account? <Link color={`${VARIANT_COLOR}.500`}>Register Here.</Link>
                 </Box>
             </form>
         </Box>
