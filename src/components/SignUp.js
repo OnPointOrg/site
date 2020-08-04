@@ -17,7 +17,8 @@ import {
 
 const VARIANT_COLOR = "teal";
 
-const LoginArea = () => {
+const SignUp = () => {
+
     return (
         <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
             <Box
@@ -31,8 +32,8 @@ const LoginArea = () => {
             >
                 <ThemeSelector />
                 <Box p={4}>
-                    <LoginHeader />
-                    <LoginForm />
+                    <SignUpHeader />
+                    <SignUpForm />
                 </Box>
             </Box>
         </Flex>
@@ -53,26 +54,29 @@ const ThemeSelector = () => {
     );
 };
 
-const LoginHeader = () => {
+const SignUpHeader = () => {
     return (
         <Box textAlign="center">
-            <Text>Sign In</Text>
-            <Heading>Continue Your Journey</Heading>
+            <Text>Sign Up</Text>
+            <Heading>Start Your Journey</Heading>
             <Heading>@ Onpoint</Heading>
         </Box>
     );
 };
 
-const LoginForm = () => {
+const SignUpForm = () => {
     return (
         <Box my={8} textAlign="left">
             <form>
                 <FormControl isRequired>
+                    <FormLabel>Full Name</FormLabel>
+                    <Input type="password" placeholder="John Doe" />
+                </FormControl>
+                <FormControl isRequired mt={4}>
                     <FormLabel>Email address</FormLabel>
                     <Input type="email" placeholder="john@doe.org" />
                 </FormControl>
-
-                <FormControl mt={4} isRequired>
+                <FormControl isRequired mt={4}>
                     <FormLabel>Password</FormLabel>
                     <Input type="password" placeholder="notpassword123" />
                 </FormControl>
@@ -81,20 +85,17 @@ const LoginForm = () => {
                     <Box>
                         <Checkbox>Remember Me</Checkbox>
                     </Box>
-                    <Box>
-                        <Link color={`${VARIANT_COLOR}.500`}>Forgot your password?</Link>
-                    </Box>
                 </Stack>
 
                 <Button variantColor={VARIANT_COLOR} width="full" mt={4}>
-                    Sign In
-                </Button>
+                    Sign Up
+        </Button>
                 <Box mt={1}>
-                    <Link color={`${VARIANT_COLOR}.500`}>Need An Account? Register Here.</Link>
+                    <Link color={`${VARIANT_COLOR}.500`}>Already Have An Account? Sign In Here.</Link>
                 </Box>
             </form>
         </Box>
     );
 };
 
-export default LoginArea;
+export default SignUp;
