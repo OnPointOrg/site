@@ -1,5 +1,4 @@
 import React from "react";
-import { Router, Route, Link } from 'react-router-dom';
 import {
   ThemeProvider,
   theme,
@@ -11,7 +10,8 @@ import {
   Heading,
   Button,
   Image,
-  ButtonGroup
+  ButtonGroup,
+  Link
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../images/logo.png";
