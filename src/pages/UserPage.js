@@ -20,6 +20,7 @@ const UserPage = () => {
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
         <DefaultNav />
+        
       </ColorModeProvider>
     </ThemeProvider>
   );
