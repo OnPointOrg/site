@@ -1,27 +1,22 @@
 import React from "react";
+import { Router, Route, Link } from 'react-router-dom';
 import {
   ThemeProvider,
   theme,
   Box,
   Flex,
-  Link,
   Text,
-  Avatar,
   Divider,
   Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuGroup,
-  MenuDivider,
-  Icon,
   Heading,
   Button,
   Image,
   ButtonGroup
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
-import img from "../images/logo.png"
+import img from "../images/logo.png";
+
+import SignUp from '../pages/SignUp';
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -103,12 +98,16 @@ const DefaultNav = (props) => {
           <Flex justifyContent="space-between" color="gray.500">
             <Menu>
             <ButtonGroup spacing={4}>
-                <Button size="lg" variant="solid">
-                    Sign In
-                </Button>
-                <Button size="lg" variant="outline">
-                    Sign Up
-                </Button>
+                <Link href="/signup">
+                    <Button size="lg" variant="solid">
+                        Sign In
+                    </Button>
+                </Link>
+                <Link href="">
+                    <Button size="lg" variant="outline">
+                        Sign Up
+                    </Button>
+                </Link>
             </ButtonGroup>
             </Menu>
             <Divider orientation="vertical" />
