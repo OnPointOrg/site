@@ -21,7 +21,7 @@ const UserPage = () => {
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
-        <DefaultNav />
+        <VerifiedNav />
         <Tabs size="md" variant="enclosed">
           <TabList>
             <Tab>One</Tab>
@@ -39,8 +39,8 @@ const UserPage = () => {
                     src="https://bit.ly/sage-adebayo"
                     alt="Segun Adebayo"
                   />
-                  </SimpleGrid>
-                
+                </SimpleGrid>
+
               </Box>
             </TabPanel>
 

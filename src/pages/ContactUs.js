@@ -7,7 +7,7 @@ export class ContactUs extends Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
-                <DefaultNav />
+                <VerifiedNav />
                 <h1>Contact Us Page</h1>
             </ThemeProvider>
         )
