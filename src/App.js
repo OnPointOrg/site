@@ -26,11 +26,11 @@ const App = () => {
         <Router>
           <Switch>
             <Route path="/" exact component={ MainHome } />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/about" component={AboutUs} />
-            <Route path="/contact" component={ContactUs} />
-            <Route path="/blog" component={Blog} />
+            <Route path="/signup" component={ SignUp } />
+            <Route path="/signin" component={ SignIn } />
+            <Route path="/about" component={ AboutUs } />
+            <Route path="/contact" component={ ContactUs } />
+            <Route path="/blog" component={ Blog } />
           </Switch>
         </Router>
       </ColorModeProvider>

@@ -1,26 +1,29 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import {
   ThemeProvider,
   theme,
   Box,
   Flex,
-  Link,
   Text,
-  Avatar,
   Divider,
   Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuGroup,
-  MenuDivider,
-  Icon,
   Heading,
   Button,
   Image,
+  Icon,
+  MenuList,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  Avatar,
+  MenuButton,
+  ButtonGroup,
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
-import img from "../images/logo.png"
+import img from "../images/logo.png";
+
+import SignUp from '../pages/SignUp';
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -28,11 +31,16 @@ breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
+const newTheme = {
+  ...theme,
+  breakpoints,
+};
+
 const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={newTheme}>
       <Flex
         as="nav"
         align="center"
@@ -42,10 +50,10 @@ const VerifiedNav = (props) => {
         {...props}
       >
         <Flex align="center" mr={5}>
-          <Link href="/" >
-              <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
-                <Image src={img} width="50px" alt="Logo"></Image>
-              </Heading>
+          <Link to="/">
+            <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
+              <Image src={img} width="50px"></Image>
+            </Heading>
           </Link>
         </Flex>
 
@@ -68,21 +76,21 @@ const VerifiedNav = (props) => {
           flexGrow={1}
         >
           <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
-            <Link href="/">
+            <Link to="/about">
               <Button size="lg" variantColor="teal" variant="ghost">
                 About
               </Button>
             </Link>
           </Text>
           <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
-            <Link href="/">
+            <Link to="/blog">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Blog
               </Button>
             </Link>
           </Text>
           <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
-            <Link href="/">
+            <Link to="/contact">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Contact
               </Button>
@@ -131,3 +139,33 @@ const VerifiedNav = (props) => {
 };
 
 export default VerifiedNav;
+
+{/* <Flex justifyContent="space-between" color="gray.500">
+  <Menu>
+    <MenuButton
+      px={6}
+      py={2}
+      transition="all 0.2s"
+      rounded="md"
+      borderWidth="1px"
+      _focus={{ outline: 0, boxShadow: "outline" }}
+      marginRight="2px"
+      marginLeft="-2px"
+    >
+      <Avatar marginRight="10px" size="xs" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" /> Profile <Icon name="chevron-down" />
+    </MenuButton>
+    <MenuList>
+      <MenuGroup title="Profile">
+        <MenuItem>My Account</MenuItem>
+        <MenuItem>Dashboard</MenuItem>
+      </MenuGroup>
+      <MenuDivider />
+      <MenuGroup title="Help">
+        <MenuItem>Docs</MenuItem>
+        <MenuItem>FAQ</MenuItem>
+      </MenuGroup>
+    </MenuList>
+  </Menu>
+  <Divider orientation="vertical" />
+  <DarkModeLightModeButton />
+</Flex> */}
