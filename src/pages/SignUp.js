@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, state, Component } from 'react';
 import {
   Box,
   Flex,
@@ -16,14 +17,17 @@ import {
   InputGroup,
   InputLeftElement,
   Icon,
+  useToast
 } from "@chakra-ui/core";
 
-import config from '../firebase/config';
+import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
+
 import * as firebase from 'firebase';
+import database from '../firebase/config';
 
 const VARIANT_COLOR = "teal";
 
-const SignUp = () => {
+class SignUp extends React.Component {
 
   state = {
     fullName: "",
@@ -34,7 +38,6 @@ const SignUp = () => {
     emailError: "",
     passwordError: "",
     signUpSuccess: "",
-    loggedIn: <Redirect  to="/components/innerPages/SignupPage" />,
   };
 
   handleChange = (e) => {
@@ -49,7 +52,18 @@ const SignUp = () => {
     this.writeUserData(this.state);
   };
 
-  const writeUserData = () => {
+  toastOnClick = () => {
+    const toast = useToast();
+    toast({
+      title: "Account created.",
+      description: "We've created your account for you.",
+      status: "success",
+      duration: 2000,
+      isClosable: true,
+    })
+  }
+
+  writeUserData = () => {
     //const userRef = database.ref("users");
     database
       .ref("users")
@@ -109,106 +123,92 @@ const SignUp = () => {
                 firstName: this.state.fullName.split(' ')[0],
                 lastName: this.state.fullName.split(' ')[1],
                 fullName: this.state.fullName,
-                loggedIn: true,
               });
             this.setState({
               signUpSuccess: "Account Created Successfully!",
-              loggedIn: <Redirect  to="/" />,
             });
           }
         }
       });
   }
-
-  return (
-    <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
-      <Box
-        borderWidth={1}
-        px={4}
-        width="full"
-        maxWidth="500px"
-        borderRadius={4}
-        textAlign="center"
-        boxShadow="lg"
-      >
-        <ThemeSelector />
-        <Box p={4}>
-          <SignUpHeader />
-          <SignUpForm />
-        </Box>
-      </Box>
-    </Flex>
-  );
-};
-
-const ThemeSelector = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-
-  return (
-    <Box textAlign="right" py={4}>
-      <IconButton
-        icon={colorMode === "light" ? "moon" : "sun"}
-        onClick={toggleColorMode}
-        variant="ghost"
-      />
-    </Box>
-  );
-};
-
-const SignUpHeader = () => {
-  return (
-    <Box textAlign="center">
-      <Text>Sign Up</Text>
-      <Heading>Start Your Journey</Heading>
-      <Heading>@ Onpoint</Heading>
-    </Box>
-  );
-};
-
-const SignUpForm = () => {
-  return (
-    <Box my={8} textAlign="left">
-      <form>
-        <FormControl isRequired>
-          {/* <FormLabel>Full Name</FormLabel>
-                    <Input type="password" placeholder="John Doe" /> */}
-          <FormLabel>Full Name</FormLabel>
-          <InputGroup>
-            <InputLeftElement children={<Icon name="view" />} />
-            <Input type="text" placeholder="John Doe" />
-          </InputGroup>
-        </FormControl>
-
-        <FormControl isRequired mt={4}>
-          <FormLabel>Email</FormLabel>
-          <InputGroup>
-            <InputLeftElement children={<Icon name="email" />} />
-            <Input type="email" placeholder="john@doe.org" />
-          </InputGroup>
-        </FormControl>
-        <FormControl isRequired mt={4}>
-          <FormLabel>Password</FormLabel>
-          <InputGroup>
-            <InputLeftElement children={<Icon name="lock" />} />
-            <Input type="password" placeholder="notpassword123" />
-          </InputGroup>
-        </FormControl>
-
-        <Stack isInline justifyContent="space-between" mt={4}>
-          <Box>
-            <Checkbox>Remember Me</Checkbox>
+  render() {
+    return (
+      <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
+        <Box
+          borderWidth={1}
+          px={4}
+          width="full"
+          maxWidth="500px"
+          borderRadius={4}
+          textAlign="center"
+          boxShadow="lg"
+        >
+          <Box textAlign="right" py={4}>
+            <DarkModeLightModeButton />
           </Box>
-        </Stack>
+          <Box p={4}>
+            <Box textAlign="center">
+              <Text>Sign Up</Text>
+              <Heading>Start Your Journey</Heading>
+              <Heading>@ Onpoint</Heading>
+            </Box>
+            <Box my={8} textAlign="left">
+              <form onSubmit={this.handleSubmit}>
+                <FormControl isRequired>
+                  {/* <FormLabel>Full Name</FormLabel>
+                      <Input type="password" placeholder="John Doe" /> */}
+                  <FormLabel>Full Name</FormLabel>
+                  <InputGroup>
+                    <InputLeftElement children={<Icon name="view" />} />
+                    <Input onChange={this.handleChange} id="fullName" type="text" placeholder="John Doe" value={this.state.fullName} />
+                  </InputGroup>
+                  <Text fontSize="xs">{this.state.error}</Text>
+                </FormControl>
 
-        <Button variantColor={VARIANT_COLOR} width="full" mt={4}>
-          Sign Up
-        </Button>
-        <Box mt={1}>
-        Already Have An Account? <Link color={`${VARIANT_COLOR}.500`}>Sign In Here.</Link>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Email</FormLabel>
+                  <InputGroup>
+                    <InputLeftElement children={<Icon name="email" />} />
+                    <Input onChange={this.handleChange} id="email" type="email" placeholder="john@doe.org" value={this.state.email} />
+                  </InputGroup>
+                  <Text fontSize="xs">{this.state.emailError}</Text>
+                </FormControl>
+                <FormControl isRequired mt={4}>
+                  <FormLabel>Password</FormLabel>
+                  <InputGroup>
+                    <InputLeftElement children={<Icon name="lock" />} />
+                    <Input onChange={this.handleChange} id="password" type="password" placeholder="notpassword123" value={this.state.password} />
+                  </InputGroup>
+                  <Text fontSize="xs">{this.state.passwordError}</Text>
+                </FormControl>
+
+                <Stack isInline justifyContent="space-between" mt={4}>
+                  <Box>
+                    <Checkbox>Remember Me</Checkbox>
+                  </Box>
+                </Stack>
+                <Button
+                  type="submit"
+                  variantColor={VARIANT_COLOR}
+                  width="full"
+                  mt={4}
+                  onClick={ this.toastOnClick }
+                >
+                  Sign Up
+                </Button>
+                <Text fontSize="xs">{this.state.signUpSuccess}</Text>
+
+                <Box mt={1}>
+                  Already Have An Account?{" "}
+                  <Link color={`${VARIANT_COLOR}.500`}>Sign In Here.</Link>
+                </Box>
+              </form>
+            </Box>
+          </Box>
         </Box>
-      </form>
-    </Box>
-  );
+      </Flex>
+    );
+  }
 };
 
 export default SignUp;

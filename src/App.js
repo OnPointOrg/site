@@ -10,13 +10,14 @@ import {
 import VerifiedNav from "./components/VerifiedNav"
 import DefaultNav from "./components/DefaultNav";
 import UserPage from "./pages/UserPage";
+import SignUp from "./pages/SignUp";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ColorModeProvider>
         <CSSReset />
-        <UserPage />
+        <SignUp />
       </ColorModeProvider>
     </ThemeProvider>
   );
