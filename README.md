@@ -1,3 +1,5 @@
+## This Site Is Built For The [OnPoint News Organization](https://github.com/OnPointOrg) And Is Built With [Chakra UI](https://chakra-ui.com)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
