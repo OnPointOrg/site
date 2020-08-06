@@ -6,7 +6,7 @@ import { ThemeProvider, theme } from '@chakra-ui/core';
 const MainHome = () => {
     return (
         <ThemeProvider theme={ theme }>
-            <VerifiedNav />
+            <DefaultNav />
             <h1>This Is The Home Page</h1>
         </ThemeProvider>
     )

@@ -103,7 +103,7 @@ const DefaultNav = (props) => {
                         Sign In
                     </Button>
                 </Link>
-                <Link to="signup">
+                <Link to="/signup">
                     <Button size="lg" variant="outline">
                         Sign Up
                     </Button>

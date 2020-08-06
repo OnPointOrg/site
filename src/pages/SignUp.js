@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, state, Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -41,7 +41,8 @@ class SignUp extends React.Component {
     emailError: "",
     passwordError: "",
     signUpSuccess: "",
-    isLoggedIn: false
+    isLoggedIn: false,
+    redirect: <Redirect to="/signup" />
   };
 
   handleChange = (e) => {
@@ -130,6 +131,7 @@ class SignUp extends React.Component {
               });
             this.setState({
               signUpSuccess: "Account Created Successfully!",
+              redirect: <Redirect to="/" />
             });
           }
         }
@@ -203,6 +205,7 @@ class SignUp extends React.Component {
                     Sign Up
                 </Button>
                   <Text fontSize="xs">{this.state.signUpSuccess}</Text>
+                  <Text fontSize="xs">{this.state.redirect}</Text>
 
 
                   <Box mt={1}>

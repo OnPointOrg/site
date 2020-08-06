@@ -7,7 +7,7 @@ export class Blog extends Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
-                <VerifiedNav />
+                <DefaultNav />
                 <h1>Blogs Go Here</h1>
             </ThemeProvider>
         )

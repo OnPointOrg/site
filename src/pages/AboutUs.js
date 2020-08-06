@@ -8,7 +8,7 @@ export class AboutUs extends Component {
         return (
             <div>
                 <ThemeProvider theme={theme}>
-                    <VerifiedNav />
+                    <DefaultNav />
                     <h1>About Us Page</h1>
                 </ThemeProvider>
             </div>
