@@ -52,16 +52,16 @@ class SignUp extends React.Component {
     this.writeUserData(this.state);
   };
 
-  toastOnClick = () => {
-    const toast = useToast();
-    toast({
-      title: "Account created.",
-      description: "We've created your account for you.",
-      status: "success",
-      duration: 2000,
-      isClosable: true,
-    })
-  }
+  // toastOnClick = () => {
+  //   const toast = useToast();
+  //   toast({
+  //     title: "Account created.",
+  //     description: "We've created your account for you.",
+  //     status: "success",
+  //     duration: 2000,
+  //     isClosable: true,
+  //   })
+  // }
 
   writeUserData = () => {
     //const userRef = database.ref("users");
@@ -197,6 +197,7 @@ class SignUp extends React.Component {
                   Sign Up
                 </Button>
                 <Text fontSize="xs">{this.state.signUpSuccess}</Text>
+                
 
                 <Box mt={1}>
                   Already Have An Account?{" "}
