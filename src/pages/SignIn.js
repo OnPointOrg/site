@@ -1,6 +1,6 @@
 import React from "react";
-import { useState, state, Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { useState, state, Component } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {
   Box,
   Flex,
@@ -8,7 +8,6 @@ import {
   useColorMode,
   Heading,
   Text,
-  Link as ChakraLink,
   FormControl,
   FormLabel,
   Input,
@@ -19,19 +18,19 @@ import {
   InputLeftElement,
   Icon,
   theme,
+  Link as ChakraLink
 } from "@chakra-ui/core";
 
 import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
 
-import * as firebase from 'firebase';
-import database from '../firebase/config';
+import * as firebase from "firebase";
+import database from "../firebase/config";
 import DefaultNav from "../components/DefaultNav";
 import { ThemeProvider } from "emotion-theming";
 
 const VARIANT_COLOR = "teal";
 
-class SignUp extends React.Component {
-
+class SignIn extends React.Component {
   state = {
     fullName: "",
     firstName: "",
@@ -41,7 +40,7 @@ class SignUp extends React.Component {
     emailError: "",
     passwordError: "",
     signUpSuccess: "",
-    isLoggedIn: false
+    isLoggedIn: false,
   };
 
   handleChange = (e) => {
@@ -118,28 +117,31 @@ class SignUp extends React.Component {
             this.setState({
               passwordError: "",
             });
-            database
-              .ref("users/" + Math.floor(Math.random() * 1001))
-              .set({
-                email: this.state.email,
-                password: this.state.password,
-                firstName: this.state.fullName.split(' ')[0],
-                lastName: this.state.fullName.split(' ')[1],
-                fullName: this.state.fullName,
-                isLoggedIn: true
-              });
+            database.ref("users/" + Math.floor(Math.random() * 1001)).set({
+              email: this.state.email,
+              password: this.state.password,
+              firstName: this.state.fullName.split(" ")[0],
+              lastName: this.state.fullName.split(" ")[1],
+              fullName: this.state.fullName,
+              isLoggedIn: true,
+            });
             this.setState({
               signUpSuccess: "Account Created Successfully!",
             });
           }
         }
       });
-  }
+  };
   render() {
     return (
       <ThemeProvider theme={theme}>
         <DefaultNav />
-        <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
+        <Flex
+          minHeight="100vh"
+          width="full"
+          align="center"
+          justifyContent="center"
+        >
           <Box
             borderWidth={1}
             px={4}
@@ -154,28 +156,24 @@ class SignUp extends React.Component {
             </Box>
             <Box p={4}>
               <Box textAlign="center">
-                <Text>Sign Up</Text>
-                <Heading>Start Your Journey</Heading>
+                <Text>Sign In</Text>
+                <Heading>Continue Your Journey</Heading>
                 <Heading>@ Onpoint</Heading>
               </Box>
               <Box my={8} textAlign="left">
                 <form onSubmit={this.handleSubmit}>
-                  <FormControl isRequired>
-                    {/* <FormLabel>Full Name</FormLabel>
-                      <Input type="password" placeholder="John Doe" /> */}
-                    <FormLabel>Full Name</FormLabel>
-                    <InputGroup>
-                      <InputLeftElement children={<Icon name="view" />} />
-                      <Input onChange={this.handleChange} id="fullName" type="text" placeholder="John Doe" value={this.state.fullName} />
-                    </InputGroup>
-                    <Text fontSize="xs">{this.state.error}</Text>
-                  </FormControl>
 
                   <FormControl isRequired mt={4}>
                     <FormLabel>Email</FormLabel>
                     <InputGroup>
                       <InputLeftElement children={<Icon name="email" />} />
-                      <Input onChange={this.handleChange} id="email" type="email" placeholder="john@doe.org" value={this.state.email} />
+                      <Input
+                        onChange={this.handleChange}
+                        id="email"
+                        type="email"
+                        placeholder="john@doe.org"
+                        value={this.state.email}
+                      />
                     </InputGroup>
                     <Text fontSize="xs">{this.state.emailError}</Text>
                   </FormControl>
@@ -183,7 +181,13 @@ class SignUp extends React.Component {
                     <FormLabel>Password</FormLabel>
                     <InputGroup>
                       <InputLeftElement children={<Icon name="lock" />} />
-                      <Input onChange={this.handleChange} id="password" type="password" placeholder="notpassword123" value={this.state.password} />
+                      <Input
+                        onChange={this.handleChange}
+                        id="password"
+                        type="password"
+                        placeholder="notpassword123"
+                        value={this.state.password}
+                      />
                     </InputGroup>
                     <Text fontSize="xs">{this.state.passwordError}</Text>
                   </FormControl>
@@ -200,15 +204,16 @@ class SignUp extends React.Component {
                     mt={4}
                     onClick={this.toastOnClick}
                   >
-                    Sign Up
-                </Button>
+                    Sign In
+                  </Button>
                   <Text fontSize="xs">{this.state.signUpSuccess}</Text>
 
-
                   <Box mt={1}>
-                    Already Have An Account?{" "}
+                    Need An Account? {" "}
                     <ChakraLink color={`${VARIANT_COLOR}.500`}>
-                      <Link to="/signin">Sign In Here.</Link>
+                      <Link to="/signup" >
+                        Sign Up Here
+                      </Link>
                     </ChakraLink>
                   </Box>
                 </form>
@@ -219,6 +224,6 @@ class SignUp extends React.Component {
       </ThemeProvider>
     );
   }
-};
+}
 
-export default SignUp;
+export default SignIn;

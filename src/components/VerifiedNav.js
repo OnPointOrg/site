@@ -17,7 +17,7 @@ import {
   Icon,
   Heading,
   Button,
-  Image
+  Image,
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../images/logo.png"
@@ -28,16 +28,11 @@ breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
-const newTheme = {
-  ...theme,
-  breakpoints,
-};
-
 const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   return (
-    <ThemeProvider theme={newTheme}>
+    <ThemeProvider theme={theme}>
       <Flex
         as="nav"
         align="center"
@@ -47,7 +42,7 @@ const VerifiedNav = (props) => {
         {...props}
       >
         <Flex align="center" mr={5}>
-          <Link href="/">
+          <Link href="/" >
               <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
                 <Image src={img} width="50px" alt="Logo"></Image>
               </Heading>
