@@ -43,7 +43,7 @@ const DefaultNav = (props) => {
         {...props}
       >
         <Flex align="center" mr={5}>
-          <Link href="/">
+          <Link to="/">
               <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
                 <Image src={img} width="50px"></Image>
               </Heading>
