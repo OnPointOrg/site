@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, state, Component } from 'react';
+import { useState, state, setState, Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import {
   Box,
@@ -19,6 +19,8 @@ import {
   InputLeftElement,
   Icon,
   theme,
+  Alert,
+  AlertIcon
 } from "@chakra-ui/core";
 
 import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
@@ -30,7 +32,7 @@ import { ThemeProvider } from "emotion-theming";
 
 const VARIANT_COLOR = "teal";
 
-class SignUp extends React.Component {
+class SignUp extends Component {
 
   state = {
     fullName: "",
@@ -54,8 +56,26 @@ class SignUp extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
-    this.writeUserData(this.state);
+    this.signUpSubmit(this.state);
   };
+
+  signUpSubmit = () => {
+    // this.setState()
+    const fullName = this.state.fullName;
+    const email = this.state.email;
+    const password = this.state.password;
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      if (errorCode == 'auth/weak-password') {
+        // this.setState({ passwordError: "Password Is Too Weak! Please Use A Stronger Password!" })
+        alert("Your Password Is Too Weak!");
+      }
+      console.log(error);
+      // [END_EXCLUDE]
+    });
+  }
 
   // toastOnClick = () => {
   //   toast({
@@ -67,76 +87,76 @@ class SignUp extends React.Component {
   //   })
   // }
 
-  writeUserData = () => {
-    //const userRef = database.ref("users");
-    database
-      .ref("users")
-      .orderByChild("email")
-      .equalTo(this.state.email)
-      .once("value", (snap) => {
-        if (snap.exists()) {
-          console.log(snap.val());
-          console.log("Email Already Exists");
-          this.setState({
-            emailError: "This Email Already Exists! Choose Another Or Login",
-          });
+  // writeUserData = () => {
+  //   //const userRef = database.ref("users");
+  //   database
+  //     .ref("users")
+  //     .orderByChild("email")
+  //     .equalTo(this.state.email)
+  //     .once("value", (snap) => {
+  //       if (snap.exists()) {
+  //         console.log(snap.val());
+  //         console.log("Email Already Exists");
+  //         this.setState({
+  //           emailError: "This Email Already Exists! Choose Another Or Login",
+  //         });
 
-          if (this.state.password.length < 8) {
-            this.setState({
-              passwordError:
-                "Your Password Is Too Short! Minimum Password Length Is 8",
-            });
-            console.log("Password Error Has Ocurred");
-          } else {
-            this.setState({
-              passwordError: "",
-            });
-          }
-        } else if (this.state.email.length === 0) {
-          this.setState({ emailError: "Please Enter An Email!" });
-          if (this.state.password.length < 8) {
-            this.setState({
-              passwordError:
-                "Your Password Is Too Short! Minimum Password Length Is 8",
-            });
-          } else {
-            this.setState({
-              passwordError: "",
-            });
-          }
-        } else {
-          this.setState({
-            emailError: "",
-          });
-          console.log(" ############# Inside else ##############");
-          if (this.state.password.length < 8) {
-            this.setState({
-              passwordError:
-                "Your Password Is Too Short! Minimum Password Length Is 8",
-            });
-            console.log("Password Error Has Ocurred");
-          } else {
-            this.setState({
-              passwordError: "",
-            });
-            database
-              .ref("users/" + Math.floor(Math.random() * 1001))
-              .set({
-                email: this.state.email,
-                password: this.state.password,
-                firstName: this.state.fullName.split(' ')[0],
-                lastName: this.state.fullName.split(' ')[1],
-                fullName: this.state.fullName,
-                isLoggedIn: true
-              });
-            this.setState({
-              signUpSuccess: "Account Created Successfully!",
-              redirect: <Redirect to="/" />
-            });
-          }
-        }
-      });
-  }
+  //         if (this.state.password.length < 8) {
+  //           this.setState({
+  //             passwordError:
+  //               "Your Password Is Too Short! Minimum Password Length Is 8",
+  //           });
+  //           console.log("Password Error Has Ocurred");
+  //         } else {
+  //           this.setState({
+  //             passwordError: "",
+  //           });
+  //         }
+  //       } else if (this.state.email.length === 0) {
+  //         this.setState({ emailError: "Please Enter An Email!" });
+  //         if (this.state.password.length < 8) {
+  //           this.setState({
+  //             passwordError:
+  //               "Your Password Is Too Short! Minimum Password Length Is 8",
+  //           });
+  //         } else {
+  //           this.setState({
+  //             passwordError: "",
+  //           });
+  //         }
+  //       } else {
+  //         this.setState({
+  //           emailError: "",
+  //         });
+  //         console.log(" ############# Inside else ##############");
+  //         if (this.state.password.length < 8) {
+  //           this.setState({
+  //             passwordError:
+  //               "Your Password Is Too Short! Minimum Password Length Is 8",
+  //           });
+  //           console.log("Password Error Has Ocurred");
+  //         } else {
+  //           this.setState({
+  //             passwordError: "",
+  //           });
+  //           database
+  //             .ref("users/" + Math.floor(Math.random() * 1001))
+  //             .set({
+  //               email: this.state.email,
+  //               password: this.state.password,
+  //               firstName: this.state.fullName.split(' ')[0],
+  //               lastName: this.state.fullName.split(' ')[1],
+  //               fullName: this.state.fullName,
+  //               isLoggedIn: true
+  //             });
+  //           this.setState({
+  //             signUpSuccess: "Account Created Successfully!",
+  //             redirect: <Redirect to="/" />
+  //           });
+  //         }
+  //       }
+  //     });
+  // }
   render() {
     return (
       <ThemeProvider theme={theme}>
