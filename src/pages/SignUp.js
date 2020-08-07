@@ -43,7 +43,6 @@ class SignUp extends Component {
     emailError: "",
     passwordError: "",
     signUpSuccess: "",
-    isLoggedIn: false,
     redirect: <Redirect to="/signup" />
   };
 
@@ -55,8 +54,8 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     this.signUpSubmit(this.state);
+    console.log(this.state);
   };
 
   signUpSubmit = () => {
@@ -64,21 +63,43 @@ class SignUp extends Component {
     const fullName = this.state.fullName;
     const email = this.state.email;
     const password = this.state.password;
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
-      if (errorCode == 'auth/weak-password') {
-        if(this.state.passwordError.length < 8) {
+      console.log(errorCode);
+
+      if (errorCode) {
+        console.log(errorCode)
+        if(errorCode === 'auth/email-already-exists') {
           this.setState({
-            passwordError: "Your Password Is Too Short. Your Password Must Be At Least 8 Characters Long."
+            emailError: "Email Already In Use! Please Choose A Different Email Or Sign In!"
+          });
+          if(this.state.password < 8 || errorCode === 'auth/weak-password') {
+            this.setState({
+              passwordError: "Your Password Is Too Short Or Too Weak! Minimum Password Length Is 8 Characters!"
+            });
+          }
+        } else if(this.state.password < 8 || errorCode === 'auth/weak-password') {
+          this.setState({
+            passwordError: "Your Password Is Too Short Or Too Weak! Minimum Password Length Is 8 Characters!"
           });
         } else {
           this.setState({
-            passwordError: "Your Password Is Too Weak. Please Choose A Stronger Password."
-          });
+            emailError: "",
+            passwordError: "",
+            redirect: <Redirect to="/" />
+          })
         }
+      } else {
+        this.setState({
+          redirect: <Redirect to="/" />,
+          emailError: "",
+          passwordError: ""
+        })
       }
+
+
       console.log(error);
       // [END_EXCLUDE]    
     });
@@ -227,7 +248,6 @@ class SignUp extends Component {
                     variantColor={VARIANT_COLOR}
                     width="full"
                     mt={4}
-                    onClick={this.toastOnClick}
                   >
                     Sign Up
                 </Button>
