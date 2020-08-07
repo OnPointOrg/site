@@ -60,7 +60,7 @@ class SignUp extends Component {
   };
 
   signUpSubmit = () => {
-    // this.setState()
+
     const fullName = this.state.fullName;
     const email = this.state.email;
     const password = this.state.password;
@@ -69,11 +69,18 @@ class SignUp extends Component {
       const errorCode = error.code;
       const errorMessage = error.message;
       if (errorCode == 'auth/weak-password') {
-        // this.setState({ passwordError: "Password Is Too Weak! Please Use A Stronger Password!" })
-        alert("Your Password Is Too Weak!");
+        if(this.state.passwordError.length < 8) {
+          this.setState({
+            passwordError: "Your Password Is Too Short. Your Password Must Be At Least 8 Characters Long."
+          });
+        } else {
+          this.setState({
+            passwordError: "Your Password Is Too Weak. Please Choose A Stronger Password."
+          });
+        }
       }
       console.log(error);
-      // [END_EXCLUDE]
+      // [END_EXCLUDE]    
     });
   }
 
