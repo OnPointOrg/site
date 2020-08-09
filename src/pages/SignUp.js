@@ -69,28 +69,34 @@ class SignUp extends Component {
       const errorMessage = error.message;
       if (errorCode === 'auth/email-already-in-use') {
         this.setState({
-          emailError: "This Email Is Already In Use! Please Sign In Or Use A Different Email!"
+          emailError: "This Email Is Already In Use! Please Sign In Or Use A Different Email!",
+          signUpSuccess: ""
         });
         if (this.state.password.length < 8) {
           this.setState({
-            passwordError: "This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!"
+            passwordError: "This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!",
+            signUpSuccess: ""
           });
         } else {
           this.setState({
-            passwordError: ""
+            passwordError: "",
+            signUpSuccess: ""
           })
         }
       } else if (this.state.password.length < 8 || errorCode === 'auth/weak-password') {
         this.setState({
-          passwordError: "This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!"
+          passwordError: "This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!",
+          signUpSuccess: ""
         });
         if (errorCode === 'auth/email-already-in-use') {
           this.setState({
-            emailError: "This Email Is Already In Use! Please Sign In Or Use A Different Email!"
+            emailError: "This Email Is Already In Use! Please Sign In Or Use A Different Email!",
+            signUpSuccess: ""
           });
         } else {
           this.setState({
-            emailError: ""
+            emailError: "",
+            signUpSuccess: ""
           })
         }
       }
@@ -98,7 +104,7 @@ class SignUp extends Component {
     this.setState({
       emailError: "",
       passwordError: "",
-      // redirect: <Redirect to="/" />
+      signUpSuccess: "Account Created Successfully! You Are Now Logged In!"
     })
   }
 
