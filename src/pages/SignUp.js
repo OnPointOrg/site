@@ -98,9 +98,17 @@ class SignUp extends Component {
     this.setState({
       emailError: "",
       passwordError: "",
-      redirect: <Redirect to="/" />
+      // redirect: <Redirect to="/" />
     })
   }
+
+  // redirectToHome() {
+  //   if (this.state.passwordError === "" && this.state.emailError === "") {
+  //     this.setState({
+  //       redirect: <Redirect to="/" />
+  //     })
+  //   }
+  // }
 
 // toastOnClick = () => {
 //   toast({
@@ -187,7 +195,7 @@ render() {
     <ThemeProvider theme={theme}>
       <DefaultNav />
       <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
-        <Box
+        {/* <Box
           borderWidth={1}
           px={4}
           width="full"
@@ -195,11 +203,8 @@ render() {
           borderRadius={4}
           textAlign="center"
           boxShadow="lg"
-        >
-          <Box textAlign="right" py={4}>
-            <DarkModeLightModeButton />
-          </Box>
-          <Box p={4}>
+        > */}
+          <Box>
             <Box textAlign="center">
               <Text>Sign Up</Text>
               <Heading>Start Your Journey</Heading>
@@ -208,8 +213,6 @@ render() {
             <Box my={8} textAlign="left">
               <form onSubmit={this.handleSubmit}>
                 <FormControl isRequired>
-                  {/* <FormLabel>Full Name</FormLabel>
-                      <Input type="password" placeholder="John Doe" /> */}
                   <FormLabel>Full Name</FormLabel>
                   <InputGroup>
                     <InputLeftElement children={<Icon name="view" />} />
@@ -236,10 +239,8 @@ render() {
                 </FormControl>
 
                 <Stack isInline justifyContent="space-between" mt={4}>
-                  <Box>
-                    <Checkbox>Remember Me</Checkbox>
-                  </Box>
                 </Stack>
+
                 <Button
                   type="submit"
                   variantColor={VARIANT_COLOR}
@@ -261,7 +262,7 @@ render() {
               </form>
             </Box>
           </Box>
-        </Box>
+        {/* </Box> */}
       </Flex>
     </ThemeProvider>
   );
