@@ -142,18 +142,7 @@ class SignIn extends React.Component {
           align="center"
           justifyContent="center"
         >
-          <Box
-            borderWidth={1}
-            px={4}
-            width="full"
-            maxWidth="500px"
-            borderRadius={4}
-            textAlign="center"
-            boxShadow="lg"
-          >
-            <Box textAlign="right" py={4}>
-              <DarkModeLightModeButton />
-            </Box>
+          <Box>
             <Box p={4}>
               <Box textAlign="center">
                 <Text>Sign In</Text>

@@ -195,15 +195,7 @@ render() {
     <ThemeProvider theme={theme}>
       <DefaultNav />
       <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
-        {/* <Box
-          borderWidth={1}
-          px={4}
-          width="full"
-          maxWidth="500px"
-          borderRadius={4}
-          textAlign="center"
-          boxShadow="lg"
-        > */}
+        <Box>
           <Box>
             <Box textAlign="center">
               <Text>Sign Up</Text>
@@ -262,7 +254,7 @@ render() {
               </form>
             </Box>
           </Box>
-        {/* </Box> */}
+        </Box>
       </Flex>
     </ThemeProvider>
   );
