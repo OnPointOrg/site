@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { ThemeProvider, theme, Text, Grid, Box } from '@chakra-ui/core';
+import { ThemeProvider, theme, Text, Grid, Box, Divider } from '@chakra-ui/core';
 import DefaultNav from '../components/DefaultNav';
 import VerifiedNav from '../components/VerifiedNav';
+import BlogPost from '../components/BlogPost';
 
 export class Blog extends Component {
     render() {
@@ -9,10 +10,14 @@ export class Blog extends Component {
             <ThemeProvider theme={theme}>
                 <DefaultNav />
                 <Grid templateColumns="repeat(5, 2fr)" gap={3}>
-                    <Box w="100%" h="10" bg="blue.500" />
-                    <Box w="100%" h="10" bg="blue.500" />
-                    <Box w="100%" h="10" bg="blue.500" />
-                    
+                    <Text fontSize="2xl">Trending Blogs</Text>
+                </Grid>
+                <Divider mt={5} mb={5} />
+                <Grid templateColumns="repeat(5, 2fr)" gap={3}>
+                    <BlogPost />
+                    <BlogPost />
+                    <BlogPost />
+                    <BlogPost />
                 </Grid>
             </ThemeProvider>
         )

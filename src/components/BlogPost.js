@@ -1,15 +1,17 @@
-import React from "react";
+import React from 'react';
+import { state, Component } from "react";
 import {
     Box,
     Icon,
     Badge,
-    Image
+    Image,
+    ThemeProvider
 }
     from "@chakra-ui/core"
 
-const BlogPost = () => {
+class BlogPost extends Component {
 
-    const property = {
+    state = {
         imageUrl: "https://bit.ly/2Z4KKcF",
         imageAlt: "Rear view of modern home with pool",
         beds: 3,
@@ -18,63 +20,55 @@ const BlogPost = () => {
         formattedPrice: "$1,900.00",
         reviewCount: 34,
         rating: 4,
-    };
+    }
 
-    return (
-        <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
-            <Image src={property.imageUrl} alt={property.imageAlt} />
+    render() {
+        return (
+            <ThemeProvider>
+                <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
+                    <Image src="https://bit.ly/2Z4KKcF" alt="Rear view of modern home with pool" />
 
-            <Box p="6">
-                <Box d="flex" alignItems="baseline">
-                    <Badge rounded="full" px="2" variantColor="teal">
-                        New
-          </Badge>
-                    <Box
-                        color="gray.500"
-                        fontWeight="semibold"
-                        letterSpacing="wide"
-                        fontSize="xs"
-                        textTransform="uppercase"
-                        ml="2"
-                    >
-                        {property.beds} beds &bull; {property.baths} baths
-          </Box>
+                    <Box p="6">
+                        <Box d="flex" alignItems="baseline">
+                            <Badge rounded="full" px="2" variantColor="teal">
+                                Trending
+                        </Badge>
+                            <Box
+                                color="gray.500"
+                                fontWeight="semibold"
+                                letterSpacing="wide"
+                                fontSize="xs"
+                                textTransform="uppercase"
+                                ml="2"
+                            >
+                                25 Views
+                        </Box>
+                        </Box>
+
+                        <Box
+                            mt="1"
+                            fontWeight="semibold"
+                            as="h4"
+                            lineHeight="tight"
+                            isTruncated
+                        >
+                            An Outstanding Title
+                    </Box>
+
+                        <Box>
+                            Aditya Rawat
+                            <Box as="span" color="gray.600" fontSize="sm">
+                                / August 9, 2020
+                    </Box>
+                        </Box>
+
+                        
+                    </Box>
                 </Box>
+            </ThemeProvider>
+        );
+    }
 
-                <Box
-                    mt="1"
-                    fontWeight="semibold"
-                    as="h4"
-                    lineHeight="tight"
-                    isTruncated
-                >
-                    {property.title}
-                </Box>
-
-                <Box>
-                    {property.formattedPrice}
-                    <Box as="span" color="gray.600" fontSize="sm">
-                        / wk
-          </Box>
-                </Box>
-
-                <Box d="flex" mt="2" alignItems="center">
-                    {Array(5)
-                        .fill("")
-                        .map((_, i) => (
-                            <Icon
-                                name="star"
-                                key={i}
-                                color={i < property.rating ? "teal.500" : "gray.300"}
-                            />
-                        ))}
-                    <Box as="span" ml="2" color="gray.600" fontSize="sm">
-                        {property.reviewCount} reviews
-          </Box>
-                </Box>
-            </Box>
-        </Box>
-    );
 };
 
 export default BlogPost;
