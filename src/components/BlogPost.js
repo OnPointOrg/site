@@ -9,7 +9,7 @@ export class BlogPost extends Component {
                 <Box p="6">
                     <Box d="flex" alignItems="baseline">
                         <Badge rounded="full" px="2" variantColor="teal">
-                            New
+                            Trending
                         </Badge>
                         <Box
                             color="gray.500"

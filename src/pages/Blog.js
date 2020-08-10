@@ -9,21 +9,23 @@ export class Blog extends Component {
         return (
             <ThemeProvider theme={theme}>
                 <DefaultNav />
-                <Flex align="center">
-                    <Flex bg="green.50" align="flex-end">
-                        <Text>Box 1</Text>
+                <Box margin="25px">
+                    <Flex align="center">
+                        <Flex>
+                            <Text fontSize="2xl">Trending Articles</Text>
+                        </Flex>
+                        <Flex width="500px" align="center" justify="center" />
+                            <Text fontSize="2xl">New Articles</Text>
                     </Flex>
-                    <Flex bg="blue.50" width="50px" align="center" justify="center">
-                        <Text textAlign="center" bg="pink.50">
-                            Box 2
-                        </Text>
+                </Box>
+                <Divider />
+                <Box margin="25px">
+                    <Flex align="center">
+                        <BlogPost />
+                        <Flex marginRight="15px" />
+                        <BlogPost />
                     </Flex>
-                    <Box>
-                        <Text bg="tomato" color="white">
-                            Box 3
-                        </Text>
-                    </Box>
-                </Flex>
+                </Box>
             </ThemeProvider>
         )
     }
