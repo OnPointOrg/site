@@ -18,10 +18,10 @@ export const BlogPost = () => {
 
   return (
     <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
-      <Image rounded="md" src="https://bit.ly/2k1H1t6" />
+      <Image src="https://bit.ly/2k1H1t6" />
       <Box p="6">
         <Box d="flex" alignItems="baseline">
-          <Badge rounded="full" px="2" variantColor="teal">
+          <Badge rounded="full" px="3" variantColor="teal">
             Trending
           </Badge>
           <Box
@@ -32,18 +32,20 @@ export const BlogPost = () => {
             textTransform="uppercase"
             ml="2"
           >
-            4 beds &bull; 3 baths
+            Aditya Rawat &bull;&bull;&bull; August 8th, 2020
           </Box>
         </Box>
 
         <Box
-          mt="1"
+          marginTop="5"
+          marginBottom="5"
+          marginLeft="2px"
           fontWeight="semibold"
           as="h4"
           lineHeight="tight"
           isTruncated
         >
-          Hey
+          An Interesting Title
         </Box>
 
         <Box>
@@ -54,7 +56,7 @@ export const BlogPost = () => {
               helvetica, craft beer labore wes anderson cred nesciunt sapiente
               ea proident.
             </Collapse>
-            <Button size="sm" onClick={handleToggle} mt="1rem" variant="">
+            <Button size="sm" onClick={handleToggle} mt="1rem" variant="outline">
               Show {show ? "Less" : "More"}
             </Button>
           </Box>
