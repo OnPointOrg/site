@@ -1,74 +1,48 @@
-import React from 'react';
-import { state, Component } from "react";
-import {
-    Box,
-    Icon,
-    Badge,
-    Image,
-    ThemeProvider
-}
-    from "@chakra-ui/core"
+import React, { Component } from 'react';
+import { Flex, Badge, Text, Box, Image } from '@chakra-ui/core';
 
-class BlogPost extends Component {
-
-    state = {
-        imageUrl: "https://bit.ly/2Z4KKcF",
-        imageAlt: "Rear view of modern home with pool",
-        beds: 3,
-        baths: 2,
-        title: "Modern home in city center in the heart of historic Los Angeles",
-        formattedPrice: "$1,900.00",
-        reviewCount: 34,
-        rating: 4,
-    }
-
+export class BlogPost extends Component {
     render() {
         return (
-            <ThemeProvider>
-                <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
-                    <Image src="https://bit.ly/2Z4KKcF" alt="Rear view of modern home with pool" />
-
-                    <Box p="6">
-                        <Box d="flex" alignItems="baseline">
-                            <Badge rounded="full" px="2" variantColor="teal">
-                                Trending
+            <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
+                <Image rounded="md" src="https://bit.ly/2k1H1t6" />
+                <Box p="6">
+                    <Box d="flex" alignItems="baseline">
+                        <Badge rounded="full" px="2" variantColor="teal">
+                            New
                         </Badge>
-                            <Box
-                                color="gray.500"
-                                fontWeight="semibold"
-                                letterSpacing="wide"
-                                fontSize="xs"
-                                textTransform="uppercase"
-                                ml="2"
-                            >
-                                25 Views
-                        </Box>
-                        </Box>
-
                         <Box
-                            mt="1"
+                            color="gray.500"
                             fontWeight="semibold"
-                            as="h4"
-                            lineHeight="tight"
-                            isTruncated
+                            letterSpacing="wide"
+                            fontSize="xs"
+                            textTransform="uppercase"
+                            ml="2"
                         >
-                            An Outstanding Title
-                    </Box>
-
-                        <Box>
-                            Aditya Rawat
-                            <Box as="span" color="gray.600" fontSize="sm">
-                                / August 9, 2020
-                    </Box>
+                            4 beds &bull; 3 baths
                         </Box>
+                    </Box>
 
-                        
+                    <Box
+                        mt="1"
+                        fontWeight="semibold"
+                        as="h4"
+                        lineHeight="tight"
+                        isTruncated
+                    >
+                        Hey
+                    </Box>
+
+                    <Box>
+                        1$2
+                        <Box as="span" color="gray.600" fontSize="sm">
+                            / wk
+                        </Box>
                     </Box>
                 </Box>
-            </ThemeProvider>
-        );
+            </Box>
+        )
     }
+}
 
-};
-
-export default BlogPost;
+export default BlogPost
