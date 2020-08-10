@@ -3,6 +3,7 @@ import { ThemeProvider, theme, Text, Grid, Box, Divider, Flex } from '@chakra-ui
 import DefaultNav from '../components/DefaultNav';
 import VerifiedNav from '../components/VerifiedNav';
 import BlogTrendingNew from '../components/BlogTrendingNew';
+import BlogGrid from '../components/BlogGrid';
 
 export class Blog extends Component {
     render() {
@@ -10,6 +11,7 @@ export class Blog extends Component {
             <ThemeProvider theme={theme}>
                 <DefaultNav />
                 <BlogTrendingNew />
+                <BlogGrid />
             </ThemeProvider>
         )
     }
