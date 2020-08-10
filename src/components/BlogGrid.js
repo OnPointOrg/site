@@ -6,7 +6,14 @@ export class BlogGrid extends Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
-                <Grid templateColumns="repeat(5, 1fr)" gap={6}>
+                <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
+                    <BlogPost />
+                    <BlogPost />
+                    <BlogPost />
+                    <BlogPost />
+                    <BlogPost />
+                    <BlogPost />
+                    <BlogPost />
                     <BlogPost />
                     <BlogPost />
                     <BlogPost />
