@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ThemeProvider, theme } from '@chakra-ui/core';
+import { ThemeProvider, theme, Text, Grid, Box } from '@chakra-ui/core';
 import DefaultNav from '../components/DefaultNav';
 import VerifiedNav from '../components/VerifiedNav';
 
@@ -8,7 +8,12 @@ export class Blog extends Component {
         return (
             <ThemeProvider theme={theme}>
                 <DefaultNav />
-                <h1>Blogs Go Here</h1>
+                <Grid templateColumns="repeat(5, 2fr)" gap={3}>
+                    <Box w="100%" h="10" bg="blue.500" />
+                    <Box w="100%" h="10" bg="blue.500" />
+                    <Box w="100%" h="10" bg="blue.500" />
+                    
+                </Grid>
             </ThemeProvider>
         )
     }
