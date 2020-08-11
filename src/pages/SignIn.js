@@ -49,7 +49,7 @@ class SignIn extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
-    this.writeUserData(this.state);
+    this.signInSubmit(this.state);
   };
 
   signInSubmit = () => {
@@ -59,7 +59,7 @@ class SignIn extends React.Component {
     firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      
+
     });
   }
 
