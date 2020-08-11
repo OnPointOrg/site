@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, state, Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import {
   Box,
   Flex,
@@ -36,8 +36,8 @@ class SignIn extends React.Component {
     password: "",
     emailError: "",
     passwordError: "",
-    signUpSuccess: "",
-    isLoggedIn: false,
+    signInSuccess: "",
+    redirect: null
   };
 
   handleChange = (e) => {
@@ -48,8 +48,8 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     this.signInSubmit(this.state);
+    console.log(this.state);
   };
 
   signInSubmit = () => {
@@ -59,7 +59,12 @@ class SignIn extends React.Component {
     firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-
+      console.log("Error Message: " + errorMessage + " Error Code: " + errorCode);
+    });
+    const { history } = this.props;
+    this.setState({
+      signInSuccess: "You Have Signed In Successfully!",
+      redirect: setTimeout(() => { history.push('/') }, 2000),
     });
   }
 
@@ -122,11 +127,11 @@ class SignIn extends React.Component {
                     variantColor={VARIANT_COLOR}
                     width="full"
                     mt={4}
-                    onClick={this.toastOnClick}
                   >
                     Sign In
                   </Button>
-                  <Text fontSize="xs">{this.state.signUpSuccess}</Text>
+                  <Text fontSize="xs">{this.state.signInSuccess}</Text>
+
 
                   <Box mt={1}>
                     Need An Account? {" "}
