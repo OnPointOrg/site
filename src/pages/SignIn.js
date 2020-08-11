@@ -52,6 +52,17 @@ class SignIn extends React.Component {
     this.writeUserData(this.state);
   };
 
+  signInSubmit = () => {
+    const email = this.state.email;
+    const password = this.state.password;
+
+    firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      
+    });
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
