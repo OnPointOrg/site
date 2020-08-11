@@ -32,9 +32,6 @@ const VARIANT_COLOR = "teal";
 
 class SignIn extends React.Component {
   state = {
-    fullName: "",
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
     emailError: "",
@@ -55,83 +52,6 @@ class SignIn extends React.Component {
     this.writeUserData(this.state);
   };
 
-  // toastOnClick = () => {
-  //   toast({
-  //     title: "Account created.",
-  //     description: "We've created your account for you.",
-  //     status: "success",
-  //     duration: 2000,
-  //     isClosable: true,
-  //   })
-  // }
-
-  writeUserData = () => {
-    //const userRef = database.ref("users");
-    database
-      .ref("users")
-      .orderByChild("email")
-      .equalTo(this.state.email)
-      .once("value", (snap) => {
-        if (snap.exists()) {
-          console.log(snap.val());
-          console.log("Email Already Exists");
-          this.setState({
-            emailError: "This Email Already Exists! Choose Another Or Login",
-          });
-
-          if (this.state.password.length < 8) {
-            this.setState({
-              passwordError:
-                "Your Password Is Too Short! Minimum Password Length Is 8",
-            });
-            console.log("Password Error Has Ocurred");
-          } else {
-            this.setState({
-              passwordError: "",
-            });
-          }
-        } else if (this.state.email.length === 0) {
-          this.setState({ emailError: "Please Enter An Email!" });
-          if (this.state.password.length < 8) {
-            this.setState({
-              passwordError:
-                "Your Password Is Too Short! Minimum Password Length Is 8",
-            });
-          } else {
-            this.setState({
-              passwordError: "",
-            });
-          }
-        } else {
-          this.setState({
-            emailError: "",
-          });
-          console.log(" ############# Inside else ##############");
-          if (this.state.password.length < 8) {
-            this.setState({
-              passwordError:
-                "Your Password Is Too Short! Minimum Password Length Is 8",
-            });
-            console.log("Password Error Has Ocurred");
-          } else {
-            this.setState({
-              passwordError: "",
-            });
-            database.ref("users/" + Math.floor(Math.random() * 1001)).set({
-              email: this.state.email,
-              password: this.state.password,
-              firstName: this.state.fullName.split(" ")[0],
-              lastName: this.state.fullName.split(" ")[1],
-              fullName: this.state.fullName,
-              isLoggedIn: true,
-            });
-            this.setState({
-              signUpSuccess: "Account Created Successfully!",
-            });
-          }
-        }
-      });
-  };
   render() {
     return (
       <ThemeProvider theme={theme}>
