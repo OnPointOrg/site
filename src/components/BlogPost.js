@@ -9,7 +9,8 @@ import {
   Icon,
   Collapse,
   Button,
-  Link
+  Link,
+  Tooltip
 } from "@chakra-ui/core";
 
 export const BlogPost = () => {
@@ -32,7 +33,7 @@ export const BlogPost = () => {
             textTransform="uppercase"
             ml="2"
           >
-            Aditya Rawat &bull;&bull;&bull; August 8th, 2020
+            <Link>Aditya Rawat</Link> &bull;&bull;&bull; <Tooltip label="August 10th, 2020" placement="bottom" hasArrow>08 / 10 / 2020</Tooltip>
           </Box>
         </Box>
 
