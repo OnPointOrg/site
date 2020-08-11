@@ -1,11 +1,9 @@
 import React from "react";
-import { useState, state, setState, Component } from 'react';
+import { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import {
   Box,
   Flex,
-  IconButton,
-  useColorMode,
   Heading,
   Text,
   Link as ChakraLink,
@@ -13,20 +11,16 @@ import {
   FormLabel,
   Input,
   Stack,
-  Checkbox,
   Button,
   InputGroup,
   InputLeftElement,
   Icon,
   theme,
-  Alert,
-  AlertIcon
 } from "@chakra-ui/core";
 
 import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
 
 import * as firebase from 'firebase';
-import database from '../firebase/config';
 import DefaultNav from "../components/DefaultNav";
 import { ThemeProvider } from "emotion-theming";
 
@@ -126,76 +120,6 @@ class SignUp extends Component {
 //   })
 // }
 
-// writeUserData = () => {
-//   //const userRef = database.ref("users");
-//   database
-//     .ref("users")
-//     .orderByChild("email")
-//     .equalTo(this.state.email)
-//     .once("value", (snap) => {
-//       if (snap.exists()) {
-//         console.log(snap.val());
-//         console.log("Email Already Exists");
-//         this.setState({
-//           emailError: "This Email Already Exists! Choose Another Or Login",
-//         });
-
-//         if (this.state.password.length < 8) {
-//           this.setState({
-//             passwordError:
-//               "Your Password Is Too Short! Minimum Password Length Is 8",
-//           });
-//           console.log("Password Error Has Ocurred");
-//         } else {
-//           this.setState({
-//             passwordError: "",
-//           });
-//         }
-//       } else if (this.state.email.length === 0) {
-//         this.setState({ emailError: "Please Enter An Email!" });
-//         if (this.state.password.length < 8) {
-//           this.setState({
-//             passwordError:
-//               "Your Password Is Too Short! Minimum Password Length Is 8",
-//           });
-//         } else {
-//           this.setState({
-//             passwordError: "",
-//           });
-//         }
-//       } else {
-//         this.setState({
-//           emailError: "",
-//         });
-//         console.log(" ############# Inside else ##############");
-//         if (this.state.password.length < 8) {
-//           this.setState({
-//             passwordError:
-//               "Your Password Is Too Short! Minimum Password Length Is 8",
-//           });
-//           console.log("Password Error Has Ocurred");
-//         } else {
-//           this.setState({
-//             passwordError: "",
-//           });
-//           database
-//             .ref("users/" + Math.floor(Math.random() * 1001))
-//             .set({
-//               email: this.state.email,
-//               password: this.state.password,
-//               firstName: this.state.fullName.split(' ')[0],
-//               lastName: this.state.fullName.split(' ')[1],
-//               fullName: this.state.fullName,
-//               isLoggedIn: true
-//             });
-//           this.setState({
-//             signUpSuccess: "Account Created Successfully!",
-//             redirect: <Redirect to="/" />
-//           });
-//         }
-//       }
-//     });
-// }
 render() {
   return (
     <ThemeProvider theme={theme}>

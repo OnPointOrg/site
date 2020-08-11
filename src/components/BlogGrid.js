@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ThemeProvider, theme, Grid, Text, Heading, Box, Divider } from '@chakra-ui/core'
+import { ThemeProvider, theme, Grid, Heading, Box, Divider } from '@chakra-ui/core'
 import BlogPost from './BlogPost'
 
 export class BlogGrid extends Component {

@@ -1,12 +1,9 @@
 import React from "react";
 
 import {
-  Flex,
   Badge,
-  Text,
   Box,
   Image,
-  Icon,
   Collapse,
   Button,
   Link,

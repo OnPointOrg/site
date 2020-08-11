@@ -3,14 +3,11 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
 
 import {
   Box,
-  Badge,
   Image,
-  Icon,
   ThemeProvider,
   ColorModeProvider,
   theme,
   SimpleGrid,
-  Text,
 } from "@chakra-ui/core";
 
 import DefaultNav from "../components/DefaultNav";
