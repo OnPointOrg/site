@@ -15,9 +15,9 @@ const MainHome = () => {
             <br />
             <br />
             <SimpleGrid columns={3} spacing={5}>
-                <Button size="lg" margin="10px" width="50%" marginLeft="250px">Learn More</Button>
-                <Button size="lg" margin="10px" width="50%" marginLeft="135px">Get Started</Button>
-                <Button size="lg" margin="10px" marginRight="250px">Start Reading</Button>
+                <Button size="lg" margin="10px" width="50%" marginLeft="250px"><Link to="/about">Learn More</Link></Button>
+                <Button size="lg" margin="10px" width="50%" marginLeft="135px"><Link to="/signup">Get Started</Link></Button>
+                <Button size="lg" margin="10px" marginRight="250px"><Link to="/blog">Start Reading</Link></Button>
             </SimpleGrid>
         </ThemeProvider>
     )
