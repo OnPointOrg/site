@@ -38,7 +38,7 @@ class SignUp extends Component {
     emailError: "",
     passwordError: "",
     signUpSuccess: "",
-    redirect: <Redirect to="/signup" />
+    redirect: null
   };
 
   handleChange = (e) => {
@@ -96,10 +96,12 @@ class SignUp extends Component {
         }
       }
     });
+    const { history } = this.props;
     this.setState({
       emailError: "",
       passwordError: "",
-      signUpSuccess: "Account Created Successfully! You Are Now Logged In!"
+      signUpSuccess: "Account Created Successfully! You Are Now Logged In!",
+      redirect: setTimeout(() => { history.push('/') }, 2000)
     })
   }
 

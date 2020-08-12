@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   ThemeProvider,
   theme,
@@ -19,25 +19,27 @@ import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
 import CreateStory from "./pages/CreateStory";
 
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <ColorModeProvider>
-        <CSSReset />
-        <Router>
-          <Switch>
-            <Route path="/" exact component={ MainHome } />
-            <Route path="/signup" component={ SignUp } />
-            <Route path="/signin" component={ SignIn } />
-            <Route path="/about" component={ AboutUs } />
-            <Route path="/contact" component={ ContactUs } />
-            <Route path="/blog" component={ Blog } />
-            <Route path="/newstory" component={ CreateStory } />
-          </Switch>
-        </Router>
-      </ColorModeProvider>
-    </ThemeProvider>
-  );
+export class App extends Component {
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        <ColorModeProvider>
+          <CSSReset />
+          <Router>
+            <Switch>
+              <Route path="/" exact component={MainHome} />
+              <Route path="/signup" component={SignUp} />
+              <Route path="/signin" component={SignIn} />
+              <Route path="/about" component={AboutUs} />
+              <Route path="/contact" component={ContactUs} />
+              <Route path="/blog" component={Blog} />
+              <Route path="/newstory" component={CreateStory} />
+            </Switch>
+          </Router>
+        </ColorModeProvider>
+      </ThemeProvider>
+    );
+  }
 };
 
 export default App;

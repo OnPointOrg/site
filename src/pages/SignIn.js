@@ -1,6 +1,12 @@
 import React from "react";
 import { useState, state, Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import {
   Box,
   Flex,
@@ -19,7 +25,7 @@ import {
   Icon,
   theme,
   ThemeProvider,
-  Link as ChakraLink
+  Link as ChakraLink,
 } from "@chakra-ui/core";
 
 import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
@@ -27,7 +33,6 @@ import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
 import * as firebase from "firebase";
 import database from "../firebase/config";
 import DefaultNav from "../components/DefaultNav";
-import {  } from "emotion-theming";
 
 const VARIANT_COLOR = "teal";
 
@@ -38,9 +43,9 @@ class SignIn extends React.Component {
     emailError: "",
     passwordError: "",
     signInSuccess: "",
-    redirect: null
+    redirect: null,
+    currentNav: <DefaultNav />,
   };
-
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
@@ -49,25 +54,39 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.signInSubmit(this.state);
+    this.signInSubmit();
     console.log(this.state);
   };
 
   signInSubmit = () => {
     const email = this.state.email;
     const password = this.state.password;
-
-    firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log("Error Message: " + errorMessage + " Error Code: " + errorCode);
-    });
     const { history } = this.props;
-    this.setState({
-      signInSuccess: "You Have Signed In Successfully!",
-      redirect: setTimeout(() => { history.push('/') }, 2000),
-    });
-  }
+
+    firebase
+      .auth()
+      .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then(() => {
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(
+              "Error Message: " + errorMessage + " Error Code: " + errorCode
+            );
+            this.setState({
+              signInSuccess: "Your Email Or Password Is Invalid!",
+            });
+          });
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+  };
 
   render() {
     return (
@@ -88,7 +107,6 @@ class SignIn extends React.Component {
               </Box>
               <Box my={8} textAlign="left">
                 <form onSubmit={this.handleSubmit}>
-
                   <FormControl isRequired mt={4}>
                     <FormLabel>Email</FormLabel>
                     <InputGroup>
@@ -133,13 +151,10 @@ class SignIn extends React.Component {
                   </Button>
                   <Text fontSize="xs">{this.state.signInSuccess}</Text>
 
-
                   <Box mt={1}>
-                    Need An Account? {" "}
+                    Need An Account?{" "}
                     <ChakraLink color={`${VARIANT_COLOR}.500`}>
-                      <Link to="/signup" >
-                        Sign Up Here
-                      </Link>
+                      <Link to="/signup">Sign Up Here</Link>
                     </ChakraLink>
                   </Box>
                 </form>
