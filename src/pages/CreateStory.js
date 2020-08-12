@@ -80,20 +80,15 @@ export class CreateStory extends Component {
                   <SimpleGrid columns={3} spacing={10}>
                     <Box width="100%" />
                     <Box width="100%" />
-                    <FormControl isRequired margin="25px" textAlign="center">
-                      <FormLabel>Title</FormLabel>
-                      <InputGroup>
-                        <InputLeftElement children={<Icon name="edit" />} />
-                        <Input
-                          // onChange={this.handleChange}
-                          width="100%"
-                          id="title"
-                          type="text"
-                          placeholder="A Very Interesting Title"
-                          // value={this.state.email}
-                        />
-                      </InputGroup>
-                    </FormControl>
+                    
+                        <Button
+                          type="submit"
+                          variantColor={VARIANT_COLOR}
+                          width="full"
+                          mt={4}
+                        >
+                          Submit
+                        </Button>
                   </SimpleGrid>
                 </form>
               </Box>
