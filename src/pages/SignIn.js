@@ -27,6 +27,7 @@ import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
 import * as firebase from "firebase";
 import database from "../firebase/config";
 import DefaultNav from "../components/DefaultNav";
+import {  } from "emotion-theming";
 
 const VARIANT_COLOR = "teal";
 
