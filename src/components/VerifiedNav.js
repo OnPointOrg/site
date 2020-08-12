@@ -118,13 +118,16 @@ const VerifiedNav = (props) => {
               </MenuButton>
               <MenuList>
                 <MenuGroup title="Profile">
-                  <MenuItem>My Account</MenuItem>
-                  <MenuItem>Dashboard</MenuItem>
+                  <MenuItem><Link to="/account">My Account</Link></MenuItem>
+                  <MenuItem><Link to="/dashboard">Dashboard</Link></MenuItem>
                 </MenuGroup>
                 <MenuDivider />
-                <MenuGroup title="Help">
-                  <MenuItem>Docs</MenuItem>
-                  <MenuItem>FAQ</MenuItem>
+                <MenuGroup title="Actions">
+                  <MenuItem><Link to="newstory">New Story</Link></MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuGroup title="Danger Zone">
+                  <MenuItem>Sign Out</MenuItem>
                 </MenuGroup>
               </MenuList>
             </Menu>
