@@ -17,6 +17,7 @@ import {
     Heading,
     Link,
     InputGroup,
+    SimpleGrid,
 } from "@chakra-ui/core";
 import DefaultNav from "../components/DefaultNav";
 import { Editor } from "@tinymce/tinymce-react";
@@ -32,12 +33,31 @@ export class CreateStory extends Component {
                     <Box>
                         <Box p={4}>
                             <Box textAlign="center">
-                                <Text>Sign In</Text>
-                                <Heading>Continue Your Journey</Heading>
-                                <Heading>@ Onpoint</Heading>
+                                <Text>New Article</Text>
+                                <Heading>Share The Story</Heading>
                             </Box>
                             <Box my={8} textAlign="left">
                                 <form onSubmit={this.handleSubmit}>
+                                    <SimpleGrid columns={3} spacing={10}>
+                                        <Box width="100%" />
+                                        <FormControl isRequired margin="25px" textAlign="center">
+                                            <FormLabel>Title</FormLabel>
+                                            <InputGroup>
+                                                <InputLeftElement children={<Icon name="edit" />} />
+                                                <Input
+                                                    // onChange={this.handleChange}
+                                                    width="100%"
+                                                    id="title"
+                                                    type="text"
+                                                    placeholder="A Very Interesting Title"
+                                                // value={this.state.email}
+                                                />
+
+                                            </InputGroup>
+                                        </FormControl>
+                                        <Box width="100%" />
+                                    </SimpleGrid>
+
                                     <Editor
                                         apiKey="zybn8i03lzs6uwwunfnmni1kwzgvhne31xy1rwof0u56mdx6"
                                         initialValue="<p>This is the initial content of the editor</p>"
@@ -58,6 +78,7 @@ export class CreateStory extends Component {
                                         }}
                                         onEditorChange={this.handleEditorChange}
                                     />
+                                    
                                 </form>
                             </Box>
                         </Box>
