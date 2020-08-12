@@ -16,13 +16,14 @@ import {
   InputLeftElement,
   Icon,
   theme,
+  ThemeProvider
 } from "@chakra-ui/core";
 
 import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
 
 import * as firebase from 'firebase';
 import DefaultNav from "../components/DefaultNav";
-import { ThemeProvider } from "emotion-theming";
+// import { ThemeProvider } from "emotion-theming";
 
 const VARIANT_COLOR = "teal";
 
@@ -101,24 +102,6 @@ class SignUp extends Component {
       signUpSuccess: "Account Created Successfully! You Are Now Logged In!"
     })
   }
-
-  // redirectToHome() {
-  //   if (this.state.passwordError === "" && this.state.emailError === "") {
-  //     this.setState({
-  //       redirect: <Redirect to="/" />
-  //     })
-  //   }
-  // }
-
-// toastOnClick = () => {
-//   toast({
-//     title: "Account created.",
-//     description: "We've created your account for you.",
-//     status: "success",
-//     duration: 2000,
-//     isClosable: true,
-//   })
-// }
 
 render() {
   return (

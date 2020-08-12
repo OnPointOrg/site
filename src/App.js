@@ -17,6 +17,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
+import CreateStory from "./pages/CreateStory";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/about" component={ AboutUs } />
             <Route path="/contact" component={ ContactUs } />
             <Route path="/blog" component={ Blog } />
+            <Route path="/newstory" component={ CreateStory } />
           </Switch>
         </Router>
       </ColorModeProvider>

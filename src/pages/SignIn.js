@@ -18,6 +18,7 @@ import {
   InputLeftElement,
   Icon,
   theme,
+  ThemeProvider,
   Link as ChakraLink
 } from "@chakra-ui/core";
 
@@ -26,7 +27,6 @@ import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
 import * as firebase from "firebase";
 import database from "../firebase/config";
 import DefaultNav from "../components/DefaultNav";
-import { ThemeProvider } from "emotion-theming";
 
 const VARIANT_COLOR = "teal";
 
