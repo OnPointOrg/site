@@ -20,11 +20,17 @@ import {
   SimpleGrid,
 } from "@chakra-ui/core";
 import DefaultNav from "../components/DefaultNav";
-import { Editor } from "@tinymce/tinymce-react";
+import Editor from '@stfy/react-editor.js'
+
 
 const VARIANT_COLOR = "teal";
 
 export class CreateStory extends Component {
+
+  handleEditorChange = (content, editor) => {
+    console.log('Content was updated:', content);
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -38,8 +44,7 @@ export class CreateStory extends Component {
               </Box>
               <Box mt={1} textAlign="left">
                 <form onSubmit={this.handleSubmit}>
-                  <SimpleGrid columns={3} spacing={10}>
-                    <Box width="100%" />
+                  <SimpleGrid columns={2} spacing={10}>
                     <FormControl isRequired margin="25px" textAlign="center">
                       <FormLabel>Title</FormLabel>
                       <InputGroup>
@@ -50,32 +55,57 @@ export class CreateStory extends Component {
                           id="title"
                           type="text"
                           placeholder="A Very Interesting Title"
-                          // value={this.state.email}
+                        // value={this.state.email}
                         />
                       </InputGroup>
                     </FormControl>
-                    <Box width="100%" />
+                    <FormControl isRequired margin="25px" textAlign="center">
+                      <FormLabel>Category</FormLabel>
+                      <InputGroup>
+                        <InputLeftElement children={<Icon name="edit" />} />
+                        <Input
+                          // onChange={this.handleChange}
+                          width="100%"
+                          id="title"
+                          type="text"
+                          placeholder="A Very Interesting Title"
+                        // value={this.state.email}
+                        />
+                      </InputGroup>
+                    </FormControl>
                   </SimpleGrid>
-
+                  <FormControl isRequired margin="25px" textAlign="center">
+                    <FormLabel>Title</FormLabel>
+                    <InputGroup>
+                      <InputLeftElement children={<Icon name="edit" />} />
+                      <Input
+                        // onChange={this.handleChange}
+                        width="100%"
+                        id="title"
+                        type="text"
+                        placeholder="A Very Interesting Title"
+                      // value={this.state.email}
+                      />
+                    </InputGroup>
+                  </FormControl>
                   <Editor
-                    apiKey="zybn8i03lzs6uwwunfnmni1kwzgvhne31xy1rwof0u56mdx6"
-                    initialValue="<h1>Heading</h1> <p>Paragraph</p>"
-                    init={{
-                      height: 600,
-                      width: 1000,
-                      menubar: true,
-                      plugins: [
-                        "emoticons",
-                        "advlist autolink lists link image charmap print preview anchor",
-                        "searchreplace visualblocks code fullscreen",
-                        "insertdatetime media table paste code help wordcount",
+                    autofocus
+                    holderId="editorjs-container"
+                    onChange={(data) => console.log(data)}
+                    onReady={() => console.log('Start!')}
+                    data={{
+                      "time": 1554920381017,
+                      "blocks": [
+                        {
+                          "type": "header",
+                          "data": {
+                            "text": "Hello Editor.js",
+                            "level": 2
+                          }
+                        },
                       ],
-                      toolbar:
-                        "undo redo | formatselect | bold italic backcolor emoticons | \
-                         alignleft aligncenter alignright alignjustify | \
-                         bullist numlist outdent indent | removeformat | help",
+                      "version": "2.12.4"
                     }}
-                    onEditorChange={this.handleEditorChange}
                   />
                   <SimpleGrid columns={3} spacing={10}>
                     <Box width="100%" />

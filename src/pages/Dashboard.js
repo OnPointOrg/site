@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import DefaultNav from '../components/DefaultNav'
-import { ThemeManager } from 'tinymce';
 import { ThemeProvider } from '@chakra-ui/core';
 
 export class Dashboard extends Component {
