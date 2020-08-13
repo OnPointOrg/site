@@ -72,8 +72,8 @@ export class CreateStory extends Component {
                       ],
                       toolbar:
                         "undo redo | formatselect | bold italic backcolor emoticons | \
-                                                 alignleft aligncenter alignright alignjustify | \
-                                                 bullist numlist outdent indent | removeformat | help",
+                         alignleft aligncenter alignright alignjustify | \
+                         bullist numlist outdent indent | removeformat | help",
                     }}
                     onEditorChange={this.handleEditorChange}
                   />
