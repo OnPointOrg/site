@@ -102,7 +102,7 @@ export class CreateStory extends Component {
                   <Box borderWidth="1px" rounded="lg" width="100%" padding="20px">
                     <Editor
                       autofocus
-                      onChange={ () => {console.log(data)} }
+                      onChange={(data) => console.log(data)}
                       tools={EDITOR_JS_TOOLS}
                       // onReady={() => console.log()}
                       data={{
