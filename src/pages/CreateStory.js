@@ -22,6 +22,9 @@ import {
 } from "@chakra-ui/core";
 import DefaultNav from "../components/DefaultNav";
 import Editor from '@stfy/react-editor.js'
+import Header from '@editorjs/header'; 
+import List from '@editorjs/list'; 
+import ImageTool from '@editorjs/image';
 // import Tags from "@yaireo/tagify/dist/react.tagify" // React-wrapper file
 import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
 
@@ -91,8 +94,15 @@ export class CreateStory extends Component {
                       />
                     </InputGroup>
                   </FormControl>
-                  <Box bg="white" w="100%" p={4} color="white">
-                    <Editor />
+                  <Box borderWidth="1px" rounded="lg" width="100%" padding="20px">
+                    <Editor
+                      tools={{
+                        header: Header,
+                        list: List,
+                        image: ImageTool
+                      }}
+                      onReady={() => console.log('Start!')}
+                    />
                   </Box>
                   <SimpleGrid columns={3} spacing={10}>
                     <Box width="100%" />
