@@ -20,18 +20,23 @@ import {
   SimpleGrid,
   Select
 } from "@chakra-ui/core";
-import DefaultNav from "../components/DefaultNav";
-import Editor from '@stfy/react-editor.js'
-import Header from '@editorjs/header'; 
-import List from '@editorjs/list'; 
-import ImageTool from '@editorjs/image';
 // import Tags from "@yaireo/tagify/dist/react.tagify" // React-wrapper file
-import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
+// import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
+import DefaultNav from "../components/DefaultNav";
+
+import Editor from 'react-editor-js';
+
+import { EDITOR_JS_TOOLS } from '../components/Constants';
+
 
 
 const VARIANT_COLOR = "teal";
-
+const timestamp = new Date().getTime();
+const milliseconds = timestamp * 1000;
+const dateObj = new Date(milliseconds);
+const normalDate = dateObj.toLocaleString()
 export class CreateStory extends Component {
+
 
   handleEditorChange = (content, editor) => {
     console.log('Content was updated:', content);
@@ -96,12 +101,13 @@ export class CreateStory extends Component {
                   </FormControl>
                   <Box borderWidth="1px" rounded="lg" width="100%" padding="20px">
                     <Editor
-                      tools={{
-                        header: Header,
-                        list: List,
-                        image: ImageTool
+                      autofocus
+                      onChange={ () => {console.log(data)} }
+                      tools={EDITOR_JS_TOOLS}
+                      // onReady={() => console.log()}
+                      data={{
+                        "time": normalDate
                       }}
-                      onReady={() => console.log('Start!')}
                     />
                   </Box>
                   <SimpleGrid columns={3} spacing={10}>
