@@ -21,6 +21,7 @@ import {
 } from "@chakra-ui/core";
 import DefaultNav from "../components/DefaultNav";
 import Editor from '@stfy/react-editor.js'
+// import Editor from '../components/EditorJS'
 
 
 const VARIANT_COLOR = "teal";
@@ -88,25 +89,7 @@ export class CreateStory extends Component {
                       />
                     </InputGroup>
                   </FormControl>
-                  <Editor
-                    autofocus
-                    holderId="editorjs-container"
-                    onChange={(data) => console.log(data)}
-                    onReady={() => console.log('Start!')}
-                    data={{
-                      "time": 1554920381017,
-                      "blocks": [
-                        {
-                          "type": "header",
-                          "data": {
-                            "text": "Hello Editor.js",
-                            "level": 2
-                          }
-                        },
-                      ],
-                      "version": "2.12.4"
-                    }}
-                  />
+                  <Editor />
                   <SimpleGrid columns={3} spacing={10}>
                     <Box width="100%" />
                     <Box width="100%" />
