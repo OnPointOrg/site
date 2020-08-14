@@ -18,10 +18,12 @@ import {
   Link,
   InputGroup,
   SimpleGrid,
+  Select
 } from "@chakra-ui/core";
 import DefaultNav from "../components/DefaultNav";
 import Editor from '@stfy/react-editor.js'
-// import Editor from '../components/EditorJS'
+// import Tags from "@yaireo/tagify/dist/react.tagify" // React-wrapper file
+import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
 
 
 const VARIANT_COLOR = "teal";
@@ -64,12 +66,12 @@ export class CreateStory extends Component {
                       <FormLabel>Category</FormLabel>
                       <InputGroup>
                         <InputLeftElement children={<Icon name="edit" />} />
-                        <Input
+                        <Select
                           // onChange={this.handleChange}
                           width="100%"
-                          id="title"
+                          id="category"
                           type="text"
-                          placeholder="A Very Interesting Title"
+                          placeholder=""
                         // value={this.state.email}
                         />
                       </InputGroup>
@@ -89,7 +91,9 @@ export class CreateStory extends Component {
                       />
                     </InputGroup>
                   </FormControl>
-                  <Editor />
+                  <Box bg="white" w="100%" p={4} color="white">
+                    <Editor />
+                  </Box>
                   <SimpleGrid columns={3} spacing={10}>
                     <Box width="100%" />
                     <Box width="100%" />
