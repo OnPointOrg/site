@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import {
   ThemeProvider,
   theme,
@@ -24,19 +24,68 @@ import {
 // import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
 import DefaultNav from "../components/DefaultNav";
 
-import Editor from 'react-editor-js';
+import EditorJs from 'react-editor-js';
 
 import { EDITOR_JS_TOOLS } from '../components/Constants';
 
-
+import firestoreDatabase from '../firebase/config';
 
 const VARIANT_COLOR = "teal";
 const timestamp = new Date().getTime();
 const milliseconds = timestamp * 1000;
 const dateObj = new Date(milliseconds);
 const normalDate = dateObj.toLocaleString()
+const instanceRef = createRef();
+
+
+
 export class CreateStory extends Component {
 
+  state = {
+    title: "",
+    category: "",
+    summary: "",
+    articleContent: ""
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    this.writeArticleData(this.state);
+  };
+
+  handleSave = () => {
+    const savedData = instanceRef.current.save();
+    this.setState({
+      articleContent: savedData
+    })
+
+    console.log("savedData", savedData);
+  }
+
+
+  writeArticleData() {
+    //const userRef = database.ref("users");
+    // Add a second document with a generated ID.
+    firestoreDatabase.collection("articles").add({
+      title: this.state.title,
+      category: this.state.category,
+      summary: this.state.summary,
+      content: this.state.articleContent
+    })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
+  }
 
   handleEditorChange = (content, editor) => {
     console.log('Content was updated:', content);
@@ -56,7 +105,7 @@ export class CreateStory extends Component {
               <Box mt={1} textAlign="left">
                 <form onSubmit={this.handleSubmit}>
                   <SimpleGrid columns={2} spacing={10}>
-                    <FormControl isRequired margin="25px" textAlign="center">
+                    <FormControl isRequired margin="25px">
                       <FormLabel>Title</FormLabel>
                       <InputGroup>
                         <InputLeftElement children={<Icon name="edit" />} />
@@ -64,46 +113,61 @@ export class CreateStory extends Component {
                           // onChange={this.handleChange}
                           width="100%"
                           id="title"
+                          value={this.state.title}
+                          onChange={this.handleChange}
                           type="text"
                           placeholder="A Very Interesting Title"
                         // value={this.state.email}
                         />
                       </InputGroup>
                     </FormControl>
-                    <FormControl isRequired margin="25px" textAlign="center">
+                    <FormControl isRequired margin="25px">
                       <FormLabel>Category</FormLabel>
                       <InputGroup>
-                        <InputLeftElement children={<Icon name="edit" />} />
                         <Select
                           // onChange={this.handleChange}
                           width="100%"
                           id="category"
                           type="text"
-                          placeholder=""
+                          placeholder="Select Category"
                         // value={this.state.email}
-                        />
+                        >
+                          <option background="black" color="white" value="politics">Politics</option>
+                          <option background="black" color="white" value="technology">Technology</option>
+                          <option background="black" color="white" value="sports">Sports</option>
+                        </Select>
                       </InputGroup>
                     </FormControl>
                   </SimpleGrid>
-                  <FormControl isRequired margin="25px" textAlign="center">
-                    <FormLabel>Title</FormLabel>
+                  <FormControl isRequired margin="25px">
+                    <FormLabel>Summary</FormLabel>
                     <InputGroup>
                       <InputLeftElement children={<Icon name="edit" />} />
                       <Input
-                        // onChange={this.handleChange}
+                        id="summary"
+                        value={this.state.summary}
+                        onChange={this.handleChange}
                         width="100%"
-                        id="title"
                         type="text"
-                        placeholder="A Very Interesting Title"
+                        placeholder="A Summary Of What You Are Talking About. Make It Catchy If You Want Your Articles To Be Read!"
                       // value={this.state.email}
                       />
                     </InputGroup>
                   </FormControl>
-                  <Box borderWidth="1px" rounded="lg" width="100%" padding="20px">
-                    <Editor
+                  <Box borderWidth="1px" rounded="lg" width="800px" padding="20px" background="white" color="black">
+                    <EditorJs
+                      instanceRef={instance => (instanceRef.current = instance)}
+                      id="content"
+                      value={this.state.content}
+                      color="black"
                       autofocus
-                      onChange={(data) => console.log(data)}
+                      onChange={(data) => this.setState({
+                        articleContent: data
+                      })}
                       tools={EDITOR_JS_TOOLS}
+                      i18n={{
+                        messages: {}
+                      }}
                       // onReady={() => console.log()}
                       data={{
                         "time": normalDate
@@ -121,6 +185,7 @@ export class CreateStory extends Component {
                       variant="solid"
                       width="full"
                       mt={4}
+                      onClick={this.handleSave}
                     >
                       Submit
                     </Button>
