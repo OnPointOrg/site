@@ -62,11 +62,17 @@ export class CreateStory extends Component {
 
   handleSave = () => {
     const savedData = instanceRef.current.save();
-    this.setState({
-      articleContent: savedData
-    })
-
-    console.log("savedData", savedData);
+    console.log("Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ");
+    console.log(typeof (savedData))
+    console.log(savedData);
+    savedData.then((outputData) => {
+      console.log('Article data: ', outputData)
+      this.setState({
+        articleContent: outputData
+      })
+    }).catch((error) => {
+      console.log('Saving failed: ', error)
+    });
   }
 
 
