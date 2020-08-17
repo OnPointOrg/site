@@ -18,7 +18,8 @@ import {
   Link,
   InputGroup,
   SimpleGrid,
-  Select
+  Select,
+  Tooltip
 } from "@chakra-ui/core";
 // import Tags from "@yaireo/tagify/dist/react.tagify" // React-wrapper file
 // import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
@@ -45,7 +46,8 @@ export class CreateStory extends Component {
     title: "",
     category: "",
     summary: "",
-    articleContent: ""
+    articleContent: "",
+    user: ""
   }
 
   handleChange = (e) => {
@@ -107,6 +109,7 @@ export class CreateStory extends Component {
               <Box textAlign="center">
                 <Text>New Article</Text>
                 <Heading>Share The Story</Heading>
+                <Text fontSize="xs">Before You Submit. <Tooltip label="Need To Add Document Of Requirements Here Later"><ChakraLink href="https://www.google.com" color="teal.500" isExternal>Check The Requirements Here <Icon name="external-link" mx="2px" /></ChakraLink></Tooltip></Text>
               </Box>
               <Box mt={1} textAlign="left">
                 <form onSubmit={this.handleSubmit}>

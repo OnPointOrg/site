@@ -24,6 +24,7 @@ import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../images/logo.png";
 
 import SignUp from '../pages/SignUp';
+import firebase from 'firebase'
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -127,7 +128,13 @@ const VerifiedNav = (props) => {
                 </MenuGroup>
                 <MenuDivider />
                 <MenuGroup title="Danger Zone">
-                  <MenuItem>Sign Out</MenuItem>
+                  <MenuItem onClick={() => {
+                    firebase.auth().signOut().then(() => {
+                      // Sign-out successful.
+                    }).catch((error) => {
+                      console.log("An Error Ocurred While Trying To Sign Out! " + error)
+                    });
+                  }}>Sign Out</MenuItem>
                 </MenuGroup>
               </MenuList>
             </Menu>
