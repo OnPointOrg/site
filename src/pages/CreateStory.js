@@ -131,16 +131,15 @@ export class CreateStory extends Component {
                       <FormLabel>Category</FormLabel>
                       <InputGroup>
                         <Select
-                          // onChange={this.handleChange}
+                          onChange={this.handleChange}
                           width="100%"
                           id="category"
                           type="text"
                           placeholder="Select Category"
-                        // value={this.state.email}
                         >
-                          <option background="black" color="white" value="politics">Politics</option>
-                          <option background="black" color="white" value="technology">Technology</option>
-                          <option background="black" color="white" value="sports">Sports</option>
+                          <option background="black" color="white" value="politics" onClick={ () => { this.setState({ category: "Politics" }) } }>Politics</option>
+                          <option background="black" color="white" value="technology" onClick={ () => { this.setState({ category: "Technology" }) } }>Technology</option>
+                          <option background="black" color="white" value="sports" onClick={ () => { this.setState({ category: "Sports" }) } }>Sports</option>
                         </Select>
                       </InputGroup>
                     </FormControl>
