@@ -17,19 +17,15 @@ const getDocs = () => {
             console.log(article.content.blocks[0].data.text)
             const contentType = article.content.blocks[0].type
             const content = article.content.blocks[0].data.text
-            // if (contentType === 'paragraph') {
-            //     createElement('Text', content);
-            //     console.log(createElement('Text', content))
-            // } else {
-            //     console.log('Unable To Create Element!')
-            // }
 
             switch(content) {
                 case "paragraph":
-                    createElement(contentType, content)
+                    createElement('Text', content)
                     break;
                 case "header":
-                    createElement(contentType, content)
+                    createElement('Heading', content)
+                    break;
+                case "":
             }
         });
     });
