@@ -1,17 +1,10 @@
 import React from "react";
-import { useState, state, Component } from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
+  Link
 } from "react-router-dom";
 import {
   Box,
   Flex,
-  IconButton,
-  useColorMode,
   Heading,
   Text,
   FormControl,
@@ -28,10 +21,7 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/core";
 
-import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
-
 import * as firebase from "firebase";
-import database from "../firebase/config";
 import DefaultNav from "../components/DefaultNav";
 
 const VARIANT_COLOR = "teal";
@@ -61,7 +51,7 @@ class SignIn extends React.Component {
   signInSubmit = () => {
     const email = this.state.email;
     const password = this.state.password;
-    const { history } = this.props;
+    // const { history } = this.props;
 
     firebase
       .auth()
@@ -83,8 +73,6 @@ class SignIn extends React.Component {
       })
       .catch((error) => {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
       });
   };
 

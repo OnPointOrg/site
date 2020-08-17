@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+// import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import {
   Box,
   Flex,
@@ -18,8 +19,6 @@ import {
   theme,
   ThemeProvider
 } from "@chakra-ui/core";
-
-import DarkModeLightModeButton from "../components/DarkModeLightModeButton";
 
 import * as firebase from 'firebase';
 import DefaultNav from "../components/DefaultNav";
@@ -61,7 +60,7 @@ class SignUp extends Component {
     firebase.auth().createUserWithEmailAndPassword(email, password).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
-      const errorMessage = error.message;
+      // const errorMessage = error.message;
       if (errorCode === 'auth/email-already-in-use') {
         this.setState({
           emailError: "This Email Is Already In Use! Please Sign In Or Use A Different Email!",

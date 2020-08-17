@@ -1,18 +1,13 @@
 import React from "react";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
+// import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
 
 import {
-  Box,
-  Image,
   ThemeProvider,
-  ColorModeProvider,
-  theme,
-  SimpleGrid,
 } from "@chakra-ui/core";
 
 import DefaultNav from "../components/DefaultNav";
-import VerifiedNav from "../components/VerifiedNav";
-import BlogPost from '../components/BlogPost';
+// import VerifiedNav from "../components/VerifiedNav";
+// import BlogPost from '../components/BlogPost';
 
 const Account = () => {
   return (

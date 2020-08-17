@@ -18,12 +18,10 @@ import {
   MenuItem,
   Avatar,
   MenuButton,
-  ButtonGroup,
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../images/logo.png";
 
-import SignUp from '../pages/SignUp';
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -142,33 +140,3 @@ const VerifiedNav = (props) => {
 };
 
 export default VerifiedNav;
-
-{/* <Flex justifyContent="space-between" color="gray.500">
-  <Menu>
-    <MenuButton
-      px={6}
-      py={2}
-      transition="all 0.2s"
-      rounded="md"
-      borderWidth="1px"
-      _focus={{ outline: 0, boxShadow: "outline" }}
-      marginRight="2px"
-      marginLeft="-2px"
-    >
-      <Avatar marginRight="10px" size="xs" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" /> Profile <Icon name="chevron-down" />
-    </MenuButton>
-    <MenuList>
-      <MenuGroup title="Profile">
-        <MenuItem>My Account</MenuItem>
-        <MenuItem>Dashboard</MenuItem>
-      </MenuGroup>
-      <MenuDivider />
-      <MenuGroup title="Help">
-        <MenuItem>Docs</MenuItem>
-        <MenuItem>FAQ</MenuItem>
-      </MenuGroup>
-    </MenuList>
-  </Menu>
-  <Divider orientation="vertical" />
-  <DarkModeLightModeButton />
-</Flex> */}

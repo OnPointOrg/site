@@ -5,10 +5,6 @@ import {
   ColorModeProvider,
   CSSReset,
 } from "@chakra-ui/core";
-// import LoginArea from "./pages/Login";
-// import SignUp from "./pages/SignUp";
-import VerifiedNav from "./components/VerifiedNav";
-import DefaultNav from "./components/DefaultNav";
 import Account from "./pages/Account";
 import MainHome from "./pages/MainHome";
 import SignUp from "./pages/SignUp";

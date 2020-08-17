@@ -5,17 +5,14 @@ import {
   Box,
   Flex,
   Button,
-  Checkbox,
   Link as ChakraLink,
   Text,
-  Stack,
   Icon,
   Input,
   InputLeftElement,
   FormControl,
   FormLabel,
   Heading,
-  Link,
   InputGroup,
   SimpleGrid,
   Select,
@@ -51,12 +48,12 @@ export class CreateStory extends Component {
     user: "",
   }
 
-  getTheUser = () => {
+  getTheUserUID = () => {
     const firebaseUser = firebase.auth().currentUser;
     if (firebaseUser != null) {
-      const name = firebaseUser.displayName;
-      const email = firebaseUser.email;
-      const photoUrl = firebaseUser.photoURL;
+      // const name = firebaseUser.displayName;
+      // const email = firebaseUser.email;
+      // const photoUrl = firebaseUser.photoURL;
       // const emailVerified = user.emailVerified
       const uid = firebaseUser.uid
       console.log(uid)
@@ -85,7 +82,7 @@ export class CreateStory extends Component {
     const savedData = instanceRef.current.save();
     console.log("Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ");
     console.log(typeof (savedData))
-    console.log(savedData);
+    console.log(savedData); // <<< --- Should Be A Promise
     savedData.then((outputData) => {
       console.log('Article data: ', outputData)
       this.setState({

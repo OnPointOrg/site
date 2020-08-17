@@ -16,8 +16,6 @@ import {
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../images/logo.png";
 
-import SignUp from '../pages/SignUp';
-
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];

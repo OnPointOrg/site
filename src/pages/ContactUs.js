@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ThemeProvider, theme } from '@chakra-ui/core';
 import DefaultNav from '../components/DefaultNav';
-import VerifiedNav from '../components/VerifiedNav';
+// import VerifiedNav from '../components/VerifiedNav'; // Will Import Later When I Do The Nav Stuff
 
 export class ContactUs extends Component {
     render() {

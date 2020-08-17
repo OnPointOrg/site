@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ThemeProvider, theme, Text, Grid, Box, Divider, Flex, Heading } from '@chakra-ui/core';
+import { ThemeProvider, theme, Grid, Box, Divider, Flex, Heading } from '@chakra-ui/core';
 import BlogPost from './BlogPost';
 
 export class BlogTrendingNew extends Component {
