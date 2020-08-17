@@ -25,7 +25,8 @@ const getDocs = () => {
                 case "header":
                     createElement('Heading', content)
                     break;
-                case "":
+                case "list":
+                    createElement('List', content)
             }
         });
     });
