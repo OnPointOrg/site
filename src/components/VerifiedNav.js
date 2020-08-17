@@ -19,12 +19,13 @@ import {
   Avatar,
   MenuButton,
   ButtonGroup,
+  Alert,
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../images/logo.png";
 
 import SignUp from '../pages/SignUp';
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -36,6 +37,18 @@ const newTheme = {
   ...theme,
   breakpoints,
 };
+
+const signOut = () => {
+  firebase.auth().signOut().then(() => {
+    return (
+      <Alert>
+
+      </Alert>
+    )
+  }).catch((error) => {
+    console.log("An Error Ocurred While Trying To Sign Out! " + error)
+  });
+}
 
 const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
@@ -128,13 +141,7 @@ const VerifiedNav = (props) => {
                 </MenuGroup>
                 <MenuDivider />
                 <MenuGroup title="Danger Zone">
-                  <MenuItem onClick={() => {
-                    firebase.auth().signOut().then(() => {
-                      // Sign-out successful.
-                    }).catch((error) => {
-                      console.log("An Error Ocurred While Trying To Sign Out! " + error)
-                    });
-                  }}>Sign Out</MenuItem>
+                  <MenuItem onClick={ this.signOut }>Sign Out</MenuItem>
                 </MenuGroup>
               </MenuList>
             </Menu>
