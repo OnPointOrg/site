@@ -78,7 +78,7 @@ export class CreateStory extends Component {
   };
 
   handleSave = () => {
-    this.getTheUser()
+    this.getTheUserUID()
     const savedData = instanceRef.current.save();
     console.log("Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ");
     console.log(typeof (savedData))
