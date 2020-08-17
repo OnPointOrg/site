@@ -29,7 +29,9 @@ import EditorJs from 'react-editor-js';
 
 import { EDITOR_JS_TOOLS } from '../components/Constants';
 
+// import getTheUser from '../hooks/GetTheUser';
 import firestoreDatabase from '../firebase/config';
+import firebase from 'firebase';
 
 const VARIANT_COLOR = "teal";
 const timestamp = new Date().getTime();
@@ -39,7 +41,6 @@ const normalDate = dateObj.toLocaleString()
 const instanceRef = createRef();
 
 
-
 export class CreateStory extends Component {
 
   state = {
@@ -47,7 +48,24 @@ export class CreateStory extends Component {
     category: "",
     summary: "",
     articleContent: "",
-    user: ""
+    user: "",
+  }
+
+  getTheUser = () => {
+    const firebaseUser = firebase.auth().currentUser;
+    if (firebaseUser != null) {
+      const name = firebaseUser.displayName;
+      const email = firebaseUser.email;
+      const photoUrl = firebaseUser.photoURL;
+      // const emailVerified = user.emailVerified
+      const uid = firebaseUser.uid
+      console.log(uid)
+      this.setState({
+        user: uid
+      })
+    } else {
+      alert("Please Sign In!")
+    }
   }
 
   handleChange = (e) => {
@@ -63,6 +81,7 @@ export class CreateStory extends Component {
   };
 
   handleSave = () => {
+    this.getTheUser()
     const savedData = instanceRef.current.save();
     console.log("Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ");
     console.log(typeof (savedData))
@@ -85,7 +104,8 @@ export class CreateStory extends Component {
       title: this.state.title,
       category: this.state.category,
       summary: this.state.summary,
-      content: this.state.articleContent
+      content: this.state.articleContent,
+      user: this.state.user
     })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -140,9 +160,9 @@ export class CreateStory extends Component {
                           type="text"
                           placeholder="Select Category"
                         >
-                          <option background="black" color="white" value="politics" onClick={ () => { this.setState({ category: "Politics" }) } }>Politics</option>
-                          <option background="black" color="white" value="technology" onClick={ () => { this.setState({ category: "Technology" }) } }>Technology</option>
-                          <option background="black" color="white" value="sports" onClick={ () => { this.setState({ category: "Sports" }) } }>Sports</option>
+                          <option background="black" color="white" value="politics" onClick={() => { this.setState({ category: "Politics" }) }}>Politics</option>
+                          <option background="black" color="white" value="technology" onClick={() => { this.setState({ category: "Technology" }) }}>Technology</option>
+                          <option background="black" color="white" value="sports" onClick={() => { this.setState({ category: "Sports" }) }}>Sports</option>
                         </Select>
                       </InputGroup>
                     </FormControl>
