@@ -25,8 +25,8 @@ const CheckIfUserSignedIn = () => {
                 <DefaultNav />
                 <Alert status="error" margin="30px" mx="470px">
                     <AlertIcon />
-                    <AlertTitle mr={2}>Your browser is outdated!</AlertTitle>
-                    <AlertDescription>Your Chakra experience may be degraded.</AlertDescription>
+                    <AlertTitle mr={2}>Uh Oh!</AlertTitle>
+                    <AlertDescription>You Were Not Able To Login! Try Again Or Try Again Later. If The Problem Persists, Contact Our Support.</AlertDescription>
                     <CloseButton position="absolute" right="8px" top="8px" />
                 </Alert>
             </ThemeProvider>
