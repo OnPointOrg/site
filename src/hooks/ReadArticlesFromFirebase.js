@@ -10,23 +10,29 @@ const getDocs = () => {
         querySnapshot.forEach((doc) => {
             console.log(doc.id + ' ========== ' + doc.data());
             const article = doc.data();
-            console.log(article.title);
-            console.log(article.category);
-            console.log(article.user);
-            console.log(article.content.blocks[0].type)
-            console.log(article.content.blocks[0].data.text)
-            const contentType = article.content.blocks[0].type
-            const content = article.content.blocks[0].data.text
+            // console.log(article.title);
+            // console.log(article.category);
+            // console.log(article.user);
+            // console.log(article.content.blocks[0].type)
+            // console.log(article.content.blocks[0].data.text)
 
-            switch(content) {
-                case "paragraph":
-                    createElement('Text', content)
-                    break;
-                case "header":
-                    createElement('Heading', content)
-                    break;
-                case "list":
-                    createElement('List', content)
+            let contentBlockLength = article.content.blocks.length;
+            for (let i = 0; i < contentBlockLength; i++) {
+                const contentType = article.content.blocks[i].type
+                const content = article.content.blocks[i].data.text
+
+                switch (contentType) {  
+                    case "paragraph":
+                        console.log("-----Element-----")
+                        console.log(createElement('Text', content))
+                    case "header":
+                        createElement('Heading', content)
+                        break;
+                    case "list":
+                        createElement('List', content)
+                        console.log("-----Element-----")
+                        console.log(createElement('List', content))
+                }
             }
         });
     });
