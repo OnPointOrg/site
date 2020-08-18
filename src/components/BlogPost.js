@@ -30,7 +30,7 @@ export const BlogPost = () => {
             textTransform="uppercase"
             ml="2"
           >
-            <Link>Aditya Rawat</Link> &bull;&bull;&bull; <Tooltip label="August 10th, 2020" placement="bottom" hasArrow>08 / 10 / 2020</Tooltip>
+            <Link>{}</Link> &bull;&bull;&bull; <Tooltip label="August 10th, 2020" placement="bottom" hasArrow>08 / 10 / 2020</Tooltip>
           </Box>
         </Box>
 

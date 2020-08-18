@@ -44,7 +44,8 @@ const getDocs = () => {
                         console.log(createElement('List', allItems.join("")))
 
                     case "warning":
-
+                        const warningText = article.content.blocks[i].data.message
+                        const warningTitle = article.content.blocks[i].data.title
                 }
             }
         });
