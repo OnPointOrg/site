@@ -123,12 +123,6 @@ class SignIn extends React.Component {
                     </InputGroup>
                     <Text fontSize="xs">{this.state.passwordError}</Text>
                   </FormControl>
-
-                  <Stack isInline justifyContent="space-between" mt={4}>
-                    <Box>
-                      <Checkbox>Remember Me</Checkbox>
-                    </Box>
-                  </Stack>
                   <Button
                     type="submit"
                     variantColor={VARIANT_COLOR}
