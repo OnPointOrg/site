@@ -22,7 +22,7 @@ import {
 import DefaultNav from "../components/DefaultNav";
 
 import EditorJs from 'react-editor-js';
-import ImageTool from '@editorjs/image';
+// import ImageTool from '@editorjs/image';
 
 import { EDITOR_JS_TOOLS } from '../components/Constants';
 
@@ -191,18 +191,18 @@ export class CreateStory extends Component {
                         articleContent: data
                       })}
                       tools={
-                        EDITOR_JS_TOOLS,
-                        {
-                          image: {
-                            class: ImageTool,
-                            config: {
-                              endpoints: {
-                                byFile: storageReference,
-                                byUrl: storageReference
-                              }
-                            }
-                          }
-                        }
+                        EDITOR_JS_TOOLS//,
+                        // {
+                        //   image: {
+                        //     class: ImageTool,
+                        //     config: {
+                        //       endpoints: {
+                        //         byFile: storageReference,
+                        //         byUrl: storageReference
+                        //       }
+                        //     }
+                        //   }
+                        // }
                       }
                       i18n={{
                         messages: {}
