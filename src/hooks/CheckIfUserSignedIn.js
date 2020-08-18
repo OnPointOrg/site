@@ -23,10 +23,10 @@ const CheckIfUserSignedIn = () => {
         return (
             <ThemeProvider >
                 <DefaultNav />
-                <Alert status="error" margin="30px" mx="470px">
+                <Alert status="error" margin="30px" marginLeft="275px" width="1000px">
                     <AlertIcon />
                     <AlertTitle mr={2}>Uh Oh!</AlertTitle>
-                    <AlertDescription>You Were Not Able To Login! Try Again Or Try Again Later. If The Problem Persists, Contact Our Support.</AlertDescription>
+                    <AlertDescription>You Were Unable To Login! Try Again, Or Try Again Later. If The Problem Persists Contact Support</AlertDescription>
                     <CloseButton position="absolute" right="8px" top="8px" />
                 </Alert>
             </ThemeProvider>
