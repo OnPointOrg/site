@@ -2,6 +2,7 @@ import React from "react";
 import * as firebase from "firebase";
 import DefaultNav from "../components/DefaultNav";
 import VerifiedNav from "../components/VerifiedNav";
+import { Link } from 'react-router-dom'
 
 import {
     Alert,
@@ -9,7 +10,9 @@ import {
     AlertTitle,
     AlertDescription,
     ThemeProvider,
-    CloseButton
+    CloseButton,
+    Link as ChakraLink,
+    Icon
 } from "@chakra-ui/core";
 
 const CheckIfUserSignedIn = () => {
@@ -26,7 +29,7 @@ const CheckIfUserSignedIn = () => {
                 <Alert status="error" margin="30px" marginLeft="275px" width="1000px">
                     <AlertIcon />
                     <AlertTitle mr={2}>Uh Oh!</AlertTitle>
-                    <AlertDescription>You Were Unable To Login! Try Again, Or Try Again Later. If The Problem Persists Contact Support</AlertDescription>
+                    <AlertDescription>You Are Not Signed In! Your Experience May Be Limited! Sign Up <Link to="/signup"><ChakraLink color="teal.500">Here <Icon name="external-link" mx="2px" /></ChakraLink></Link> Sign In <Link to="/signin"><ChakraLink color="teal.500">Here <Icon name="external-link" mx="2px" /></ChakraLink></Link></AlertDescription>
                     <CloseButton position="absolute" right="8px" top="8px" />
                 </Alert>
             </ThemeProvider>
