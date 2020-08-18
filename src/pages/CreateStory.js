@@ -18,17 +18,18 @@ import {
   Select,
   Tooltip
 } from "@chakra-ui/core";
-// import Tags from "@yaireo/tagify/dist/react.tagify" // React-wrapper file
-// import "@yaireo/tagify/dist/tagify.css" // Tagify CSS
+
 import DefaultNav from "../components/DefaultNav";
 
 import EditorJs from 'react-editor-js';
+import ImageTool from '@editorjs/image';
 
 import { EDITOR_JS_TOOLS } from '../components/Constants';
 
-// import getTheUser from '../hooks/GetTheUser';
 import firestoreDatabase from '../firebase/config';
 import firebase from 'firebase';
+const storage = firebase.storage();
+const storageReference = storage.ref()
 
 const VARIANT_COLOR = "teal";
 const timestamp = new Date().getTime();
@@ -189,7 +190,20 @@ export class CreateStory extends Component {
                       onChange={(data) => this.setState({
                         articleContent: data
                       })}
-                      tools={EDITOR_JS_TOOLS}
+                      tools={
+                        EDITOR_JS_TOOLS,
+                        {
+                          image: {
+                            class: ImageTool,
+                            config: {
+                              endpoints: {
+                                byFile: storageReference,
+                                byUrl: storageReference
+                              }
+                            }
+                          }
+                        }
+                      }
                       i18n={{
                         messages: {}
                       }}

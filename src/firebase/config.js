@@ -13,6 +13,7 @@ const config = {
 
 firebase.initializeApp(config);
 
+// Firestore Initialization
 const firestoreDatabase = firebase.firestore();
 
 export default firestoreDatabase;
