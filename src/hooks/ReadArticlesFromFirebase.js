@@ -57,6 +57,15 @@ const getDocs = () => {
                         const warningElement = createElement('Alert', allWarningContent.join(""), ' status="warning"')
                         console.log(warningElement);
                         break;
+                    
+                    case "linkTool":
+                        // Will work on when I actually get Link data
+                        console.log("In Link, But It's Being Worked On");
+                        break;
+                    
+                    case "raw":
+                        const theHtml = article.content.blocks[i].data.html
+                        const 
                 }
             }
         });
