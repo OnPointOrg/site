@@ -9,14 +9,11 @@ import DefaultNav from "../components/DefaultNav";
 // import VerifiedNav from "../components/VerifiedNav";
 // import BlogPost from '../components/BlogPost';
 
-import BlockQuote from '../components/BlockQuote'
-
 const Account = () => {
   return (
     <ThemeProvider>
       <DefaultNav />
       <h1>My Account Page</h1>
-      <BlockQuote />
     </ThemeProvider>
   );
 };
