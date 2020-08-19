@@ -65,7 +65,6 @@ const getDocs = () => {
                     
                     case "raw":
                         const theHtml = article.content.blocks[i].data.html
-                        const 
                 }
             }
         });
