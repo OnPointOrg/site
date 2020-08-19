@@ -62,12 +62,15 @@ const getDocs = () => {
                         const codeContent = article.content.blocks[i].data.code;
                         createSelfCloseTag('Code', ` children="${codeContent}"`)
                         console.log(createSelfCloseTag('Code', ` children="${codeContent}"`))
+                        break;
 
                     case "linkTool":
                         // Will work on when I actually get Link data
                         console.log("In Link, But It's Being Worked On");
                         break;
 
+                    case "quote":
+                        break;
 
                 }
             }
