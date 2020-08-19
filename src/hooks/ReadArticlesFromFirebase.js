@@ -21,7 +21,7 @@ const getDocs = () => {
                 const contentType = article.content.blocks[i].type
 
 
-                switch (contentType) {  
+                switch (contentType) {
                     case "paragraph":
                         const paragraphText = article.content.blocks[i].data.text
                         console.log("-----Element-----")
@@ -35,7 +35,7 @@ const getDocs = () => {
                         const items = article.content.blocks[i].data.items
                         console.log(items)
                         const allItems = [];
-                        for(let j = 0; j < items.length; j++) {
+                        for (let j = 0; j < items.length; j++) {
                             allItems.push(createElement('ListItem', items[j]));
                             console.log(createElement('ListItem', items[j]))
                         }
@@ -54,30 +54,34 @@ const getDocs = () => {
                         const warningTextElement = createElement('AlertDescription', warningText)
                         const warningIcon = createSelfCloseTag('AlertIcon')
                         const allWarningContent = [warningTextElement, warningTitleElement]
-                        const warningElement = createElement('Alert', allWarningContent.join(""), ' status="warning"')
-                        console.log(warningElement);
+                        createElement('Alert', allWarningContent.join(""), ' status="warning"')
+                        console.log(createElement('Alert', allWarningContent.join(""), ' status="warning"'));
                         break;
-                    
+
+                    case "code":
+                        const codeContent = article.content.blocks[i].data.code;
+                        createSelfCloseTag('Code', ` children="${codeContent}"`)
+                        console.log(createSelfCloseTag('Code', ` children="${codeContent}"`))
+
                     case "linkTool":
                         // Will work on when I actually get Link data
                         console.log("In Link, But It's Being Worked On");
                         break;
-                    
-                    case "raw":
-                        const theHtml = article.content.blocks[i].data.html
+
+
                 }
             }
         });
     });
 }
 
-const createElement = (type, content, attributes="") => {
+const createElement = (type, content, attributes = "") => {
     return (
         `<${type}${attributes}>${content}</${type}>`
     )
 }
 
-const createSelfCloseTag = (type, attributes="") => {
+const createSelfCloseTag = (type, attributes = "") => {
     return (
         `<${type}${attributes} />`
     )
