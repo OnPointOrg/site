@@ -26,11 +26,14 @@ const getDocs = () => {
                         const paragraphText = article.content.blocks[i].data.text
                         console.log("-----Element-----")
                         console.log(createElement('Text', paragraphText))
+                        break;
                     case "header":
                         const headerText = article.content.blocks[i].data.text
                         createElement('Heading', headerText)
+                        break;
                     case "list":
                         const items = article.content.blocks[i].data.items
+                        console.log(items)
                         const allItems = [];
                         for(let j = 0; j < items.length; j++) {
                             allItems.push(createElement('ListItem', items[j]));
@@ -42,23 +45,34 @@ const getDocs = () => {
                         createElement('List', allItems.join(""))
                         console.log("-----Element-----")
                         console.log(createElement('List', allItems.join("")))
+                        break;
 
                     case "warning":
                         const warningText = article.content.blocks[i].data.message
                         const warningTitle = article.content.blocks[i].data.title
+                        const warningTitleElement = createElement('AlertTitle', warningTitle)
+                        const warningTextElement = createElement('AlertDescription', warningText)
+                        const warningIcon = createSelfCloseTag('AlertIcon')
+                        const allWarningContent = [warningTextElement, warningTitleElement]
+                        const warningElement = createElement('Alert', allWarningContent.join(""), ' status="warning"')
+                        console.log(warningElement);
+                        break;
                 }
             }
         });
     });
 }
 
-const createElement = (type, content) => {
+const createElement = (type, content, attributes="") => {
     return (
-        `<${type}>${content}</${type}>`
+        `<${type}${attributes}>${content}</${type}>`
     )
 }
 
-
-
+const createSelfCloseTag = (type, attributes="") => {
+    return (
+        `<${type}${attributes} />`
+    )
+}
 
 export default getDocs;
