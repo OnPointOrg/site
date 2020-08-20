@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   ThemeProvider,
   theme,
@@ -42,9 +42,9 @@ const DefaultNav = (props) => {
       >
         <Flex align="center" mr={5}>
           <Link to="/">
-              <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
-                <Image src={img} width="50px"></Image>
-              </Heading>
+            <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
+              <Image src={img} width="50px"></Image>
+            </Heading>
           </Link>
         </Flex>
 
@@ -66,21 +66,39 @@ const DefaultNav = (props) => {
           alignItems="center"
           flexGrow={1}
         >
-          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+          <Text
+            fontSize="xl"
+            mt={{ base: 4, md: 0 }}
+            mr={6}
+            mt={1.75}
+            display="block"
+          >
             <Link to="/about">
               <Button size="lg" variantColor="teal" variant="ghost">
                 About
               </Button>
             </Link>
           </Text>
-          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+          <Text
+            fontSize="xl"
+            mt={{ base: 4, md: 0 }}
+            mr={6}
+            mt={1.75}
+            display="block"
+          >
             <Link to="/blog">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Blog
               </Button>
             </Link>
           </Text>
-          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+          <Text
+            fontSize="xl"
+            mt={{ base: 4, md: 0 }}
+            mr={6}
+            mt={1.75}
+            display="block"
+          >
             <Link to="/contact">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Contact
@@ -95,18 +113,18 @@ const DefaultNav = (props) => {
         >
           <Flex justifyContent="space-between" color="gray.500">
             <Menu>
-            <ButtonGroup>
-                <Link  to="/signin">
-                    <Button marginRight="20px" size="lg" variant="solid">
-                        Sign In
-                    </Button>
+              <ButtonGroup>
+                <Link to="/signin">
+                  <Button marginRight="20px" size="lg" variant="solid">
+                    Sign In
+                  </Button>
                 </Link>
                 <Link to="/signup">
-                    <Button size="lg" variant="outline">
-                        Sign Up
-                    </Button>
+                  <Button size="lg" variant="outline">
+                    Sign Up
+                  </Button>
                 </Link>
-            </ButtonGroup>
+              </ButtonGroup>
             </Menu>
             <Divider orientation="vertical" />
             <DarkModeLightModeButton />

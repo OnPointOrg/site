@@ -17,7 +17,13 @@ export class AboutUs extends Component {
       <ThemeProvider theme={theme}>
         <DefaultNav />
         <Heading textAlign="center" fontSize="100px">
-          <span role="image" aria-label="Handwave">👋</span> Welcome <span role="image" aria-label="Handwave">👋</span>
+          <span role="image" aria-label="Handwave">
+            👋
+          </span>{" "}
+          Welcome{" "}
+          <span role="image" aria-label="Handwave">
+            👋
+          </span>
         </Heading>
         <br />
         <Heading textAlign="center" fontSize="65px">

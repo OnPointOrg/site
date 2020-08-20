@@ -16,38 +16,36 @@ import {
   InputGroup,
   SimpleGrid,
   Select,
-  Tooltip
+  Tooltip,
 } from "@chakra-ui/core";
 
 import DefaultNav from "../components/DefaultNav";
 
-import EditorJs from 'react-editor-js';
+import EditorJs from "react-editor-js";
 // import ImageTool from '@editorjs/image';
 
-import { EDITOR_JS_TOOLS } from '../components/Constants';
+import { EDITOR_JS_TOOLS } from "../components/Constants";
 
-import firestoreDatabase from '../firebase/config';
-import firebase from 'firebase';
+import firestoreDatabase from "../firebase/config";
+import firebase from "firebase";
 const storage = firebase.storage();
-const storageReference = storage.ref()
+const storageReference = storage.ref();
 
 const VARIANT_COLOR = "teal";
 const timestamp = new Date().getTime();
 const milliseconds = timestamp * 1000;
 const dateObj = new Date(milliseconds);
-const normalDate = dateObj.toLocaleString()
+const normalDate = dateObj.toLocaleString();
 const instanceRef = createRef();
 
-
 export class CreateStory extends Component {
-
   state = {
     title: "",
     category: "",
     summary: "",
     articleContent: "",
     user: "",
-  }
+  };
 
   getTheUserUID = () => {
     const firebaseUser = firebase.auth().currentUser;
@@ -56,15 +54,15 @@ export class CreateStory extends Component {
       // const email = firebaseUser.email;
       // const photoUrl = firebaseUser.photoURL;
       // const emailVerified = user.emailVerified
-      const uid = firebaseUser.uid
-      console.log(uid)
+      const uid = firebaseUser.uid;
+      console.log(uid);
       this.setState({
-        user: uid
-      })
+        user: uid,
+      });
     } else {
-      alert("Please Sign In!")
+      alert("Please Sign In!");
     }
-  }
+  };
 
   handleChange = (e) => {
     this.setState({
@@ -79,32 +77,35 @@ export class CreateStory extends Component {
   };
 
   handleSave = () => {
-    this.getTheUserUID()
+    this.getTheUserUID();
     const savedData = instanceRef.current.save();
     console.log("Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ");
-    console.log(typeof (savedData))
+    console.log(typeof savedData);
     console.log(savedData); // <<< --- Should Be A Promise
-    savedData.then((outputData) => {
-      console.log('Article data: ', outputData)
-      this.setState({
-        articleContent: outputData
+    savedData
+      .then((outputData) => {
+        console.log("Article data: ", outputData);
+        this.setState({
+          articleContent: outputData,
+        });
       })
-    }).catch((error) => {
-      console.log('Saving failed: ', error)
-    });
-  }
-
+      .catch((error) => {
+        console.log("Saving failed: ", error);
+      });
+  };
 
   writeArticleData() {
     //const userRef = database.ref("users");
     // Add a second document with a generated ID.
-    firestoreDatabase.collection("articles").add({
-      title: this.state.title,
-      category: this.state.category,
-      summary: this.state.summary,
-      content: this.state.articleContent,
-      user: this.state.user
-    })
+    firestoreDatabase
+      .collection("articles")
+      .add({
+        title: this.state.title,
+        category: this.state.category,
+        summary: this.state.summary,
+        content: this.state.articleContent,
+        user: this.state.user,
+      })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
       })
@@ -114,8 +115,8 @@ export class CreateStory extends Component {
   }
 
   handleEditorChange = (content, editor) => {
-    console.log('Content was updated:', content);
-  }
+    console.log("Content was updated:", content);
+  };
 
   render() {
     return (
@@ -127,7 +128,19 @@ export class CreateStory extends Component {
               <Box textAlign="center">
                 <Text>New Article</Text>
                 <Heading>Share The Story</Heading>
-                <Text fontSize="xs">Before You Submit. <Tooltip label="Need To Add Document Of Requirements Here Later"><ChakraLink href="https://www.google.com" color="teal.500" isExternal>Check The Requirements Here <Icon name="external-link" mx="2px" /></ChakraLink></Tooltip></Text>
+                <Text fontSize="xs">
+                  Before You Submit.{" "}
+                  <Tooltip label="Need To Add Document Of Requirements Here Later">
+                    <ChakraLink
+                      href="https://www.google.com"
+                      color="teal.500"
+                      isExternal
+                    >
+                      Check The Requirements Here{" "}
+                      <Icon name="external-link" mx="2px" />
+                    </ChakraLink>
+                  </Tooltip>
+                </Text>
               </Box>
               <Box mt={1} textAlign="left">
                 <form onSubmit={this.handleSubmit}>
@@ -144,7 +157,7 @@ export class CreateStory extends Component {
                           onChange={this.handleChange}
                           type="text"
                           placeholder="A Very Interesting Title"
-                        // value={this.state.email}
+                          // value={this.state.email}
                         />
                       </InputGroup>
                     </FormControl>
@@ -158,9 +171,36 @@ export class CreateStory extends Component {
                           type="text"
                           placeholder="Select Category"
                         >
-                          <option background="black" color="white" value="politics" onClick={() => { this.setState({ category: "Politics" }) }}>Politics</option>
-                          <option background="black" color="white" value="technology" onClick={() => { this.setState({ category: "Technology" }) }}>Technology</option>
-                          <option background="black" color="white" value="sports" onClick={() => { this.setState({ category: "Sports" }) }}>Sports</option>
+                          <option
+                            background="black"
+                            color="white"
+                            value="politics"
+                            onClick={() => {
+                              this.setState({ category: "Politics" });
+                            }}
+                          >
+                            Politics
+                          </option>
+                          <option
+                            background="black"
+                            color="white"
+                            value="technology"
+                            onClick={() => {
+                              this.setState({ category: "Technology" });
+                            }}
+                          >
+                            Technology
+                          </option>
+                          <option
+                            background="black"
+                            color="white"
+                            value="sports"
+                            onClick={() => {
+                              this.setState({ category: "Sports" });
+                            }}
+                          >
+                            Sports
+                          </option>
                         </Select>
                       </InputGroup>
                     </FormControl>
@@ -176,22 +216,33 @@ export class CreateStory extends Component {
                         width="100%"
                         type="text"
                         placeholder="A Summary Of What You Are Talking About. Make It Catchy If You Want Your Articles To Be Read!"
-                      // value={this.state.email}
+                        // value={this.state.email}
                       />
                     </InputGroup>
                   </FormControl>
-                  <Box borderWidth="1px" rounded="lg" width="800px" padding="20px" background="white" color="black">
+                  <Box
+                    borderWidth="1px"
+                    rounded="lg"
+                    width="800px"
+                    padding="20px"
+                    background="white"
+                    color="black"
+                  >
                     <EditorJs
-                      instanceRef={instance => (instanceRef.current = instance)}
+                      instanceRef={(instance) =>
+                        (instanceRef.current = instance)
+                      }
                       id="content"
                       value={this.state.content}
                       color="black"
                       autofocus
-                      onChange={(data) => this.setState({
-                        articleContent: data
-                      })}
+                      onChange={(data) =>
+                        this.setState({
+                          articleContent: data,
+                        })
+                      }
                       tools={
-                        EDITOR_JS_TOOLS//,
+                        EDITOR_JS_TOOLS //,
                         // {
                         //   image: {
                         //     class: ImageTool,
@@ -205,11 +256,11 @@ export class CreateStory extends Component {
                         // }
                       }
                       i18n={{
-                        messages: {}
+                        messages: {},
                       }}
                       // onReady={() => console.log()}
                       data={{
-                        "time": normalDate
+                        time: normalDate,
                       }}
                     />
                   </Box>
@@ -240,5 +291,3 @@ export class CreateStory extends Component {
 }
 
 export default CreateStory;
-
-

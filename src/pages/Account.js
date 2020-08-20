@@ -1,9 +1,7 @@
 import React from "react";
 // import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
 
-import {
-  ThemeProvider,
-} from "@chakra-ui/core";
+import { ThemeProvider } from "@chakra-ui/core";
 
 import DefaultNav from "../components/DefaultNav";
 // import VerifiedNav from "../components/VerifiedNav";

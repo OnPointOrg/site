@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   ThemeProvider,
   theme,
@@ -21,7 +21,6 @@ import {
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../images/logo.png";
-
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -73,21 +72,39 @@ const VerifiedNav = (props) => {
           alignItems="center"
           flexGrow={1}
         >
-          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+          <Text
+            fontSize="xl"
+            mt={{ base: 4, md: 0 }}
+            mr={6}
+            mt={1.75}
+            display="block"
+          >
             <Link to="/about">
               <Button size="lg" variantColor="teal" variant="ghost">
                 About
               </Button>
             </Link>
           </Text>
-          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+          <Text
+            fontSize="xl"
+            mt={{ base: 4, md: 0 }}
+            mr={6}
+            mt={1.75}
+            display="block"
+          >
             <Link to="/blog">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Blog
               </Button>
             </Link>
           </Text>
-          <Text fontSize="xl" mt={{ base: 4, md: 0 }} mr={6} mt={1.75} display="block">
+          <Text
+            fontSize="xl"
+            mt={{ base: 4, md: 0 }}
+            mr={6}
+            mt={1.75}
+            display="block"
+          >
             <Link to="/contact">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Contact
@@ -112,16 +129,28 @@ const VerifiedNav = (props) => {
                 marginRight="2px"
                 marginLeft="-2px"
               >
-                <Avatar marginRight="10px" size="xs" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" /> Profile <Icon name="chevron-down" />
+                <Avatar
+                  marginRight="10px"
+                  size="xs"
+                  name="Dan Abrahmov"
+                  src="https://bit.ly/dan-abramov"
+                />{" "}
+                Profile <Icon name="chevron-down" />
               </MenuButton>
               <MenuList>
                 <MenuGroup title="Profile">
-                  <MenuItem><Link to="/account">My Account</Link></MenuItem>
-                  <MenuItem><Link to="/dashboard">Dashboard</Link></MenuItem>
+                  <MenuItem>
+                    <Link to="/account">My Account</Link>
+                  </MenuItem>
+                  <MenuItem>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </MenuItem>
                 </MenuGroup>
                 <MenuDivider />
                 <MenuGroup title="Actions">
-                  <MenuItem><Link to="newstory">New Story</Link></MenuItem>
+                  <MenuItem>
+                    <Link to="newstory">New Story</Link>
+                  </MenuItem>
                 </MenuGroup>
                 <MenuDivider />
                 <MenuGroup title="Danger Zone">

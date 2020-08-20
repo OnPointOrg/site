@@ -7,7 +7,7 @@ import {
   Collapse,
   Button,
   Link,
-  Tooltip
+  Tooltip,
 } from "@chakra-ui/core";
 
 export const BlogPost = () => {
@@ -30,7 +30,10 @@ export const BlogPost = () => {
             textTransform="uppercase"
             ml="2"
           >
-            <Link>{}</Link> &bull;&bull;&bull; <Tooltip label="August 10th, 2020" placement="bottom" hasArrow>08 / 10 / 2020</Tooltip>
+            <Link>{}</Link> &bull;&bull;&bull;{" "}
+            <Tooltip label="August 10th, 2020" placement="bottom" hasArrow>
+              08 / 10 / 2020
+            </Tooltip>
           </Box>
         </Box>
 
@@ -54,12 +57,17 @@ export const BlogPost = () => {
               helvetica, craft beer labore wes anderson cred nesciunt sapiente
               ea proident.
             </Collapse>
-            <Button size="sm" onClick={handleToggle} mt="1rem" variant="outline">
+            <Button
+              size="sm"
+              onClick={handleToggle}
+              mt="1rem"
+              variant="outline"
+            >
               Show {show ? "Less" : "More"}
             </Button>
           </Box>
           <Button size="sm" ml="10px" mt="1rem" variant="ghost">
-              <Link>Read More</Link>
+            <Link>Read More</Link>
           </Button>
         </Box>
       </Box>

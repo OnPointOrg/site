@@ -6,7 +6,7 @@ const DarkModeLightModeButton = () => {
   return (
     <div>
       <IconButton
-      size="lg"
+        size="lg"
         aria-label={`Switch to ${
           colorMode === "light" ? "dark" : "light"
         } mode`}

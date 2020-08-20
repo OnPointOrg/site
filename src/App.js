@@ -14,7 +14,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
 import CreateStory from "./pages/CreateStory";
-import Dashboard from './pages/Dashboard';
+import Dashboard from "./pages/Dashboard";
 
 export class App extends Component {
   render() {
@@ -39,6 +39,6 @@ export class App extends Component {
       </ThemeProvider>
     );
   }
-};
+}
 
 export default App;
