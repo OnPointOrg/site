@@ -10,6 +10,10 @@ import {
   Tooltip,
 } from "@chakra-ui/core";
 
+import firebase from "firebase";
+import firestoreDatabase from "../firebase/config";
+
+
 export const BlogPost = () => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
@@ -52,10 +56,7 @@ export const BlogPost = () => {
         <Box>
           <Box as="span" color="white.600" fontSize="sm">
             <Collapse startingHeight={20} isOpen={show}>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life
-              accusamus terry richardson ad squid. Nihil anim keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt sapiente
-              ea proident.
+              {  }
             </Collapse>
             <Button
               size="sm"
