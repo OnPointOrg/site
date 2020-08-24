@@ -3,6 +3,8 @@ import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
 import { Heading, List } from "@chakra-ui/core";
 
+export const articles = []
+
 const getDocs = () => {
     firestoreDatabase
         .collection("articles")
@@ -13,6 +15,9 @@ const getDocs = () => {
             querySnapshot.forEach((doc) => {
                 console.log(doc.id + " ========== " + doc.data());
                 const article = doc.data();
+                articles.push(article)
+                // console.log('Article Information ------')
+                // console.log(articles)
                 console.log(article.title);
                 console.log(article.category);
                 console.log(article.user);
@@ -103,6 +108,9 @@ const getDocs = () => {
                     }
                 }
             });
+            console.log("ARTICLE TYPE -----------------")
+            console.log(typeof articles)
+            console.log(articles.length)
         });
 };
 
@@ -120,4 +128,4 @@ const createQuoteElement = (quote, credits) => {
           `;
 };
 
-export default getDocs;
+export default getDocs

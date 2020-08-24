@@ -259,9 +259,7 @@ export class CreateStory extends Component {
                         messages: {},
                       }}
                       // onReady={() => console.log()}
-                      data={{
-                        time: normalDate,
-                      }}
+                      data={{}}
                     />
                   </Box>
                   <SimpleGrid columns={3} spacing={10}>

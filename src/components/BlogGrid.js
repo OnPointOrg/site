@@ -6,10 +6,35 @@ import {
   Heading,
   Box,
   Divider,
+  Button,
 } from "@chakra-ui/core";
 import BlogPost from "./BlogPost";
 
+import getDocs, { articles } from "../hooks/ReadArticlesFromFirebase";
+
+import firestoreDatabase from "../firebase/config";
+
 export class BlogGrid extends Component {
+  state = {
+    articles: null,
+  };
+
+  componentDidMount = () => {
+    firestoreDatabase
+      .collection("articles")
+      .get()
+      .then((querySnapshot) => {
+        const articles = [];
+        querySnapshot.forEach((doc) => {
+          const article = doc.data();
+          articles.push(article);
+        });
+        this.setState({
+          articles: articles,
+        });
+      });
+  };
+
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -26,14 +51,17 @@ export class BlogGrid extends Component {
           </Heading>
           <Divider />
           <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
-            <BlogPost />
-            <BlogPost />
-            <BlogPost />
-            <BlogPost />
-            <BlogPost />
-            <BlogPost />
-            <BlogPost />
-            <BlogPost />
+            {this.state.articles != null &&
+              this.state.articles.map((article) => {
+                return (
+                  <BlogPost
+                    title={article.title}
+                    summary={article.summary}
+                    date={article.content.time}
+                    user={article.content.user}
+                  />
+                );
+              })}
           </Grid>
         </Box>
       </ThemeProvider>
