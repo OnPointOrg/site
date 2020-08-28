@@ -68,6 +68,19 @@ export class BlogPost extends React.Component {
             {this.props.title}
           </Box>
 
+          <Box
+            marginTop="5"
+            marginBottom="5"
+            marginLeft="2px"
+            fontWeight="semibold"
+            as="h4"
+            lineHeight="tight"
+            isTruncated
+          >
+            {this.props.user}
+            {console.log(this.props.user)}
+          </Box>
+
           <Box>
             <Box as="span" color="white.600" fontSize="sm">
               <Collapse startingHeight={20} isOpen={this.state.show}>
