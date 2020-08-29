@@ -21,6 +21,7 @@ import {
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../images/logo.png";
+import firebase from 'firebase'
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -36,6 +37,14 @@ const newTheme = {
 const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
+  const signOut = () => {
+    firebase.auth().signOut().then(() => {
+      console.log("Signed Out")
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
+
   return (
     <ThemeProvider theme={newTheme}>
       <Flex
