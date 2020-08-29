@@ -12,6 +12,11 @@ import {
 } from "@chakra-ui/core";
 
 export class BlogPost extends React.Component {
+
+  constructor(props) {
+    super(props)
+    console.log(this.props)
+  }
   state = {
     show: false,
   };
@@ -51,8 +56,8 @@ export class BlogPost extends React.Component {
               textTransform="uppercase"
               ml="2"
             >
-              {this.props.user} &bull;&bull;&bull;{" "}
-              {this.convertFromUnix(this.props.date)}
+              {/* {console.log(this.props.user)} */}
+              {this.props.user} &bull;&bull;&bull;{this.convertFromUnix(this.props.date)}
             </Box>
           </Box>
 
@@ -67,20 +72,6 @@ export class BlogPost extends React.Component {
           >
             {this.props.title}
           </Box>
-
-          <Box
-            marginTop="5"
-            marginBottom="5"
-            marginLeft="2px"
-            fontWeight="semibold"
-            as="h4"
-            lineHeight="tight"
-            isTruncated
-          >
-            {this.props.user}
-            {console.log(this.props.user)}
-          </Box>
-
           <Box>
             <Box as="span" color="white.600" fontSize="sm">
               <Collapse startingHeight={20} isOpen={this.state.show}>
