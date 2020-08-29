@@ -13,10 +13,10 @@ import {
 
 export class BlogPost extends React.Component {
 
-  constructor(props) {
-    super(props)
-    console.log(this.props)
-  }
+  // constructor(props) {
+  //   super(props)
+  //   console.log(this.props)
+  // }
   state = {
     show: false,
   };
@@ -36,6 +36,10 @@ export class BlogPost extends React.Component {
       date
     )
   };
+
+  displayRealName = () => {
+    const displayName = this.props.user.displayName;
+  }
 
   componentDidMount = () => {};
 
@@ -57,7 +61,7 @@ export class BlogPost extends React.Component {
               ml="2"
             >
               {/* {console.log(this.props.user)} */}
-              {this.props.user} &bull;&bull;&bull;{this.convertFromUnix(this.props.date)}
+              {this.displayRealName} &bull;&bull;&bull;{this.convertFromUnix(this.props.date)}
             </Box>
           </Box>
 
