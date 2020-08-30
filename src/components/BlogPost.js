@@ -73,8 +73,8 @@ export class BlogPost extends React.Component {
               textTransform="uppercase"
               ml="2"
             >
-              {/* {console.log(this.props.user)} */}
-              {this.displayRealName} &bull;&bull;&bull;{this.convertFromUnix(this.props.date)}
+              {console.log(this.props.user)}
+              {this.props.user} &bull;&bull;&bull;{this.convertFromUnix(this.props.date)}
             </Box>
           </Box>
 
