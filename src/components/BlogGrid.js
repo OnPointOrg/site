@@ -58,7 +58,7 @@ export class BlogGrid extends Component {
                     title={article.title}
                     summary={article.summary}
                     date={article.content.time}
-                    user={article.user}
+                    user={article.content.user}
                   />
                 );
               })}

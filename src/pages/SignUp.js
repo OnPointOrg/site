@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Profiler } from "react";
 import { Component } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { Link } from "react-router-dom";
@@ -53,12 +53,31 @@ class SignUp extends Component {
     // console.log(this.state);
   };
 
+  // setUserInfo = () => {
+  //   const user = firebase.auth().currentUser;
+
+  //   user.updateProfile({
+  //     displayName: "Jane Q. User",
+  //     photoURL: "https://example.com/jane-q-user/profile.jpg"
+  //   }).then(function () {
+  //     // Update successful.
+  //   }).catch(function (error) {
+  //     // An error happened.
+  //   });
+  // }
+
   signUpSubmit = () => {
     const email = this.state.email;
     const password = this.state.password;
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        return result.user.updateProfile({
+          displayName: this.state.fullName
+        })
+        console.log("Full Name " + result.displayName)
+      })
       .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;

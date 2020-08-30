@@ -39,14 +39,14 @@ export class BlogPost extends React.Component {
   };
 
   displayRealName = () => {
-    const displayName = this.props.user.displayName;
+    const displayName = this.props.user.displayName
   }
 
   componentDidMount = () => {
     const user = firebase.auth().currentUser;
 
     if (user != null) {
-      user.providerData.forEach(function (profile) {
+      user.providerData.forEach((profile) => {
         console.log("Sign-in provider: " + profile.providerId);
         console.log("  Provider-specific UID: " + profile.uid);
         console.log("  Name: " + profile.displayName);
