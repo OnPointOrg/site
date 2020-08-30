@@ -44,20 +44,22 @@ export class CreateStory extends Component {
     category: "",
     summary: "",
     articleContent: "",
-    user: "",
+    useruid: "",
+    username: "",
   };
 
-  getTheUserUID = () => {
+  getTheUserInformation = () => {
     const firebaseUser = firebase.auth().currentUser;
     if (firebaseUser != null) {
-      // const name = firebaseUser.displayName;
+      const name = firebaseUser.displayName;
       // const email = firebaseUser.email;
       // const photoUrl = firebaseUser.photoURL;
       // const emailVerified = user.emailVerified
       const uid = firebaseUser.uid;
       console.log(uid);
       this.setState({
-        user: uid,
+        useruid: uid,
+        username: name
       });
     } else {
       alert("Please Sign In!");
@@ -77,7 +79,7 @@ export class CreateStory extends Component {
   };
 
   handleSave = () => {
-    this.getTheUserUID();
+    this.getTheUserInformation();
     const savedData = instanceRef.current.save();
     console.log("Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ");
     console.log(typeof savedData);
@@ -104,7 +106,8 @@ export class CreateStory extends Component {
         category: this.state.category,
         summary: this.state.summary,
         content: this.state.articleContent,
-        user: this.state.user,
+        useruid: this.state.useruid,
+        username: this.state.username
       })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
