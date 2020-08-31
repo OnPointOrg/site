@@ -16,32 +16,6 @@ export class AboutUs extends Component {
     return (
       <ThemeProvider theme={theme}>
         <DefaultNav />
-        <Heading textAlign="center" fontSize="100px">
-          <span role="image" aria-label="Handwave">
-            👋
-          </span>{" "}
-          Welcome{" "}
-          <span role="image" aria-label="Handwave">
-            👋
-          </span>
-        </Heading>
-        <br />
-        <Heading textAlign="center" fontSize="65px">
-          We Are OnPoint
-        </Heading>
-        <SimpleGrid columns={4}>
-          <Box width="50%"></Box>
-          <Box width="200%">
-            <Image
-              src={teamimg}
-              width="100%"
-              marginTop="50px"
-              marginBottom="50px"
-            ></Image>
-          </Box>
-          <Box width="10%"></Box>
-          <Box width="50%"></Box>
-        </SimpleGrid>
         <Heading as="h1" textAlign="center" fontSize="75px">
           Why?
         </Heading>
