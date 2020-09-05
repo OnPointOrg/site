@@ -42,7 +42,7 @@ export class BlogGrid extends Component {
         <Box margin="15px">
           <Heading
             as="h1"
-            fontSize="100px"
+            fontSize="50px"
             textAlign="center"
             marginBottom="25px"
             marginTop="25px"

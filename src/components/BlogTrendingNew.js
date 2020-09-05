@@ -21,39 +21,64 @@ export class BlogTrendingNew extends Component {
   }
 
   componentDidMount = () => {
-      firestoreDatabase
-        .collection("articles")
-        .get()
-        .then((querySnapshot) => {
-          const articles = [];
-          querySnapshot.forEach((doc) => {
-            const article = doc.data();
-            articles.push(article);
-          });
-          this.setState({
-            articles: articles,
-          });
+    firestoreDatabase
+      .collection("articles")
+      .get()
+      .then((querySnapshot) => {
+        const articles = [];
+        querySnapshot.forEach((doc) => {
+          const article = doc.data();
+          articles.push(article);
         });
+        this.setState({
+          articles: articles,
+        });
+      });
   };
 
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <Box margin="25px">
-          <Flex align="center">
-            <Flex>
-              <Heading fontSize="35px">Trending Articles</Heading>
-            </Flex>
-            <Flex width="600px" align="center" justify="center" />
-            <Heading fontSize="35px">New Articles</Heading>
-          </Flex>
+        <Box margin="15px">
+          <Heading
+            as="h1"
+            fontSize="50px"
+            textAlign="center"
+            marginBottom="25px"
+            marginTop="25px"
+          >
+            Trending Articles
+          </Heading>
+          <Divider />
+          <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
+            {this.state.articles != null &&
+              this.state.articles.slice(0, 4).map((article) => {
+                return (
+                  <BlogPost
+                    title={article.title}
+                    summary={article.summary}
+                    date={article.content.time}
+                    user={article.username}
+                  />
+                );
+              })}
+          </Grid>
         </Box>
         <Divider />
-        <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-          <Box margin="50px">
-            <Flex align="center">
+        <Box margin="15px">
+        <Heading
+            as="h1"
+            fontSize="50px"
+            textAlign="center"
+            marginBottom="25px"
+            marginTop="25px"
+          >
+            New Articles
+          </Heading>
+          <Divider />
+          <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
             {this.state.articles != null &&
-              this.state.articles.map((article) => {
+              this.state.articles.slice(0,4).map((article) => {
                 return (
                   <BlogPost
                     title={article.title}
@@ -63,28 +88,9 @@ export class BlogTrendingNew extends Component {
                   />
                 );
               })}
-              <Flex marginRight="15px" />
-              {this.state.articles != null &&
-              this.state.articles.map((article) => {
-                return (
-                  <BlogPost
-                    title={article.title}
-                    summary={article.summary}
-                    date={article.content.time}
-                    user={article.username}
-                  />
-                );
-              })}
-            </Flex>
-          </Box>
-          <Box margin="50px">
-            <Flex align="center">
-              <BlogPost />
-              <Flex marginRight="15px" />
-              <BlogPost />
-            </Flex>
-          </Box>
-        </Grid>
+          </Grid>
+        </Box>
+
       </ThemeProvider>
     );
   }
