@@ -6,14 +6,13 @@ import {
   Image,
   Collapse,
   Button,
-  Link,
   Tooltip,
   Text,
 } from "@chakra-ui/core";
-import firebase from 'firebase'
+import firebase from "firebase";
+import { Link } from "react-router-dom";
 
 export class BlogPost extends React.Component {
-
   // constructor(props) {
   //   super(props)
   //   console.log(this.props)
@@ -29,18 +28,15 @@ export class BlogPost extends React.Component {
   };
 
   convertFromUnix = (date) => {
-
     const dateObject = new Date(date);
 
     date = dateObject.toLocaleString();
-    return (
-      date
-    )
+    return date;
   };
 
   displayRealName = () => {
-    const displayName = this.props.user.displayName
-  }
+    const displayName = this.props.user.displayName;
+  };
 
   componentDidMount = () => {
     const user = firebase.auth().currentUser;
@@ -74,7 +70,8 @@ export class BlogPost extends React.Component {
               ml="2"
             >
               {console.log(this.props.user)}
-              {this.props.user} &bull;&bull;&bull;{this.convertFromUnix(this.props.date)}
+              {this.props.user} &bull;&bull;&bull;
+              {this.convertFromUnix(this.props.date)}
             </Box>
           </Box>
 
@@ -104,7 +101,8 @@ export class BlogPost extends React.Component {
               </Button>
             </Box>
             <Button size="sm" ml="10px" mt="1rem" variant="ghost">
-              <Link>Read More</Link>
+              { console.log("PROPS DOC ID ===================" + this.props.docId) }
+              <Link to={ () => `/blog/${this.props.docId}` }>Read More</Link>
             </Button>
           </Box>
         </Box>

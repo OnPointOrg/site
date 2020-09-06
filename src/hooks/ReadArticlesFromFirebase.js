@@ -3,129 +3,132 @@ import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
 import { Heading, List } from "@chakra-ui/core";
 
-export const articles = []
+export const articles = [];
 
-const getDocs = () => {
-    firestoreDatabase
-        .collection("articles")
-        .get()
-        .then((querySnapshot) => {
-            console.log("All Articles From Firebase");
-            console.log("---------------------------------------------------");
-            querySnapshot.forEach((doc) => {
-                console.log(doc.id + " ========== " + doc.data());
-                const article = doc.data();
-                articles.push(article)
-                // console.log('Article Information ------')
-                // console.log(articles)
-                console.log(article.title);
-                console.log(article.category);
-                console.log(article.user);
-                console.log(article.content.blocks[0].type);
-                console.log(article.content.blocks[0].data.text);
+const getDocs = (articleID) => {
+  console.log("Article ID: " + articleID);
+  firestoreDatabase
+    .collection("articles")
+    .doc(articleID)
+    .get()
+    .then((querySnapshot) => {
+      console.log("Article " + articleID + " From Firebase");
+      console.log("---------------------------------------------------");
+        console.log(articleID + " ========== " + querySnapshot.data());
+        const article = querySnapshot.data();
+        articles.push(article);
+        console.log("This Is Article JSON");
+        console.log(querySnapshot.id);
+        // console.log('Article Information ------')
+        // console.log(articles)
+        console.log(article.title);
+        console.log(article.category);
+        console.log(article.username);
+        // console.log(article.content.blocks[0].type);
+        // console.log(article.content.blocks[0].data.text);
+        console.log();
 
-                let contentBlockLength = article.content.blocks.length;
-                for (let i = 0; i < contentBlockLength; i++) {
-                    const contentType = article.content.blocks[i].type;
+        let contentBlockLength = article.content.blocks.length;
+        for (let i = 0; i < contentBlockLength; i++) {
+          const contentType = article.content.blocks[i].type;
 
-                    switch (contentType) {
-                        case "paragraph":
-                            const paragraphText = article.content.blocks[i].data.text;
-                            console.log("-----Element-----");
-                            console.log(createElement("Text", paragraphText));
-                            break;
+          switch (contentType) {
+            case "paragraph":
+              const paragraphText = article.content.blocks[i].data.text;
+              console.log("-----Element-----");
+              console.log(createElement("Text", paragraphText));
+              break;
 
-                        case "header":
-                            const headerText = article.content.blocks[i].data.text;
-                            createElement("Heading", headerText);
-                            break;
+            case "header":
+              const headerText = article.content.blocks[i].data.text;
+              createElement("Heading", headerText);
+              break;
 
-                        case "list":
-                            const items = article.content.blocks[i].data.items;
-                            console.log(items);
-                            const allItems = [];
-                            for (let j = 0; j < items.length; j++) {
-                                allItems.push(createElement("ListItem", items[j]));
-                                console.log(createElement("ListItem", items[j]));
-                            }
+            case "list":
+              const items = article.content.blocks[i].data.items;
+              console.log(items);
+              const allItems = [];
+              for (let j = 0; j < items.length; j++) {
+                allItems.push(createElement("ListItem", items[j]));
+                console.log(createElement("ListItem", items[j]));
+              }
 
-                            const listArray = [];
+              const listArray = [];
 
-                            createElement("List", allItems.join(""));
-                            console.log("-----Element-----");
-                            console.log(createElement("List", allItems.join("")));
-                            break;
+              createElement("List", allItems.join(""));
+              console.log("-----Element-----");
+              console.log(createElement("List", allItems.join("")));
+              break;
 
-                        case "warning":
-                            const warningText = article.content.blocks[i].data.message;
-                            const warningTitle = article.content.blocks[i].data.title;
-                            const warningTitleElement = createElement(
-                                "AlertTitle",
-                                warningTitle
-                            );
-                            const warningTextElement = createElement(
-                                "AlertDescription",
-                                warningText
-                            );
-                            const warningIcon = createSelfCloseTag("AlertIcon");
-                            const allWarningContent = [
-                                warningTextElement,
-                                warningTitleElement,
-                            ];
-                            createElement(
-                                "Alert",
-                                allWarningContent.join(""),
-                                ' status="warning"'
-                            );
-                            console.log(
-                                createElement(
-                                    "Alert",
-                                    allWarningContent.join(""),
-                                    ' status="warning"'
-                                )
-                            );
-                            break;
+            case "warning":
+              const warningText = article.content.blocks[i].data.message;
+              const warningTitle = article.content.blocks[i].data.title;
+              const warningTitleElement = createElement(
+                "AlertTitle",
+                warningTitle
+              );
+              const warningTextElement = createElement(
+                "AlertDescription",
+                warningText
+              );
+              const warningIcon = createSelfCloseTag("AlertIcon");
+              const allWarningContent = [
+                warningTextElement,
+                warningTitleElement,
+              ];
+              createElement(
+                "Alert",
+                allWarningContent.join(""),
+                ' status="warning"'
+              );
+              console.log(
+                createElement(
+                  "Alert",
+                  allWarningContent.join(""),
+                  ' status="warning"'
+                )
+              );
+              break;
 
-                        case "code":
-                            const codeContent = article.content.blocks[i].data.code;
-                            createSelfCloseTag("Code", ` children="${codeContent}"`);
-                            console.log(
-                                createSelfCloseTag("Code", ` children="${codeContent}"`)
-                            );
-                            break;
+            case "code":
+              const codeContent = article.content.blocks[i].data.code;
+              createSelfCloseTag("Code", ` children="${codeContent}"`);
+              console.log(
+                createSelfCloseTag("Code", ` children="${codeContent}"`)
+              );
+              break;
 
-                        case "linkTool":
-                            // Will work on when I actually get Link data
-                            console.log("In Link, But It's Being Worked On");
-                            break;
+            case "linkTool":
+              // Will work on when I actually get Link data
+              console.log("In Link, But It's Being Worked On");
+              break;
 
-                        case "quote":
-                            const quote = article.content.blocks[i].data.text;
-                            const credits = article.content.blocks[i].data.caption;
-                            createQuoteElement(quote, credits);
-                            console.log(createQuoteElement(quote, credits));
-                            break;
-                    }
-                }
-            });
-            console.log("ARTICLE TYPE -----------------")
-            console.log(typeof articles)
-            console.log(articles.length)
-        });
+            case "quote":
+              const quote = article.content.blocks[i].data.text;
+              const credits = article.content.blocks[i].data.caption;
+              createQuoteElement(quote, credits);
+              console.log(createQuoteElement(quote, credits));
+              break;
+          }
+        }
+      console.log("ARTICLE TYPE -----------------");
+      console.log(typeof articles);
+      console.log(articles.length);
+    });
 };
 
 const createElement = (type, content, attributes = "") => {
-    return `<${type}${attributes}>${content}</${type}>`;
+  return `<${type}${attributes}>${content}</${type}>`;
 };
 
 const createSelfCloseTag = (type, attributes = "") => {
-    return `<${type}${attributes} />`;
+  return `<${type}${attributes} />`;
 };
 
 const createQuoteElement = (quote, credits) => {
-    return `
+  return `
           <Box width="900px" borderWidth="1px" rounded="lg" overflow="hidden" margin="50px"><Box marginTop="50px" marginLeft="50px"><Heading><FaQuoteLeft /></Heading></Box><Box><Box marginTop="30px" fontWeight="semibold" as="h4" lineHeight="tight"><Text fontSize="xl" mx="100px">${quote}</Text><Box d="flex" alignItems="center" color="gray.600" marginTop="50px" margin="50px"><Text fontSize="lg">- ${credits}</Text></Box></Box></Box></Box>
           `;
 };
 
-export default getDocs
+export default getDocs;

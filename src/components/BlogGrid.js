@@ -13,10 +13,12 @@ import BlogPost from "./BlogPost";
 import getDocs, { articles } from "../hooks/ReadArticlesFromFirebase";
 
 import firestoreDatabase from "../firebase/config";
+import { Redirect } from "react-router";
 
 export class BlogGrid extends Component {
   state = {
-    articles: null,
+    // articles: null,
+    documents: null
   };
 
   componentDidMount = () => {
@@ -24,13 +26,18 @@ export class BlogGrid extends Component {
       .collection("articles")
       .get()
       .then((querySnapshot) => {
-        const articles = [];
+        // const articles = [];
+        const documents = [];
         querySnapshot.forEach((doc) => {
-          const article = doc.data();
-          articles.push(article);
+          // const article = doc.data();
+          // articles.push(article);
+          console.log("ARTICLE ID: ==========================")
+          console.log(doc.id)
+          documents.push(doc)
         });
         this.setState({
-          articles: articles,
+          // articles: articles,
+          documents: documents
         });
       });
   };
@@ -51,7 +58,7 @@ export class BlogGrid extends Component {
           </Heading>
           <Divider />
           <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
-            {this.state.articles != null &&
+            {/* {this.state.articles != null &&
               this.state.articles.map((article) => {
                 return (
                   <BlogPost
@@ -59,6 +66,20 @@ export class BlogGrid extends Component {
                     summary={article.summary}
                     date={article.content.time}
                     user={article.username}
+                  />
+                );
+              })} */}
+              {this.state.documents != null &&
+              this.state.documents.map((document) => {
+                console.log("DOCUMENT ID =====================")
+                console.log(document.id)
+                return (
+                  <BlogPost
+                    docId = {document.id}
+                    title={document.data().title}
+                    summary={document.data().summary}
+                    date={document.data().content.time}
+                    user={document.data().username}
                   />
                 );
               })}
