@@ -40,21 +40,22 @@ export class BlogContentPost extends Component {
     return date;
   };
 
-  createArticle = () => {
+  createArticle = async () => {
     let docId = this.props.match.params.docId;
     //console.log("DOC ID FROM ROUTER");
     //console.log(docId);
     // getDocs(docId)
+    
+    // getDocs(docId)
+    await getDocs(docId).then(() => {
+      return articleHtmlBody;
+    });
     console.log(
       "$$$$$$$$$$$$$$$$$$$$$$$$$$ HTML Array $$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     );
-    // getDocs(docId)
-    getDocs(docId).then(() => {
-      return articleHtmlBody;
-    });
     // articleHtmlBody
     console.log(articleHtmlBody);
-    console.log(articleHtmlBody.length);
+    console.log(articleHtmlBody[0]);
     // this.state.articleBody.map((element) => {
     //   console.log(element)
     // })
@@ -82,7 +83,7 @@ export class BlogContentPost extends Component {
               mx="50px"
               my="25px"
             >
-              {articleHtmlBody[0]}
+              Test Title
             </Heading>
             <Text textAlign="center" fontSize="25px">
               By{" "}

@@ -15,7 +15,7 @@ export const articleHtmlBody = [];
 
 const getDocs = async (articleID) => {
   //console.log("Article ID: " + articleID);
-  firestoreDatabase
+  await firestoreDatabase
     .collection("articles")
     .doc(articleID)
     .get()
@@ -52,9 +52,6 @@ const getDocs = async (articleID) => {
       console.log(articleHtmlBody);
       return articleHtmlBody;
     });
-  //console.log('Starts ################## Generated Article HTML ###################');
-  //console.log(articleHtmlBody.length);
-  //console.log('Ends ################## Generated Article HTML ###################');
 };
 
 const createElement = (type, content, attributes = "") => {
