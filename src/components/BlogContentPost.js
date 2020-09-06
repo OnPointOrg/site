@@ -27,25 +27,19 @@ import { Link } from "react-router-dom";
 export class BlogContentPost extends Component {
   state = {
     article: null,
-    articleBody: null,
+    articleTitle: "",
+    articleAuthor: "",
+    articleSummary: "",
+    articleDate: "",
+    articleContent: ""
   };
 
-  componentDidMount = () => {
-    this.createArticle();
-  };
-
-  convertFromUnix = (date) => {
-    const dateObject = new Date(date);
-    date = dateObject.toLocaleString();
-    return date;
-  };
-
-  createArticle = async () => {
+  componentDidMount = async() => {
     let docId = this.props.match.params.docId;
     //console.log("DOC ID FROM ROUTER");
     //console.log(docId);
     // getDocs(docId)
-    
+
     // getDocs(docId)
     await getDocs(docId).then(() => {
       return articleHtmlBody;
@@ -56,15 +50,16 @@ export class BlogContentPost extends Component {
     // articleHtmlBody
     console.log(articleHtmlBody);
     console.log(articleHtmlBody[0]);
-    // this.state.articleBody.map((element) => {
-    //   console.log(element)
-    // })
-    // console.log(getDocs(docId));
-    // console.log(articleTitle);
-    // this.setState({
-    //   article: getDocs(docId),
-    // });
+    this.setState({
+      articleTitle: articleHtmlBody[0],
+      articleAuthor: articleHtmlBody[1],
+      articleSummary: articleHtmlBody[2],
+      articleDate: articleHtmlBody[4],
+      articleContent: articleHtmlBody[5]
+    })
   };
+
+  // createArticle = async () => {};
 
   render() {
     //console.log("GENERATED HTML -----------------------------");
@@ -83,42 +78,31 @@ export class BlogContentPost extends Component {
               mx="50px"
               my="25px"
             >
-              Test Title
+              {
+                this.state.articleTitle
+              }
             </Heading>
             <Text textAlign="center" fontSize="25px">
               By{" "}
               <ChakraLink color="teal.500">
-                <Link>J.K. Rowling</Link>
+              <Link>{ this.state.articleAuthor }</Link>
               </ChakraLink>
             </Text>
             <Text textAlign="center" fontSize="25px">
               &bull;&bull;&bull;
             </Text>
             <Text textAlign="center" fontSize="25px">
-              {this.convertFromUnix(/** Pass Date In Here */ new Date())}
+              { this.state.articleDate }
             </Text>
             <Text padding="10px" textAlign="center" marginTop="25px">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ante
-              in nibh mauris cursus mattis.
+              { this.state.articleSummary }
             </Text>
           </Box>
           <Box />
           <Box />
         </Grid>
         <Divider mx="100px" my="50px" />
-        <Text mx="125px">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus
-          vitae congue mauris rhoncus. Augue interdum velit euismod in. Risus
-          feugiat in ante metus dictum at tempor commodo. Scelerisque eu
-          ultrices vitae auctor eu augue ut lectus arcu. Tellus elementum
-          sagittis vitae et leo duis ut diam quam. Pellentesque habitant morbi
-          tristique senectus et netus et. Id aliquet lectus proin nibh nisl
-          condimentum id venenatis. Vivamus arcu felis bibendum ut tristique.
-          Vel eros donec ac odio tempor. Augue lacus viverra vitae congue eu
-          consequat. In est ante in nibh mauris cursus mattis molestie a.
-        </Text>
+          { this.state.articleContent }
         <Text mx="125px" my="50px">
           Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet
           consectetur adipiscing elit pellentesque. Velit egestas dui id ornare.

@@ -29,6 +29,7 @@ const getDocs = async (articleID) => {
       // console.log('Article Information ------')
       console.log(article);
       articleHtmlBody.push(article.title);
+      articleHtmlBody.push(article.username);
       articleHtmlBody.push(article.summary);
       articleHtmlBody.push(article.category);
       articleHtmlBody.push(convertFromUnix(article.content.time));
