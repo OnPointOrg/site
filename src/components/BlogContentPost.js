@@ -16,7 +16,10 @@ import { FaQuoteLeft } from "react-icons/fa";
 
 import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
-import getDocs, { articles, articleHtmlBody } from "../hooks/ReadArticlesFromFirebase";
+import getDocs, {
+  articles,
+  articleHtmlBody,
+} from "../hooks/ReadArticlesFromFirebase";
 
 import DefaultNav from "./DefaultNav";
 import { Link } from "react-router-dom";
@@ -24,15 +27,11 @@ import { Link } from "react-router-dom";
 export class BlogContentPost extends Component {
   state = {
     article: null,
-    articleBody: null
+    articleBody: null,
   };
 
   componentDidMount = () => {
-    //console.log("==================Article HTML Body=============================");
-    //console.log("We ARE IN THE BlogContentPost.js COMPONENT");
-    //const articleBody = this.createArticle();
-    //console.log(articleBody);
-      this.createArticle();
+    this.createArticle();
   };
 
   convertFromUnix = (date) => {
@@ -49,10 +48,13 @@ export class BlogContentPost extends Component {
     console.log(
       "$$$$$$$$$$$$$$$$$$$$$$$$$$ HTML Array $$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     );
-    getDocs(docId)
+    // getDocs(docId)
+    getDocs(docId).then(() => {
+      return articleHtmlBody;
+    });
     // articleHtmlBody
-    console.log(articleHtmlBody)
-    console.log(articleHtmlBody.length)
+    console.log(articleHtmlBody);
+    console.log(articleHtmlBody.length);
     // this.state.articleBody.map((element) => {
     //   console.log(element)
     // })

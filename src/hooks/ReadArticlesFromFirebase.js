@@ -13,7 +13,7 @@ const convertFromUnix = (date) => {
 // export const finalArray = null;
 export const articleHtmlBody = [];
 
-const getDocs = (articleID) => {
+const getDocs = async (articleID) => {
   //console.log("Article ID: " + articleID);
   firestoreDatabase
     .collection("articles")
@@ -165,6 +165,7 @@ const caseChecks = (article) => {
         break;
     }
   }
+  return articleHtmlBody
 };
 
 export default getDocs;
