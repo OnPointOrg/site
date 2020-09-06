@@ -32,6 +32,12 @@ export class BlogContentPost extends Component {
     this.createArticle();
   };
 
+  convertFromUnix = (date) => {
+    const dateObject = new Date(date);
+    date = dateObject.toLocaleString();
+    return date;
+  };
+
   createArticle = () => {
     let docId = this.props.match.params.docId;
     //console.log("DOC ID FROM ROUTER");
@@ -73,6 +79,10 @@ export class BlogContentPost extends Component {
                 <Link>J.K. Rowling</Link>
               </ChakraLink>
             </Text>
+            <Text textAlign="center" fontSize="25px">
+              &bull;&bull;&bull;
+            </Text>
+            <Text textAlign="center" fontSize="25px">{ this.convertFromUnix(/** Pass Date In Here */ new Date()) }</Text>
             <Text padding="10px" textAlign="center" marginTop="25px">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ante
