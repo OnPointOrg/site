@@ -12,11 +12,11 @@ import {
   Divider,
 } from "@chakra-ui/core";
 
-import { FaQuoteLeft } from "react-icons/fa"
+import { FaQuoteLeft } from "react-icons/fa";
 
 import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
-import getDocs, { articles } from "../hooks/ReadArticlesFromFirebase";
+import getDocs, { articles, articleHtmlBody } from "../hooks/ReadArticlesFromFirebase";
 
 import DefaultNav from "./DefaultNav";
 import { Link } from "react-router-dom";
@@ -24,6 +24,7 @@ import { Link } from "react-router-dom";
 export class BlogContentPost extends Component {
   state = {
     article: null,
+    articleBody: null
   };
 
   componentDidMount = () => {
@@ -31,7 +32,7 @@ export class BlogContentPost extends Component {
     //console.log("We ARE IN THE BlogContentPost.js COMPONENT");
     //const articleBody = this.createArticle();
     //console.log(articleBody);
-    this.createArticle();
+      this.createArticle();
   };
 
   convertFromUnix = (date) => {
@@ -44,16 +45,22 @@ export class BlogContentPost extends Component {
     let docId = this.props.match.params.docId;
     //console.log("DOC ID FROM ROUTER");
     //console.log(docId);
+    // getDocs(docId)
     console.log(
       "$$$$$$$$$$$$$$$$$$$$$$$$$$ HTML Array $$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     );
-    getDocs(docId);
-    const articleHtmlBody = getDocs(docId);
-    console.log(articleHtmlBody);
+    getDocs(docId)
+    // articleHtmlBody
+    console.log(articleHtmlBody)
+    console.log(articleHtmlBody.length)
+    // this.state.articleBody.map((element) => {
+    //   console.log(element)
+    // })
+    // console.log(getDocs(docId));
     // console.log(articleTitle);
-    this.setState({
-      //article: getDocs(docId),
-    });
+    // this.setState({
+    //   article: getDocs(docId),
+    // });
   };
 
   render() {
@@ -73,7 +80,7 @@ export class BlogContentPost extends Component {
               mx="50px"
               my="25px"
             >
-              Harry Potter: The Goblet Of Fire
+              {articleHtmlBody[0]}
             </Heading>
             <Text textAlign="center" fontSize="25px">
               By{" "}
