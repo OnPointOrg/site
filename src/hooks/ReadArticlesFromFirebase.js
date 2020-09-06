@@ -3,118 +3,146 @@ import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
 import { Heading, List } from "@chakra-ui/core";
 
-export const articles = [];
+const convertFromUnix = (date) => {
+  const dateObject = new Date(date);
+
+  date = dateObject.toLocaleString();
+  return date;
+};
+
+// export const articles = [];
+export const articleHtmlBody = [];
 
 const getDocs = (articleID) => {
-  console.log("Article ID: " + articleID);
+  //console.log("Article ID: " + articleID);
   firestoreDatabase
     .collection("articles")
     .doc(articleID)
     .get()
     .then((querySnapshot) => {
-      console.log("Article " + articleID + " From Firebase");
-      console.log("---------------------------------------------------");
-        console.log(articleID + " ========== " + querySnapshot.data());
-        const article = querySnapshot.data();
-        articles.push(article);
-        console.log("This Is Article JSON");
-        console.log(querySnapshot.id);
-        // console.log('Article Information ------')
-        // console.log(articles)
-        console.log(article.title);
-        console.log(article.category);
-        console.log(article.username);
-        // console.log(article.content.blocks[0].type);
-        // console.log(article.content.blocks[0].data.text);
-        console.log();
+      //console.log("---------------------------------------------------");
+      //console.log(articleID + " ========== " + querySnapshot.data());
+      const article = querySnapshot.data();
+      // articles.push(article);
+      console.log("This Is Article JSON for Article Id# " + articleID);
+      //console.log(querySnapshot.id);
+      // console.log('Article Information ------')
+      console.log(article);
+      articleHtmlBody.push(article.title);
+      articleHtmlBody.push(article.summary);
+      articleHtmlBody.push(article.category);
+      articleHtmlBody.push(convertFromUnix(article.content.time))
 
-        let contentBlockLength = article.content.blocks.length;
-        for (let i = 0; i < contentBlockLength; i++) {
-          const contentType = article.content.blocks[i].type;
+      console.log("Article Title: " + article.title);
+      //console.log(article.category);
+      //console.log(article.username);
+      // console.log(article.content.blocks[0].type);
+      // console.log(article.content.blocks[0].data.text);
+      //console.log();
+      let contentBlockLength = article.content.blocks.length;
+      for (let i = 0; i < contentBlockLength; i++) {
+        const contentType = article.content.blocks[i].type;
+        switch (contentType) {
+          case "paragraph":
+            const paragraphText = article.content.blocks[i].data.text;
+            console.log("Paragraph >>>>>> : " + paragraphText);
+            //console.log("-----Element-----");
+            //console.log(createElement("Text", paragraphText));
+            articleHtmlBody.push(createElement("Text", paragraphText));
+            console.log(articleHtmlBody.length);
+            break;
+          case "header":
+            const headerText = article.content.blocks[i].data.text;
+            //console.log(createElement("Heading", headerText));
+            articleHtmlBody.push(createElement("Heading", headerText));
+            break;
 
-          switch (contentType) {
-            case "paragraph":
-              const paragraphText = article.content.blocks[i].data.text;
-              console.log("-----Element-----");
-              console.log(createElement("Text", paragraphText));
-              break;
+          case "list":
+            const items = article.content.blocks[i].data.items;
+            //console.log(items);
+            const allItems = [];
+            for (let j = 0; j < items.length; j++) {
+              allItems.push(createElement("ListItem", items[j]));
+              articleHtmlBody.push(createElement("ListItem", items[j]));
+            }
 
-            case "header":
-              const headerText = article.content.blocks[i].data.text;
-              createElement("Heading", headerText);
-              break;
-
-            case "list":
-              const items = article.content.blocks[i].data.items;
-              console.log(items);
-              const allItems = [];
-              for (let j = 0; j < items.length; j++) {
-                allItems.push(createElement("ListItem", items[j]));
-                console.log(createElement("ListItem", items[j]));
-              }
-
-              const listArray = [];
-
-              createElement("List", allItems.join(""));
-              console.log("-----Element-----");
-              console.log(createElement("List", allItems.join("")));
-              break;
-
-            case "warning":
-              const warningText = article.content.blocks[i].data.message;
-              const warningTitle = article.content.blocks[i].data.title;
-              const warningTitleElement = createElement(
-                "AlertTitle",
-                warningTitle
-              );
-              const warningTextElement = createElement(
-                "AlertDescription",
-                warningText
-              );
-              const warningIcon = createSelfCloseTag("AlertIcon");
-              const allWarningContent = [
-                warningTextElement,
-                warningTitleElement,
-              ];
+            const listArray = [];
+            createElement("List", allItems.join(""));
+            //console.log("-----Element-----");
+            //console.log(createElement("List", allItems.join("")));
+            articleHtmlBody.push(createElement("List", allItems.join("")));
+            break;
+          // --------------------------
+          case "warning":
+            const warningText = article.content.blocks[i].data.message;
+            const warningTitle = article.content.blocks[i].data.title;
+            const warningTitleElement = createElement(
+              "AlertTitle",
+              warningTitle
+            );
+            const warningTextElement = createElement(
+              "AlertDescription",
+              warningText
+            );
+            const warningIcon = createSelfCloseTag("AlertIcon");
+            const allWarningContent = [warningTextElement, warningTitleElement];
+            articleHtmlBody.push(
               createElement(
                 "Alert",
                 allWarningContent.join(""),
                 ' status="warning"'
-              );
-              console.log(
-                createElement(
-                  "Alert",
-                  allWarningContent.join(""),
-                  ' status="warning"'
-                )
-              );
-              break;
-
-            case "code":
-              const codeContent = article.content.blocks[i].data.code;
-              createSelfCloseTag("Code", ` children="${codeContent}"`);
-              console.log(
-                createSelfCloseTag("Code", ` children="${codeContent}"`)
-              );
-              break;
-
-            case "linkTool":
-              // Will work on when I actually get Link data
-              console.log("In Link, But It's Being Worked On");
-              break;
-
-            case "quote":
-              const quote = article.content.blocks[i].data.text;
-              const credits = article.content.blocks[i].data.caption;
-              createQuoteElement(quote, credits);
-              console.log(createQuoteElement(quote, credits));
-              break;
-          }
+              )
+            );
+            /*console.log(
+              createElement(
+                "Alert",
+                allWarningContent.join(""),
+                ' status="warning"'
+              )
+            );*/
+            articleHtmlBody.push(
+              createElement(
+                "Alert",
+                allWarningContent.join(""),
+                ' status="warning"'
+              )
+            );
+            break;
+          // --------------------------
+          case "code":
+            console.log("I am in Code ..............");
+            const codeContent = article.content.blocks[i].data.code;
+            articleHtmlBody.push(
+              createSelfCloseTag("Code", ` children="${codeContent}"`)
+            );
+            /*console.log(
+              createSelfCloseTag("Code", ` children="${codeContent}"`)
+            );*/
+            //articleHtmlBody.push(createSelfCloseTag("Code", ` children="${codeContent}"`));
+            console.log(" Article Length: " + articleHtmlBody.length);
+            break;
+          // --------------------------
+          case "linkTool":
+            // Will work on when I actually get Link data
+            //console.log("In Link, But It's Being Worked On");
+            break;
+          // --------------------------
+          case "quote":
+            const quote = article.content.blocks[i].data.text;
+            const credits = article.content.blocks[i].data.caption;
+            //console.log(createQuoteElement(quote, credits));
+            articleHtmlBody.push(createQuoteElement(quote, credits));
+            break;
         }
-      console.log("ARTICLE TYPE -----------------");
-      console.log(typeof articles);
-      console.log(articles.length);
+      }
+      console.log("The Article Array>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      //console.log(typeof articles);
+      console.log(articleHtmlBody);
+      return articleHtmlBody;
     });
+  //console.log('Starts ################## Generated Article HTML ###################');
+  //console.log(articleHtmlBody.length);
+  //console.log('Ends ################## Generated Article HTML ###################');
 };
 
 const createElement = (type, content, attributes = "") => {

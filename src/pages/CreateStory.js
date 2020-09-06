@@ -32,10 +32,6 @@ const storage = firebase.storage();
 const storageReference = storage.ref();
 
 const VARIANT_COLOR = "teal";
-const timestamp = new Date().getTime();
-const milliseconds = timestamp * 1000;
-const dateObj = new Date(milliseconds);
-const normalDate = dateObj.toLocaleString();
 const instanceRef = createRef();
 
 export class CreateStory extends Component {
