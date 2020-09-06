@@ -31,7 +31,7 @@ const getDocs = (articleID) => {
       articleHtmlBody.push(article.title);
       articleHtmlBody.push(article.summary);
       articleHtmlBody.push(article.category);
-      articleHtmlBody.push(convertFromUnix(article.content.time))
+      articleHtmlBody.push(convertFromUnix(article.content.time));
 
       console.log("Article Title: " + article.title);
       //console.log(article.category);
