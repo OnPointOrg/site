@@ -26,21 +26,16 @@ const MainHome = () => {
       <br />
       <br />
       <SimpleGrid columns={3} spacing={5}>
-        <Link to="/about">
-          <Button size="lg" margin="10px" width="50%" marginLeft="250px">
-            Learn More
-          </Button>
-        </Link>
-        <Link to="/signup">
-          <Button size="lg" margin="10px" width="50%" marginLeft="135px">
-            Get Started
-          </Button>
-        </Link>
-        <Link to="/blog">
-          <Button size="lg" margin="10px" width="50%">
-            Start Reading
-          </Button>
-        </Link>
+        <Button size="lg" margin="10px" width="50%" marginLeft="250px">
+          <Link to="/about">Learn More</Link>
+        </Button>
+        <Button size="lg" margin="10px" width="50%" marginLeft="135px">
+          <Link to="/signup">Get Started</Link>
+        </Button>
+
+        <Button size="lg" margin="10px" width="50%">
+          <Link to="/blog">Start Reading</Link>
+        </Button>
       </SimpleGrid>
     </ThemeProvider>
   );
