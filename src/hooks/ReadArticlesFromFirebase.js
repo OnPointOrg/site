@@ -163,7 +163,7 @@ const caseChecks = (article) => {
         break;
     }
   }
-  return articleHtmlBody
+  return articleHtmlBody;
 };
 
 export default getDocs;

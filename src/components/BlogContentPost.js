@@ -31,10 +31,10 @@ export class BlogContentPost extends Component {
     articleAuthor: "",
     articleSummary: "",
     articleDate: "",
-    articleContent: ""
+    articleContent: "",
   };
 
-  componentDidMount = async() => {
+  componentDidMount = async () => {
     let docId = this.props.match.params.docId;
     //console.log("DOC ID FROM ROUTER");
     //console.log(docId);
@@ -55,9 +55,15 @@ export class BlogContentPost extends Component {
       articleAuthor: articleHtmlBody[1],
       articleSummary: articleHtmlBody[2],
       articleDate: articleHtmlBody[4],
-      articleContent: articleHtmlBody[5]
-    })
+      articleContent: articleHtmlBody[5],
+    });
   };
+
+  returnArticleContent = () => {
+    return(
+      this.state.articleContent
+    )
+  }
 
   // createArticle = async () => {};
 
@@ -78,31 +84,31 @@ export class BlogContentPost extends Component {
               mx="50px"
               my="25px"
             >
-              {
-                this.state.articleTitle
-              }
+              {this.state.articleTitle}
             </Heading>
             <Text textAlign="center" fontSize="25px">
               By{" "}
               <ChakraLink color="teal.500">
-              <Link>{ this.state.articleAuthor }</Link>
+                <Link>{this.state.articleAuthor}</Link>
               </ChakraLink>
             </Text>
             <Text textAlign="center" fontSize="25px">
               &bull;&bull;&bull;
             </Text>
             <Text textAlign="center" fontSize="25px">
-              { this.state.articleDate }
+              {this.state.articleDate}
             </Text>
             <Text padding="10px" textAlign="center" marginTop="25px">
-              { this.state.articleSummary }
+              {this.state.articleSummary}
             </Text>
           </Box>
           <Box />
           <Box />
         </Grid>
         <Divider mx="100px" my="50px" />
-          { this.state.articleContent }
+        {
+          this.returnArticleContent()
+        }
         <Text mx="125px" my="50px">
           Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet
           consectetur adipiscing elit pellentesque. Velit egestas dui id ornare.
