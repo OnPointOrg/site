@@ -138,45 +138,7 @@ export class BlogContentPost extends Component {
           vestibulum mattis ullamcorper velit. Eu consequat ac felis donec et
           odio. Sociis natoque penatibus et magnis dis parturient montes.
         </Text>
-        <Box
-          width="900px"
-          borderWidth="1px"
-          rounded="lg"
-          overflow="hidden"
-          mx="125px"
-          my="25px"
-        >
-          <Box marginTop="50px" marginLeft="50px">
-            <Heading>
-              <FaQuoteLeft />
-            </Heading>
-          </Box>
-          <Box>
-            <Box
-              marginTop="30px"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-            >
-              <Text fontSize="xl" mx="100px">
-                Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit
-                amet consectetur adipiscing elit pellentesque. Velit egestas dui
-                id ornare. Scelerisque eleifend donec pretium vulputate sapien
-                nec sagittis aliquam malesuada. Vel quam elementum pulvinar
-                etiam. Id diam maecenas ultricies mi eget mauris pharetra.{" "}
-              </Text>
-              <Box
-                d="flex"
-                alignItems="center"
-                color="gray.600"
-                marginTop="50px"
-                margin="50px"
-              >
-                <Text fontSize="lg">- Lorem Ipsum</Text>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
+        
         {/* <Button onClick={this.createArticle}>
           Click Me For Juicy Firebse Data! Members Only!
         </Button> */}
