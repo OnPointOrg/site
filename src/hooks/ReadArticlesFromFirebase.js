@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
-import { Heading, List, ListItem, Text, Box, CloseButton, Alert, AlertIcon, AlertTitle, AlertDescription, Code } from "@chakra-ui/core";
+import {
+  Heading,
+  List,
+  ListItem,
+  Text,
+  Box,
+  CloseButton,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  Code,
+} from "@chakra-ui/core";
 import { FaQuoteLeft } from "react-icons/fa";
 
 const convertFromUnix = (date) => {
@@ -90,10 +102,8 @@ const caseChecks = (article) => {
         articleHtmlBody.push(
           <Alert status="error">
             <AlertIcon />
-            <AlertTitle mr={2}>{ warningTitle }</AlertTitle>
-            <AlertDescription>
-              { warningText }
-            </AlertDescription>
+            <AlertTitle mr={2}>{warningTitle}</AlertTitle>
+            <AlertDescription>{warningText}</AlertDescription>
             <CloseButton position="absolute" right="8px" top="8px" />
           </Alert>
         );
@@ -103,9 +113,7 @@ const caseChecks = (article) => {
       case "code":
         console.log("I am in Code ..............");
         const codeContent = article.content.blocks[i].data.code;
-        articleHtmlBody.push(
-          <Code>{codeContent}</Code>
-        );
+        articleHtmlBody.push(<Code>{codeContent}</Code>);
 
         console.log(" Article Length: " + articleHtmlBody.length);
         break;

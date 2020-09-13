@@ -60,10 +60,8 @@ export class BlogContentPost extends Component {
   };
 
   returnArticleContent = () => {
-    return(
-      this.state.articleContent
-    )
-  }
+    return this.state.articleContent;
+  };
 
   // createArticle = async () => {};
 
@@ -106,9 +104,7 @@ export class BlogContentPost extends Component {
           <Box />
         </Grid>
         <Divider mx="100px" my="50px" />
-        {
-          this.returnArticleContent()
-        }
+        {this.returnArticleContent()}
         <Text mx="125px" my="50px">
           Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet
           consectetur adipiscing elit pellentesque. Velit egestas dui id ornare.
@@ -138,7 +134,7 @@ export class BlogContentPost extends Component {
           vestibulum mattis ullamcorper velit. Eu consequat ac felis donec et
           odio. Sociis natoque penatibus et magnis dis parturient montes.
         </Text>
-        
+
         {/* <Button onClick={this.createArticle}>
           Click Me For Juicy Firebse Data! Members Only!
         </Button> */}
