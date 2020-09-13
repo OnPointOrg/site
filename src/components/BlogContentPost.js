@@ -19,6 +19,7 @@ import firestoreDatabase from "../firebase/config";
 import getDocs, {
   articles,
   articleHtmlBody,
+  articleHtmlInformation,
 } from "../hooks/ReadArticlesFromFirebase";
 
 import DefaultNav from "./DefaultNav";
@@ -36,26 +37,16 @@ export class BlogContentPost extends Component {
 
   componentDidMount = async () => {
     let docId = this.props.match.params.docId;
-    //console.log("DOC ID FROM ROUTER");
-    //console.log(docId);
-    // getDocs(docId)
 
-    // getDocs(docId)
     await getDocs(docId).then(() => {
       return articleHtmlBody;
     });
-    console.log(
-      "$$$$$$$$$$$$$$$$$$$$$$$$$$ HTML Array $$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-    );
-    // articleHtmlBody
-    console.log(articleHtmlBody);
-    console.log(articleHtmlBody[0]);
     this.setState({
-      articleTitle: articleHtmlBody[0],
-      articleAuthor: articleHtmlBody[1],
-      articleSummary: articleHtmlBody[2],
-      articleDate: articleHtmlBody[4],
-      articleContent: articleHtmlBody[5],
+      articleTitle: articleHtmlInformation[0],
+      articleAuthor: articleHtmlInformation[1],
+      articleSummary: articleHtmlInformation[2],
+      articleDate: articleHtmlInformation[4],
+      articleContent: articleHtmlBody,
     });
   };
 
@@ -63,12 +54,7 @@ export class BlogContentPost extends Component {
     return this.state.articleContent;
   };
 
-  // createArticle = async () => {};
-
   render() {
-    //console.log("GENERATED HTML -----------------------------");
-    // const articleBody = this.createArticle();
-    //console.log(articleBody);
     return (
       <ThemeProvider theme={theme}>
         <DefaultNav />
@@ -105,12 +91,10 @@ export class BlogContentPost extends Component {
         </Grid>
         <Divider mx="100px" my="50px" />
         <Box mx="125px" marginBottom="75px">
-          {this.returnArticleContent()}
+          {articleHtmlBody.map((element) => (
+            <Box margin="25px">{element}</Box>
+          ))}
         </Box>
-
-        {/* <Button onClick={this.createArticle}>
-          Click Me For Juicy Firebse Data! Members Only!
-        </Button> */}
       </ThemeProvider>
     );
   }

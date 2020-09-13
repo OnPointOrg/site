@@ -24,46 +24,27 @@ const convertFromUnix = (date) => {
 };
 
 // export const finalArray = null;
+export const articleHtmlInformation = [];
 export const articleHtmlBody = [];
 
 const getDocs = async (articleID) => {
-  //console.log("Article ID: " + articleID);
   await firestoreDatabase
     .collection("articles")
     .doc(articleID)
     .get()
     .then((querySnapshot) => {
-      //console.log("---------------------------------------------------");
-      //console.log(articleID + " ========== " + querySnapshot.data());
       const article = querySnapshot.data();
-      // articles.push(article);
-      console.log("This Is Article JSON for Article Id# " + articleID);
-      //console.log(querySnapshot.id);
-      // console.log('Article Information ------')
-      console.log(article);
-      articleHtmlBody.push(article.title);
-      articleHtmlBody.push(article.username);
-      articleHtmlBody.push(article.summary);
-      articleHtmlBody.push(article.category);
-      articleHtmlBody.push(convertFromUnix(article.content.time));
 
-      console.log("Article Title: " + article.title);
-      //console.log(article.category);
-      //console.log(article.username);
-      // console.log(article.content.blocks[0].type);
-      // console.log(article.content.blocks[0].data.text);
-      //console.log();
+      articleHtmlInformation.push(article.title);
+      articleHtmlInformation.push(article.username);
+      articleHtmlInformation.push(article.summary);
+      articleHtmlInformation.push(article.category);
+      articleHtmlInformation.push(convertFromUnix(article.content.time));
 
       caseChecks(article);
-      console.log("The Article Array>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-      //console.log(typeof articles);
-      console.log(articleHtmlBody);
       return articleHtmlBody;
     })
     .then(() => {
-      console.log("The Article Array>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-      //console.log(typeof articles);
-      console.log(articleHtmlBody);
       return articleHtmlBody;
     });
 };
@@ -75,9 +56,7 @@ const caseChecks = (article) => {
     switch (contentType) {
       case "paragraph":
         const paragraphText = article.content.blocks[i].data.text;
-        console.log("Paragraph >>>>>> : " + paragraphText);
         articleHtmlBody.push(<Text>{paragraphText}</Text>);
-        console.log(articleHtmlBody.length);
         break;
       case "header":
         const headerText = article.content.blocks[i].data.text;
@@ -86,16 +65,19 @@ const caseChecks = (article) => {
 
       case "list":
         const items = article.content.blocks[i].data.items;
-        //console.log(items);
         const allItems = [];
         for (let j = 0; j < items.length; j++) {
-          allItems.push(<ListItem>{items[j]}</ListItem>);
+          allItems.push(items[j]);
         }
 
-        const listArray = [];
-        articleHtmlBody.push(<List>{allItems}</List>);
+        articleHtmlBody.push(
+          <List styleType="disc">
+            {allItems.map((listItem) => (
+              <ListItem>{listItem}</ListItem>
+            ))}
+          </List>
+        );
         break;
-      // --------------------------
       case "warning":
         const warningText = article.content.blocks[i].data.message;
         const warningTitle = article.content.blocks[i].data.title;
@@ -109,19 +91,13 @@ const caseChecks = (article) => {
         );
 
         break;
-      // --------------------------
       case "code":
-        console.log("I am in Code ..............");
         const codeContent = article.content.blocks[i].data.code;
         articleHtmlBody.push(<Code>{codeContent}</Code>);
 
-        console.log(" Article Length: " + articleHtmlBody.length);
         break;
-      // --------------------------
       case "linkTool":
-        //Working On At The Moment
         break;
-      // --------------------------
       case "quote":
         const quote = article.content.blocks[i].data.text;
         const credits = article.content.blocks[i].data.caption;
