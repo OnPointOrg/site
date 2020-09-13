@@ -104,36 +104,9 @@ export class BlogContentPost extends Component {
           <Box />
         </Grid>
         <Divider mx="100px" my="50px" />
-        {this.returnArticleContent()}
-        <Text mx="125px" my="50px">
-          Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet
-          consectetur adipiscing elit pellentesque. Velit egestas dui id ornare.
-          Scelerisque eleifend donec pretium vulputate sapien nec sagittis
-          aliquam malesuada. Vel quam elementum pulvinar etiam. Id diam maecenas
-          ultricies mi eget mauris pharetra. Enim sit amet venenatis urna
-          cursus. Eget sit amet tellus cras adipiscing enim eu. Enim ut tellus
-          elementum sagittis vitae. Eu sem integer vitae justo eget magna
-          fermentum iaculis eu.
-        </Text>
-        <Text mx="125px" marginBottom="75px">
-          Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Eu
-          non diam phasellus vestibulum lorem sed risus ultricies. Neque vitae
-          tempus quam pellentesque. Sem integer vitae justo eget. Ut etiam sit
-          amet nisl purus. Proin libero nunc consequat interdum varius sit amet
-          mattis. Tortor vitae purus faucibus ornare suspendisse sed nisi lacus.
-          Fermentum odio eu feugiat pretium nibh ipsum consequat nisl. Sit amet
-          luctus venenatis lectus magna. Vitae tempus quam pellentesque nec nam
-          aliquam sem et. Urna molestie at elementum eu facilisis sed odio
-          morbi. Enim ut sem viverra aliquet eget sit amet. Leo integer
-          malesuada nunc vel risus commodo viverra. Sed faucibus turpis in eu mi
-          bibendum neque egestas congue. Semper feugiat nibh sed pulvinar proin
-          gravida hendrerit. Orci dapibus ultrices in iaculis nunc sed augue.
-          Eget est lorem ipsum dolor. In iaculis nunc sed augue. Commodo nulla
-          facilisi nullam vehicula ipsum a arcu cursus. Faucibus pulvinar
-          elementum integer enim neque volutpat ac. Ac feugiat sed lectus
-          vestibulum mattis ullamcorper velit. Eu consequat ac felis donec et
-          odio. Sociis natoque penatibus et magnis dis parturient montes.
-        </Text>
+        <Box mx="125px" marginBottom="75px">
+          {this.returnArticleContent()}
+        </Box>
 
         {/* <Button onClick={this.createArticle}>
           Click Me For Juicy Firebse Data! Members Only!
