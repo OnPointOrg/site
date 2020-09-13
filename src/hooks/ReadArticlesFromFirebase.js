@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
-import { Heading, List } from "@chakra-ui/core";
+import { Heading, List, Text } from "@chakra-ui/core";
 
 const convertFromUnix = (date) => {
   const dateObject = new Date(date);
@@ -79,7 +79,8 @@ const caseChecks = (article) => {
         console.log("Paragraph >>>>>> : " + paragraphText);
         //console.log("-----Element-----");
         //console.log(createElement("Text", paragraphText));
-        articleHtmlBody.push(createElement("Text", paragraphText));
+        // articleHtmlBody.push(createElement("Text", paragraphText));
+        articleHtmlBody.push(<Text>{paragraphText}</Text>);
         console.log(articleHtmlBody.length);
         break;
       case "header":
@@ -94,7 +95,7 @@ const caseChecks = (article) => {
         const allItems = [];
         for (let j = 0; j < items.length; j++) {
           allItems.push(createElement("ListItem", items[j]));
-          articleHtmlBody.push(createElement("ListItem", items[j]));
+          // articleHtmlBody.push(createElement("ListItem", items[j]));
         }
 
         const listArray = [];
