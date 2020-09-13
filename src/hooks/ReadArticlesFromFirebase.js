@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
-import { Heading, List, Text } from "@chakra-ui/core";
+import { Heading, List, ListItem, Text } from "@chakra-ui/core";
 
 const convertFromUnix = (date) => {
   const dateObject = new Date(date);
@@ -55,13 +55,6 @@ const getDocs = async (articleID) => {
     });
 };
 
-const createElement = (type, content, attributes = "") => {
-  return `<${type}${attributes}>${content}</${type}>`;
-};
-
-const createSelfCloseTag = (type, attributes = "") => {
-  return `<${type}${attributes} />`;
-};
 
 const createQuoteElement = (quote, credits) => {
   return `
@@ -77,16 +70,12 @@ const caseChecks = (article) => {
       case "paragraph":
         const paragraphText = article.content.blocks[i].data.text;
         console.log("Paragraph >>>>>> : " + paragraphText);
-        //console.log("-----Element-----");
-        //console.log(createElement("Text", paragraphText));
-        // articleHtmlBody.push(createElement("Text", paragraphText));
         articleHtmlBody.push(<Text>{paragraphText}</Text>);
         console.log(articleHtmlBody.length);
         break;
       case "header":
         const headerText = article.content.blocks[i].data.text;
-        //console.log(createElement("Heading", headerText));
-        articleHtmlBody.push(createElement("Heading", headerText));
+        articleHtmlBody.push(<Heading>{headerText}</Heading>);
         break;
 
       case "list":
@@ -94,15 +83,11 @@ const caseChecks = (article) => {
         //console.log(items);
         const allItems = [];
         for (let j = 0; j < items.length; j++) {
-          allItems.push(createElement("ListItem", items[j]));
-          // articleHtmlBody.push(createElement("ListItem", items[j]));
+          allItems.push(<ListItem>{items[j]}</ListItem>);
         }
 
         const listArray = [];
-        createElement("List", allItems.join(""));
-        //console.log("-----Element-----");
-        //console.log(createElement("List", allItems.join("")));
-        articleHtmlBody.push(createElement("List", allItems.join("")));
+        articleHtmlBody.push(<List>{allItems}</List>);
         break;
       // --------------------------
       case "warning":
@@ -122,13 +107,7 @@ const caseChecks = (article) => {
             ' status="warning"'
           )
         );
-        /*console.log(
-              createElement(
-                "Alert",
-                allWarningContent.join(""),
-                ' status="warning"'
-              )
-            );*/
+
         articleHtmlBody.push(
           createElement(
             "Alert",
@@ -144,10 +123,7 @@ const caseChecks = (article) => {
         articleHtmlBody.push(
           createSelfCloseTag("Code", ` children="${codeContent}"`)
         );
-        /*console.log(
-              createSelfCloseTag("Code", ` children="${codeContent}"`)
-            );*/
-        //articleHtmlBody.push(createSelfCloseTag("Code", ` children="${codeContent}"`));
+
         console.log(" Article Length: " + articleHtmlBody.length);
         break;
       // --------------------------
