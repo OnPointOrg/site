@@ -15,7 +15,6 @@ import {
   Icon,
 } from "@chakra-ui/core";
 
-
 const CheckIfUserSignedIn = () => {
   const user = firebase.auth().currentUser;
   if (user) {

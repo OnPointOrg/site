@@ -55,7 +55,7 @@ export class CreateStory extends Component {
       console.log(uid);
       this.setState({
         useruid: uid,
-        username: name
+        username: name,
       });
     } else {
       alert("Please Sign In!");
@@ -103,7 +103,7 @@ export class CreateStory extends Component {
         summary: this.state.summary,
         content: this.state.articleContent,
         useruid: this.state.useruid,
-        username: this.state.username
+        username: this.state.username,
       })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);

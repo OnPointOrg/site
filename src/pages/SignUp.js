@@ -74,9 +74,9 @@ class SignUp extends Component {
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         return result.user.updateProfile({
-          displayName: this.state.fullName
-        })
-        console.log("Full Name " + result.displayName)
+          displayName: this.state.fullName,
+        });
+        console.log("Full Name " + result.displayName);
       })
       .catch((error) => {
         // Handle Errors here.
