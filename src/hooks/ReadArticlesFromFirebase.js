@@ -54,10 +54,12 @@ const caseChecks = (article) => {
   for (let i = 0; i < contentBlockLength; i++) {
     const contentType = article.content.blocks[i].type;
     switch (contentType) {
+      
       case "paragraph":
         const paragraphText = article.content.blocks[i].data.text;
         articleHtmlBody.push(<Text>{paragraphText}</Text>);
         break;
+
       case "header":
         const headerText = article.content.blocks[i].data.text;
         articleHtmlBody.push(<Heading>{headerText}</Heading>);
@@ -78,6 +80,7 @@ const caseChecks = (article) => {
           </List>
         );
         break;
+
       case "warning":
         const warningText = article.content.blocks[i].data.message;
         const warningTitle = article.content.blocks[i].data.title;
@@ -89,15 +92,17 @@ const caseChecks = (article) => {
             <CloseButton position="absolute" right="8px" top="8px" />
           </Alert>
         );
-
         break;
+
       case "code":
         const codeContent = article.content.blocks[i].data.code;
         articleHtmlBody.push(<Code>{codeContent}</Code>);
 
         break;
+
       case "linkTool":
         break;
+
       case "quote":
         const quote = article.content.blocks[i].data.text;
         const credits = article.content.blocks[i].data.caption;
