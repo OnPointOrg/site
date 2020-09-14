@@ -54,7 +54,6 @@ const caseChecks = (article) => {
   for (let i = 0; i < contentBlockLength; i++) {
     const contentType = article.content.blocks[i].type;
     switch (contentType) {
-      
       case "paragraph":
         const paragraphText = article.content.blocks[i].data.text;
         articleHtmlBody.push(<Text>{paragraphText}</Text>);
