@@ -13,6 +13,7 @@ import {
   AlertTitle,
   AlertDescription,
   Code,
+  Divider,
 } from "@chakra-ui/core";
 import { FaQuoteLeft } from "react-icons/fa";
 
@@ -101,6 +102,9 @@ const caseChecks = (article) => {
 
       case "linkTool":
         break;
+
+      case "delimiter":
+        articleHtmlBody.push(<Divider m="10" />);
 
       case "quote":
         const quote = article.content.blocks[i].data.text;

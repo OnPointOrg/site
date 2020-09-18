@@ -28,8 +28,8 @@ import { EDITOR_JS_TOOLS } from "../components/Constants";
 
 import firestoreDatabase from "../firebase/config";
 import firebase from "firebase";
-const storage = firebase.storage();
-const storageReference = storage.ref();
+
+import UploadForm from "../components/UploadForm"
 
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
@@ -204,6 +204,7 @@ export class CreateStory extends Component {
                       </InputGroup>
                     </FormControl>
                   </SimpleGrid>
+                  <UploadForm />
                   <FormControl isRequired margin="25px">
                     <FormLabel>Summary</FormLabel>
                     <InputGroup>
@@ -241,18 +242,7 @@ export class CreateStory extends Component {
                         })
                       }
                       tools={
-                        EDITOR_JS_TOOLS //,
-                        // {
-                        //   image: {
-                        //     class: ImageTool,
-                        //     config: {
-                        //       endpoints: {
-                        //         byFile: storageReference,
-                        //         byUrl: storageReference
-                        //       }
-                        //     }
-                        //   }
-                        // }
+                        EDITOR_JS_TOOLS
                       }
                       i18n={{
                         messages: {},
