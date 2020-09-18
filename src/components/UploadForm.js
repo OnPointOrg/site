@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProgressBar from "./ProgressBar";
 
-import { FaUpload } from "react-icons/fa";
+import { FiUpload } from "react-icons/fi";
 
 import { Button } from "@chakra-ui/core";
 
@@ -27,7 +27,7 @@ const UploadForm = () => {
   return (
     <div>
       <label>
-        <Button rightIcon={FaUpload} variant="outline">
+        <Button rightIcon={FiUpload} variant="outline">
           <input type="file" onChange={changeHandler} />
         </Button>
       </label>
