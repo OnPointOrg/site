@@ -32,7 +32,7 @@ const UploadForm = () => {
           <input
             type="file"
             onChange={changeHandler}
-            style={{ display: "none" }}
+            style={{ opacity: "0" }}
           />
         </Button>
       </label>
