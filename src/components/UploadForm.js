@@ -28,7 +28,12 @@ const UploadForm = () => {
     <div>
       <label>
         <Button rightIcon={FiUpload} variant="outline">
-          <input type="file" onChange={changeHandler} />
+          Upload Thumbnail File
+          <input
+            type="file"
+            onChange={changeHandler}
+            style={{ display: "none" }}
+          />
         </Button>
       </label>
       <div className="output">
