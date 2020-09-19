@@ -29,7 +29,7 @@ import { EDITOR_JS_TOOLS } from "../components/Constants";
 import firestoreDatabase from "../firebase/config";
 import firebase from "firebase";
 
-import UploadForm from "../components/UploadForm"
+import UploadForm from "../components/UploadForm";
 
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
@@ -241,9 +241,7 @@ export class CreateStory extends Component {
                           articleContent: data,
                         })
                       }
-                      tools={
-                        EDITOR_JS_TOOLS
-                      }
+                      tools={EDITOR_JS_TOOLS}
                       i18n={{
                         messages: {},
                       }}
