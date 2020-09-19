@@ -27,13 +27,13 @@ const UploadForm = () => {
   return (
     <div>
       <label>
-        <Button rightIcon={FiUpload} variant="outline">
+        <Button
+          rightIcon={FiUpload}
+          variant="outline"
+          onChange={changeHandler}
+        >
+          <input type="file" style={{display:"none"}} />
           Upload Thumbnail File
-          <input
-            type="file"
-            onChange={changeHandler}
-            style={{ opacity: "0" }}
-          />
         </Button>
       </label>
       <div className="output">
