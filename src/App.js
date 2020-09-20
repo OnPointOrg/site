@@ -13,7 +13,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
-import CreateStory from "./pages/CreateStory";
+import NewStory from "./pages/NewStory";
 import Dashboard from "./pages/Dashboard";
 import BlogContentPost from "./components/BlogContentPost";
 
@@ -31,7 +31,7 @@ export class App extends Component {
               <Route path="/about" component={AboutUs} />
               <Route path="/contact" component={ContactUs} />
               <Route path="/blog" exact component={Blog} />
-              <Route path="/newstory" component={CreateStory} />
+              <Route path="/newstory" component={NewStory} />
               <Route path="/account" component={Account} />
               <Route path="/dashboard" component={Dashboard} />
               <Route path="/blog/:docId" component={BlogContentPost} />
