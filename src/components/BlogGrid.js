@@ -18,7 +18,7 @@ import { Redirect } from "react-router";
 export class BlogGrid extends Component {
   state = {
     // articles: null,
-    documents: null
+    documents: null,
   };
 
   componentDidMount = () => {
@@ -31,13 +31,13 @@ export class BlogGrid extends Component {
         querySnapshot.forEach((doc) => {
           // const article = doc.data();
           // articles.push(article);
-          console.log("ARTICLE ID: ==========================")
-          console.log(doc.id)
-          documents.push(doc)
+          console.log("ARTICLE ID: ==========================");
+          console.log(doc.id);
+          documents.push(doc);
         });
         this.setState({
           // articles: articles,
-          documents: documents
+          documents: documents,
         });
       });
   };
@@ -69,13 +69,13 @@ export class BlogGrid extends Component {
                   />
                 );
               })} */}
-              {this.state.documents != null &&
+            {this.state.documents != null &&
               this.state.documents.map((document) => {
-                console.log("DOCUMENT ID =====================")
-                console.log(document.id)
+                console.log("DOCUMENT ID =====================");
+                console.log(document.id);
                 return (
                   <BlogPost
-                    docId = {document.id}
+                    docId={document.id}
                     title={document.data().title}
                     summary={document.data().summary}
                     date={document.data().content.time}

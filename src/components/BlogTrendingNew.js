@@ -15,10 +15,9 @@ import getDocs, { articles } from "../hooks/ReadArticlesFromFirebase";
 import firestoreDatabase from "../firebase/config";
 
 export class BlogTrendingNew extends Component {
-
   state = {
-    articles: null
-  }
+    articles: null,
+  };
 
   componentDidMount = () => {
     firestoreDatabase
@@ -66,7 +65,7 @@ export class BlogTrendingNew extends Component {
         </Box>
         <Divider />
         <Box margin="15px">
-        <Heading
+          <Heading
             as="h1"
             fontSize="50px"
             textAlign="center"
@@ -78,7 +77,7 @@ export class BlogTrendingNew extends Component {
           <Divider />
           <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
             {this.state.articles != null &&
-              this.state.articles.slice(0,4).map((article) => {
+              this.state.articles.slice(0, 4).map((article) => {
                 return (
                   <BlogPost
                     title={article.title}
@@ -90,7 +89,6 @@ export class BlogTrendingNew extends Component {
               })}
           </Grid>
         </Box>
-
       </ThemeProvider>
     );
   }

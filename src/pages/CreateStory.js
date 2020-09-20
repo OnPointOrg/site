@@ -149,14 +149,12 @@ export class CreateStory extends Component {
                       <InputGroup>
                         <InputLeftElement children={<Icon name="edit" />} />
                         <Input
-                          // onChange={this.handleChange}
                           width="100%"
                           id="title"
                           value={this.state.title}
                           onChange={this.handleChange}
                           type="text"
                           placeholder="A Very Interesting Title"
-                          // value={this.state.email}
                         />
                       </InputGroup>
                     </FormControl>
@@ -216,7 +214,6 @@ export class CreateStory extends Component {
                         width="100%"
                         type="text"
                         placeholder="A Summary Of What You Are Talking About. Make It Catchy If You Want Your Articles To Be Read!"
-                        // value={this.state.email}
                       />
                     </InputGroup>
                   </FormControl>
@@ -245,7 +242,7 @@ export class CreateStory extends Component {
                       i18n={{
                         messages: {},
                       }}
-                      // onReady={() => console.log()}
+                      onReady={() => console.log()}
                       data={{}}
                     />
                   </Box>

@@ -101,8 +101,10 @@ export class BlogPost extends React.Component {
               </Button>
             </Box>
             <Button size="sm" ml="10px" mt="1rem" variant="ghost">
-              { console.log("PROPS DOC ID ===================" + this.props.docId) }
-              <Link to={ () => `/blog/${this.props.docId}` }>Read More</Link>
+              {console.log(
+                "PROPS DOC ID ===================" + this.props.docId
+              )}
+              <Link to={() => `/blog/${this.props.docId}`}>Read More</Link>
             </Button>
           </Box>
         </Box>
