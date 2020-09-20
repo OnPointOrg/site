@@ -10,7 +10,7 @@ import {
   FormControl,
   FormLabel,
   InputGroup,
-  ThemeProvider
+  ThemeProvider,
 } from "@chakra-ui/core";
 
 const UploadForm = () => {
