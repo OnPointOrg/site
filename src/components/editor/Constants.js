@@ -40,8 +40,21 @@ export const EDITOR_JS_TOOLS = {
           storageRef.put(file).on("state_changed", async () => {
             const url = await storageRef.getDownloadURL();
             const createdAt = timestamp();
-            await collectionRef.add({ url, createdAt });
-            console.log(url);
+
+            await collectionRef.add({ url, createdAt }).then(() => {
+              console.log("---- IMAGE INSIDE THEN ----");
+              console.log(url);
+              console.log(typeof url);
+
+              return {
+                success: 1,
+                file: {
+                  url:
+                    "https://www.tesla.com/tesla_theme/assets/img/_vehicle_redesign/roadster_and_semi/roadster/hero.jpg",
+                  // ... and any additional fields you want to store, such as width, height, color, extension, etc
+                },
+              };
+            });
           });
         },
       },

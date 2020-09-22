@@ -14,6 +14,7 @@ import {
   AlertDescription,
   Code,
   Divider,
+  Image,
 } from "@chakra-ui/core";
 import { FaQuoteLeft } from "react-icons/fa";
 
@@ -153,8 +154,11 @@ const caseChecks = (article) => {
         );
         break;
 
-        case "image":
-          
+      case "image":
+        console.log("--------- Image URL Inside The Image Case ---------");
+        console.log(this.imageUrl);
+        articleHtmlBody.push(<Image src="" alt="" />)
+        break;
     }
   }
   return articleHtmlBody;
