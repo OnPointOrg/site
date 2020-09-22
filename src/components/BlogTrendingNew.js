@@ -5,7 +5,6 @@ import {
   Grid,
   Box,
   Divider,
-  Flex,
   Heading,
 } from "@chakra-ui/core";
 import BlogPost from "./BlogPost";

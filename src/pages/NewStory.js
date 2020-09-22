@@ -24,7 +24,7 @@ import DefaultNav from "../components/DefaultNav";
 import EditorJs from "react-editor-js";
 // import ImageTool from '@editorjs/image';
 
-import { EDITOR_JS_TOOLS } from "../components/Constants";
+import { EDITOR_JS_TOOLS } from "../components/editor/Constants";
 
 import firestoreDatabase from "../firebase/config";
 import firebase from "firebase";
