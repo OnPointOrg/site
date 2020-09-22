@@ -4,9 +4,7 @@ import {
   Heading,
   Box,
   theme,
-  Button,
   Text,
-  Code,
   Grid,
   Link as ChakraLink,
   Divider,
@@ -17,7 +15,6 @@ import { FaQuoteLeft } from "react-icons/fa";
 import firebase from "firebase";
 import firestoreDatabase from "../firebase/config";
 import getDocs, {
-  articles,
   articleHtmlBody,
   articleHtmlInformation,
 } from "../hooks/ReadArticlesFromFirebase";

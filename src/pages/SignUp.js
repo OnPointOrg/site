@@ -22,7 +22,6 @@ import {
 
 import * as firebase from "firebase";
 import DefaultNav from "../components/DefaultNav";
-// import { ThemeProvider } from "emotion-theming";
 
 const VARIANT_COLOR = "teal";
 
@@ -50,7 +49,6 @@ class SignUp extends Component {
     this.signUpSubmit(this.state);
 
     console.log("Hello There");
-    // console.log(this.state);
   };
 
   // setUserInfo = () => {
