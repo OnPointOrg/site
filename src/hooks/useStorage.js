@@ -5,14 +5,14 @@ import {
   timestamp,
 } from "../firebase/config";
 
-const useStorage = (file) => {
+const useStorage = (file, location) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
     // references
-    const storageRef = projectStorage.ref("BlogThumbnail/" + file.name);
+    const storageRef = projectStorage.ref(`${location}/` + file.name);
     const collectionRef = firestoreDatabase.collection("images");
 
     storageRef.put(file).on(
@@ -29,6 +29,7 @@ const useStorage = (file) => {
         const createdAt = timestamp();
         await collectionRef.add({ url, createdAt });
         setUrl(url);
+        console.log(url);
       }
     );
   }, [file]);

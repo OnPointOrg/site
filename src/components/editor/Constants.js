@@ -1,9 +1,9 @@
 import Embed from "@editorjs/embed";
-// import Table from "@editorjs/table";
 import List from "@editorjs/list";
 import Warning from "@editorjs/warning";
 import Code from "@editorjs/code";
 import LinkTool from "@editorjs/link";
+import ImageTool from "@editorjs/image";
 import Header from "@editorjs/header";
 import Quote from "@editorjs/quote";
 import Marker from "@editorjs/marker";
@@ -11,9 +11,11 @@ import CheckList from "@editorjs/checklist";
 import Delimiter from "@editorjs/delimiter";
 import InlineCode from "@editorjs/inline-code";
 
-import firebase from "firebase";
-const storage = firebase.storage();
-const storageReference = storage.ref();
+import {
+  projectStorage,
+  firestoreDatabase,
+  timestamp,
+} from "../../firebase/config";
 
 export const EDITOR_JS_TOOLS = {
   embed: Embed,
@@ -27,5 +29,22 @@ export const EDITOR_JS_TOOLS = {
   checklist: CheckList,
   delimiter: Delimiter,
   inlineCode: InlineCode,
-  image: Image
+  image: {
+    class: ImageTool,
+    config: {
+      uploader: {
+        uploadByFile(file) {
+          const storageRef = projectStorage.ref(`ContentImage/` + file.name);
+          const collectionRef = firestoreDatabase.collection("images");
+
+          storageRef.put(file).on("state_changed", async () => {
+            const url = await storageRef.getDownloadURL();
+            const createdAt = timestamp();
+            await collectionRef.add({ url, createdAt });
+            console.log(url);
+          });
+        },
+      },
+    },
+  },
 };

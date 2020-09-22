@@ -4,7 +4,7 @@ import useStorage from "../hooks/useStorage";
 import { Progress } from "@chakra-ui/core";
 
 const ProgressBar = ({ file, setFile }) => {
-  const { url, progress } = useStorage(file);
+  const { url, progress } = useStorage(file, "BlogThumbnail");
 
   useEffect(() => {
     if (url) {

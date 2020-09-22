@@ -18,7 +18,7 @@ const UploadForm = () => {
   const [error, setError] = useState(null);
 
   const hiddenFileInput = React.useRef(null);
-  
+
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
