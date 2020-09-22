@@ -152,6 +152,9 @@ const caseChecks = (article) => {
           </Box>
         );
         break;
+
+        case "image":
+          
     }
   }
   return articleHtmlBody;
