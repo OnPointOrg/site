@@ -3,6 +3,8 @@ import useStorage from "../hooks/useStorage";
 
 import { Progress } from "@chakra-ui/core";
 
+export let thumbnailImage = "";
+
 const ProgressBar = ({ file, setFile }) => {
   const { url, progress } = useStorage(file, "BlogThumbnail");
 
@@ -10,6 +12,8 @@ const ProgressBar = ({ file, setFile }) => {
     if (url) {
       setFile(null);
     }
+    thumbnailImage = url;
+    console.log(thumbnailImage);
   }, [url, setFile]);
 
   return <Progress hasStripe value={progress} />;

@@ -63,7 +63,7 @@ const UploadForm = () => {
         </FormControl>
       </Flex>
       <div className="output">
-        {error && <div className="error">{error}</div>}
+        {error && <Text color="tomato">{error}</Text>}
         {file && <Text>{file.name}</Text>}
         {file && <ProgressBar file={file} setFile={setFile} />}
       </div>

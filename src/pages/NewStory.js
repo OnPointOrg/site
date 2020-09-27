@@ -30,6 +30,7 @@ import firestoreDatabase from "../firebase/config";
 import firebase from "firebase";
 
 import UploadForm from "../components/UploadForm";
+// import thumbnailImage from "../components/ProgressBar";
 
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
@@ -46,6 +47,7 @@ export class CreateStory extends Component {
 
   getTheUserInformation = () => {
     const firebaseUser = firebase.auth().currentUser;
+    console.log(firebaseUser);
     if (firebaseUser != null) {
       const name = firebaseUser.displayName;
       // const email = firebaseUser.email;
