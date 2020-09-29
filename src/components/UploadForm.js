@@ -27,7 +27,7 @@ const UploadForm = () => {
 
   const types = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
-  const changeHandler = async(e) => {
+  const changeHandler = async (e) => {
     let selected = e.target.files[0];
     console.log(selected);
     await console.log("changed");

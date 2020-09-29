@@ -157,7 +157,7 @@ const caseChecks = (article) => {
       case "image":
         console.log("--------- Image URL Inside The Image Case ---------");
         console.log(this.imageUrl);
-        articleHtmlBody.push(<Image src="" alt="" />)
+        articleHtmlBody.push(<Image src="" alt="" />);
         break;
     }
   }

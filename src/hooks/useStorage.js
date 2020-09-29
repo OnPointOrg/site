@@ -5,7 +5,6 @@ import {
   timestamp,
 } from "../firebase/config";
 
-
 const useStorage = (file, location) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
