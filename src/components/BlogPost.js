@@ -13,7 +13,6 @@ import firebase from "firebase";
 import { Link } from "react-router-dom";
 
 export class BlogPost extends React.Component {
-  
   state = {
     show: false,
   };
@@ -67,14 +66,13 @@ export class BlogPost extends React.Component {
               ml="2"
             >
               {console.log(this.props.user)}
-              {this.props.user} &bull;&bull;&bull;
               {this.convertFromUnix(this.props.date)}
             </Box>
           </Box>
 
           <Box
             marginTop="5"
-            marginBottom="5"
+            marginBottom="2.5"
             marginLeft="2px"
             fontWeight="semibold"
             as="h4"
@@ -83,7 +81,22 @@ export class BlogPost extends React.Component {
           >
             {this.props.title}
           </Box>
-          <Box>
+          <Box
+            marginTop="3"
+            marginBottom="3"
+            marginLeft="2px"
+            fontWeight="semibold"
+            color="gray.500"
+            fontWeight="semibold"
+            letterSpacing="wide"
+            fontSize="xs"
+            textTransform="uppercase"
+            lineHeight="tight"
+            isTruncated
+          >
+            {this.props.user}
+          </Box>
+          <Box marginTop="3">
             <Box as="span" color="white.600" fontSize="sm">
               <Collapse startingHeight={20} isOpen={this.state.show}>
                 {this.props.summary}
