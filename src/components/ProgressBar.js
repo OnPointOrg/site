@@ -14,6 +14,7 @@ const ProgressBar = ({ file, setFile }) => {
     }
     thumbnailImage = url;
     console.log(thumbnailImage);
+    // return thumbnailImage;
   }, [url, setFile]);
 
   return <Progress hasStripe value={progress} />;

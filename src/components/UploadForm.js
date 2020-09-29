@@ -13,6 +13,8 @@ import {
   ThemeProvider,
 } from "@chakra-ui/core";
 
+import { thumbnailImage } from "../components/ProgressBar";
+
 const UploadForm = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
@@ -25,12 +27,13 @@ const UploadForm = () => {
 
   const types = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
-  const changeHandler = (e) => {
-    console.log("changed");
+  const changeHandler = async(e) => {
     let selected = e.target.files[0];
     console.log(selected);
+    await console.log("changed");
 
     if (selected && types.includes(selected.type)) {
+      console.log(thumbnailImage);
       setFile(selected);
       setError("");
     } else {
