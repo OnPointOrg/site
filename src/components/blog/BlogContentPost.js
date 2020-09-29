@@ -13,13 +13,13 @@ import {
 import { FaQuoteLeft } from "react-icons/fa";
 
 import firebase from "firebase";
-import firestoreDatabase from "../firebase/config";
+import firestoreDatabase from "../../firebase/config";
 import getDocs, {
   articleHtmlBody,
   articleHtmlInformation,
-} from "../hooks/ReadArticlesFromFirebase";
+} from "../../hooks/ReadArticlesFromFirebase";
 
-import DefaultNav from "./DefaultNav";
+import DefaultNav from "../DefaultNav";
 import { Link } from "react-router-dom";
 
 export class BlogContentPost extends Component {

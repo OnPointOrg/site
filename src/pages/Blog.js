@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { ThemeProvider, theme, Button } from "@chakra-ui/core";
 import DefaultNav from "../components/DefaultNav";
 import VerifiedNav from "../components/VerifiedNav";
-import BlogTrendingNew from "../components/BlogTrendingNew";
-import BlogGrid from "../components/BlogGrid";
+import BlogTrendingNew from "../components/blog/BlogTrendingNew";
+import BlogGrid from "../components/blog/BlogGrid";
 import firebase from "firebase";
 
 import getDocs from "../hooks/ReadArticlesFromFirebase";

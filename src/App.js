@@ -15,7 +15,7 @@ import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
 import NewStory from "./pages/NewStory";
 import Dashboard from "./pages/Dashboard";
-import BlogContentPost from "./components/BlogContentPost";
+import BlogContentPost from "./components/blog/BlogContentPost";
 
 export class App extends Component {
   render() {
