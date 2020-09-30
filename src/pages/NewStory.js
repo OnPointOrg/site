@@ -43,6 +43,7 @@ export class CreateStory extends Component {
     articleContent: "",
     useruid: "",
     username: "",
+    thumbnailImage: "",
   };
 
   getTheUserInformation = () => {
@@ -106,6 +107,7 @@ export class CreateStory extends Component {
         content: this.state.articleContent,
         useruid: this.state.useruid,
         username: this.state.username,
+        thumbnailImage: this.state.thumbnailImage,
       })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
@@ -113,6 +115,11 @@ export class CreateStory extends Component {
       .catch(function (error) {
         console.error("Error adding document: ", error);
       });
+  }
+
+  getUrl = (childData) => {
+    console.log(childData);
+    this.setState({thumbnailImage: childData});
   }
 
   handleEditorChange = (content, editor) => {
@@ -204,7 +211,7 @@ export class CreateStory extends Component {
                       </InputGroup>
                     </FormControl>
                   </SimpleGrid>
-                  <UploadForm />
+                  <UploadForm fileUrl={this.getUrl} />
                   <FormControl isRequired margin="25px">
                     <FormLabel>Summary</FormLabel>
                     <InputGroup>

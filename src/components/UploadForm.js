@@ -13,11 +13,10 @@ import {
   ThemeProvider,
 } from "@chakra-ui/core";
 
-import { thumbnailImage } from "../components/ProgressBar";
-
-const UploadForm = () => {
+const UploadForm = (props) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const [url, setUrl] = useState(null);
 
   const hiddenFileInput = React.useRef(null);
 
@@ -25,16 +24,22 @@ const UploadForm = () => {
     hiddenFileInput.current.click();
   };
 
+  const getUrl = async (childData) => {
+    await setUrl(childData);
+    console.log(childData);
+  };
+
   const types = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
-  const changeHandler = async (e) => {
+  const changeHandler = (e) => {
     let selected = e.target.files[0];
     console.log(selected);
-    await console.log("changed");
+    console.log("changed");
 
     if (selected && types.includes(selected.type)) {
-      console.log(thumbnailImage);
       setFile(selected);
+      console.log(selected.name);
+      props.fileUrl(getUrl());
       setError("");
     } else {
       setFile(null);
@@ -57,6 +62,7 @@ const UploadForm = () => {
             >
               <input
                 type="file"
+                accept="image/*"
                 style={{ display: "none" }}
                 ref={hiddenFileInput}
               />
@@ -66,9 +72,13 @@ const UploadForm = () => {
         </FormControl>
       </Flex>
       <div className="output">
-        {error && <Text color="tomato">{error}</Text>}
-        {file && <Text>{file.name}</Text>}
-        {file && <ProgressBar file={file} setFile={setFile} />}
+        {file && <ProgressBar file={file} setFile={setFile} fileUrl={url} />}
+        {error && (
+          <Text textAlign="center" color="tomato">
+            {error}
+          </Text>
+        )}
+        {file && <Text textAlign="center">File Uploaded: {file.name}</Text>}
       </div>
     </ThemeProvider>
   );

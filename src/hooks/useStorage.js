@@ -29,7 +29,7 @@ const useStorage = (file, location) => {
         const createdAt = timestamp();
         await collectionRef.add({ url, createdAt });
         setUrl(url);
-        return url;
+        console.log(url);
       }
     );
   }, [file]);
