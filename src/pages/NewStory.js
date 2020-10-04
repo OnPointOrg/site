@@ -30,7 +30,6 @@ import firestoreDatabase from "../firebase/config";
 import firebase from "firebase";
 
 import UploadForm from "../components/UploadForm";
-// import thumbnailImage from "../components/ProgressBar";
 
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
@@ -117,10 +116,13 @@ export class CreateStory extends Component {
       });
   }
 
-  getUrl = (childData) => {
-    console.log(childData);
-    this.setState({thumbnailImage: childData});
-  }
+  getUrl = async (childData) => {
+    let thumbUrl = childData;
+    await thumbUrl.then((value) => {
+      console.log(value);
+    });
+    this.setState({ thumbnailImage: childData });
+  };
 
   handleEditorChange = (content, editor) => {
     console.log("Content was updated:", content);
