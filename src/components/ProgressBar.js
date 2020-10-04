@@ -19,7 +19,13 @@ const ProgressBar = ({ file, setFile }) => {
     setData();
   }, [url, setFile]);
 
-  return <div className="progress-bar" style={{ width: progress + "%" }} fileurl={url}></div>;
+  return (
+    <div
+      className="progress-bar"
+      style={{ width: progress + "%" }}
+      fileurl={url}
+    ></div>
+  );
 };
 
 export default ProgressBar;

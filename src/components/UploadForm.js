@@ -24,11 +24,6 @@ const UploadForm = (props) => {
     hiddenFileInput.current.click();
   };
 
-  const getUrl = async (childData) => {
-    await setUrl(childData);
-    console.log(childData);
-  };
-
   const types = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
 
   const changeHandler = (e) => {
@@ -39,7 +34,6 @@ const UploadForm = (props) => {
     if (selected && types.includes(selected.type)) {
       setFile(selected);
       console.log(selected.name);
-      props.fileUrl(getUrl());
       setError("");
     } else {
       setFile(null);

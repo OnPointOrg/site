@@ -31,6 +31,8 @@ import firebase from "firebase";
 
 import UploadForm from "../components/UploadForm";
 
+import { fileURL } from "../hooks/useStorage";
+
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
 
@@ -42,7 +44,7 @@ export class CreateStory extends Component {
     articleContent: "",
     useruid: "",
     username: "",
-    thumbnailImage: "",
+    thumbnailImage: fileURL,
   };
 
   getTheUserInformation = () => {
@@ -115,14 +117,6 @@ export class CreateStory extends Component {
         console.error("Error adding document: ", error);
       });
   }
-
-  getUrl = async (childData) => {
-    let thumbUrl = childData;
-    await thumbUrl.then((value) => {
-      console.log(value);
-    });
-    this.setState({ thumbnailImage: childData });
-  };
 
   handleEditorChange = (content, editor) => {
     console.log("Content was updated:", content);
@@ -213,7 +207,7 @@ export class CreateStory extends Component {
                       </InputGroup>
                     </FormControl>
                   </SimpleGrid>
-                  <UploadForm fileUrl={this.getUrl} />
+                  <UploadForm />
                   <FormControl isRequired margin="25px">
                     <FormLabel>Summary</FormLabel>
                     <InputGroup>
