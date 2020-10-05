@@ -31,8 +31,6 @@ import firebase from "firebase";
 
 import UploadForm from "../components/UploadForm";
 
-import { fileURL } from "../hooks/useStorage";
-
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
 
@@ -44,7 +42,7 @@ export class CreateStory extends Component {
     articleContent: "",
     useruid: "",
     username: "",
-    thumbnailImage: fileURL,
+    thumbnailImage: "",
   };
 
   getTheUserInformation = () => {
@@ -52,9 +50,6 @@ export class CreateStory extends Component {
     console.log(firebaseUser);
     if (firebaseUser != null) {
       const name = firebaseUser.displayName;
-      // const email = firebaseUser.email;
-      // const photoUrl = firebaseUser.photoURL;
-      // const emailVerified = user.emailVerified
       const uid = firebaseUser.uid;
       console.log(uid);
       this.setState({
@@ -97,8 +92,6 @@ export class CreateStory extends Component {
   };
 
   writeArticleData() {
-    //const userRef = database.ref("users");
-    // Add a second document with a generated ID.
     firestoreDatabase
       .collection("articles")
       .add({

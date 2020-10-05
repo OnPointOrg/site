@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import ProgressBar from "./ProgressBar";
+import React, { useEffect, useState } from "react";
+import useStorage from "../hooks/useStorage";
 
 import { FiUpload } from "react-icons/fi";
 
@@ -11,14 +11,46 @@ import {
   FormLabel,
   InputGroup,
   ThemeProvider,
+  Progress,
 } from "@chakra-ui/core";
+
+let fileURL = "";
+
+const ProgressBar = ({ file, setFile }, props) => {
+  const { url, progress } = useStorage(file, "BlogThumbnail");
+
+  const sendData = (props) => {
+    props.parentCallback(url);
+  };
+
+  const [fileUrl, setFileUrl] = useState("");
+
+  useEffect(() => {
+    const setData = async () => {
+      if (url) {
+        setFile(null);
+      }
+      await setFileUrl(url);
+      fileURL = url;
+      sendData();
+      console.log(fileURL);
+    };
+    setData();
+  }, [url, setFile]);
+
+  return <Progress hasStripe className="progress-bar" value={progress} />;
+};
 
 const UploadForm = (props) => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
-  const [url, setUrl] = useState(null);
 
   const hiddenFileInput = React.useRef(null);
+
+  const callbackFunction = (childData) => {
+    console.log("DATA -----");
+    console.log(childData);
+  };
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -66,7 +98,13 @@ const UploadForm = (props) => {
         </FormControl>
       </Flex>
       <div className="output">
-        {file && <ProgressBar file={file} setFile={setFile} fileUrl={url} />}
+        {file && (
+          <ProgressBar
+            file={file}
+            setFile={setFile}
+            parentCallback={callbackFunction}
+          />
+        )}
         {error && (
           <Text textAlign="center" color="tomato">
             {error}
