@@ -14,13 +14,13 @@ import {
   Progress,
 } from "@chakra-ui/core";
 
-let fileURL = "";
+export let fileURL = "";
 
 const ProgressBar = ({ file, setFile }, props) => {
   const { url, progress } = useStorage(file, "BlogThumbnail");
 
-  const sendData = (props) => {
-    props.parentCallback(url);
+  const sendData = () => {
+    fileURL = url;
   };
 
   const [fileUrl, setFileUrl] = useState("");
@@ -47,10 +47,10 @@ const UploadForm = (props) => {
 
   const hiddenFileInput = React.useRef(null);
 
-  const callbackFunction = (childData) => {
-    console.log("DATA -----");
-    console.log(childData);
-  };
+  // const callbackFunction = () => {
+  //   console.log("DATA -----");
+  //   console.log(fileURL);
+  // };
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -102,7 +102,7 @@ const UploadForm = (props) => {
           <ProgressBar
             file={file}
             setFile={setFile}
-            parentCallback={callbackFunction}
+            // parentCallback={callbackFunction}
           />
         )}
         {error && (

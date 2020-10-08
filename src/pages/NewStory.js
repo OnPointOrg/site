@@ -31,6 +31,8 @@ import firebase from "firebase";
 
 import UploadForm from "../components/UploadForm";
 
+import { fileURL } from "../components/UploadForm";
+
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
 
@@ -64,7 +66,9 @@ export class CreateStory extends Component {
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
+      thumbnailImage: fileURL,
     });
+    console.log(this.state.thumbnailImage);
   };
 
   handleSubmit = (e) => {

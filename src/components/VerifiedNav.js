@@ -152,11 +152,11 @@ const VerifiedNav = (props) => {
               </MenuButton>
               <MenuList>
                 <MenuGroup title="Profile">
-                  <MenuItem>
-                    <Link to="/account">My Account</Link>
+                  <MenuItem isTruncated isDisabled>
+                    <Text>Email: {firebase.auth().currentUser.email}</Text>
                   </MenuItem>
                   <MenuItem>
-                    <Link to="/dashboard">Dashboard</Link>
+                    <Text>Reset Password</Text>
                   </MenuItem>
                 </MenuGroup>
                 <MenuDivider />
