@@ -44,7 +44,7 @@ export class BlogGrid extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <Divider />
+        {/* <Divider /> */}
         <Box margin="15px">
           <Heading
             as="h1"
@@ -79,6 +79,7 @@ export class BlogGrid extends Component {
                     summary={document.data().summary}
                     date={document.data().content.time}
                     user={document.data().username}
+                    thumbnailImage={document.data().thumbnailImage}
                   />
                 );
               })}

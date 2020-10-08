@@ -30,7 +30,7 @@ export class Blog extends Component {
     return (
       <ThemeProvider theme={theme}>
         {this.state.currentNav}
-        <BlogTrendingNew />
+        {/* <BlogTrendingNew /> */}
         <BlogGrid />
         <Button onClick={getDocs}>
           Click Me For Juicy Firebse Data! Members Only!
