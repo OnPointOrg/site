@@ -21,7 +21,9 @@ import {
 } from "@chakra-ui/core";
 
 import * as firebase from "firebase";
-import DefaultNav from "../components/DefaultNav";
+
+import DefaultNav from "../components/Nav/DefaultNav";
+import VerifiedNav from "../components/Nav/VerifiedNav";
 
 const VARIANT_COLOR = "teal";
 
@@ -36,6 +38,21 @@ class SignUp extends Component {
     passwordError: "",
     signUpSuccess: "",
     redirect: null,
+    currentNav: <DefaultNav />,
+  };
+
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          currentNav: <VerifiedNav />,
+        });
+      } else {
+        this.setState({
+          currentNav: <DefaultNav />,
+        });
+      }
+    });
   };
 
   handleChange = (e) => {
@@ -135,7 +152,7 @@ class SignUp extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <DefaultNav />
+        {this.state.currentNav}
         <Flex
           minHeight="100vh"
           width="full"

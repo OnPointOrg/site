@@ -1,7 +1,7 @@
 import React from "react";
 import * as firebase from "firebase";
-import DefaultNav from "../components/DefaultNav";
-import VerifiedNav from "../components/VerifiedNav";
+import DefaultNav from "../components/Nav/DefaultNav";
+import VerifiedNav from "../components/Nav/VerifiedNav";
 import { Link } from "react-router-dom";
 
 import {

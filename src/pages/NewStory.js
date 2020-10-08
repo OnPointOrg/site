@@ -19,8 +19,6 @@ import {
   Tooltip,
 } from "@chakra-ui/core";
 
-import DefaultNav from "../components/DefaultNav";
-
 import EditorJs from "react-editor-js";
 // import ImageTool from '@editorjs/image';
 
@@ -31,8 +29,8 @@ import firebase from "firebase";
 
 import UploadForm, { fileURL } from "../components/UploadForm";
 
-import VerifiedNav from "../components/VerifiedNav";
-
+import VerifiedNav from "../components/Nav/VerifiedNav";
+import DefaultNav from "../components/Nav/DefaultNav";
 
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
@@ -46,6 +44,7 @@ export class CreateStory extends Component {
     useruid: "",
     username: "",
     thumbnailImage: "",
+    currentNav: <DefaultNav />,
   };
 
   componentDidMount = () => {
@@ -137,7 +136,7 @@ export class CreateStory extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <DefaultNav />
+        {this.state.currentNav}
         <Flex height="50%" width="100%" align="center" justifyContent="center">
           <Box>
             <Box p={4}>

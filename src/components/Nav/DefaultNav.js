@@ -11,17 +11,10 @@ import {
   Heading,
   Button,
   Image,
-  Icon,
-  MenuList,
-  MenuDivider,
-  MenuGroup,
-  MenuItem,
-  Avatar,
-  MenuButton,
+  ButtonGroup,
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
-import img from "../images/logo.png";
-import firebase from "firebase";
+import img from "../../images/logo.png";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -34,21 +27,9 @@ const newTheme = {
   breakpoints,
 };
 
-const VerifiedNav = (props) => {
+const DefaultNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
-  const signOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        console.log("Signed Out");
-      })
-      .catch(function (error) {
-        // An error happened.
-      });
-  };
-
   return (
     <ThemeProvider theme={newTheme}>
       <Flex
@@ -132,44 +113,18 @@ const VerifiedNav = (props) => {
         >
           <Flex justifyContent="space-between" color="gray.500">
             <Menu>
-              <MenuButton
-                px={6}
-                py={2}
-                transition="all 0.2s"
-                rounded="md"
-                borderWidth="1px"
-                _focus={{ outline: 0, boxShadow: "outline" }}
-                marginRight="2px"
-                marginLeft="-2px"
-              >
-                <Avatar
-                  marginRight="10px"
-                  size="xs"
-                  name="Dan Abrahmov"
-                  src="https://bit.ly/dan-abramov"
-                />{" "}
-                Profile <Icon name="chevron-down" />
-              </MenuButton>
-              <MenuList>
-                <MenuGroup title="Profile">
-                  <MenuItem isTruncated isDisabled>
-                    <Text>Email: {firebase.auth().currentUser.email}</Text>
-                  </MenuItem>
-                  <MenuItem>
-                    <Text>Reset Password</Text>
-                  </MenuItem>
-                </MenuGroup>
-                <MenuDivider />
-                <MenuGroup title="Actions">
-                  <MenuItem>
-                    <Link to="newstory">New Story</Link>
-                  </MenuItem>
-                </MenuGroup>
-                <MenuDivider />
-                <MenuGroup title="Danger Zone">
-                  <MenuItem>Sign Out</MenuItem>
-                </MenuGroup>
-              </MenuList>
+              <ButtonGroup>
+                <Link to="/signin">
+                  <Button marginRight="20px" size="lg" variant="solid">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/signup">
+                  <Button size="lg" variant="outline">
+                    Sign Up
+                  </Button>
+                </Link>
+              </ButtonGroup>
             </Menu>
             <Divider orientation="vertical" />
             <DarkModeLightModeButton />
@@ -181,4 +136,4 @@ const VerifiedNav = (props) => {
   );
 };
 
-export default VerifiedNav;
+export default DefaultNav;

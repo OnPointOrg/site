@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import DefaultNav from "../components/DefaultNav";
+import DefaultNav from "../components/Nav/DefaultNav";
+import VerifiedNav from "../components/Nav/VerifiedNav";
 import { ThemeProvider } from "@chakra-ui/core";
 
 export class Dashboard extends Component {

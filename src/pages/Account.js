@@ -3,9 +3,8 @@ import React from "react";
 
 import { ThemeProvider } from "@chakra-ui/core";
 
-import DefaultNav from "../components/DefaultNav";
-// import VerifiedNav from "../components/VerifiedNav";
-// import BlogPost from '../components/BlogPost';
+import DefaultNav from "../components/Nav/DefaultNav";
+import VerifiedNav from "../components/Nav/VerifiedNav";
 
 const Account = () => {
   return (

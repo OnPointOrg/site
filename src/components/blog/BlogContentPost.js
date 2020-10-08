@@ -19,7 +19,9 @@ import getDocs, {
   articleHtmlInformation,
 } from "../../hooks/ReadArticlesFromFirebase";
 
-import DefaultNav from "../DefaultNav";
+import DefaultNav from "../Nav/DefaultNav";
+import VerifiedNav from "../Nav/VerifiedNav";
+
 import { Link } from "react-router-dom";
 
 export class BlogContentPost extends Component {
@@ -30,9 +32,22 @@ export class BlogContentPost extends Component {
     articleSummary: "",
     articleDate: "",
     articleContent: "",
+    currentNav: <DefaultNav />,
   };
 
   componentDidMount = async () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          currentNav: <VerifiedNav />,
+        });
+      } else {
+        this.setState({
+          currentNav: <DefaultNav />,
+        });
+      }
+    });
+
     let docId = this.props.match.params.docId;
 
     await getDocs(docId).then(() => {
@@ -54,7 +69,7 @@ export class BlogContentPost extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <DefaultNav />
+        {this.state.currentNav}
         <Grid templateColumns="repeat(4, 1fr)" gap={1}>
           <Box />
           <Box width="200%" alignItems="center">
