@@ -29,9 +29,10 @@ import { EDITOR_JS_TOOLS } from "../components/editor/Constants";
 import firestoreDatabase from "../firebase/config";
 import firebase from "firebase";
 
-import UploadForm from "../components/UploadForm";
+import UploadForm, { fileURL } from "../components/UploadForm";
 
-import { fileURL } from "../components/UploadForm";
+import VerifiedNav from "../components/VerifiedNav";
+
 
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
@@ -45,6 +46,20 @@ export class CreateStory extends Component {
     useruid: "",
     username: "",
     thumbnailImage: "",
+  };
+
+  componentDidMount = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          currentNav: <VerifiedNav />,
+        });
+      } else {
+        this.setState({
+          currentNav: <DefaultNav />,
+        });
+      }
+    });
   };
 
   getTheUserInformation = () => {
