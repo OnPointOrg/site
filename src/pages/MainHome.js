@@ -8,8 +8,8 @@ import {
   SimpleGrid,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
-import VerifiedNav from "../components/Nav/VerifiedNav";
-import DefaultNav from "../components/Nav/DefaultNav";
+import VerifiedNav from "../components/nav/VerifiedNav";
+import DefaultNav from "../components/nav/DefaultNav";
 
 import firebase from "firebase";
 

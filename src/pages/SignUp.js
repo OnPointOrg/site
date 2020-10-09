@@ -22,8 +22,8 @@ import {
 
 import * as firebase from "firebase";
 
-import DefaultNav from "../components/Nav/DefaultNav";
-import VerifiedNav from "../components/Nav/VerifiedNav";
+import DefaultNav from "../components/nav/DefaultNav";
+import VerifiedNav from "../components/nav/VerifiedNav";
 
 const VARIANT_COLOR = "teal";
 

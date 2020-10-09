@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { ThemeProvider, theme } from "@chakra-ui/core";
-import DefaultNav from "../components/Nav/DefaultNav";
-import VerifiedNav from "../components/Nav/VerifiedNav";
+import DefaultNav from "../components/nav/DefaultNav";
+import VerifiedNav from "../components/nav/VerifiedNav";
 import firebase from "firebase";
 
 export class ContactUs extends Component {

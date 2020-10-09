@@ -19,8 +19,8 @@ import getDocs, {
   articleHtmlInformation,
 } from "../../hooks/ReadArticlesFromFirebase";
 
-import DefaultNav from "../Nav/DefaultNav";
-import VerifiedNav from "../Nav/VerifiedNav";
+import DefaultNav from "../nav/DefaultNav";
+import VerifiedNav from "../nav/VerifiedNav";
 
 import { Link } from "react-router-dom";
 
