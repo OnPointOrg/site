@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import {
   Box,
   Flex,
@@ -75,6 +75,15 @@ class SignIn extends React.Component {
         firebase
           .auth()
           .signInWithEmailAndPassword(email, password)
+          .then(() => {
+            const { history } = this.props;
+            this.setState({
+              signInSuccess: "You Are Now Logged In! Redirecting You...",
+              redirect: setTimeout(() => {
+                history.push("/");
+              }, 1500),
+            });
+          })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -164,4 +173,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);
