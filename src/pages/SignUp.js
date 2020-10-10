@@ -68,30 +68,30 @@ class SignUp extends Component {
     console.log("Hello There");
   };
 
-  // setUserInfo = () => {
-  //   const user = firebase.auth().currentUser;
+  setUserInfo = () => {
+    const user = firebase.auth().currentUser;
 
-  //   user.updateProfile({
-  //     displayName: "Jane Q. User",
-  //     photoURL: "https://example.com/jane-q-user/profile.jpg"
-  //   }).then(function () {
-  //     // Update successful.
-  //   }).catch(function (error) {
-  //     // An error happened.
-  //   });
-  // }
+    user.updateProfile({
+      displayName: this.state.fullName,
+    }).then(function () {
+      console.log("Info Saved");
+      console.log("displayName: " + user.displayName);
+    }).catch((error) => {
+      console.log("User Info Error: " + error)
+    });
+  }
 
   signUpSubmit = () => {
     const email = this.state.email;
     const password = this.state.password;
+    const fullName = this.state.fullName;
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        return result.user.updateProfile({
-          displayName: this.state.fullName,
-        });
-        console.log("Full Name " + result.displayName);
+        console.log(result)
+        result.user.updateProfile({displayName: fullName});
+        console.log(result)
       })
       .catch((error) => {
         // Handle Errors here.

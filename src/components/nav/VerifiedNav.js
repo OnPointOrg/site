@@ -39,7 +39,7 @@ export const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   const toast = useToast();
-
+  const email = firebase.auth().currentUser.email;
   return (
     <ThemeProvider theme={newTheme}>
       <Flex
@@ -133,12 +133,6 @@ export const VerifiedNav = (props) => {
                 marginRight="2px"
                 marginLeft="-2px"
               >
-                <Avatar
-                  marginRight="10px"
-                  size="xs"
-                  name="Dan Abrahmov"
-                  src="https://bit.ly/dan-abramov"
-                />{" "}
                 Profile <Icon name="chevron-down" />
               </MenuButton>
               <MenuList>
@@ -146,8 +140,32 @@ export const VerifiedNav = (props) => {
                   <MenuItem isTruncated isDisabled>
                     <Text>Email: {firebase.auth().currentUser.email}</Text>
                   </MenuItem>
+                  <MenuItem isTruncated isDisabled>
+                    <Text>Name: {firebase.auth().currentUser.displayName}</Text>
+                  </MenuItem>
                   <MenuItem>
-                    <Text>Reset Password</Text>
+                    <Text
+                      onClick={() => {
+                        firebase
+                          .auth()
+                          .sendPasswordResetEmail(email)
+                          .then(() => {
+                            toast({
+                              title: "Password Reset Email Has Been Sent",
+                              description:
+                                "In Order To Reset Your Password, Please Check Your Email",
+                              status: "success",
+                              duration: 5000,
+                              isClosable: true,
+                            });
+                          })
+                          .catch(function (e) {
+                            console.log(e);
+                          });
+                      }}
+                    >
+                      Reset Password
+                    </Text>
                   </MenuItem>
                 </MenuGroup>
                 <MenuDivider />
