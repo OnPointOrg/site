@@ -87,7 +87,7 @@ class SignIn extends React.Component {
           });
       })
       .catch((error) => {
-        // Handle Errors here.
+        console.log(error);
       });
   };
 

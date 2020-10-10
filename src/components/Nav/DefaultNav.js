@@ -11,10 +11,11 @@ import {
   Heading,
   Button,
   Image,
-  ButtonGroup,
+  ButtonGroup
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../../images/logo.png";
+import firebase from "firebase";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];

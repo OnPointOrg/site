@@ -35,7 +35,7 @@ const newTheme = {
   breakpoints,
 };
 
-const VerifiedNav = (props) => {
+export const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   const toast = useToast();
