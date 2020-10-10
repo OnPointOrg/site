@@ -133,18 +133,15 @@ export const VerifiedNav = (props) => {
                 marginRight="2px"
                 marginLeft="-2px"
               >
-                <Avatar
-                  marginRight="10px"
-                  size="xs"
-                  name="Dan Abrahmov"
-                  src="https://bit.ly/dan-abramov"
-                />{" "}
                 Profile <Icon name="chevron-down" />
               </MenuButton>
               <MenuList>
                 <MenuGroup title="Profile">
                   <MenuItem isTruncated isDisabled>
                     <Text>Email: {firebase.auth().currentUser.email}</Text>
+                  </MenuItem>
+                  <MenuItem isTruncated isDisabled>
+                    <Text>Name: {firebase.auth().currentUser.displayName}</Text>
                   </MenuItem>
                   <MenuItem>
                     <Text>Reset Password</Text>
