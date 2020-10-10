@@ -18,6 +18,7 @@ import {
   MenuItem,
   Avatar,
   MenuButton,
+  useToast,
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import img from "../../images/logo.png";
@@ -37,17 +38,7 @@ const newTheme = {
 const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
-  const signOut = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        console.log("Signed Out");
-      })
-      .catch(function (error) {
-        // An error happened.
-      });
-  };
+  const toast = useToast();
 
   return (
     <ThemeProvider theme={newTheme}>
@@ -167,7 +158,29 @@ const VerifiedNav = (props) => {
                 </MenuGroup>
                 <MenuDivider />
                 <MenuGroup title="Danger Zone">
-                  <MenuItem>Sign Out</MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      firebase
+                        .auth()
+                        .signOut()
+                        .then(() => {
+                          console.log("Signed Out");
+                        })
+                        .catch((error) => {
+                          console.log(error);
+                        }) &&
+                        toast({
+                          title: "Signed Out Successfully",
+                          description:
+                            "You Have Been Signed Out Successfully. Please Note You Will Have To Be Signed In To Access Some Parts Of This Application",
+                          status: "success",
+                          duration: 5000,
+                          isClosable: true,
+                        });
+                    }}
+                  >
+                    Sign Out
+                  </MenuItem>
                 </MenuGroup>
               </MenuList>
             </Menu>
