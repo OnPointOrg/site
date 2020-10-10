@@ -57,17 +57,6 @@ export class BlogGrid extends Component {
           </Heading>
           <Divider />
           <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
-            {/* {this.state.articles != null &&
-              this.state.articles.map((article) => {
-                return (
-                  <BlogPost
-                    title={article.title}
-                    summary={article.summary}
-                    date={article.content.time}
-                    user={article.username}
-                  />
-                );
-              })} */}
             {this.state.documents != null &&
               this.state.documents.map((document) => {
                 console.log("DOCUMENT ID =====================");

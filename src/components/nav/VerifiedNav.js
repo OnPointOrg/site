@@ -39,7 +39,7 @@ export const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   const toast = useToast();
-
+  const email = firebase.auth().currentUser.email;
   return (
     <ThemeProvider theme={newTheme}>
       <Flex
@@ -144,7 +144,28 @@ export const VerifiedNav = (props) => {
                     <Text>Name: {firebase.auth().currentUser.displayName}</Text>
                   </MenuItem>
                   <MenuItem>
-                    <Text>Reset Password</Text>
+                    <Text
+                      onClick={() => {
+                        firebase
+                          .auth()
+                          .sendPasswordResetEmail(email)
+                          .then(() => {
+                            toast({
+                              title: "Password Reset Email Has Been Sent",
+                              description:
+                                "In Order To Reset Your Password, Please Check Your Email",
+                              status: "success",
+                              duration: 5000,
+                              isClosable: true,
+                            });
+                          })
+                          .catch(function (e) {
+                            console.log(e);
+                          });
+                      }}
+                    >
+                      Reset Password
+                    </Text>
                   </MenuItem>
                 </MenuGroup>
                 <MenuDivider />
