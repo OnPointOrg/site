@@ -31,7 +31,6 @@ import UploadForm, { fileURL } from "../components/UploadForm";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import DefaultNav from "../components/nav/DefaultNav";
 
-
 const VARIANT_COLOR = "teal";
 const instanceRef = createRef();
 
