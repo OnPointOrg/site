@@ -26,7 +26,7 @@ import { EDITOR_JS_TOOLS } from "../components/editor/Constants";
 import firestoreDatabase from "../firebase/config";
 import firebase from "firebase";
 
-import UploadForm, { fileURL } from "../components/UploadForm";
+import UploadForm, { fileURL } from "../components/editor/UploadForm";
 
 import VerifiedNav from "../components/nav/VerifiedNav";
 import DefaultNav from "../components/nav/DefaultNav";
