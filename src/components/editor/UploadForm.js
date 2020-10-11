@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import useStorage from "../hooks/useStorage";
+import useStorage from "../../hooks/useStorage";
 
 import { FiUpload } from "react-icons/fi";
 
@@ -23,7 +23,7 @@ const ProgressBar = ({ file, setFile }) => {
     if (url) {
       setFile(null);
     }
-    fileURL = url
+    fileURL = url;
   }, [url, setFile]);
 
   return <Progress hasStripe className="progress-bar" value={progress} />;
@@ -81,12 +81,7 @@ const UploadForm = () => {
         </FormControl>
       </Flex>
       <div className="output">
-        {file && (
-          <ProgressBar
-            file={file}
-            setFile={setFile}
-          />
-        )}
+        {file && <ProgressBar file={file} setFile={setFile} />}
         {error && (
           <Text textAlign="center" color="tomato">
             {error}
