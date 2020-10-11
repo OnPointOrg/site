@@ -10,7 +10,7 @@ const DarkModeLightModeButton = () => {
         aria-label={`Switch to ${
           colorMode === "light" ? "dark" : "light"
         } mode`}
-        variant="ghost"
+        variant="outline"
         color="current"
         fontSize={["20px", "20px", "20px", "20px"]}
         onClick={toggleColorMode}

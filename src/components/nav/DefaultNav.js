@@ -11,10 +11,10 @@ import {
   Heading,
   Button,
   Image,
-  ButtonGroup
+  ButtonGroup,
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
-import img from "../../images/logo.png";
+import logo from "../../images/logo.png";
 import firebase from "firebase";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
@@ -44,7 +44,7 @@ const DefaultNav = (props) => {
         <Flex align="center" mr={5}>
           <Link to="/">
             <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
-              <Image src={img} width="50px"></Image>
+              <Image src={logo} width="50px" rounded="full" />
             </Heading>
           </Link>
         </Flex>
