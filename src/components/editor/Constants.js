@@ -17,6 +17,8 @@ import {
   timestamp,
 } from "../../firebase/config";
 
+let imageUrl = "";
+
 export const EDITOR_JS_TOOLS = {
   embed: Embed,
   marker: Marker,
@@ -45,17 +47,16 @@ export const EDITOR_JS_TOOLS = {
               console.log("---- IMAGE INSIDE THEN ----");
               console.log(url);
               console.log(typeof url);
-
-              return {
-                success: 1,
-                file: {
-                  url:
-                    "https://www.tesla.com/tesla_theme/assets/img/_vehicle_redesign/roadster_and_semi/roadster/hero.jpg",
-                  // ... and any additional fields you want to store, such as width, height, color, extension, etc
-                },
-              };
+              imageUrl = url;
             });
           });
+          return {
+            success: 1,
+            file: {
+              url: imageUrl,
+              // ... and any additional fields you want to store, such as width, height, color, extension, etc
+            },
+          };
         },
       },
     },

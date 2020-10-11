@@ -5,7 +5,6 @@ import {
   ColorModeProvider,
   CSSReset,
 } from "@chakra-ui/core";
-import Account from "./pages/Account";
 import MainHome from "./pages/MainHome";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
@@ -31,7 +30,6 @@ export class App extends Component {
               <Route path="/contact" component={ContactUs} />
               <Route path="/blog" exact component={Blog} />
               <Route path="/newstory" component={NewStory} />
-              <Route path="/account" component={Account} />
               <Route path="/blog/:docId" component={BlogContentPost} />
             </Switch>
           </Router>
