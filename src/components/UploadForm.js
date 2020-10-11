@@ -16,41 +16,24 @@ import {
 
 export let fileURL = "";
 
-const ProgressBar = ({ file, setFile }, props) => {
+const ProgressBar = ({ file, setFile }) => {
   const { url, progress } = useStorage(file, "BlogThumbnail");
 
-  const sendData = () => {
-    fileURL = url;
-  };
-
-  const [fileUrl, setFileUrl] = useState("");
-
   useEffect(() => {
-    const setData = async () => {
-      if (url) {
-        setFile(null);
-      }
-      await setFileUrl(url);
-      fileURL = url;
-      sendData();
-      console.log(fileURL);
-    };
-    setData();
+    if (url) {
+      setFile(null);
+    }
+    fileURL = url
   }, [url, setFile]);
 
   return <Progress hasStripe className="progress-bar" value={progress} />;
 };
 
-const UploadForm = (props) => {
+const UploadForm = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
 
   const hiddenFileInput = React.useRef(null);
-
-  // const callbackFunction = () => {
-  //   console.log("DATA -----");
-  //   console.log(fileURL);
-  // };
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -102,7 +85,6 @@ const UploadForm = (props) => {
           <ProgressBar
             file={file}
             setFile={setFile}
-            // parentCallback={callbackFunction}
           />
         )}
         {error && (

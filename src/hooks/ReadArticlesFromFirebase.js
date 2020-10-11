@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import firebase from "firebase";
+import React from "react";
 import firestoreDatabase from "../firebase/config";
 import {
   Heading,
@@ -25,7 +24,6 @@ const convertFromUnix = (date) => {
   return date;
 };
 
-// export const finalArray = null;
 export const articleHtmlInformation = [];
 export const articleHtmlBody = [];
 
@@ -56,6 +54,10 @@ const caseChecks = (article) => {
   for (let i = 0; i < contentBlockLength; i++) {
     const contentType = article.content.blocks[i].type;
     switch (contentType) {
+
+      default:
+        break;
+
       case "paragraph":
         const paragraphText = article.content.blocks[i].data.text;
         articleHtmlBody.push(<Text>{paragraphText}</Text>);
@@ -106,6 +108,7 @@ const caseChecks = (article) => {
 
       case "delimiter":
         articleHtmlBody.push(<Divider m="10" />);
+        break;
 
       case "quote":
         const quote = article.content.blocks[i].data.text;
@@ -132,12 +135,7 @@ const caseChecks = (article) => {
                 lineHeight="tight"
               >
                 <Text fontSize="xl" mx="100px">
-                  Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit
-                  amet consectetur adipiscing elit pellentesque. Velit egestas
-                  dui id ornare. Scelerisque eleifend donec pretium vulputate
-                  sapien nec sagittis aliquam malesuada. Vel quam elementum
-                  pulvinar etiam. Id diam maecenas ultricies mi eget mauris
-                  pharetra.{" "}
+                  {quote}
                 </Text>
                 <Box
                   d="flex"
@@ -146,7 +144,7 @@ const caseChecks = (article) => {
                   marginTop="50px"
                   margin="50px"
                 >
-                  <Text fontSize="lg">- Lorem Ipsum</Text>
+                  <Text fontSize="lg">- {credits}</Text>
                 </Box>
               </Box>
             </Box>

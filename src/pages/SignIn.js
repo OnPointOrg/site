@@ -8,8 +8,6 @@ import {
   FormControl,
   FormLabel,
   Input,
-  Stack,
-  Checkbox,
   Button,
   InputGroup,
   InputLeftElement,

@@ -5,13 +5,12 @@ import {
   Heading,
   Text,
   Button,
-  SimpleGrid,
   Box,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
-import { FaGithub, FaBookReader } from "react-icons/fa";
+import { FaBookReader } from "react-icons/fa";
 import firebase from "firebase";
 import Footer from "../components/Footer";
 

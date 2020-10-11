@@ -1,4 +1,4 @@
-import React, { Profiler } from "react";
+import React from "react";
 import { Component } from "react";
 // import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { Link } from "react-router-dom";

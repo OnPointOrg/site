@@ -10,10 +10,7 @@ import {
   Divider,
 } from "@chakra-ui/core";
 
-import { FaQuoteLeft } from "react-icons/fa";
-
 import firebase from "firebase";
-import firestoreDatabase from "../../firebase/config";
 import getDocs, {
   articleHtmlBody,
   articleHtmlInformation,

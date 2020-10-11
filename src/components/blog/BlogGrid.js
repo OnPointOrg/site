@@ -9,10 +9,7 @@ import {
 } from "@chakra-ui/core";
 import BlogPost from "./BlogPost";
 
-import getDocs, { articles } from "../../hooks/ReadArticlesFromFirebase";
-
 import firestoreDatabase from "../../firebase/config";
-import { Redirect } from "react-router";
 
 export class BlogGrid extends Component {
   state = {

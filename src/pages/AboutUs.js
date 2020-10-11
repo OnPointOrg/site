@@ -1,14 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import {
   ThemeProvider,
   theme,
-  Heading,
-  Text,
-  Image,
-  Box,
-  SimpleGrid,
 } from "@chakra-ui/core";
 
 import firebase from "firebase";

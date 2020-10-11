@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import {
   Badge,
@@ -6,8 +6,6 @@ import {
   Image,
   Collapse,
   Button,
-  Tooltip,
-  Text,
 } from "@chakra-ui/core";
 import firebase from "firebase";
 import { Link } from "react-router-dom";
@@ -28,10 +26,6 @@ export class BlogPost extends React.Component {
 
     date = dateObject.toLocaleString();
     return date;
-  };
-
-  displayRealName = () => {
-    const displayName = this.props.user.displayName;
   };
 
   componentDidMount = () => {
@@ -87,7 +81,6 @@ export class BlogPost extends React.Component {
             marginLeft="2px"
             fontWeight="semibold"
             color="gray.500"
-            fontWeight="semibold"
             letterSpacing="wide"
             fontSize="xs"
             textTransform="uppercase"

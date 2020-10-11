@@ -16,7 +16,6 @@ import {
   MenuDivider,
   MenuGroup,
   MenuItem,
-  Avatar,
   MenuButton,
   useToast,
 } from "@chakra-ui/core";
@@ -78,7 +77,6 @@ export const VerifiedNav = (props) => {
         >
           <Text
             fontSize="xl"
-            mt={{ base: 4, md: 0 }}
             mr={6}
             mt={1.75}
             display="block"
@@ -91,7 +89,6 @@ export const VerifiedNav = (props) => {
           </Text>
           <Text
             fontSize="xl"
-            mt={{ base: 4, md: 0 }}
             mr={6}
             mt={1.75}
             display="block"
@@ -104,7 +101,6 @@ export const VerifiedNav = (props) => {
           </Text>
           <Text
             fontSize="xl"
-            mt={{ base: 4, md: 0 }}
             mr={6}
             mt={1.75}
             display="block"

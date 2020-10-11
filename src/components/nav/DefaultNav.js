@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/core";
 import DarkModeLightModeButton from "./DarkModeLightModeButton";
 import logo from "../../images/logo.png";
-import firebase from "firebase";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -69,7 +68,6 @@ const DefaultNav = (props) => {
         >
           <Text
             fontSize="xl"
-            mt={{ base: 4, md: 0 }}
             mr={6}
             mt={1.75}
             display="block"
@@ -82,7 +80,6 @@ const DefaultNav = (props) => {
           </Text>
           <Text
             fontSize="xl"
-            mt={{ base: 4, md: 0 }}
             mr={6}
             mt={1.75}
             display="block"
@@ -95,7 +92,6 @@ const DefaultNav = (props) => {
           </Text>
           <Text
             fontSize="xl"
-            mt={{ base: 4, md: 0 }}
             mr={6}
             mt={1.75}
             display="block"
