@@ -13,6 +13,7 @@ import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import { FaGithub, FaBookReader } from "react-icons/fa";
 import firebase from "firebase";
+import Footer from "../components/Footer";
 
 export class MainHome extends React.Component {
   state = {
@@ -38,7 +39,7 @@ export class MainHome extends React.Component {
       <ThemeProvider theme={theme}>
         {this.state.currentNav}
         <Box mb={20} overflow="hidden">
-          <Box as="section" mt="5rem">
+          <Box as="section" mt="3rem">
             <Box maxW="760px" mx="auto" textAlign="center">
               <Heading
                 fontSize="5rem"
@@ -50,7 +51,7 @@ export class MainHome extends React.Component {
                 This Is OnPoint
               </Heading>
               <Heading
-                fontSize="3.75rem"
+                fontSize="3.5rem"
                 letterSpacing="tight"
                 fontWeight="bold"
                 mb="16px"
@@ -122,6 +123,7 @@ export class MainHome extends React.Component {
             </Box>
           </Box>
         </Box>
+        <Footer />
       </ThemeProvider>
     );
   }

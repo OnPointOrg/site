@@ -1,13 +1,13 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/core";
+import { Box, Divider, Text } from "@chakra-ui/core";
 
 const Footer = () => {
   return (
-    <Box as="footer" mt={12} textAlign="center">
-      <Text fontSize="sm">Copyright</Text>
-      <Box mt={4} direction="row" spacing="12px" justify="center">
-        Footer
-      </Box>
+    <Box as="footer" textAlign="center">
+      <Divider />
+      <Text mt="1.25rem" fontSize="sm">
+        Copyright {"\u00A9"} {new Date().getFullYear()} OnPoint
+      </Text>
     </Box>
   );
 };
