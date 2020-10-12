@@ -6,7 +6,7 @@ import {
   theme,
   Text,
   Grid,
-  Link as ChakraLink,
+  // Link as ChakraLink,
   Divider,
 } from "@chakra-ui/core";
 
@@ -19,7 +19,7 @@ import getDocs, {
 import DefaultNav from "../nav/DefaultNav";
 import VerifiedNav from "../nav/VerifiedNav";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export class BlogContentPost extends Component {
   state = {
@@ -80,10 +80,11 @@ export class BlogContentPost extends Component {
               {this.state.articleTitle}
             </Heading>
             <Text textAlign="center" fontSize="25px">
-              By{" "}
+              By <Text as="strong">{ this.state.articleAuthor }</Text>
+              {/* By{" "}
               <ChakraLink color="teal.500">
                 <Link>{this.state.articleAuthor}</Link>
-              </ChakraLink>
+              </ChakraLink> */}
             </Text>
             <Text textAlign="center" fontSize="25px">
               &bull;&bull;&bull;

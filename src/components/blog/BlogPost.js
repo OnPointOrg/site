@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-  Badge,
-  Box,
-  Image,
-  Collapse,
-  Button,
-} from "@chakra-ui/core";
+import { Badge, Box, Image, Collapse, Button } from "@chakra-ui/core";
 import firebase from "firebase";
 import { Link } from "react-router-dom";
 
@@ -103,12 +97,14 @@ export class BlogPost extends React.Component {
                 Show {this.state.show ? "Less" : "More"}
               </Button>
             </Box>
-            <Button size="sm" ml="10px" mt="1rem" variant="ghost">
-              {console.log(
-                "PROPS DOC ID ===================" + this.props.docId
-              )}
-              <Link to={() => `/blog/${this.props.docId}`}>Read More</Link>
-            </Button>
+            <Link to={() => `/blog/${this.props.docId}`}>
+              <Button size="sm" ml="10px" mt="1rem" variant="ghost">
+                {console.log(
+                  "PROPS DOC ID ===================" + this.props.docId
+                )}
+                Read More
+              </Button>
+            </Link>
           </Box>
         </Box>
       </Box>
