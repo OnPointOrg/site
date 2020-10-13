@@ -13,7 +13,7 @@ import {
   Image,
   ButtonGroup,
 } from "@chakra-ui/core";
-import DarkModeLightModeButton from "./DarkModeLightModeButton";
+import ThemeButton from "./ThemeButton";
 import logo from "../../images/logo.png";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
@@ -66,36 +66,21 @@ const DefaultNav = (props) => {
           alignItems="center"
           flexGrow={1}
         >
-          <Text
-            fontSize="xl"
-            mr={6}
-            mt={1.75}
-            display="block"
-          >
+          <Text fontSize="xl" mr={6} mt={1.75} display="block">
             <Link to="/about">
               <Button size="lg" variantColor="teal" variant="ghost">
                 About
               </Button>
             </Link>
           </Text>
-          <Text
-            fontSize="xl"
-            mr={6}
-            mt={1.75}
-            display="block"
-          >
+          <Text fontSize="xl" mr={6} mt={1.75} display="block">
             <Link to="/blog">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Blog
               </Button>
             </Link>
           </Text>
-          <Text
-            fontSize="xl"
-            mr={6}
-            mt={1.75}
-            display="block"
-          >
+          <Text fontSize="xl" mr={6} mt={1.75} display="block">
             <Link to="/contact">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Contact
@@ -124,7 +109,7 @@ const DefaultNav = (props) => {
               </ButtonGroup>
             </Menu>
             <Divider orientation="vertical" />
-            <DarkModeLightModeButton />
+            <ThemeButton />
           </Flex>
         </Box>
       </Flex>

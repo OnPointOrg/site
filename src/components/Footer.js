@@ -3,9 +3,15 @@ import { Box, Divider, Text } from "@chakra-ui/core";
 
 const Footer = () => {
   return (
-    <Box as="footer" textAlign="center">
+    <Box
+      as="footer"
+      textAlign="center"
+      width="100%"
+      mt={"2rem"}
+      position="fixed"
+    >
       <Divider />
-      <Text mt="1.25rem" fontSize="sm">
+      <Text fontSize="sm">
         Copyright {"\u00A9"} {new Date().getFullYear()} OnPoint
       </Text>
     </Box>

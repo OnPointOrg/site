@@ -19,7 +19,7 @@ import {
   MenuButton,
   useToast,
 } from "@chakra-ui/core";
-import DarkModeLightModeButton from "./DarkModeLightModeButton";
+import ThemeButton from "./ThemeButton";
 import logo from "../../images/logo.png";
 import firebase from "firebase";
 
@@ -199,7 +199,7 @@ export const VerifiedNav = (props) => {
               </MenuList>
             </Menu>
             <Divider orientation="vertical" />
-            <DarkModeLightModeButton />
+            <ThemeButton />
           </Flex>
         </Box>
       </Flex>

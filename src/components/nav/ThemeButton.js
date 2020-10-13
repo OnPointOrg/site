@@ -1,7 +1,7 @@
 import React from "react";
 import { IconButton, useColorMode } from "@chakra-ui/core";
 
-const DarkModeLightModeButton = () => {
+const ThemeButton = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <div>
@@ -23,4 +23,4 @@ const DarkModeLightModeButton = () => {
   );
 };
 
-export default DarkModeLightModeButton;
+export default ThemeButton;

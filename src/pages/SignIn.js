@@ -19,6 +19,7 @@ import {
 
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
+// import Footer from "../components/Footer";
 
 import * as firebase from "firebase";
 
@@ -30,7 +31,11 @@ class SignIn extends React.Component {
     password: "",
     emailError: "",
     passwordError: "",
-    signInSuccess: "",
+    signInStatus: (
+      <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={4}>
+        Sign In
+      </Button>
+    ),
     redirect: null,
     currentNav: <DefaultNav />,
   };
@@ -76,7 +81,7 @@ class SignIn extends React.Component {
           .then(() => {
             const { history } = this.props;
             this.setState({
-              signInSuccess: "You Are Now Logged In! Redirecting You...",
+              signInStatus: <Button isLoading loadingText="Logging In..." width="full" mt={4} />,
               redirect: setTimeout(() => {
                 history.push("/");
               }, 1500),
@@ -103,7 +108,8 @@ class SignIn extends React.Component {
       <ThemeProvider theme={theme}>
         {this.state.currentNav}
         <Flex
-          minHeight="100vh"
+          marginTop="7rem"
+          minHeight="50vh"
           width="full"
           align="center"
           justifyContent="center"
@@ -145,15 +151,7 @@ class SignIn extends React.Component {
                     </InputGroup>
                     <Text fontSize="xs">{this.state.passwordError}</Text>
                   </FormControl>
-                  <Button
-                    type="submit"
-                    variantColor={VARIANT_COLOR}
-                    width="full"
-                    mt={4}
-                  >
-                    Sign In
-                  </Button>
-                  <Text fontSize="xs">{this.state.signInSuccess}</Text>
+                  {this.state.signInStatus}
 
                   <Box mt={1}>
                     Need An Account?{" "}
@@ -166,6 +164,7 @@ class SignIn extends React.Component {
             </Box>
           </Box>
         </Flex>
+        {/* <Footer /> */}
       </ThemeProvider>
     );
   }

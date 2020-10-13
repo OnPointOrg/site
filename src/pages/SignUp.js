@@ -71,15 +71,18 @@ class SignUp extends Component {
   setUserInfo = () => {
     const user = firebase.auth().currentUser;
 
-    user.updateProfile({
-      displayName: this.state.fullName,
-    }).then(function () {
-      console.log("Info Saved");
-      console.log("displayName: " + user.displayName);
-    }).catch((error) => {
-      console.log("User Info Error: " + error)
-    });
-  }
+    user
+      .updateProfile({
+        displayName: this.state.fullName,
+      })
+      .then(function () {
+        console.log("Info Saved");
+        console.log("displayName: " + user.displayName);
+      })
+      .catch((error) => {
+        console.log("User Info Error: " + error);
+      });
+  };
 
   signUpSubmit = () => {
     const email = this.state.email;
@@ -89,14 +92,12 @@ class SignUp extends Component {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result)
-        result.user.updateProfile({displayName: fullName});
-        console.log(result)
+        console.log(result);
+        result.user.updateProfile({ displayName: fullName });
+        console.log(result);
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
-        // const errorMessage = error.message;
         if (errorCode === "auth/email-already-in-use") {
           this.setState({
             emailError:
@@ -154,7 +155,8 @@ class SignUp extends Component {
       <ThemeProvider theme={theme}>
         {this.state.currentNav}
         <Flex
-          minHeight="100vh"
+          mt={"5rem"}
+          minHeight="50vh"
           width="full"
           align="center"
           justifyContent="center"
