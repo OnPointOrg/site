@@ -81,9 +81,5 @@
   },
   "keywords": [],
   "author": "Aditya Rawat",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/OnPointOrg/site/issues"
-  },
-  "homepage": "https://github.com/OnPointOrg/site#readme"
+  "license": "MIT"
 }
