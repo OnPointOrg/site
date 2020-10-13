@@ -1,5 +1,5 @@
 {
-  "name": "chakrasite",
+  "name": "onpointsite",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -72,5 +72,18 @@
     "editorjs-inline-image": "^0.1.1",
     "editorjs-undo": "^0.1.3",
     "react-editor-js": "^1.6.2"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnPointOrg/site.git"
+  },
+  "keywords": [],
+  "author": "Aditya Rawat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OnPointOrg/site/issues"
+  },
+  "homepage": "https://github.com/OnPointOrg/site#readme"
 }
