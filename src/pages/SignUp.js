@@ -91,11 +91,6 @@ class SignUp extends Component {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        console.log(result);
-        result.user.updateProfile({ displayName: fullName });
-        console.log(result);
-      })
       .catch((error) => {
         const errorCode = error.code;
         if (errorCode === "auth/email-already-in-use") {
@@ -147,6 +142,10 @@ class SignUp extends Component {
       redirect: setTimeout(() => {
         history.push("/");
       }, 2000),
+    }).then((result) => {
+      console.log(result);
+      result.user.updateProfile({ displayName: fullName });
+      console.log(result);
     });
   };
 

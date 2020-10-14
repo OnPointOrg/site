@@ -15,11 +15,11 @@ import {
   theme,
   ThemeProvider,
   Link as ChakraLink,
+  FormErrorMessage,
 } from "@chakra-ui/core";
 
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
-// import Footer from "../components/Footer";
 
 import * as firebase from "firebase";
 
@@ -32,7 +32,7 @@ class SignIn extends React.Component {
     emailError: "",
     passwordError: "",
     signInStatus: (
-      <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={4}>
+      <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={5}>
         Sign In
       </Button>
     ),
@@ -69,7 +69,6 @@ class SignIn extends React.Component {
   signInSubmit = () => {
     const email = this.state.email;
     const password = this.state.password;
-    // const { history } = this.props;
 
     firebase
       .auth()
@@ -81,7 +80,14 @@ class SignIn extends React.Component {
           .then(() => {
             const { history } = this.props;
             this.setState({
-              signInStatus: <Button isLoading loadingText="Logging In..." width="full" mt={4} />,
+              signInStatus: (
+                <Button
+                  isLoading
+                  loadingText="Logging In..."
+                  width="full"
+                  mt={4}
+                />
+              ),
               redirect: setTimeout(() => {
                 history.push("/");
               }, 1500),
@@ -90,12 +96,24 @@ class SignIn extends React.Component {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(
-              "Error Message: " + errorMessage + " Error Code: " + errorCode
-            );
-            this.setState({
-              signInSuccess: "Your Email Or Password Is Invalid!",
-            });
+            if (errorCode === "auth/wrong-password") {
+              this.setState({
+                passwordError: (
+                  <FormErrorMessage>
+                    You Have Entered An Invalid Password. Try Again Or Reset
+                    Your Password
+                  </FormErrorMessage>
+                ),
+              });
+            } else if (errorCode === "auth/user-not-found") {
+              this.setState({
+                emailError: (
+                  <FormErrorMessage>This Email Does Not Exist</FormErrorMessage>
+                ),
+              });
+            }
+            console.log("Error Message: " + errorMessage);
+            console.log("Error Code: " + errorCode);
           });
       })
       .catch((error) => {
@@ -152,11 +170,17 @@ class SignIn extends React.Component {
                     <Text fontSize="xs">{this.state.passwordError}</Text>
                   </FormControl>
                   {this.state.signInStatus}
-
                   <Box mt={1}>
                     Need An Account?{" "}
                     <ChakraLink color={`${VARIANT_COLOR}.500`}>
                       <Link to="/signup">Sign Up Here</Link>
+                    </ChakraLink>
+                  </Box>
+                  <Box mt={1}>
+                    <ChakraLink color="teal.500">
+                      <Link to="/forgotpassword">
+                        Forgot Your Password?
+                      </Link>
                     </ChakraLink>
                   </Box>
                 </form>
@@ -164,7 +188,6 @@ class SignIn extends React.Component {
             </Box>
           </Box>
         </Flex>
-        {/* <Footer /> */}
       </ThemeProvider>
     );
   }

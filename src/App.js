@@ -13,6 +13,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Blog from "./pages/Blog";
 import NewStory from "./pages/NewStory";
+import ForgotPassword from "./pages/ForgotPassword";
 import BlogContentPost from "./components/blog/BlogContentPost";
 
 export class App extends Component {
@@ -31,6 +32,7 @@ export class App extends Component {
               <Route path="/blog" exact component={Blog} />
               <Route path="/newstory" component={NewStory} />
               <Route path="/blog/:docId" component={BlogContentPost} />
+              <Route path="/forgotpassword" component={ForgotPassword} />
             </Switch>
           </Router>
         </ColorModeProvider>
