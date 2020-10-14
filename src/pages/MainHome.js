@@ -10,9 +10,9 @@ import {
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
-import { FaBookReader } from "react-icons/fa";
+import { FaBookReader, FaUsers } from "react-icons/fa";
 import firebase from "firebase";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 export class MainHome extends React.Component {
   state = {
@@ -114,15 +114,16 @@ export class MainHome extends React.Component {
                     h="4rem"
                     px="40px"
                     fontSize="1.2rem"
+                    leftIcon={FaUsers}
                   >
-                    Learn More
+                    About Us
                   </Button>
                 </Link>
               </div>
             </Box>
           </Box>
         </Box>
-        <Footer />
+        {/* <Footer /> */}
       </ThemeProvider>
     );
   }
