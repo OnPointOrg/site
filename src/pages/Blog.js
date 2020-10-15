@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ThemeProvider, theme, /*Button*/ } from "@chakra-ui/core";
+import { ThemeProvider, theme /*Button*/ } from "@chakra-ui/core";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import BlogGrid from "../components/blog/BlogGrid";

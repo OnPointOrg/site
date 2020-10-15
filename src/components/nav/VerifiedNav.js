@@ -75,36 +75,21 @@ export const VerifiedNav = (props) => {
           alignItems="center"
           flexGrow={1}
         >
-          <Text
-            fontSize="xl"
-            mr={6}
-            mt={1.75}
-            display="block"
-          >
+          <Text fontSize="xl" mr={6} mt={1.75} display="block">
             <Link to="/about">
               <Button size="lg" variantColor="teal" variant="ghost">
                 About
               </Button>
             </Link>
           </Text>
-          <Text
-            fontSize="xl"
-            mr={6}
-            mt={1.75}
-            display="block"
-          >
+          <Text fontSize="xl" mr={6} mt={1.75} display="block">
             <Link to="/blog">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Blog
               </Button>
             </Link>
           </Text>
-          <Text
-            fontSize="xl"
-            mr={6}
-            mt={1.75}
-            display="block"
-          >
+          <Text fontSize="xl" mr={6} mt={1.75} display="block">
             <Link to="/contact">
               <Button size="lg" variantColor="teal" variant="ghost">
                 Contact

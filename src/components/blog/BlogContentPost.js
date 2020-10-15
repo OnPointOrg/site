@@ -80,7 +80,7 @@ export class BlogContentPost extends Component {
               {this.state.articleTitle}
             </Heading>
             <Text textAlign="center" fontSize="25px">
-              By <Text as="strong">{ this.state.articleAuthor }</Text>
+              By <Text as="strong">{this.state.articleAuthor}</Text>
               {/* By{" "}
               <ChakraLink color="teal.500">
                 <Link>{this.state.articleAuthor}</Link>

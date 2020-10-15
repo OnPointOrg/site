@@ -54,7 +54,6 @@ const caseChecks = (article) => {
   for (let i = 0; i < contentBlockLength; i++) {
     const contentType = article.content.blocks[i].type;
     switch (contentType) {
-
       default:
         break;
 
