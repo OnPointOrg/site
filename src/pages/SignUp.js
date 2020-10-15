@@ -39,6 +39,11 @@ class SignUp extends Component {
     signUpSuccess: "",
     redirect: null,
     currentNav: <DefaultNav />,
+    signButton: (
+      <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={4}>
+        Sign Up
+      </Button>
+    ),
   };
 
   componentDidMount = () => {
@@ -63,9 +68,20 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({
+      signButton: (
+        <Button
+          isLoading
+          loadingText="Signing Up"
+          variantColor={VARIANT_COLOR}
+          width="full"
+          mt={4}
+        >
+          Sign Up
+        </Button>
+      ),
+    });
     this.signUpSubmit(this.state);
-
-    console.log("Hello There");
   };
 
   setUserInfo = () => {
@@ -98,12 +114,32 @@ class SignUp extends Component {
             emailError:
               "This Email Is Already In Use! Please Sign In Or Use A Different Email!",
             signUpSuccess: "",
+            signButton: (
+              <Button
+                type="submit"
+                variantColor={VARIANT_COLOR}
+                width="full"
+                mt={4}
+              >
+                Sign Up
+              </Button>
+            ),
           });
           if (this.state.password.length < 8) {
             this.setState({
               passwordError:
                 "This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!",
               signUpSuccess: "",
+              signButton: (
+                <Button
+                  type="submit"
+                  variantColor={VARIANT_COLOR}
+                  width="full"
+                  mt={4}
+                >
+                  Sign Up
+                </Button>
+              ),
             });
           } else {
             this.setState({
@@ -119,12 +155,32 @@ class SignUp extends Component {
             passwordError:
               "This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!",
             signUpSuccess: "",
+            signButton: (
+              <Button
+                type="submit"
+                variantColor={VARIANT_COLOR}
+                width="full"
+                mt={4}
+              >
+                Sign Up
+              </Button>
+            ),
           });
           if (errorCode === "auth/email-already-in-use") {
             this.setState({
               emailError:
                 "This Email Is Already In Use! Please Sign In Or Use A Different Email!",
               signUpSuccess: "",
+              signButton: (
+                <Button
+                  type="submit"
+                  variantColor={VARIANT_COLOR}
+                  width="full"
+                  mt={4}
+                >
+                  Sign Up
+                </Button>
+              ),
             });
           } else {
             this.setState({
@@ -133,20 +189,25 @@ class SignUp extends Component {
             });
           }
         }
+      })
+      .then(() => {
+        const user = firebase.auth().currentUser;
+        if (user) {
+          const { history } = this.props;
+          this.setState({
+            emailError: "",
+            passwordError: "",
+            signUpSuccess:
+              "Account Created Successfully! You Are Now Logged In!",
+            redirect: setTimeout(() => {
+              history.push("/");
+            }, 2000),
+          });
+          console.log(user);
+          user.updateProfile({ displayName: fullName });
+          console.log(user);
+        }
       });
-    const { history } = this.props;
-    this.setState({
-      emailError: "",
-      passwordError: "",
-      signUpSuccess: "Account Created Successfully! You Are Now Logged In!",
-      redirect: setTimeout(() => {
-        history.push("/");
-      }, 2000),
-    }).then((result) => {
-      console.log(result);
-      result.user.updateProfile({ displayName: fullName });
-      console.log(result);
-    });
   };
 
   render() {
@@ -215,14 +276,7 @@ class SignUp extends Component {
 
                   <Stack isInline justifyContent="space-between" mt={4}></Stack>
 
-                  <Button
-                    type="submit"
-                    variantColor={VARIANT_COLOR}
-                    width="full"
-                    mt={4}
-                  >
-                    Sign Up
-                  </Button>
+                  {this.state.signButton}
                   <Text fontSize="xs">{this.state.signUpSuccess}</Text>
                   <Text fontSize="xs">{this.state.redirect}</Text>
 

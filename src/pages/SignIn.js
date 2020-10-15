@@ -78,7 +78,6 @@ class SignIn extends React.Component {
           .auth()
           .signInWithEmailAndPassword(email, password)
           .then(() => {
-            const { history } = this.props;
             this.setState({
               signInStatus: (
                 <Button
@@ -88,9 +87,6 @@ class SignIn extends React.Component {
                   mt={4}
                 />
               ),
-              redirect: setTimeout(() => {
-                history.push("/");
-              }, 1500),
             });
           })
           .catch((error) => {
@@ -114,10 +110,18 @@ class SignIn extends React.Component {
             }
             console.log("Error Message: " + errorMessage);
             console.log("Error Code: " + errorCode);
+          })
+          .then(() => {
+            const { history } = this.props;
+            const user = firebase.auth().currentUser;
+            if (user) {
+              this.setState({
+                redirect: setTimeout(() => {
+                  history.push("/");
+                }, 1500),
+              });
+            }
           });
-      })
-      .catch((error) => {
-        console.log(error);
       });
   };
 
@@ -178,9 +182,7 @@ class SignIn extends React.Component {
                   </Box>
                   <Box mt={1}>
                     <ChakraLink color="teal.500">
-                      <Link to="/forgotpassword">
-                        Forgot Your Password?
-                      </Link>
+                      <Link to="/forgotpassword">Forgot Your Password?</Link>
                     </ChakraLink>
                   </Box>
                 </form>
