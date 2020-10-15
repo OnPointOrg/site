@@ -15,7 +15,6 @@ import {
   theme,
   ThemeProvider,
   Link as ChakraLink,
-  FormErrorMessage,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -27,15 +26,13 @@ import VerifiedNav from "../components/nav/VerifiedNav";
 
 import * as firebase from "firebase";
 
-const VARIANT_COLOR = "teal";
-
 class ForgotPassword extends React.Component {
   state = {
     email: "",
     emailError: "",
     passwordError: "",
     submitStatus: (
-      <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={5}>
+      <Button type="submit" variantColor="teal" width="full" mt={5}>
         Send
       </Button>
     ),
@@ -66,7 +63,7 @@ class ForgotPassword extends React.Component {
         console.log("Email Sent");
         this.setState({
           submitStatus: (
-            <Button variantColor={VARIANT_COLOR} width="full" mt={5}>
+            <Button variantColor="teal" width="full" mt={5}>
               Sent!
             </Button>
           ),
@@ -92,7 +89,15 @@ class ForgotPassword extends React.Component {
         });
       })
       .catch((error) => {
-        return <FormErrorMessage>RIP DID NOT WORK: {error}</FormErrorMessage>;
+        if (error.code === "auth/user-not-found") {
+          this.setState({
+            submitStatus: (
+              <Button variantColor="teal" width="full" mt={5}>
+                User Not Found! If This Is An Error, Contact Us!
+              </Button>
+            ),
+          });
+        }
       });
   };
 
