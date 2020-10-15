@@ -15,7 +15,6 @@ import {
   theme,
   ThemeProvider,
   Link as ChakraLink,
-  FormErrorMessage,
 } from "@chakra-ui/core";
 
 import DefaultNav from "../components/nav/DefaultNav";
@@ -31,7 +30,7 @@ class SignIn extends React.Component {
     password: "",
     emailError: "",
     passwordError: "",
-    signInStatus: (
+    signButton: (
       <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={5}>
         Sign In
       </Button>
@@ -62,6 +61,11 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({
+      signButton: (
+        <Button isLoading loadingText="Signing In..." width="full" mt={4} />
+      ),
+    });
     this.signInSubmit();
     console.log(this.state);
   };
@@ -77,34 +81,64 @@ class SignIn extends React.Component {
         firebase
           .auth()
           .signInWithEmailAndPassword(email, password)
-          .then(() => {
-            this.setState({
-              signInStatus: (
-                <Button
-                  isLoading
-                  loadingText="Logging In..."
-                  width="full"
-                  mt={4}
-                />
-              ),
-            });
-          })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             if (errorCode === "auth/wrong-password") {
               this.setState({
                 passwordError: (
-                  <FormErrorMessage>
+                  <Text fontSize="xs">
                     You Have Entered An Invalid Password. Try Again Or Reset
                     Your Password
-                  </FormErrorMessage>
+                  </Text>
+                ),
+                emailError: "",
+                signButton: (
+                  <Button
+                    type="submit"
+                    variantColor={VARIANT_COLOR}
+                    width="full"
+                    mt={5}
+                  >
+                    Sign In
+                  </Button>
                 ),
               });
             } else if (errorCode === "auth/user-not-found") {
               this.setState({
                 emailError: (
-                  <FormErrorMessage>This Email Does Not Exist</FormErrorMessage>
+                  <Text fontSize="xs">This Email Does Not Exist</Text>
+                ),
+                passwordError: "",
+                signButton: (
+                  <Button
+                    type="submit"
+                    variantColor={VARIANT_COLOR}
+                    width="full"
+                    mt={5}
+                  >
+                    Sign In
+                  </Button>
+                ),
+              });
+            } else if (errorCode === "auth/too-many-requests") {
+              this.setState({
+                emailError: (
+                  <Text fontSize="xs">
+                    Your Account Has Been Temporarily Disabled. Contact Us If
+                    This Is A Mistake
+                  </Text>
+                ),
+                passwordError: "",
+                signButton: (
+                  <Button
+                    type="submit"
+                    variantColor={VARIANT_COLOR}
+                    width="full"
+                    mt={5}
+                  >
+                    Sign In
+                  </Button>
                 ),
               });
             }
@@ -173,7 +207,7 @@ class SignIn extends React.Component {
                     </InputGroup>
                     <Text fontSize="xs">{this.state.passwordError}</Text>
                   </FormControl>
-                  {this.state.signInStatus}
+                  {this.state.signButton}
                   <Box mt={1}>
                     Need An Account?{" "}
                     <ChakraLink color={`${VARIANT_COLOR}.500`}>
