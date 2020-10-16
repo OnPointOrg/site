@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  ThemeProvider,
-  theme,
-  Heading,
-  Text,
-  Box,
-} from "@chakra-ui/core";
+import { ThemeProvider, theme, Heading, Text, Box } from "@chakra-ui/core";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import firebase from "firebase";
@@ -54,7 +48,6 @@ export class About extends React.Component {
                 lineHeight="1.2"
               >
                 <Box as="span" color="teal.500">
-                  {" "}
                   We're Changing The Way You See Media Forever
                 </Box>
               </Heading>
