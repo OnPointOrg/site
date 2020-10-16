@@ -4,13 +4,10 @@ import {
   theme,
   Heading,
   Text,
-  Button,
   Box,
 } from "@chakra-ui/core";
-import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
-import { FaBookReader, FaUsers } from "react-icons/fa";
 import firebase from "firebase";
 // import Footer from "../components/Footer";
 
