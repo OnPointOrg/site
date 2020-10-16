@@ -3,15 +3,19 @@ import {
   ThemeProvider,
   theme,
   Heading,
-  Text,
   Button,
+  Link as ChakraLink,
   Box,
+  Flex,
+  Stack,
+  Image,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
-import { FaBookReader, FaUsers } from "react-icons/fa";
+import { FaBookReader } from "react-icons/fa";
 import firebase from "firebase";
+import logo from "../images/logo.png";
 // import Footer from "../components/Footer";
 
 export class MainHome extends React.Component {
@@ -37,50 +41,59 @@ export class MainHome extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         {this.state.currentNav}
-        <Box mb={20} overflow="hidden">
-          <Box as="section" mt="3rem">
-            <Box maxW="760px" mx="auto" textAlign="center">
+        <Flex
+          direction="column"
+          align="center"
+          maxW={{ xl: "1200px" }}
+          m="0 auto"
+        >
+          <Flex
+            align="center"
+            justify={{
+              base: "center",
+              md: "space-around",
+              xl: "space-between",
+            }}
+            direction={{ base: "column-reverse", md: "row" }}
+            wrap="no-wrap"
+            minH="70vh"
+            px={8}
+            mb={16}
+          >
+            <Stack
+              spacing={4}
+              w={{ base: "80%", md: "40%" }}
+              align={["center", "center", "flex-start", "flex-start"]}
+            >
               <Heading
+              mt="10px"
+                as="h1"
+                size="xl"
                 fontSize="5rem"
-                letterSpacing="tight"
                 fontWeight="bold"
-                mb="16px"
-                lineHeight="1.2"
+                color="primary.800"
               >
-                This Is OnPoint
+                This Is OnPoint.
               </Heading>
               <Heading
-                fontSize="3.5rem"
-                letterSpacing="tight"
-                fontWeight="bold"
-                mb="16px"
-                lineHeight="1.2"
+                as="h2"
+                size="md"
+                color="primary.800"
+                fontSize="2rem"
+                opacity="0.8"
+                fontWeight="normal"
+                lineHeight={1.5}
               >
-                <Box as="span" color="teal.500">
-                  {" "}
-                  We're Changing The Way You See Media Forever
-                </Box>
+                This is the subheader section where you describe the basic
+                benefits of your product
               </Heading>
-
-              <Text opacity={0.7} fontSize={{ base: "lg", lg: "xl" }} mt="6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </Text>
-
-              <div
-                mt="10"
-                spacing="3"
-                justify="center"
-                direction={{ base: "column", sm: "row" }}
-              >
+              <div mt="10" spacing="3" justify="center" direction="row">
                 <Link to="/signup">
                   <Button
                     h="4rem"
                     px="40px"
-                    mr="25px"
-                    mt="35px"
+                    mr="20px"
+                    mt="15px"
                     fontSize="1.2rem"
                     as="a"
                     size="lg"
@@ -94,8 +107,7 @@ export class MainHome extends React.Component {
                   <Button
                     as="a"
                     size="lg"
-                    mr="25px"
-                    mt="35px"
+                    mt="15px"
                     h="4rem"
                     px="40px"
                     fontSize="1.2rem"
@@ -105,25 +117,35 @@ export class MainHome extends React.Component {
                     Start Reading
                   </Button>
                 </Link>
-                <Link to="/about">
-                  <Button
-                    as="a"
-                    size="lg"
-                    mr="25px"
-                    mt="35px"
-                    h="4rem"
-                    px="40px"
-                    fontSize="1.2rem"
-                    leftIcon={FaUsers}
-                  >
-                    About Us
-                  </Button>
-                </Link>
               </div>
+              <Box mt={5}>
+                <Link to="/about">
+                  <ChakraLink
+                    // fontSize="xs"
+                    textAlign="center"
+                    color="primary.800"
+                    opacity="0.6"
+                  >
+                    Learn More
+                  </ChakraLink>
+                </Link>
+              </Box>
+            </Stack>
+            <Box
+              w={{ base: "80%", sm: "60%", md: "50%" }}
+              mb={{ base: 12, md: 0 }}
+            >
+              <Image
+                src={logo}
+                size="100%"
+                rounded="1rem"
+                shadow="2xl"
+                mt="15px"
+                ml="30px"
+              />
             </Box>
-          </Box>
-        </Box>
-        {/* <Footer /> */}
+          </Flex>
+        </Flex>
       </ThemeProvider>
     );
   }
