@@ -12,6 +12,7 @@ const config = {
 };
 
 firebase.initializeApp(config);
+firebase.analytics();
 
 // Firestore Initialization
 const firestoreDatabase = firebase.firestore();
