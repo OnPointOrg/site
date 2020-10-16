@@ -18,6 +18,9 @@ import {
   MenuItem,
   MenuButton,
   useToast,
+  // InputGroup,
+  // Input,
+  // InputRightElement,
 } from "@chakra-ui/core";
 import ThemeButton from "./ThemeButton";
 import logo from "../../images/logo.png";
@@ -103,7 +106,7 @@ export const VerifiedNav = (props) => {
           mt={{ base: 4, md: 0 }}
         >
           <Flex justifyContent="space-between" color="gray.500">
-            <Menu>
+            <Menu closeOnSelect="false">
               <MenuButton
                 px={6}
                 py={2}
@@ -113,6 +116,7 @@ export const VerifiedNav = (props) => {
                 _focus={{ outline: 0, boxShadow: "outline" }}
                 marginRight="2px"
                 marginLeft="-2px"
+                width="8rem"
               >
                 Profile <Icon name="chevron-down" />
               </MenuButton>
@@ -121,8 +125,26 @@ export const VerifiedNav = (props) => {
                   <MenuItem isTruncated isDisabled>
                     <Text>Email: {firebase.auth().currentUser.email}</Text>
                   </MenuItem>
-                  <MenuItem isTruncated isDisabled>
-                    <Text>Name: {firebase.auth().currentUser.displayName}</Text>
+                  <MenuItem isTruncated>
+                    <Text>
+                      Name: {firebase.auth().currentUser.displayName}
+                      {/* <InputGroup size="md">
+                        <Input
+                          my="3px"
+                          type="text"
+                          placeholder={firebase.auth().currentUser.displayName}
+                        />
+                        <InputRightElement width="4.5rem">
+                          <Button
+                            mt="5px"
+                            size="sm"
+                            onClick={console.log("Working")}
+                          >
+                            Save
+                          </Button>
+                        </InputRightElement>
+                      </InputGroup> */}
+                    </Text>
                   </MenuItem>
                   <MenuItem>
                     <Text
