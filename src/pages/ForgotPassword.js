@@ -15,10 +15,6 @@ import {
   theme,
   ThemeProvider,
   Link as ChakraLink,
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
 } from "@chakra-ui/core";
 
 import DefaultNav from "../components/nav/DefaultNav";
@@ -37,7 +33,6 @@ class ForgotPassword extends React.Component {
       </Button>
     ),
     currentNav: <DefaultNav />,
-    success: null,
   };
 
   componentDidMount = () => {
@@ -64,27 +59,8 @@ class ForgotPassword extends React.Component {
         this.setState({
           submitStatus: (
             <Button variantColor="teal" width="full" mt={5}>
-              Sent!
+              Email Sent! Please Check Your Inbox In A Few Minutes!
             </Button>
-          ),
-          success: (
-            <Alert
-              status="success"
-              variant="subtle"
-              flexDirection="column"
-              justifyContent="center"
-              textAlign="center"
-              height="200px"
-            >
-              <AlertIcon size="40px" mr={0} />
-              <AlertTitle mt={4} mb={1} fontSize="lg">
-                Email Sent!
-              </AlertTitle>
-              <AlertDescription maxWidth="sm">
-                Password Reset Email Sent. Please Check Your Inbox In A Few
-                Minutes.
-              </AlertDescription>
-            </Alert>
           ),
         });
       })
@@ -122,7 +98,6 @@ class ForgotPassword extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         {this.state.currentNav}
-        {this.state.success}
         <Flex
           marginTop="5rem"
           minHeight="50vh"
