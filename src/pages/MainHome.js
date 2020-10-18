@@ -16,6 +16,7 @@ import VerifiedNav from "../components/nav/VerifiedNav";
 import { FaBookReader } from "react-icons/fa";
 import firebase from "firebase";
 import logo from "../images/logo.png";
+import { motion } from "framer-motion";
 // import Footer from "../components/Footer";
 
 export class MainHome extends React.Component {
@@ -66,7 +67,7 @@ export class MainHome extends React.Component {
               align={["center", "center", "flex-start", "flex-start"]}
             >
               <Heading
-              mt="10px"
+                mt="10px"
                 as="h1"
                 size="xl"
                 fontSize="5rem"
@@ -135,14 +136,25 @@ export class MainHome extends React.Component {
               w={{ base: "80%", sm: "60%", md: "50%" }}
               mb={{ base: 12, md: 0 }}
             >
-              <Image
-                src={logo}
-                size="100%"
-                rounded="1rem"
-                shadow="2xl"
-                mt="15px"
-                ml="30px"
-              />
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ rotate: 360, scale: 0.75 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 180,
+                  damping: 20,
+                }}
+                whileHover={{ scale: 1 }}
+              >
+                <Image
+                  src={logo}
+                  size="100%"
+                  rounded="1rem"
+                  shadow="2xl"
+                  mt="15px"
+                  ml="30px"
+                />
+              </motion.div>
             </Box>
           </Flex>
         </Flex>
