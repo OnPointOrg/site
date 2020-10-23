@@ -144,7 +144,6 @@ export class MainHome extends React.Component {
                   stiffness: 180,
                   damping: 20,
                 }}
-                whileHover={{ scale: 1 }}
               >
                 <Image
                   src={logo}
