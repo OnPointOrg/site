@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  ThemeProvider,
-  theme,
   Box,
   Flex,
   Text,
@@ -18,9 +16,6 @@ import {
   MenuItem,
   MenuButton,
   useToast,
-  // InputGroup,
-  // Input,
-  // InputRightElement,
 } from "@chakra-ui/core";
 import ThemeButton from "./ThemeButton";
 import logo from "../../images/logo.png";
@@ -32,18 +27,13 @@ breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
-const newTheme = {
-  ...theme,
-  breakpoints,
-};
-
 export const VerifiedNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   const toast = useToast();
   const email = firebase.auth().currentUser.email;
   return (
-    <ThemeProvider theme={newTheme}>
+    <div>
       <Flex
         as="nav"
         align="center"
@@ -211,7 +201,7 @@ export const VerifiedNav = (props) => {
         </Box>
       </Flex>
       <Divider />
-    </ThemeProvider>
+    </div>
   );
 };
 

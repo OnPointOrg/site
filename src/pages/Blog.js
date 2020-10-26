@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ThemeProvider, theme /*Button*/ } from "@chakra-ui/core";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import BlogGrid from "../components/blog/BlogGrid";
@@ -28,14 +27,14 @@ class Blog extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         {this.state.currentNav}
         {/* <BlogTrendingNew /> */}
         <BlogGrid />
         {/* <Button onClick={getDocs}>
           Click Me For Juicy Firebse Data! Members Only!
         </Button> */}
-      </ThemeProvider>
+      </div>
     );
   }
 }

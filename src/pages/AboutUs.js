@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider, theme, Heading, Text, Box } from "@chakra-ui/core";
+import { Heading, Text, Box } from "@chakra-ui/core";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import firebase from "firebase";
@@ -26,7 +26,7 @@ export class About extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         {this.state.currentNav}
         <Box mb={20} overflow="hidden">
           <Box as="section" mt="3rem">
@@ -72,7 +72,7 @@ export class About extends React.Component {
           </Box>
         </Box>
         {/* <Footer /> */}
-      </ThemeProvider>
+      </div>
     );
   }
 }

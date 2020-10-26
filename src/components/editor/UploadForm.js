@@ -10,7 +10,6 @@ import {
   FormControl,
   FormLabel,
   InputGroup,
-  ThemeProvider,
   Progress,
 } from "@chakra-ui/core";
 
@@ -57,7 +56,7 @@ const UploadForm = () => {
   };
 
   return (
-    <ThemeProvider>
+    <div>
       <Flex align="center" justify="center">
         <FormControl isRequired margin="25px">
           <FormLabel>Upload A Thumbnail For Your Article</FormLabel>
@@ -89,7 +88,7 @@ const UploadForm = () => {
         )}
         {file && <Text textAlign="center">File Uploaded: {file.name}</Text>}
       </div>
-    </ThemeProvider>
+    </div>
   );
 };
 

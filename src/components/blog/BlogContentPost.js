@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import {
-  ThemeProvider,
-  Heading,
-  Box,
-  theme,
-  Text,
-  Grid,
-  // Link as ChakraLink,
-  Divider,
-} from "@chakra-ui/core";
+import { Heading, Box, Text, Grid, Divider } from "@chakra-ui/core";
 
 import firebase from "firebase";
 import getDocs, {
@@ -65,7 +56,7 @@ export class BlogContentPost extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         {this.state.currentNav}
         <Grid templateColumns="repeat(4, 1fr)" gap={1}>
           <Box />
@@ -105,7 +96,7 @@ export class BlogContentPost extends Component {
             <Box margin="25px">{element}</Box>
           ))}
         </Box>
-      </ThemeProvider>
+      </div>
     );
   }
 }
