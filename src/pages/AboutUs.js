@@ -74,7 +74,7 @@ export class About extends React.Component {
           <Box width="100%" height="100%" mt={"50px"} justifyContent="center">
             <Grid templateColumns="repeat(3, 1fr)" gap={15} marginLeft="100px">
               <Box w="75%">
-                <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
+                <Box maxW="sm" borderWidth="1px" rounded="lg">
                   <Image src={adityaverma} alt="Aditya Verma" overflow="hidden" />
                   <Box
                     px="6"
