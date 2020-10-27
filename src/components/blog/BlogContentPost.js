@@ -41,6 +41,7 @@ export class BlogContentPost extends Component {
     await getDocs(docId).then(() => {
       return articleHtmlBody;
     });
+    
     this.setState({
       articleTitle: articleHtmlInformation[0],
       articleAuthor: articleHtmlInformation[1],
@@ -50,8 +51,8 @@ export class BlogContentPost extends Component {
     });
   };
 
-  returnArticleContent = () => {
-    return this.state.articleContent;
+  returnArticleContent = async () => {
+     return this.state.articleContent;
   };
 
   render() {
