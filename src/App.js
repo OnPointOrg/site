@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  ThemeProvider,
-  theme,
-  ColorModeProvider,
-  CSSReset,
-} from "@chakra-ui/core";
+import { ThemeProvider, theme, ColorModeProvider, CSSReset } from "@chakra-ui/core";
 import MainHome from "./pages/MainHome";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";

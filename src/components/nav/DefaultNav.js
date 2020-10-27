@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  ThemeProvider,
-  theme,
   Box,
   Flex,
   Text,
@@ -22,16 +20,11 @@ breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
-const newTheme = {
-  ...theme,
-  breakpoints,
-};
-
 const DefaultNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   return (
-    <ThemeProvider theme={newTheme}>
+    <div>
       <Flex
         as="nav"
         align="center"
@@ -114,7 +107,7 @@ const DefaultNav = (props) => {
         </Box>
       </Flex>
       <Divider />
-    </ThemeProvider>
+    </div>
   );
 };
 

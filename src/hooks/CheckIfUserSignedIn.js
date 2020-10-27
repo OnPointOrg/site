@@ -9,7 +9,6 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
-  ThemeProvider,
   CloseButton,
   Link as ChakraLink,
   Icon,
@@ -24,7 +23,7 @@ const CheckIfUserSignedIn = () => {
   } else {
     console.log("The User Is Not Logged In");
     return (
-      <ThemeProvider>
+      <div>
         <DefaultNav />
         <Alert status="error" margin="30px" marginLeft="275px" width="1000px">
           <AlertIcon />
@@ -45,7 +44,7 @@ const CheckIfUserSignedIn = () => {
           </AlertDescription>
           <CloseButton position="absolute" right="8px" top="8px" />
         </Alert>
-      </ThemeProvider>
+      </div>
     );
   }
 };

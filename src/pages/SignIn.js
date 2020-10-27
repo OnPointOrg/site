@@ -12,8 +12,6 @@ import {
   InputGroup,
   InputLeftElement,
   Icon,
-  theme,
-  ThemeProvider,
   Link as ChakraLink,
 } from "@chakra-ui/core";
 
@@ -161,7 +159,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         {this.state.currentNav}
         <Flex
           marginTop="7rem"
@@ -224,7 +222,7 @@ class SignIn extends React.Component {
             </Box>
           </Box>
         </Flex>
-      </ThemeProvider>
+      </div>
     );
   }
 }

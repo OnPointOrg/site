@@ -16,8 +16,6 @@ import {
   InputGroup,
   InputLeftElement,
   Icon,
-  theme,
-  ThemeProvider,
 } from "@chakra-ui/core";
 
 import * as firebase from "firebase";
@@ -212,7 +210,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         {this.state.currentNav}
         <Flex
           mt={"5rem"}
@@ -291,7 +289,7 @@ class SignUp extends Component {
             </Box>
           </Box>
         </Flex>
-      </ThemeProvider>
+      </div>
     );
   }
 }

@@ -1,7 +1,5 @@
 import React, { Component, createRef } from "react";
 import {
-  ThemeProvider,
-  theme,
   Box,
   Flex,
   Button,
@@ -134,7 +132,7 @@ export class CreateStory extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         {this.state.currentNav}
         <Flex height="50%" width="100%" align="center" justifyContent="center">
           <Box>
@@ -282,7 +280,7 @@ export class CreateStory extends Component {
             </Box>
           </Box>
         </Flex>
-      </ThemeProvider>
+      </div>
     );
   }
 }

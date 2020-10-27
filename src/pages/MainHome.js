@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  ThemeProvider,
-  theme,
   Heading,
   Button,
   Link as ChakraLink,
@@ -40,7 +38,7 @@ export class MainHome extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         {this.state.currentNav}
         <Flex
           direction="column"
@@ -157,7 +155,7 @@ export class MainHome extends React.Component {
             </Box>
           </Flex>
         </Flex>
-      </ThemeProvider>
+      </div>
     );
   }
 }

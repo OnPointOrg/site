@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  ThemeProvider,
-  theme,
-  Grid,
-  Box,
-  Divider,
-  Heading,
-} from "@chakra-ui/core";
+import { Grid, Box, Divider, Heading } from "@chakra-ui/core";
 import BlogPost from "./BlogPost";
 
 import getDocs, { articles } from "../../hooks/ReadArticlesFromFirebase";
@@ -36,7 +29,7 @@ export class BlogTrendingNew extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         <Box margin="15px">
           <Heading
             as="h1"
@@ -88,7 +81,7 @@ export class BlogTrendingNew extends Component {
               })}
           </Grid>
         </Box>
-      </ThemeProvider>
+      </div>
     );
   }
 }

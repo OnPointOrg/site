@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  ThemeProvider,
-  theme,
-  Grid,
-  Heading,
-  Box,
-  Divider,
-} from "@chakra-ui/core";
+import { Grid, Heading, Box, Divider } from "@chakra-ui/core";
 import BlogPost from "./BlogPost";
 
 import firestoreDatabase from "../../firebase/config";
@@ -40,7 +33,7 @@ export class BlogGrid extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <div>
         {/* <Divider /> */}
         <Box margin="15px">
           <Heading
@@ -71,7 +64,7 @@ export class BlogGrid extends Component {
               })}
           </Grid>
         </Box>
-      </ThemeProvider>
+      </div>
     );
   }
 }
