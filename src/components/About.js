@@ -8,11 +8,12 @@ export const About = (props) => {
         <Box maxW="sm" borderWidth="1px" rounded="lg">
           <Image
             src={props.img}
-            alt="Aditya Verma"
+            alt={props.name}
             overflow="hidden"
-            rounded="md"
+            rounded="md" 
+            mb="-100px"
           />
-          <Box px="6" fontWeight="bold" as="h4" lineHeight="tight">
+          <Box px="6" fontWeight="bold" as="h4" lineHeight="tight" mb="-15px">
             {props.name}
           </Box>
 
@@ -33,6 +34,7 @@ export const About = (props) => {
               letterSpacing="wide"
               fontSize="xs"
               textTransform="uppercase"
+              mt="5px"
             >
               {props.bio}
             </Box>
