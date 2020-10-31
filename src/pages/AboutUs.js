@@ -42,6 +42,10 @@ export class AboutUs extends React.Component {
               >
                 We Are OnPoint
               </Heading>
+              <h1 class="animate__animated animate__bounce">
+                An animated element
+              </h1>
+
               <Heading
                 fontSize="3.5rem"
                 letterSpacing="tight"
@@ -65,10 +69,9 @@ export class AboutUs extends React.Component {
                 Our Mission
               </Heading>
               <Text fontSize="1.5rem" mt="6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Our mission is to provide a platform for teenagers to create
+                quality media about various topics in the modern world to
+                educate and inform the public.
               </Text>
             </Box>
           </Box>
@@ -82,42 +85,42 @@ export class AboutUs extends React.Component {
             <SimpleGrid columns={[2, null, 3]} spacing="40px">
               <About
                 name="Aditya Verma"
-                roles={["CEO", "Founder"]}
+                roles={["CEO", "Founder", "Hood Ambassador"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
-                name="Aditya Verma"
-                roles={["CEO", "Founder"]}
+                name="Aditya Rawat"
+                roles={["Co-Founder", "CTO", "God"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
-                name="Aditya Verma"
-                roles={["CEO", "Founder"]}
+                name="Aditya Girish"
+                roles={["Co-Founder", "Tech Lead", "LoL Addict"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
-                name="Aditya Verma"
-                roles={["CEO", "Founder"]}
+                name="Aditya Guntupalli"
+                roles={["Co-Founder", "Chief Editor"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
-                name="Aditya Verma"
-                roles={["CEO", "Founder"]}
+                name="Aditya Hari"
+                roles={["Co-Founder", "HR"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
-                name="Aditya Verma"
-                roles={["CEO", "Founder"]}
+                name="Sujith Sanniboyina"
+                roles={["Co-Founder", "Secretary"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}

@@ -10,7 +10,7 @@ export const About = (props) => {
             src={props.img}
             alt={props.name}
             overflow="hidden"
-            rounded="md" 
+            rounded="md"
             mb="-100px"
           />
           <Box px="6" fontWeight="bold" as="h4" lineHeight="tight" mb="-15px">

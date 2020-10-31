@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { ThemeProvider, theme, ColorModeProvider, CSSReset } from "@chakra-ui/core";
+import {
+  ThemeProvider,
+  theme,
+  ColorModeProvider,
+  CSSReset,
+} from "@chakra-ui/core";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
@@ -10,6 +15,8 @@ import Blog from "./pages/Blog";
 import NewStory from "./pages/NewStory";
 import ForgotPassword from "./pages/ForgotPassword";
 import BlogContentPost from "./components/blog/BlogContentPost";
+
+import "animate.css";
 
 export class App extends Component {
   render() {
