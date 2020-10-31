@@ -1,12 +1,13 @@
 import React from "react";
-import { Heading, Text, Box, Grid, Image, Badge } from "@chakra-ui/core";
+import { Heading, Text, Box, SimpleGrid } from "@chakra-ui/core";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import firebase from "firebase";
-// import Footer from "../components/Footer";
 import adityaverma from "../images/team/adityaverma.png";
 
-export class About extends React.Component {
+import About from "../components/About";
+
+export class AboutUs extends React.Component {
   state = {
     currentNav: <DefaultNav />,
   };
@@ -71,55 +72,57 @@ export class About extends React.Component {
               </Text>
             </Box>
           </Box>
-          <Box width="100%" height="100%" mt={"50px"} justifyContent="center">
-            <Grid templateColumns="repeat(3, 1fr)" gap={15} marginLeft="100px">
-              <Box w="75%">
-                <Box maxW="sm" borderWidth="1px" rounded="lg">
-                  <Image
-                    src={adityaverma}
-                    alt="Aditya Verma"
-                    overflow="hidden"
-                  />
-                  <Box
-                    px="6"
-                    pt="-5"
-                    fontWeight="bold"
-                    as="h4"
-                    lineHeight="tight"
-                  >
-                    Aditya Verma
-                  </Box>
-
-                  <Box p="6">
-                    <Box d="flex" alignItems="baseline">
-                      <Badge rounded="full" mr="2" px="2" variantColor="teal">
-                        CEO
-                      </Badge>
-                      <Badge rounded="full" px="2" variantColor="teal">
-                        Founder
-                      </Badge>
-                    </Box>
-                    <Box
-                      pt="3"
-                      color="gray.500"
-                      fontWeight="semibold"
-                      letterSpacing="wide"
-                      fontSize="xs"
-                      textTransform="uppercase"
-                    >
-                      Aditya Verma is a 10th grade student lorem ipsum sit amet
-                      etc etc etc this many is dumb and wants to get into
-                      medical school
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
-              <Box w="75%" h="10" bg="blue.500" />
-              <Box w="75%" h="10" bg="blue.500" />
-              <Box w="75%" h="10" bg="blue.500" />
-              <Box w="75%" h="10" bg="blue.500" />
-              <Box w="75%" h="10" bg="blue.500" />
-            </Grid>
+          <Box
+            width="100%"
+            height="100%"
+            mt={"50px"}
+            ml={"50px"}
+            justifyContent="center"
+          >
+            <SimpleGrid columns={[2, null, 3]} spacing="40px">
+              <About
+                name="Aditya Verma"
+                jobs={["CEO", "Founder"]}
+                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                img={adityaverma}
+              />
+              <About
+                name="Aditya Verma"
+                jobs={["CEO", "Founder"]}
+                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                img={adityaverma}
+              />
+              <About
+                name="Aditya Verma"
+                jobs={["CEO", "Founder"]}
+                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                img={adityaverma}
+              />
+              <About
+                name="Aditya Verma"
+                jobs={["CEO", "Founder"]}
+                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                img={adityaverma}
+              />
+              <About
+                name="Aditya Verma"
+                jobs={["CEO", "Founder"]}
+                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                img={adityaverma}
+              />
+              <About
+                name="Aditya Verma"
+                jobs={["CEO", "Founder"]}
+                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                img={adityaverma}
+              />
+            </SimpleGrid>
           </Box>
         </Box>
         {/* <Footer /> */}
@@ -128,4 +131,4 @@ export class About extends React.Component {
   }
 }
 
-export default About;
+export default AboutUs;
