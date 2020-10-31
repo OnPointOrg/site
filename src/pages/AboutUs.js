@@ -42,9 +42,6 @@ export class AboutUs extends React.Component {
               >
                 We Are OnPoint
               </Heading>
-              <h1 class="animate__animated animate__bounce">
-                An animated element
-              </h1>
 
               <Heading
                 fontSize="3.5rem"

@@ -16,8 +16,6 @@ import NewStory from "./pages/NewStory";
 import ForgotPassword from "./pages/ForgotPassword";
 import BlogContentPost from "./components/blog/BlogContentPost";
 
-import "animate.css";
-
 export class App extends Component {
   render() {
     return (
