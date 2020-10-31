@@ -17,7 +17,7 @@ import logo from "../images/logo.png";
 import { motion } from "framer-motion";
 // import Footer from "../components/Footer";
 
-export class MainHome extends React.Component {
+export class Home extends React.Component {
   state = {
     currentNav: <DefaultNav />,
   };
@@ -160,4 +160,4 @@ export class MainHome extends React.Component {
   }
 }
 
-export default MainHome;
+export default Home;
