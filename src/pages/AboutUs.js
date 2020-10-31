@@ -114,11 +114,211 @@ export class About extends React.Component {
                   </Box>
                 </Box>
               </Box>
-              <Box w="75%" h="10" bg="blue.500" />
-              <Box w="75%" h="10" bg="blue.500" />
-              <Box w="75%" h="10" bg="blue.500" />
-              <Box w="75%" h="10" bg="blue.500" />
-              <Box w="75%" h="10" bg="blue.500" />
+              <Box w="75%">
+                <Box maxW="sm" borderWidth="1px" rounded="lg">
+                  <Image
+                    src={adityaverma}
+                    alt="Aditya Verma"
+                    overflow="hidden"
+                  />
+                  <Box
+                    px="6"
+                    pt="-5"
+                    fontWeight="bold"
+                    as="h4"
+                    lineHeight="tight"
+                  >
+                    Aditya Verma
+                  </Box>
+
+                  <Box p="6">
+                    <Box d="flex" alignItems="baseline">
+                      <Badge rounded="full" mr="2" px="2" variantColor="teal">
+                        CEO
+                      </Badge>
+                      <Badge rounded="full" px="2" variantColor="teal">
+                        Founder
+                      </Badge>
+                    </Box>
+                    <Box
+                      pt="3"
+                      color="gray.500"
+                      fontWeight="semibold"
+                      letterSpacing="wide"
+                      fontSize="xs"
+                      textTransform="uppercase"
+                    >
+                      Aditya Verma is a 10th grade student lorem ipsum sit amet
+                      etc etc etc this many is dumb and wants to get into
+                      medical school
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+              <Box w="75%">
+                <Box maxW="sm" borderWidth="1px" rounded="lg">
+                  <Image
+                    src={adityaverma}
+                    alt="Aditya Verma"
+                    overflow="hidden"
+                  />
+                  <Box
+                    px="6"
+                    pt="-5"
+                    fontWeight="bold"
+                    as="h4"
+                    lineHeight="tight"
+                  >
+                    Aditya Verma
+                  </Box>
+
+                  <Box p="6">
+                    <Box d="flex" alignItems="baseline">
+                      <Badge rounded="full" mr="2" px="2" variantColor="teal">
+                        CEO
+                      </Badge>
+                      <Badge rounded="full" px="2" variantColor="teal">
+                        Founder
+                      </Badge>
+                    </Box>
+                    <Box
+                      pt="3"
+                      color="gray.500"
+                      fontWeight="semibold"
+                      letterSpacing="wide"
+                      fontSize="xs"
+                      textTransform="uppercase"
+                    >
+                      Aditya Verma is a 10th grade student lorem ipsum sit amet
+                      etc etc etc this many is dumb and wants to get into
+                      medical school
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+              <Box w="75%">
+                <Box maxW="sm" borderWidth="1px" rounded="lg">
+                  <Image
+                    src={adityaverma}
+                    alt="Aditya Verma"
+                    overflow="hidden"
+                  />
+                  <Box
+                    px="6"
+                    pt="-5"
+                    fontWeight="bold"
+                    as="h4"
+                    lineHeight="tight"
+                  >
+                    Aditya Verma
+                  </Box>
+
+                  <Box p="6">
+                    <Box d="flex" alignItems="baseline">
+                      <Badge rounded="full" mr="2" px="2" variantColor="teal">
+                        CEO
+                      </Badge>
+                      <Badge rounded="full" px="2" variantColor="teal">
+                        Founder
+                      </Badge>
+                    </Box>
+                    <Box
+                      pt="3"
+                      color="gray.500"
+                      fontWeight="semibold"
+                      letterSpacing="wide"
+                      fontSize="xs"
+                      textTransform="uppercase"
+                    >
+                      Aditya Verma is a 10th grade student lorem ipsum sit amet
+                      etc etc etc this many is dumb and wants to get into
+                      medical school
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+              <Box w="75%">
+                <Box maxW="sm" borderWidth="1px" rounded="lg">
+                  <Image
+                    src={adityaverma}
+                    alt="Aditya Verma"
+                    overflow="hidden"
+                  />
+                  <Box
+                    px="6"
+                    pt="-5"
+                    fontWeight="bold"
+                    as="h4"
+                    lineHeight="tight"
+                  >
+                    Aditya Verma
+                  </Box>
+
+                  <Box p="6">
+                    <Box d="flex" alignItems="baseline">
+                      <Badge rounded="full" mr="2" px="2" variantColor="teal">
+                        CEO
+                      </Badge>
+                      <Badge rounded="full" px="2" variantColor="teal">
+                        Founder
+                      </Badge>
+                    </Box>
+                    <Box
+                      pt="3"
+                      color="gray.500"
+                      fontWeight="semibold"
+                      letterSpacing="wide"
+                      fontSize="xs"
+                      textTransform="uppercase"
+                    >
+                      Aditya Verma is a 10th grade student lorem ipsum sit amet
+                      etc etc etc this many is dumb and wants to get into
+                      medical school
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+              <Box w="75%">
+                <Box maxW="sm" borderWidth="1px" rounded="lg">
+                  <Image
+                    src={adityaverma}
+                    alt="Aditya Verma"
+                    overflow="hidden"
+                  />
+                  <Box
+                    px="6"
+                    pt="-5"
+                    fontWeight="bold"
+                    as="h4"
+                    lineHeight="tight"
+                  >
+                    Aditya Verma
+                  </Box>
+
+                  <Box p="6">
+                    <Box d="flex" alignItems="baseline">
+                      <Badge rounded="full" mr="2" px="2" variantColor="teal">
+                        CEO
+                      </Badge>
+                      <Badge rounded="full" px="2" variantColor="teal">
+                        Founder
+                      </Badge>
+                    </Box>
+                    <Box
+                      pt="3"
+                      color="gray.500"
+                      fontWeight="semibold"
+                      letterSpacing="wide"
+                      fontSize="xs"
+                      textTransform="uppercase"
+                    >
+                      Aditya Verma is a 10th grade student lorem ipsum sit amet
+                      etc etc etc this many is dumb and wants to get into
+                      medical school
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
             </Grid>
           </Box>
         </Box>
