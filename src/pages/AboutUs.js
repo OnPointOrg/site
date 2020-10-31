@@ -82,42 +82,42 @@ export class AboutUs extends React.Component {
             <SimpleGrid columns={[2, null, 3]} spacing="40px">
               <About
                 name="Aditya Verma"
-                jobs={["CEO", "Founder"]}
+                roles={["CEO", "Founder"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
                 name="Aditya Verma"
-                jobs={["CEO", "Founder"]}
+                roles={["CEO", "Founder"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
                 name="Aditya Verma"
-                jobs={["CEO", "Founder"]}
+                roles={["CEO", "Founder"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
                 name="Aditya Verma"
-                jobs={["CEO", "Founder"]}
+                roles={["CEO", "Founder"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
                 name="Aditya Verma"
-                jobs={["CEO", "Founder"]}
+                roles={["CEO", "Founder"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
                 name="Aditya Verma"
-                jobs={["CEO", "Founder"]}
+                roles={["CEO", "Founder"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}

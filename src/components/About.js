@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Badge } from "@chakra-ui/core";
+import { Box, Image, Tag } from "@chakra-ui/core";
 
 export const About = (props) => {
   return (
@@ -18,11 +18,11 @@ export const About = (props) => {
 
           <Box p="6">
             <Box d="flex" alignItems="baseline">
-              {props.jobs.map((job) => {
+              {props.roles.map((role) => {
                 return (
-                  <Badge rounded="full" mr="2" px="2" variantColor="teal">
-                    {job}
-                  </Badge>
+                  <Tag size={"sm"} key={"sm"} variantColor="gray" mr={"5px"}>
+                    {role}
+                  </Tag>
                 );
               })}
             </Box>
