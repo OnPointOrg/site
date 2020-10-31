@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image, Badge } from "@chakra-ui/core";
+import { Box, Image, Tag } from "@chakra-ui/core";
 
 export const About = (props) => {
   return (
@@ -8,21 +8,22 @@ export const About = (props) => {
         <Box maxW="sm" borderWidth="1px" rounded="lg">
           <Image
             src={props.img}
-            alt="Aditya Verma"
+            alt={props.name}
             overflow="hidden"
             rounded="md"
+            mb="-100px"
           />
-          <Box px="6" fontWeight="bold" as="h4" lineHeight="tight">
+          <Box px="6" fontWeight="bold" as="h4" lineHeight="tight" mb="-15px">
             {props.name}
           </Box>
 
           <Box p="6">
             <Box d="flex" alignItems="baseline">
-              {props.jobs.map((job) => {
+              {props.roles.map((role) => {
                 return (
-                  <Badge rounded="full" mr="2" px="2" variantColor="teal">
-                    {job}
-                  </Badge>
+                  <Tag size={"sm"} key={"sm"} variantColor="gray" mr={"5px"}>
+                    {role}
+                  </Tag>
                 );
               })}
             </Box>
@@ -33,6 +34,7 @@ export const About = (props) => {
               letterSpacing="wide"
               fontSize="xs"
               textTransform="uppercase"
+              mt="5px"
             >
               {props.bio}
             </Box>

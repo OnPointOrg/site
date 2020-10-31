@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { ThemeProvider, theme, ColorModeProvider, CSSReset } from "@chakra-ui/core";
-import MainHome from "./pages/MainHome";
+import {
+  ThemeProvider,
+  theme,
+  ColorModeProvider,
+  CSSReset,
+} from "@chakra-ui/core";
+import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -19,7 +24,7 @@ export class App extends Component {
           <CSSReset />
           <Router>
             <Switch>
-              <Route path="/" exact component={MainHome} />
+              <Route path="/" exact component={Home} />
               <Route path="/signup" component={SignUp} />
               <Route path="/signin" component={SignIn} />
               <Route path="/about" component={AboutUs} />
