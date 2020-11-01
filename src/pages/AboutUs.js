@@ -4,6 +4,9 @@ import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import firebase from "firebase";
 import adityaverma from "../images/team/adityaverma.png";
+import sujithsanniboyina from "../images/team/sujith1.jpg";
+import adityarawat from "../images/team/adityarawat1.jpg";
+// import adityaverma from "../images/team/adityaverma.png";
 
 import About from "../components/About";
 
@@ -82,21 +85,21 @@ export class AboutUs extends React.Component {
             <SimpleGrid columns={[2, null, 3]} spacing="40px">
               <About
                 name="Aditya Verma"
-                roles={["CEO", "Founder", "Hood Ambassador"]}
+                roles={["CEO", "Founder"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
               />
               <About
                 name="Aditya Rawat"
-                roles={["Co-Founder", "CTO", "God"]}
+                roles={["Co-Founder", "CTO"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                img={adityaverma}
+                img={adityarawat}
               />
               <About
                 name="Aditya Girish"
-                roles={["Co-Founder", "Tech Lead", "LoL Addict"]}
+                roles={["Co-Founder", "Tech Lead"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
@@ -120,7 +123,7 @@ export class AboutUs extends React.Component {
                 roles={["Co-Founder", "Secretary"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                img={adityaverma}
+                img={sujithsanniboyina}
               />
             </SimpleGrid>
           </Box>
