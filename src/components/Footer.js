@@ -92,7 +92,7 @@ const Footer = () => {
             size="50px"
             padding="10px"
             icon={FaGithub}
-            mx="15px"
+            mr="15px"
           />
         </ChakraLink>
         <ChakraLink
@@ -142,7 +142,7 @@ const Footer = () => {
             fontSize="25px"
             size="50px"
             padding="10px"
-            mx="15px"
+            ml="25px"
             icon={FaEnvelope}
           />
         </ChakraLink>
