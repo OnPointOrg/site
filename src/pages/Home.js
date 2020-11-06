@@ -8,6 +8,7 @@ import {
   Stack,
   Image,
 } from "@chakra-ui/core";
+import Navbar from "../components/nav/Navbar";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
@@ -39,7 +40,8 @@ export class Home extends React.Component {
   render() {
     return (
       <div>
-        {this.state.currentNav}
+        {/* {this.state.currentNav} */}
+        <Navbar />
         <Flex
           direction="column"
           align="center"
