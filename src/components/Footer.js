@@ -73,10 +73,12 @@ const Footer = () => {
         </Link>
       </Flex>
       <Flex
+        // flexDirection="column"
         justifyContent="center"
-        w="100%"
         alignItems="center"
-        p={["1rem", "1rem", "2rem", "3rem"]}
+        maxWidth="1080px"
+        mx="auto"
+        p={5}
       >
         <ChakraLink
           href="https://github.com/OnPointOrg"
@@ -142,7 +144,7 @@ const Footer = () => {
             fontSize="25px"
             size="50px"
             padding="10px"
-            ml="25px"
+            mx="25px"
             icon={FaEnvelope}
           />
         </ChakraLink>
