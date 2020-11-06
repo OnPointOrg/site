@@ -12,6 +12,7 @@ const Footer = () => {
       maxWidth="1080px"
       mx="auto"
       p={5}
+      position="absolute"
     >
       <Flex justifyContent="space-between">
         <Link to="/about">
