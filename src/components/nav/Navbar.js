@@ -1,16 +1,5 @@
-import React, { FC } from "react";
-import {
-  Box,
-  Stack,
-  Link as ChakraLink,
-  Button,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  useColorMode,
-} from "@chakra-ui/core";
+import React from "react";
+import { Box, Stack, Link as ChakraLink, Button } from "@chakra-ui/core";
 import ThemeButton from "./ThemeButton";
 import { Link } from "react-router-dom";
 
@@ -33,35 +22,41 @@ const Navbar = () => {
         >
           <Box>
             <Link href="/">
-              <ChakraLink p={4} href="/" rounded="md">
-                Home
-              </ChakraLink>
+              <Button variantColor="teal" variant="ghost">
+                <ChakraLink p={4} href="/" rounded="md">
+                  Home
+                </ChakraLink>
+              </Button>
             </Link>
           </Box>
           <Box>
             <Stack isInline spacing={4} alignItems="center">
               <Box>
                 <Link to="/about">
-                  <ChakraLink p={4} rounded="md">
-                    About
-                  </ChakraLink>
+                  <Button variantColor="teal" variant="ghost">
+                    <ChakraLink p={4} rounded="md">
+                      About
+                    </ChakraLink>
+                  </Button>
                 </Link>
               </Box>
               <Box>
                 <Link to="/blog">
-                  <ChakraLink p={4} rounded="md">
-                    Blog
-                  </ChakraLink>
+                  <Button variantColor="teal" variant="ghost">
+                    <ChakraLink p={4} rounded="md">
+                      Blog
+                    </ChakraLink>
+                  </Button>
                 </Link>
               </Box>
               <Box>
-                <Button variantColor="teal" variant="ghost">
-                  <Link to="/contact">
+                <Link to="/contact">
+                  <Button variantColor="teal" variant="ghost">
                     <ChakraLink p={4} rounded="md">
                       Contact
                     </ChakraLink>
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               </Box>
               <Box px={2}>
                 <ThemeButton />
