@@ -1,5 +1,4 @@
-import { Flex, Link as ChakraLink, IconButton } from "@chakra-ui/core";
-import { Link } from "react-router-dom";
+import { Flex, Link as ChakraLink, IconButton, Text, Icon } from "@chakra-ui/core";
 import React from "react";
 import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
@@ -8,69 +7,19 @@ const Footer = () => {
     <Flex
       flexDirection="column"
       justifyContent="center"
+      textAlign="center"
       alignItems="center"
-      maxWidth="1080px"
+      // maxWidth="1080px"
       mx="auto"
-      p={5}
+      py={5}
     >
       <Flex justifyContent="space-between">
-        <Link to="/about">
-          <ChakraLink
-            _hover={{
-              textDecoration: "none",
-              backgroundColor: "rgba(0,0,0,0.15)",
-              borderRadius: ".35rem",
-            }}
-            mr={[".2rem", "1rem", "1.5rem", "1.5rem"]}
-            p={[
-              ".4rem .85rem",
-              ".5rem 1rem",
-              ".75rem 1.25rem",
-              ".75rem 1.25rem",
-            ]}
-            fontSize={[".8rem", ".8rem", "1.1rem", "1.1rem"]}
-          >
-            About
+        <Text>
+          Copyright © 2020.{" "}
+          <ChakraLink color="teal.500" href="https://github.com/OnPointOrg" target="_blank">
+            OnPoint News <Icon name="external-link" mx="2px" />
           </ChakraLink>
-        </Link>
-        <Link to="/blog">
-          <ChakraLink
-            _hover={{
-              textDecoration: "none",
-              backgroundColor: "rgba(0,0,0,0.15)",
-              borderRadius: ".35rem",
-            }}
-            mr={[".2rem", "1rem", "1.5rem", "1.5rem"]}
-            p={[
-              ".4rem .85rem",
-              ".5rem 1rem",
-              ".75rem 1.25rem",
-              ".75rem 1.25rem",
-            ]}
-            fontSize={[".8rem", ".8rem", "1.1rem", "1.1rem"]}
-          >
-            Blog
-          </ChakraLink>
-        </Link>
-        <Link to="/contact">
-          <ChakraLink
-            _hover={{
-              textDecoration: "none",
-              backgroundColor: "rgba(0,0,0,0.15)",
-              borderRadius: ".35rem",
-            }}
-            mr={[".2rem", "1rem", "1.5rem", "1.5rem"]}
-            p={[
-              ".4rem .85rem",
-              ".5rem 1rem",
-              ".75rem 1.25rem",
-              ".75rem 1.25rem",
-            ]}
-            fontSize={[".8rem", ".8rem", "1.1rem", "1.1rem"]}
-          >
-            Contact
-          </ChakraLink>
-        </Link>
+        </Text>
       </Flex>
       <Flex
         // flexDirection="column"
