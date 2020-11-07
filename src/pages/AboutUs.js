@@ -6,7 +6,6 @@ import firebase from "firebase";
 import adityaverma from "../images/team/adityaverma.png";
 import sujithsanniboyina from "../images/team/sujith1.jpg";
 import adityarawat from "../images/team/adityarawat1.jpg";
-// import adityaverma from "../images/team/adityaverma.png";
 
 import About from "../components/About";
 
