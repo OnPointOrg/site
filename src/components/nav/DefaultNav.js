@@ -26,12 +26,17 @@ const DefaultNav = (props) => {
   return (
     <div>
       <Flex
-        as="nav"
         align="center"
         justify="space-between"
         wrap="wrap"
         padding="1.5rem"
         {...props}
+        as="header"
+        position="sticky"
+        top={0}
+        zIndex={1}
+        shadow="md"
+        fontWeight="bold"
       >
         <Flex align="center" mr={5}>
           <Link to="/">

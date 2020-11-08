@@ -50,10 +50,19 @@ const Navbar = () => {
                 </Link>
               </Box>
               <Box>
-                <Link to="/contact">
+                <Link to="/signin">
                   <Button variantColor="teal" variant="ghost">
                     <ChakraLink p={4} rounded="md">
-                      Contact
+                      Sign In
+                    </ChakraLink>
+                  </Button>
+                </Link>
+              </Box>
+              <Box>
+                <Link to="/signup">
+                  <Button variantColor="teal" variant="ghost">
+                    <ChakraLink p={4} rounded="md">
+                      Sign Up
                     </ChakraLink>
                   </Button>
                 </Link>

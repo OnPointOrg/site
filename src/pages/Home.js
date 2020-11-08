@@ -7,8 +7,10 @@ import {
   Flex,
   Stack,
   Image,
+  Text,
+  Grid,
+  Divider,
 } from "@chakra-ui/core";
-import Navbar from "../components/nav/Navbar";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
@@ -17,6 +19,8 @@ import firebase from "firebase";
 import logo from "../images/logo.png";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+import { MdAccessibility, MdGrain, MdPalette, MdEmail } from "react-icons/md";
+import Feature from "../components/Feature";
 
 export class Home extends React.Component {
   state = {
@@ -40,8 +44,7 @@ export class Home extends React.Component {
   render() {
     return (
       <div>
-        {/* {this.state.currentNav} */}
-        <Navbar />
+        {this.state.currentNav}
         <Flex
           direction="column"
           align="center"
@@ -157,6 +160,46 @@ export class Home extends React.Component {
             </Box>
           </Flex>
         </Flex>
+        <Divider />
+        <Box as="section">
+          <Box maxW="760px" mx="auto" textAlign="center" mb="56px">
+            <Heading textStyle="heading" mb="5">
+              An experience you'd expect from a design system
+            </Heading>
+            <Text fontSize="lg" color="primary">
+              Opinionated and designed for daily use.
+            </Text>
+          </Box>
+          <Flex justifyContent="center">
+            <Grid
+              templateColumns="repeat(3, 1fr)"
+              gap={10}
+              px="15"
+              margin="55px"
+            >
+              <Feature icon={MdAccessibility} title="Accessible"></Feature>
+              <Feature icon={MdPalette} title="Themeable">
+                Customize any part of our components to match your design needs.
+              </Feature>
+              <Feature icon={MdGrain} title="Composable">
+                Designed with composition in mind. Compose new components with
+                ease.
+              </Feature>
+              <Feature icon={MdAccessibility} title="Light and Dark UI">
+                Optimized for multiple color modes. Use light or dark, your
+                choice.
+              </Feature>
+              <Feature icon={MdAccessibility} title="Developer Experience">
+                Guaranteed to boost your productivity when building your app or
+                website.
+              </Feature>
+              <Feature icon={MdEmail} title="Active Community">
+                We're a team of active maintainers ready to help you whenever
+                you need.
+              </Feature>
+            </Grid>
+          </Flex>
+        </Box>
         <Footer />
       </div>
     );
