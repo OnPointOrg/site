@@ -4,16 +4,10 @@ import {
   Box,
   Divider,
   Heading,
-  Stack,
-  Text,
-  Icon,
-  Button,
 } from "@chakra-ui/core";
 import BlogPost from "./BlogPost";
 
-import { Link } from "react-router-dom";
-
-import getDocs, { articles } from "../../hooks/ReadArticlesFromFirebase";
+// import { Link } from "react-router-dom";
 
 import firestoreDatabase from "../../firebase/config";
 
@@ -71,12 +65,6 @@ export class BlogTrendingNew extends Component {
                     time={article.content.time}
                     username={article.username}
                   />
-                  // <BlogPost
-                  //   title={article.title}
-                  //   summary={article.summary}
-                  //   date={article.content.time}
-                  //   user={article.username}
-                  // />
                 );
               })}
           </Grid>
