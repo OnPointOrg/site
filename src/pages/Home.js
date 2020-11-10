@@ -10,7 +10,6 @@ import {
   Text,
   Grid,
   Divider,
-  Icon,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
