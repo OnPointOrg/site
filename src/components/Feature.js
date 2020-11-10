@@ -3,13 +3,7 @@ import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/core";
 
 const Feature = ({ title, icon, children, ...props }) => {
   return (
-    <Box
-      rounded="12px"
-      shadow="base"
-      p="40px"
-      {...props}
-      borderWidth="5px"
-    >
+    <Box rounded="12px" shadow="base" p="40px" {...props} borderWidth="5px">
       <Flex
         rounded="full"
         w="12"
