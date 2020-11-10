@@ -1,14 +1,34 @@
 import React, { Component } from "react";
-import { Grid, Box, Divider, Heading } from "@chakra-ui/core";
+import {
+  Grid,
+  Box,
+  Divider,
+  Heading,
+  Stack,
+  Text,
+  Icon,
+  Button,
+} from "@chakra-ui/core";
 import BlogPost from "./BlogPost";
+
+import { Link } from "react-router-dom";
 
 import getDocs, { articles } from "../../hooks/ReadArticlesFromFirebase";
 
 import firestoreDatabase from "../../firebase/config";
 
+import HomeArticles from "./HomeArticles";
+
 export class BlogTrendingNew extends Component {
   state = {
     articles: null,
+    show: false,
+  };
+
+  handleToggle = () => {
+    this.setState({
+      show: !this.state.show,
+    });
   };
 
   componentDidMount = () => {
@@ -41,16 +61,22 @@ export class BlogTrendingNew extends Component {
             Trending Articles
           </Heading>
           <Divider />
-          <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
+          <Grid templateColumns="repeat(2, 1fr)" gap={6} margin="15px">
             {this.state.articles != null &&
               this.state.articles.slice(0, 4).map((article) => {
                 return (
-                  <BlogPost
+                  <HomeArticles
                     title={article.title}
                     summary={article.summary}
-                    date={article.content.time}
-                    user={article.username}
+                    time={article.content.time}
+                    username={article.username}
                   />
+                  // <BlogPost
+                  //   title={article.title}
+                  //   summary={article.summary}
+                  //   date={article.content.time}
+                  //   user={article.username}
+                  // />
                 );
               })}
           </Grid>

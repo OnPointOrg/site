@@ -10,6 +10,7 @@ import {
   Text,
   Grid,
   Divider,
+  Icon,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
@@ -21,6 +22,7 @@ import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import { MdAccessibility, MdGrain, MdPalette, MdEmail } from "react-icons/md";
 import Feature from "../components/Feature";
+import BlogTrendingNew from "../components/blog/BlogTrendingNew";
 
 export class Home extends React.Component {
   state = {
@@ -200,6 +202,7 @@ export class Home extends React.Component {
             </Grid>
           </Flex>
         </Box>
+        <BlogTrendingNew />
         <Footer />
       </div>
     );
