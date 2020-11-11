@@ -9,7 +9,6 @@ import {
   Image,
   Text,
   Grid,
-  Divider,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
@@ -68,6 +67,7 @@ export class Home extends React.Component {
             <Stack
               spacing={4}
               w={{ base: "80%", md: "40%" }}
+              height="100%"
               align={["center", "center", "flex-start", "flex-start"]}
             >
               <Heading
@@ -89,8 +89,7 @@ export class Home extends React.Component {
                 fontWeight="normal"
                 lineHeight={1.5}
               >
-                This is the subheader section where you describe the basic
-                benefits of your product
+                This Is What We Do
               </Heading>
               <div mt="10" spacing="3" justify="center" direction="row">
                 <Link to="/signup">
@@ -98,7 +97,7 @@ export class Home extends React.Component {
                     h="4rem"
                     px="40px"
                     mr="20px"
-                    mt="15px"
+                    mt="25px"
                     fontSize="1.2rem"
                     as="a"
                     size="lg"
@@ -112,7 +111,7 @@ export class Home extends React.Component {
                   <Button
                     as="a"
                     size="lg"
-                    mt="15px"
+                    mt="25px"
                     h="4rem"
                     px="40px"
                     fontSize="1.2rem"
@@ -161,9 +160,8 @@ export class Home extends React.Component {
             </Box>
           </Flex>
         </Flex>
-        <Divider />
         <Box as="section">
-          <Box maxW="760px" mx="auto" textAlign="center" mb="56px">
+          <Box maxW="760px" mx="auto" textAlign="center" mb="56px" mt="25px">
             <Heading textStyle="heading" mb="5">
               An experience you'd expect from a design system
             </Heading>

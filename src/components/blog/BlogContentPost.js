@@ -73,10 +73,6 @@ export class BlogContentPost extends Component {
             </Heading>
             <Text textAlign="center" fontSize="25px">
               By <Text as="strong">{this.state.articleAuthor}</Text>
-              {/* By{" "}
-              <ChakraLink color="teal.500">
-                <Link>{this.state.articleAuthor}</Link>
-              </ChakraLink> */}
             </Text>
             <Text textAlign="center" fontSize="25px">
               &bull;&bull;&bull;

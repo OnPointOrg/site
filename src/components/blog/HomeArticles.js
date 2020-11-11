@@ -64,9 +64,11 @@ export class HomeArticles extends Component {
               >
                 Show {this.state.show ? "Less" : "More"}
               </Button>
-              <Button rightIcon="arrow-forward" variant="ghost" fontSize="sm">
-                Read more
-              </Button>
+              <Link to={() => `/blog/${this.props.docId}`}>
+                <Button rightIcon="arrow-forward" variant="ghost" fontSize="sm">
+                  Read more
+                </Button>
+              </Link>
             </Box>
           </Stack>
         </Box>
