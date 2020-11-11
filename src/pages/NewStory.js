@@ -41,18 +41,37 @@ export class CreateStory extends Component {
     useruid: "",
     username: "",
     thumbnailImage: "",
-    currentNav: <DefaultNav />,
+    componentState: {
+      currentNav: <DefaultNav />,
+      button: (
+        <Button
+          size="lg"
+          type="submit"
+          variantColor={VARIANT_COLOR}
+          variant="solid"
+          width="full"
+          mt={4}
+          onClick={this.handleSave}
+        >
+          Submit
+        </Button>
+      ),
+    },
   };
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          componentState: {
+            currentNav: <VerifiedNav />,
+          },
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          componentState: {
+            currentNav: <DefaultNav />,
+          },
         });
       }
     });
@@ -84,8 +103,49 @@ export class CreateStory extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({
+      componentState: {
+        button: (
+          <Button
+            isLoading
+            loadingText="Submitting"
+            size="lg"
+            variantColor={VARIANT_COLOR}
+            variant="solid"
+            width="full"
+            mt={4}
+          />
+        ),
+      },
+    });
     console.log(this.state);
-    this.writeArticleData(this.state);
+    this.writeArticleData(
+      this.state.title,
+      this.state.category,
+      this.state.summary,
+      this.state.articleContent,
+      this.state.useruid,
+      this.state.username,
+      this.state.thumbnailImage
+    );
+    this.setState({
+      componentState: {
+        button: (
+          <Button
+            isDisabled
+            leftIcon="check"
+            size="lg"
+            type="submit"
+            variantColor={VARIANT_COLOR}
+            variant="solid"
+            width="full"
+            mt={4}
+          >
+            Submitted
+          </Button>
+        ),
+      },
+    });
   };
 
   handleSave = () => {
@@ -133,7 +193,7 @@ export class CreateStory extends Component {
   render() {
     return (
       <div>
-        {this.state.currentNav}
+        {this.state.componentState.currentNav}
         <Flex height="50%" width="100%" align="center" justifyContent="center">
           <Box>
             <Box p={4}>
@@ -262,18 +322,7 @@ export class CreateStory extends Component {
                   <SimpleGrid columns={3} spacing={10}>
                     <Box width="100%" />
                     <Box width="100%" />
-                    <Button
-                      leftIcon="check"
-                      size="lg"
-                      type="submit"
-                      variantColor={VARIANT_COLOR}
-                      variant="solid"
-                      width="full"
-                      mt={4}
-                      onClick={this.handleSave}
-                    >
-                      Submit
-                    </Button>
+                    <Box width="100%">{this.state.componentState.button}</Box>
                   </SimpleGrid>
                 </form>
               </Box>
