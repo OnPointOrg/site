@@ -6,6 +6,8 @@ import firebase from "firebase";
 import adityaverma from "../images/team/adityaverma.png";
 import sujithsanniboyina from "../images/team/sujith1.jpg";
 import adityarawat from "../images/team/adityarawat1.jpg";
+import adityagirish from "../images/team/adityagirish.png";
+import adityahari from "../images/team/adityahari.jpg";
 
 import About from "../components/About";
 
@@ -101,7 +103,7 @@ export class AboutUs extends React.Component {
                 roles={["Co-Founder", "Tech Lead"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                img={adityaverma}
+                img={adityagirish}
               />
               <About
                 name="Aditya Guntupalli"
@@ -115,7 +117,7 @@ export class AboutUs extends React.Component {
                 roles={["Co-Founder", "HR"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                img={adityaverma}
+                img={adityahari}
               />
               <About
                 name="Sujith Sanniboyina"

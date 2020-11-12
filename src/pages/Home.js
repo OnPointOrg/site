@@ -7,8 +7,9 @@ import {
   Flex,
   Stack,
   Image,
+  Text,
+  Grid,
 } from "@chakra-ui/core";
-import Navbar from "../components/nav/Navbar";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
@@ -17,6 +18,9 @@ import firebase from "firebase";
 import logo from "../images/logo.png";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+import { MdAccessibility, MdGrain, MdPalette, MdEmail } from "react-icons/md";
+import Feature from "../components/Feature";
+import BlogTrendingNew from "../components/blog/BlogTrendingNew";
 
 export class Home extends React.Component {
   state = {
@@ -40,8 +44,7 @@ export class Home extends React.Component {
   render() {
     return (
       <div>
-        {/* {this.state.currentNav} */}
-        <Navbar />
+        {this.state.currentNav}
         <Flex
           direction="column"
           align="center"
@@ -64,6 +67,7 @@ export class Home extends React.Component {
             <Stack
               spacing={4}
               w={{ base: "80%", md: "40%" }}
+              height="100%"
               align={["center", "center", "flex-start", "flex-start"]}
             >
               <Heading
@@ -85,8 +89,7 @@ export class Home extends React.Component {
                 fontWeight="normal"
                 lineHeight={1.5}
               >
-                This is the subheader section where you describe the basic
-                benefits of your product
+                This Is What We Do
               </Heading>
               <div mt="10" spacing="3" justify="center" direction="row">
                 <Link to="/signup">
@@ -94,7 +97,7 @@ export class Home extends React.Component {
                     h="4rem"
                     px="40px"
                     mr="20px"
-                    mt="15px"
+                    mt="25px"
                     fontSize="1.2rem"
                     as="a"
                     size="lg"
@@ -108,7 +111,7 @@ export class Home extends React.Component {
                   <Button
                     as="a"
                     size="lg"
-                    mt="15px"
+                    mt="25px"
                     h="4rem"
                     px="40px"
                     fontSize="1.2rem"
@@ -157,6 +160,46 @@ export class Home extends React.Component {
             </Box>
           </Flex>
         </Flex>
+        <Box as="section">
+          <Box maxW="760px" mx="auto" textAlign="center" mb="56px" mt="25px">
+            <Heading textStyle="heading" mb="5">
+              An experience you'd expect from a design system
+            </Heading>
+            <Text fontSize="lg" color="primary">
+              Opinionated and designed for daily use.
+            </Text>
+          </Box>
+          <Flex justifyContent="center">
+            <Grid
+              templateColumns="repeat(3, 1fr)"
+              gap={10}
+              px="15"
+              margin="55px"
+            >
+              <Feature icon={MdAccessibility} title="Accessible"></Feature>
+              <Feature icon={MdPalette} title="Themeable">
+                Customize any part of our components to match your design needs.
+              </Feature>
+              <Feature icon={MdGrain} title="Composable">
+                Designed with composition in mind. Compose new components with
+                ease.
+              </Feature>
+              <Feature icon={MdAccessibility} title="Light and Dark UI">
+                Optimized for multiple color modes. Use light or dark, your
+                choice.
+              </Feature>
+              <Feature icon={MdAccessibility} title="Developer Experience">
+                Guaranteed to boost your productivity when building your app or
+                website.
+              </Feature>
+              <Feature icon={MdEmail} title="Active Community">
+                We're a team of active maintainers ready to help you whenever
+                you need.
+              </Feature>
+            </Grid>
+          </Flex>
+        </Box>
+        <BlogTrendingNew />
         <Footer />
       </div>
     );

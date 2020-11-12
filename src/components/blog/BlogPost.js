@@ -39,7 +39,9 @@ export class BlogPost extends React.Component {
   render() {
     return (
       <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
-        <Image src={this.props.thumbnailImage} height="auto" />
+        <Box maxHeight="400px" overflow="hidden">
+          <Image src={this.props.thumbnailImage} />
+        </Box>
         <Box p="6">
           <Box d="flex" alignItems="baseline">
             <Badge rounded="full" px="3" variantColor="teal">
