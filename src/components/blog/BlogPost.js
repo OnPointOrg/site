@@ -38,75 +38,77 @@ export class BlogPost extends React.Component {
 
   render() {
     return (
-      <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
-        <Box maxHeight="400px" overflow="hidden">
-          <Image src={this.props.thumbnailImage} />
+      <Box borderWidth="1px" rounded="lg" overflow="hidden">
+        <Box maxHeight="300px" overflow="hidden">
+          <Image src={this.props.thumbnailImage} width="100%" />
         </Box>
-        <Box p="6">
-          <Box d="flex" alignItems="baseline">
-            <Badge rounded="full" px="3" variantColor="teal">
-              Trending
-            </Badge>
+        <Box>
+          <Box p="6">
+            <Box d="flex" alignItems="baseline">
+              <Badge rounded="full" px="3" variantColor="teal">
+                Trending
+              </Badge>
+              <Box
+                color="gray.500"
+                fontWeight="semibold"
+                letterSpacing="wide"
+                fontSize="xs"
+                textTransform="uppercase"
+                ml="2"
+              >
+                {console.log(this.props.user)}
+                {this.convertFromUnix(this.props.date)}
+              </Box>
+            </Box>
+
             <Box
-              color="gray.500"
+              marginTop="5"
+              marginBottom="2.5"
+              marginLeft="2px"
               fontWeight="semibold"
+              as="h4"
+              lineHeight="tight"
+              isTruncated
+            >
+              {this.props.title}
+            </Box>
+            <Box
+              marginTop="3"
+              marginBottom="3"
+              marginLeft="2px"
+              fontWeight="semibold"
+              color="gray.500"
               letterSpacing="wide"
               fontSize="xs"
               textTransform="uppercase"
-              ml="2"
+              lineHeight="tight"
+              isTruncated
             >
-              {console.log(this.props.user)}
-              {this.convertFromUnix(this.props.date)}
+              {this.props.user}
             </Box>
-          </Box>
-
-          <Box
-            marginTop="5"
-            marginBottom="2.5"
-            marginLeft="2px"
-            fontWeight="semibold"
-            as="h4"
-            lineHeight="tight"
-            isTruncated
-          >
-            {this.props.title}
-          </Box>
-          <Box
-            marginTop="3"
-            marginBottom="3"
-            marginLeft="2px"
-            fontWeight="semibold"
-            color="gray.500"
-            letterSpacing="wide"
-            fontSize="xs"
-            textTransform="uppercase"
-            lineHeight="tight"
-            isTruncated
-          >
-            {this.props.user}
-          </Box>
-          <Box marginTop="3">
-            <Box as="span" color="white.600" fontSize="sm">
-              <Collapse startingHeight={20} isOpen={this.state.show}>
-                {this.props.summary}
-              </Collapse>
-              <Button
-                size="sm"
-                onClick={this.handleToggle}
-                mt="1rem"
-                variant="outline"
-              >
-                Show {this.state.show ? "Less" : "More"}
-              </Button>
+            <Box marginTop="3">
+              <Box as="span" color="white.600" fontSize="sm">
+                <Collapse startingHeight={20} isOpen={this.state.show}>
+                  {this.props.summary}
+                </Collapse>
+                <Button
+                  size="sm"
+                  onClick={this.handleToggle}
+                  mt="1rem"
+                  variant="outline"
+                >
+                  Show {this.state.show ? "Less" : "More"}
+                </Button>
+              </Box>
+              <Link to={() => `/blog/${this.props.docId}`}>
+                <Button size="sm" ml="10px" mt="1rem" variant="ghost">
+                  {console.log(
+                    "PROPS DOC ID ===================" + this.props.docId
+                  )}
+                  Read More
+                </Button>
+              </Link>
             </Box>
-            <Link to={() => `/blog/${this.props.docId}`}>
-              <Button size="sm" ml="10px" mt="1rem" variant="ghost">
-                {console.log(
-                  "PROPS DOC ID ===================" + this.props.docId
-                )}
-                Read More
-              </Button>
-            </Link>
           </Box>
         </Box>
       </Box>
