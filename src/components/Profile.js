@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/core";
 import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
-class About extends React.Component {
+class Profile extends React.Component {
   render() {
     return (
       <Box
@@ -112,4 +112,4 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export default Profile;
