@@ -2,6 +2,7 @@ import React from "react";
 import { Heading, Text, Box, SimpleGrid } from "@chakra-ui/core";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
+import Footer from "../components/Footer";
 import firebase from "firebase";
 import adityaverma from "../images/team/adityaverma.png";
 import sujithsanniboyina from "../images/team/sujith1.jpg";
@@ -9,7 +10,7 @@ import adityarawat from "../images/team/adityarawat1.jpg";
 import adityagirish from "../images/team/adityagirish.png";
 import adityahari from "../images/team/adityahari.jpg";
 
-import About from "../components/About";
+import Profile from "../components/Profile";
 
 export class AboutUs extends React.Component {
   state = {
@@ -77,59 +78,75 @@ export class AboutUs extends React.Component {
             </Box>
           </Box>
           <Box
-            width="100%"
+            // width="95%"
+            mx="25px"
             height="100%"
             mt={"50px"}
-            ml={"50px"}
+            // ml={"50px"}
             justifyContent="center"
           >
-            <SimpleGrid columns={[2, null, 3]} spacing="40px">
-              <About
+            <SimpleGrid columns={[2, null, 3]} spacing="20px">
+              <Profile
                 name="Aditya Verma"
                 roles={["CEO", "Founder"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
+                instagram="_adityavermaaa"
+                email="adiviusd@gmail.com"
+                twitter={false}
               />
-              <About
+              <Profile
                 name="Aditya Rawat"
                 roles={["Co-Founder", "CTO"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityarawat}
+                instagram="ad1tya_rawhaaat"
+                email="aditya1rawat@gmail.com"
+                twitter="aditya1rawat"
               />
-              <About
+              <Profile
                 name="Aditya Girish"
                 roles={["Co-Founder", "Tech Lead"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityagirish}
+                instagram="aditya.girish"
+                email="adityagirish@gmail.com"
               />
-              <About
+              <Profile
                 name="Aditya Guntupalli"
                 roles={["Co-Founder", "Chief Editor"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
+                instagram="aditya.guntupalli"
+                email="adityaguntupalli10@gmail.com"
+                twitter="AdityaGuntupal1"
               />
-              <About
+              <Profile
                 name="Aditya Hari"
                 roles={["Co-Founder", "HR"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityahari}
+                instagram="_aditya_hari_"
+                email="adityah0205@gmail.com"
               />
-              <About
+              <Profile
                 name="Sujith Sanniboyina"
                 roles={["Co-Founder", "Secretary"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={sujithsanniboyina}
+                instagram="sujith.sanniboyina"
+                email="22sanniboysujith@gmail.com"
               />
             </SimpleGrid>
           </Box>
         </Box>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }
