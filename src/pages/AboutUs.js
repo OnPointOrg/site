@@ -9,6 +9,7 @@ import sujithsanniboyina from "../images/team/sujith1.jpg";
 import adityarawat from "../images/team/adityarawat1.jpg";
 import adityagirish from "../images/team/adityagirish.png";
 import adityahari from "../images/team/adityahari.jpg";
+import adityaguntupalli from "../images/team/adityaguntupalli.png";
 
 import Profile from "../components/Profile";
 
@@ -120,7 +121,7 @@ export class AboutUs extends React.Component {
                 roles={["Co-Founder", "Chief Editor"]}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                img={adityaverma}
+                img={adityaguntupalli}
                 instagram="aditya.guntupalli"
                 email="adityaguntupalli10@gmail.com"
                 twitter="AdityaGuntupal1"
