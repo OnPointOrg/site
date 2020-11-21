@@ -180,7 +180,6 @@ export const VerifiedNav = (props) => {
           </Stack>
         </Box>
       </Stack>
-      <Divider />
     </Box>
   );
 };
