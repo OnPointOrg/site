@@ -24,7 +24,14 @@ const DefaultNav = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
   return (
-    <div>
+    <Box
+      as="header"
+      position="sticky"
+      top={0}
+      zIndex={1}
+      shadow="md"
+      fontWeight="bold"
+    >
       <Flex
         align="center"
         justify="space-between"
@@ -112,7 +119,7 @@ const DefaultNav = (props) => {
         </Box>
       </Flex>
       <Divider />
-    </div>
+    </Box>
   );
 };
 

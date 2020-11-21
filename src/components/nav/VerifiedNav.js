@@ -33,7 +33,14 @@ export const VerifiedNav = (props) => {
   const toast = useToast();
   const email = firebase.auth().currentUser.email;
   return (
-    <div>
+    <Box
+      as="header"
+      position="sticky"
+      top={0}
+      zIndex={1}
+      shadow="md"
+      fontWeight="bold"
+    >
       <Flex
         as="nav"
         align="center"
@@ -201,7 +208,7 @@ export const VerifiedNav = (props) => {
         </Box>
       </Flex>
       <Divider />
-    </div>
+    </Box>
   );
 };
 

@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
+import Navbar from "../components/nav/Navbar";
 import { FaBookReader } from "react-icons/fa";
 import firebase from "firebase";
 import logo from "../images/logo.png";
@@ -46,7 +47,7 @@ export class Home extends React.Component {
   render() {
     return (
       <div>
-        {this.state.currentNav}
+        <Navbar />
         <Flex
           direction="column"
           align="center"
@@ -68,15 +69,14 @@ export class Home extends React.Component {
           >
             <Stack
               spacing={4}
-              w={{ base: "80%", md: "40%" }}
               height="100%"
-              align={["center", "center", "flex-start", "flex-start"]}
+              // align={["center", "center", "flex-start", "flex-start"]}
             >
               <Heading
                 mt="10px"
                 as="h1"
                 size="xl"
-                fontSize="5rem"
+                fontSize="6rem"
                 fontWeight="bold"
                 color="primary.800"
               >
@@ -86,7 +86,7 @@ export class Home extends React.Component {
                 as="h2"
                 size="md"
                 color="primary.800"
-                fontSize="2rem"
+                fontSize="3rem"
                 opacity="0.8"
                 fontWeight="normal"
                 lineHeight={1.5}
@@ -96,11 +96,12 @@ export class Home extends React.Component {
               <div mt="10" spacing="3" justify="center" direction="row">
                 <Link to="/signup">
                   <Button
-                    h="4rem"
+                    h="5rem"
+                    borderRadius="10px"
                     px="40px"
                     mr="20px"
                     mt="25px"
-                    fontSize="1.2rem"
+                    fontSize="1.5rem"
                     as="a"
                     size="lg"
                     colorScheme="teal"
@@ -114,10 +115,10 @@ export class Home extends React.Component {
                     as="a"
                     size="lg"
                     mt="25px"
-                    h="4rem"
+                    h="5rem"
+                    borderRadius="10px"
                     px="40px"
-                    fontSize="1.2rem"
-                    target="__blank"
+                    fontSize="1.5rem"
                     leftIcon={FaBookReader}
                   >
                     Start Reading
@@ -127,7 +128,7 @@ export class Home extends React.Component {
               <Box mt={5}>
                 <Link to="/about">
                   <ChakraLink
-                    // fontSize="xs"
+                    fontSize="20px"
                     textAlign="center"
                     color="primary.800"
                     opacity="0.6"
@@ -149,6 +150,10 @@ export class Home extends React.Component {
                   stiffness: 180,
                   damping: 20,
                 }}
+                whileHover={{
+                  rotate: 360,
+                  scale: 1,
+                }}
               >
                 <Image
                   src={logo}
@@ -163,7 +168,7 @@ export class Home extends React.Component {
           </Flex>
         </Flex>
         <Box as="section">
-          <Box maxW="760px" mx="auto" textAlign="center" mb="56px" mt="25px">
+          <Box maxW="760px" mx="auto" textAlign="center" mt="25px">
             <Heading textStyle="heading" mb="5">
               An experience you'd expect from a design system
             </Heading>
