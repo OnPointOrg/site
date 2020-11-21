@@ -47,7 +47,7 @@ export class Home extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
+        {this.state.currentNav}
         <Flex
           direction="column"
           align="center"

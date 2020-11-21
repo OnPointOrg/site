@@ -1,18 +1,18 @@
 import React from "react";
-import { Box, Stack, Link as ChakraLink, Button, ButtonGroup, Divider } from "@chakra-ui/core";
+import {
+  Box,
+  Stack,
+  Link as ChakraLink,
+  Button,
+  ButtonGroup,
+  Divider,
+} from "@chakra-ui/core";
 import ThemeButton from "./ThemeButton";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <Box
-      as="header"
-      position="sticky"
-      top={0}
-      zIndex={1}
-      shadow="md"
-      fontWeight="bold"
-    >
+    <Box as="header" shadow="lg" fontWeight="bold" backgroundColor="teal">
       <Box maxW="6xl" mx="auto">
         <Stack
           isInline
@@ -62,9 +62,7 @@ const Navbar = () => {
                 <Box>
                   <Link to="/signin">
                     <Button variantColor="teal" variant="link">
-                      <ChakraLink rounded="md">
-                        Sign In
-                      </ChakraLink>
+                      <ChakraLink rounded="md">Sign In</ChakraLink>
                     </Button>
                   </Link>
                 </Box>
@@ -72,9 +70,7 @@ const Navbar = () => {
                 <Box>
                   <Link to="/signup">
                     <Button variantColor="teal" variant="link">
-                      <ChakraLink rounded="md">
-                        Sign Up
-                      </ChakraLink>
+                      <ChakraLink rounded="md">Sign Up</ChakraLink>
                     </Button>
                   </Link>
                 </Box>
