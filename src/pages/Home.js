@@ -13,7 +13,6 @@ import {
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
-import Navbar from "../components/nav/Navbar";
 import { FaBookReader } from "react-icons/fa";
 import firebase from "firebase";
 import logo from "../images/logo.png";

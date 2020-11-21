@@ -30,8 +30,6 @@ breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
 export const VerifiedNav = (props) => {
-  const [show, setShow] = React.useState(false);
-  const handleToggle = () => setShow(!show);
   const toast = useToast();
   const email = firebase.auth().currentUser.email;
   return (
