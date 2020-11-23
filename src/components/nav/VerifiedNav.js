@@ -43,8 +43,8 @@ export const VerifiedNav = (props) => {
             </Link>
             <Box ml={10}>
               <Link to="/about">
-                <Button variantColor="teal" variant="ghost">
-                  <ChakraLink p={4} rounded="md">
+                <Button variantColor="teal" variant="ghost" rounded="full">
+                  <ChakraLink p={4}>
                     About
                   </ChakraLink>
                 </Button>
@@ -52,8 +52,8 @@ export const VerifiedNav = (props) => {
             </Box>
             <Box>
               <Link to="/blog">
-                <Button variantColor="teal" variant="ghost">
-                  <ChakraLink p={4} rounded="md">
+                <Button variantColor="teal" variant="ghost" rounded="full">
+                  <ChakraLink p={4}>
                     Blog
                   </ChakraLink>
                 </Button>
@@ -61,8 +61,8 @@ export const VerifiedNav = (props) => {
             </Box>
             <Box>
               <Link to="/contact">
-                <Button variantColor="teal" variant="ghost">
-                  <ChakraLink p={4} rounded="md">
+                <Button variantColor="teal" variant="ghost" rounded="full">
+                  <ChakraLink p={4}>
                     Contact
                   </ChakraLink>
                 </Button>

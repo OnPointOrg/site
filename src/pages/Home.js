@@ -47,12 +47,7 @@ export class Home extends React.Component {
     return (
       <div>
         {this.state.currentNav}
-        <Flex
-          direction="column"
-          align="center"
-          maxW={{ xl: "1200px" }}
-          m="0 auto"
-        >
+        <Flex mt="50px" direction="column" align="center">
           <Flex
             align="center"
             justify={{
@@ -66,10 +61,7 @@ export class Home extends React.Component {
             px={8}
             mb={16}
           >
-            <Stack
-              spacing={4}
-              height="100%"
-            >
+            <Stack spacing={4} height="100%">
               <Heading
                 mt="10px"
                 as="h1"
@@ -150,7 +142,7 @@ export class Home extends React.Component {
                 }}
                 whileHover={{
                   rotate: 360,
-                  scale: 1,
+                  scale: 0.9,
                 }}
               >
                 <Image
