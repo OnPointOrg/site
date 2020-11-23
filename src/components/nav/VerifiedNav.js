@@ -4,7 +4,6 @@ import {
   Box,
   Flex,
   Text,
-  Divider,
   Menu,
   Heading,
   Button,
@@ -42,11 +41,7 @@ export const VerifiedNav = (props) => {
                 <Image src={logo} width="50px" rounded="full" />
               </Heading>
             </Link>
-          </Flex>
-        </Box>
-        <Box>
-          <Stack isInline spacing={4} alignItems="center">
-            <Box>
+            <Box ml={10}>
               <Link to="/about">
                 <Button variantColor="teal" variant="ghost">
                   <ChakraLink p={4} rounded="md">
@@ -73,6 +68,10 @@ export const VerifiedNav = (props) => {
                 </Button>
               </Link>
             </Box>
+          </Flex>
+        </Box>
+        <Box>
+          <Stack isInline spacing={4} alignItems="center">
             <Flex justifyContent="space-between" color="gray.500">
               <Menu closeOnSelect="false">
                 <MenuButton

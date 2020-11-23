@@ -69,7 +69,6 @@ export class Home extends React.Component {
             <Stack
               spacing={4}
               height="100%"
-              // align={["center", "center", "flex-start", "flex-start"]}
             >
               <Heading
                 mt="10px"
