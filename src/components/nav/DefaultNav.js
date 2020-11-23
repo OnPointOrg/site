@@ -21,11 +21,7 @@ breakpoints.xl = breakpoints[3];
 
 const DefaultNav = (props) => {
   return (
-    <Box
-      as="header"
-      shadow="md"
-      fontWeight="bold"
-    >
+    <Box as="header" shadow="md" fontWeight="bold">
       <Stack isInline justifyContent="space-between" alignItems="center" py={4}>
         <Box>
           <Flex align="center" ml={5}>
@@ -34,11 +30,7 @@ const DefaultNav = (props) => {
                 <Image src={logo} width="50px" rounded="full" />
               </Heading>
             </Link>
-          </Flex>
-        </Box>
-        <Box>
-          <Stack isInline spacing={4} alignItems="center">
-            <Box>
+            <Box ml={10}>
               <Link to="/about">
                 <Button variantColor="teal" variant="ghost">
                   <ChakraLink p={4} rounded="md">
@@ -65,6 +57,10 @@ const DefaultNav = (props) => {
                 </Button>
               </Link>
             </Box>
+          </Flex>
+        </Box>
+        <Box>
+          <Stack isInline spacing={4} alignItems="center">
             <Flex justifyContent="space-between" color="gray.500">
               <Link to="/signin">
                 <Button size="md" variant="solid">
