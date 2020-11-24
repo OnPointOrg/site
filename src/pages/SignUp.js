@@ -22,6 +22,7 @@ import * as firebase from "firebase";
 
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
+import Footer from "../components/Footer";
 
 const VARIANT_COLOR = "teal";
 
@@ -289,6 +290,7 @@ class SignUp extends Component {
             </Box>
           </Box>
         </Flex>
+        <Footer />
       </div>
     );
   }

@@ -19,6 +19,7 @@ import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 
 import * as firebase from "firebase";
+import Footer from "../components/Footer";
 
 const VARIANT_COLOR = "teal";
 
@@ -222,6 +223,7 @@ class SignIn extends React.Component {
             </Box>
           </Box>
         </Flex>
+        <Footer />
       </div>
     );
   }
