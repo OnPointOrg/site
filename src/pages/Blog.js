@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import BlogGrid from "../components/blog/BlogGrid";
+import Footer from "../components/Footer";
 import firebase from "firebase";
 
 // import getDocs from "../hooks/ReadArticlesFromFirebase";
@@ -34,6 +35,7 @@ class Blog extends Component {
         {/* <Button onClick={getDocs}>
           Click Me For Juicy Firebse Data! Members Only!
         </Button> */}
+        <Footer />
       </div>
     );
   }

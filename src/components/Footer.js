@@ -14,19 +14,30 @@ import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 const Footer = () => {
   return (
     <div justifyContent="center">
-      <Divider />
-      <Stack mt={3} direction="row" justify="center">
+      <Stack
+        pt={3}
+        direction="row"
+        justify="center"
+        borderTop="2px solid"
+        borderTopColor="teal.400"
+      >
         <Link to="/about">
-          <Button variant="ghost" mx="25px">About</Button>
+          <Button variant="ghost" mx="15px">
+            About
+          </Button>
         </Link>
         <Link to="/blog">
-          <Button variant="ghost" mx="25px">Blog</Button>
+          <Button variant="ghost" mx="15px">
+            Blog
+          </Button>
         </Link>
         <Link to="/contact">
-          <Button variant="ghost" mx="25px">Contact</Button>
+          <Button variant="ghost" mx="15px">
+            Contact
+          </Button>
         </Link>
       </Stack>
-      <Stack my={5} direction="row" justify="center">
+      <Stack my={2} direction="row" justify="center">
         <ChakraLink
           href="https://github.com/OnPointOrg"
           title="GitHub"
@@ -96,7 +107,15 @@ const Footer = () => {
           />
         </ChakraLink>
       </Stack>
-      <Text my="25px" textAlign="center">Copyright &copy; 2020. OnPoint News.</Text>
+      <Text mt="15px" mb="25px" textAlign="center">
+        Copyright &copy; {new Date().getFullYear()}. OnPoint News.
+      </Text>
+      <Text m={3} fontSize="xs" textAlign="center">
+        Developed With ❤️ By{" "}
+        <ChakraLink href="https://github.com/aditya1rawat" isExternal>
+            Aditya Rawat
+        </ChakraLink>
+      </Text>
     </div>
   );
 };

@@ -214,7 +214,7 @@ class SignUp extends Component {
       <div>
         {this.state.currentNav}
         <Flex
-          mt={"5rem"}
+          my={"5rem"}
           minHeight="50vh"
           width="full"
           align="center"
