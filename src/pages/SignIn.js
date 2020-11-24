@@ -163,7 +163,7 @@ class SignIn extends React.Component {
       <div>
         {this.state.currentNav}
         <Flex
-          marginTop="7rem"
+          my="7rem"
           minHeight="50vh"
           width="full"
           align="center"
