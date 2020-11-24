@@ -47,7 +47,7 @@ export class Home extends React.Component {
     return (
       <div>
         {this.state.currentNav}
-        <Flex mt="50px" direction="column" align="center">
+        <Flex direction="column" align="center" mt="-40px">
           <Flex
             align="center"
             justify={{
@@ -142,7 +142,7 @@ export class Home extends React.Component {
                 }}
                 whileHover={{
                   rotate: 360,
-                  scale: 0.9,
+                  scale: 0.8,
                 }}
               >
                 <Image
@@ -160,10 +160,10 @@ export class Home extends React.Component {
         <Box as="section">
           <Box maxW="760px" mx="auto" textAlign="center" mt="25px">
             <Heading textStyle="heading" mb="5">
-              An experience you'd expect from a design system
+              What Makes OnPoint Different?
             </Heading>
             <Text fontSize="lg" color="primary">
-              Opinionated and designed for daily use.
+              How & Why We Work The Way We Do
             </Text>
           </Box>
           <Flex justifyContent="center">

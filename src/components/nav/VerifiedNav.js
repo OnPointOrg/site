@@ -32,7 +32,17 @@ export const VerifiedNav = (props) => {
   const toast = useToast();
   const email = firebase.auth().currentUser.email;
   return (
-    <Box as="header" shadow="md" fontWeight="bold">
+    <Box
+      as="header"
+      fontWeight="bold"
+      transition="box-shadow 0.2s"
+      top="0"
+      width="100%"
+      left="0"
+      right="0"
+      borderBottom="5px solid"
+      borderBottomColor="teal.400"
+    >
       <Stack isInline justifyContent="space-between" alignItems="center" py={4}>
         <Box>
           <Flex align="center" ml={5}>
@@ -43,28 +53,22 @@ export const VerifiedNav = (props) => {
             </Link>
             <Box ml={10}>
               <Link to="/about">
-                <Button variantColor="teal" variant="ghost" rounded="full">
-                  <ChakraLink p={4}>
-                    About
-                  </ChakraLink>
+                <Button variant="ghost" rounded="full">
+                  <ChakraLink p={4}>About</ChakraLink>
                 </Button>
               </Link>
             </Box>
             <Box>
               <Link to="/blog">
-                <Button variantColor="teal" variant="ghost" rounded="full">
-                  <ChakraLink p={4}>
-                    Blog
-                  </ChakraLink>
+                <Button variant="ghost" rounded="full">
+                  <ChakraLink p={4}>Blog</ChakraLink>
                 </Button>
               </Link>
             </Box>
             <Box>
               <Link to="/contact">
-                <Button variantColor="teal" variant="ghost" rounded="full">
-                  <ChakraLink p={4}>
-                    Contact
-                  </ChakraLink>
+                <Button variant="ghost" rounded="full">
+                  <ChakraLink p={4}>Contact</ChakraLink>
                 </Button>
               </Link>
             </Box>
