@@ -9,6 +9,7 @@ import {
   Image,
   Text,
   Grid,
+  SimpleGrid,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
@@ -21,6 +22,7 @@ import Footer from "../components/Footer";
 import { MdAccessibility, MdGrain, MdPalette, MdEmail } from "react-icons/md";
 import Feature from "../components/Feature";
 import BlogTrendingNew from "../components/blog/BlogTrendingNew";
+import Test from "../components/blog/Test";
 
 export class Home extends React.Component {
   state = {
@@ -197,6 +199,18 @@ export class Home extends React.Component {
           </Flex>
         </Box>
         <BlogTrendingNew />
+        <Box>
+          <Box py="120px" maxW="1200px" px="32px">
+            <Heading as="h2" mb="48px">
+              Loved by product people like you
+            </Heading>
+            <SimpleGrid spacing="32px" columns={{ base: 1, md: 3 }}>
+              <Stack spacing="6">
+                <Test />
+              </Stack>
+            </SimpleGrid>
+          </Box>
+        </Box>
         <Footer />
       </div>
     );

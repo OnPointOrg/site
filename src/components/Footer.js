@@ -1,8 +1,6 @@
 import {
-  Flex,
   Link as ChakraLink,
   IconButton,
-  Divider,
   Text,
   Button,
   Stack,
@@ -111,9 +109,13 @@ const Footer = () => {
         Copyright &copy; {new Date().getFullYear()}. OnPoint News.
       </Text>
       <Text m={3} fontSize="xs" textAlign="center">
-        Developed With ❤️ By{" "}
+        Developed With{" "}
+        <span role="img" aria-label="heart">
+          ❤️
+        </span>{" "}
+        By{" "}
         <ChakraLink href="https://github.com/aditya1rawat" isExternal>
-            Aditya Rawat
+          Aditya Rawat
         </ChakraLink>
       </Text>
     </div>
