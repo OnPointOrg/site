@@ -28,7 +28,14 @@ export class App extends Component {
           <Route path="/contact" component={ContactUs} />
           <Route path="/blog" exact component={Blog} />
           <Route path="/newstory" component={NewStory} />
-          <Route path="/blog/:docId" component={BlogContentPost} />
+          <Route path="/blog/:docId" exact component={BlogContentPost} />
+          {/* <Route
+            path="/blog/:docId"
+            exact
+            component={() => (
+              <BlogContentPost timestamp={new Date().toString()} />
+            )}
+          /> */}
           <Route path="/forgotpassword" component={ForgotPassword} />
         </Switch>
       </Router>

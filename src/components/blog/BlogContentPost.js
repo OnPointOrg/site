@@ -24,6 +24,7 @@ export class BlogContentPost extends Component {
   };
 
   componentDidMount = async () => {
+    console.log(this.props.timestamp)
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
