@@ -50,11 +50,7 @@ export class Home extends React.Component {
       <Box width="100%">
         {this.state.currentNav}
         <Flex direction="column" align="center">
-          <Flex
-            align="center"
-            px={8}
-            mb={16}
-          >
+          <Flex align="center" px={8} mb={16}>
             <Stack spacing={4} height="100%">
               <Heading
                 mt="10px"

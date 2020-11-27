@@ -4,6 +4,7 @@ import {
   Text,
   Button,
   Stack,
+  Icon,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import React from "react";
@@ -114,8 +115,12 @@ const Footer = () => {
           ❤️
         </span>{" "}
         By{" "}
-        <ChakraLink href="https://github.com/aditya1rawat" isExternal>
-          Aditya Rawat
+        <ChakraLink
+          href="https://github.com/aditya1rawat"
+          isExternal
+          color="teal.400"
+        >
+          Aditya Rawat <Icon name="external-link" mx="2px" />
         </ChakraLink>
       </Text>
     </div>
