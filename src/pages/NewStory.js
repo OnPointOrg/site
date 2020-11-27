@@ -439,7 +439,7 @@ export class CreateStory extends Component {
 
   render() {
     return (
-      <div>
+      <Box width="100%">
         {this.state.currentNav}
         <Flex height="50%" width="100%" align="center" justifyContent="center">
           <Box>
@@ -589,7 +589,7 @@ export class CreateStory extends Component {
             </Box>
           </Box>
         </Flex>
-      </div>
+      </Box>
     );
   }
 }

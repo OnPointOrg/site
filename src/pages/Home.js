@@ -47,19 +47,11 @@ export class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <Box width="100%">
         {this.state.currentNav}
-        <Flex direction="column" align="center" mt="-40px">
+        <Flex direction="column" align="center">
           <Flex
             align="center"
-            justify={{
-              base: "center",
-              md: "space-around",
-              xl: "space-between",
-            }}
-            direction={{ base: "column-reverse", md: "row" }}
-            wrap="no-wrap"
-            minH="70vh"
             px={8}
             mb={16}
           >
@@ -212,7 +204,7 @@ export class Home extends React.Component {
           </Box>
         </Box>
         <Footer />
-      </div>
+      </Box>
     );
   }
 }

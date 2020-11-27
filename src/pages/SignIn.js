@@ -160,7 +160,7 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <Box>
         {this.state.currentNav}
         <Flex
           my="7rem"
@@ -224,7 +224,7 @@ class SignIn extends React.Component {
           </Box>
         </Flex>
         <Footer />
-      </div>
+      </Box>
     );
   }
 }

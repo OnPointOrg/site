@@ -94,7 +94,7 @@ class ForgotPassword extends React.Component {
 
   render() {
     return (
-      <div>
+      <Box width="100%">
         {this.state.currentNav}
         <Flex
           marginTop="5rem"
@@ -136,7 +136,7 @@ class ForgotPassword extends React.Component {
             </Box>
           </Box>
         </Flex>
-      </div>
+      </Box>
     );
   }
 }

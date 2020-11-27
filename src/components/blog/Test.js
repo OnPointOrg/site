@@ -27,7 +27,7 @@ const Toast = () => {
           </Box>
         </p>
         <Box as="p" mt="2">
-          Content Here
+          Retard
         </Box>
       </Box>
     </Box>
