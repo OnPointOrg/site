@@ -6,7 +6,6 @@ import {
   Text,
   Menu,
   Heading,
-  Button,
   Image,
   Icon,
   MenuList,
@@ -15,12 +14,13 @@ import {
   MenuItem,
   MenuButton,
   useToast,
-  Link as ChakraLink,
   Stack,
 } from "@chakra-ui/core";
 import ThemeButton from "./ThemeButton";
 import logo from "../../images/logo.png";
 import firebase from "firebase";
+
+import NavLink from "./NavLink";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -51,27 +51,9 @@ export const VerifiedNav = (props) => {
                 <Image src={logo} width="50px" rounded="full" />
               </Heading>
             </Link>
-            <Box ml={10}>
-              <Link to="/about">
-                <Button variant="ghost" rounded="full">
-                  <ChakraLink p={4}>About</ChakraLink>
-                </Button>
-              </Link>
-            </Box>
-            <Box>
-              <Link to="/blog">
-                <Button variant="ghost" rounded="full">
-                  <ChakraLink p={4}>Blog</ChakraLink>
-                </Button>
-              </Link>
-            </Box>
-            <Box>
-              <Link to="/contact">
-                <Button variant="ghost" rounded="full">
-                  <ChakraLink p={4}>Contact</ChakraLink>
-                </Button>
-              </Link>
-            </Box>
+            <NavLink name="About" link="about" />
+            <NavLink name="Blog" link="blog" />
+            <NavLink name="Contact" link="contact" />
           </Flex>
         </Box>
         <Box>

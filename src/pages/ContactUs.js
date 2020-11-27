@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Box } from "@chakra-ui/core";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import firebase from "firebase";
@@ -23,10 +24,10 @@ export class ContactUs extends Component {
   };
   render() {
     return (
-      <div>
+      <Box>
         {this.state.currentNav}
         <h1>Contact Us Page</h1>
-      </div>
+      </Box>
     );
   }
 }

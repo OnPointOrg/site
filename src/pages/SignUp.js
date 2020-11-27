@@ -211,7 +211,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div>
+      <Box>
         {this.state.currentNav}
         <Flex
           my={"5rem"}
@@ -291,7 +291,7 @@ class SignUp extends Component {
           </Box>
         </Flex>
         <Footer />
-      </div>
+      </Box>
     );
   }
 }

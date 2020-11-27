@@ -4,6 +4,7 @@ import VerifiedNav from "../components/nav/VerifiedNav";
 import BlogGrid from "../components/blog/BlogGrid";
 import Footer from "../components/Footer";
 import firebase from "firebase";
+import { Box } from "@chakra-ui/core";
 
 // import getDocs from "../hooks/ReadArticlesFromFirebase";
 
@@ -28,7 +29,7 @@ class Blog extends Component {
 
   render() {
     return (
-      <div>
+      <Box width="100%">
         {this.state.currentNav}
         {/* <BlogTrendingNew /> */}
         <BlogGrid />
@@ -36,7 +37,7 @@ class Blog extends Component {
           Click Me For Juicy Firebse Data! Members Only!
         </Button> */}
         <Footer />
-      </div>
+      </Box>
     );
   }
 }

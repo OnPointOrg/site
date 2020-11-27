@@ -6,12 +6,14 @@ import {
   Heading,
   Button,
   Image,
-  Link as ChakraLink,
+
   Stack,
   Text,
 } from "@chakra-ui/core";
 import ThemeButton from "./ThemeButton";
 import logo from "../../images/logo.png";
+
+import NavLink from "./NavLink";
 
 const breakpoints = ["360px", "768px", "1024px", "1440px"];
 breakpoints.sm = breakpoints[0];
@@ -21,76 +23,53 @@ breakpoints.xl = breakpoints[3];
 
 const DefaultNav = (props) => {
   return (
-      <Box
-        as="header"
-        fontWeight="bold"
-        transition="box-shadow 0.2s"
-        top="0"
-        width="100%"
-        left="0"
-        right="0"
-        borderBottom="6px solid"
-      >
-        <Stack
-          isInline
-          justifyContent="space-between"
-          alignItems="center"
-          py={4}
-        >
-          <Box>
-            <Flex align="center" ml={5}>
-              <Link to="/">
-                <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
-                  <Image src={logo} width="50px" rounded="full" />
-                </Heading>
+    <Box
+      as="header"
+      fontWeight="bold"
+      transition="box-shadow 0.2s"
+      top="0"
+      left="0"
+      right="0"
+      borderBottom="6px solid"
+      width="100%"
+    >
+      <Stack isInline justifyContent="space-between" alignItems="center" py={4}>
+        <Box>
+          <Flex align="center" ml={5}>
+            <Link to="/">
+              <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
+                <Image src={logo} width="50px" rounded="full" />
+              </Heading>
+            </Link>
+            <NavLink name="About" link="about" />
+            <NavLink name="Blog" link="blog" />
+            <NavLink name="Contact" link="contact" />
+          </Flex>
+        </Box>
+        <Box>
+          <Stack isInline spacing={4} alignItems="center">
+            <Flex justifyContent="space-between" color="gray.500">
+              <Link to="/signin">
+                <Button size="md" variant="solid" rounded="full">
+                  Sign In
+                </Button>
               </Link>
-              <Box ml={10}>
-                <Link to="/about">
-                  <Button variantColor="teal" variant="ghost" rounded="full">
-                    <ChakraLink p={4}>About</ChakraLink>
-                  </Button>
-                </Link>
-              </Box>
-              <Box>
-                <Link to="/blog">
-                  <Button variantColor="teal" variant="ghost" rounded="full">
-                    <ChakraLink p={4}>Blog</ChakraLink>
-                  </Button>
-                </Link>
-              </Box>
-              <Box>
-                <Link to="/contact">
-                  <Button variantColor="teal" variant="ghost" rounded="full">
-                    <ChakraLink p={4}>Contact</ChakraLink>
-                  </Button>
-                </Link>
-              </Box>
+              <Text isInline mt="6px" mx="10px">
+                /
+              </Text>
+              <Link to="/signup">
+                <Button size="md" variant="outline" rounded="full">
+                  Sign Up
+                </Button>
+              </Link>
             </Flex>
-          </Box>
-          <Box>
-            <Stack isInline spacing={4} alignItems="center">
-              <Flex justifyContent="space-between" color="gray.500">
-                <Link to="/signin">
-                  <Button size="md" variant="solid" rounded="full">
-                    Sign In
-                  </Button>
-                </Link>
-                <Text isInline mt="6px" mx="10px">
-                  /
-                </Text>
-                <Link to="/signup">
-                  <Button size="md" variant="outline" rounded="full">
-                    Sign Up
-                  </Button>
-                </Link>
-              </Flex>
-              <Flex justifyContent="space-between" color="gray.500" px="25px">
-                <ThemeButton />
-              </Flex>
-            </Stack>
-          </Box>
-        </Stack>
-      </Box>
+            <Flex justifyContent="space-between" color="gray.500" px="25px">
+              <ThemeButton />
+            </Flex>
+          </Stack>
+        </Box>
+      </Stack>
+    </Box>
   );
 };
 

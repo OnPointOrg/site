@@ -34,7 +34,7 @@ export class AboutUs extends React.Component {
 
   render() {
     return (
-      <div>
+      <Box width="100%">
         {this.state.currentNav}
         <Box mb={20} overflow="hidden">
           <Box as="section" mt="3rem">
@@ -78,14 +78,7 @@ export class AboutUs extends React.Component {
               </Text>
             </Box>
           </Box>
-          <Box
-            // width="95%"
-            mx="25px"
-            height="100%"
-            mt={"50px"}
-            // ml={"50px"}
-            justifyContent="center"
-          >
+          <Box mx="25px" height="100%" mt={"50px"} justifyContent="center">
             <SimpleGrid columns={[2, null, 3]} spacing="20px">
               <Profile
                 name="Aditya Verma"
@@ -148,7 +141,7 @@ export class AboutUs extends React.Component {
           </Box>
         </Box>
         <Footer />
-      </div>
+      </Box>
     );
   }
 }
