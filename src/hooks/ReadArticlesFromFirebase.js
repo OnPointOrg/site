@@ -5,7 +5,6 @@ import {
   List,
   ListItem,
   Text,
-  Box,
   CloseButton,
   Alert,
   AlertIcon,
@@ -15,7 +14,7 @@ import {
   Divider,
   Image,
 } from "@chakra-ui/core";
-import { FaQuoteLeft } from "react-icons/fa";
+import Quote from "../components/blog/Quote";
 
 const convertFromUnix = (date) => {
   const dateObject = new Date(date);
@@ -42,7 +41,7 @@ const getDocs = async (articleID) => {
       articleHtmlInformation.push(convertFromUnix(article.content.time));
 
       caseChecks(article);
-      return articleHtmlBody;
+      // return articleHtmlBody;
     })
     .then(() => {
       return articleHtmlBody;
@@ -113,41 +112,7 @@ const caseChecks = (article) => {
         const quote = article.content.blocks[i].data.text;
         const credits = article.content.blocks[i].data.caption;
         articleHtmlBody.push(
-          <Box
-            width="900px"
-            borderWidth="1px"
-            rounded="lg"
-            overflow="hidden"
-            mx="125px"
-            my="25px"
-          >
-            <Box marginTop="50px" marginLeft="50px">
-              <Heading>
-                <FaQuoteLeft />
-              </Heading>
-            </Box>
-            <Box>
-              <Box
-                marginTop="30px"
-                fontWeight="semibold"
-                as="h4"
-                lineHeight="tight"
-              >
-                <Text fontSize="xl" mx="100px">
-                  {quote}
-                </Text>
-                <Box
-                  d="flex"
-                  alignItems="center"
-                  color="gray.600"
-                  marginTop="50px"
-                  margin="50px"
-                >
-                  <Text fontSize="lg">- {credits}</Text>
-                </Box>
-              </Box>
-            </Box>
-          </Box>
+          <Quote quote={quote} credits={credits} />
         );
         break;
 
