@@ -10,6 +10,7 @@ import adityarawat from "../images/team/adityarawat1.jpg";
 import adityagirish from "../images/team/adityagirish.png";
 import adityahari from "../images/team/adityahari.jpg";
 import adityaguntupalli from "../images/team/adityaguntupalli.png";
+import yashkhot from "../images/team/yashkhot.jpg";
 
 import Profile from "../components/Profile";
 
@@ -136,6 +137,15 @@ export class AboutUs extends React.Component {
                 img={sujithsanniboyina}
                 instagram="sujith.sanniboyina"
                 email="22sanniboysujith@gmail.com"
+              />
+              <Profile
+                name="Yash Khot"
+                roles={["Co-Founder", "Entertainment"]}
+                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                img={yashkhot}
+                instagram="yashhkhott"
+                email="yash.khot@gmail.com"
               />
             </SimpleGrid>
           </Box>
