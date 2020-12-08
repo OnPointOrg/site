@@ -15,16 +15,16 @@ import VerifiedNav from "../nav/VerifiedNav";
 export class BlogContentPost extends Component {
   state = {
     article: null,
-    articleTitle: "",
-    articleAuthor: "",
-    articleSummary: "",
-    articleDate: "",
-    articleContent: "",
+    articleTitle: null,
+    articleAuthor: null,
+    articleSummary: null,
+    articleDate: null,
+    articleContent: null,
     currentNav: <DefaultNav />,
   };
 
   componentDidMount = async () => {
-    console.log(this.props.timestamp)
+    console.log(this.props.timestamp);
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -40,9 +40,11 @@ export class BlogContentPost extends Component {
     let docId = this.props.match.params.docId;
 
     await getDocs(docId).then(() => {
-      return articleHtmlBody;
+      console.log(this.state.articleContent);
+      console.log(articleHtmlBody);
+      // return articleHtmlBody;
     });
-    
+
     this.setState({
       articleTitle: articleHtmlInformation[0],
       articleAuthor: articleHtmlInformation[1],
@@ -50,10 +52,18 @@ export class BlogContentPost extends Component {
       articleDate: articleHtmlInformation[4],
       articleContent: articleHtmlBody,
     });
+
+    // let currentPath = window.location.pathname;
+    // this.props.history.replace(`${currentPath}/replace`);
+    // setTimeout(() => {
+    //   this.props.history.replace(currentPath);
+
+    // }, 0);
   };
 
   returnArticleContent = async () => {
-     return this.state.articleContent;
+    console.log(this.state.articleContent);
+    return this.state.articleContent;
   };
 
   render() {
