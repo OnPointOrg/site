@@ -81,22 +81,6 @@ export const VerifiedNav = (props) => {
                     <MenuItem isTruncated>
                       <Text>
                         Name: {firebase.auth().currentUser.displayName}
-                        {/* <InputGroup size="md">
-                        <Input
-                          my="3px"
-                          type="text"
-                          placeholder={firebase.auth().currentUser.displayName}
-                        />
-                        <InputRightElement width="4.5rem">
-                          <Button
-                            mt="5px"
-                            size="sm"
-                            onClick={console.log("Working")}
-                          >
-                            Save
-                          </Button>
-                        </InputRightElement>
-                      </InputGroup> */}
                       </Text>
                     </MenuItem>
                     <MenuItem>

@@ -6,7 +6,6 @@ import firestoreDatabase from "../../firebase/config";
 
 export class BlogGrid extends Component {
   state = {
-    // articles: null,
     documents: null,
   };
 
@@ -15,17 +14,13 @@ export class BlogGrid extends Component {
       .collection("articles")
       .get()
       .then((querySnapshot) => {
-        // const articles = [];
         const documents = [];
         querySnapshot.forEach((doc) => {
-          // const article = doc.data();
-          // articles.push(article);
           console.log("ARTICLE ID: ==========================");
           console.log(doc.id);
           documents.push(doc);
         });
         this.setState({
-          // articles: articles,
           documents: documents,
         });
       });
@@ -34,7 +29,6 @@ export class BlogGrid extends Component {
   render() {
     return (
       <div>
-        {/* <Divider /> */}
         <Box margin="15px">
           <Heading
             as="h1"

@@ -54,7 +54,6 @@ export const EDITOR_JS_TOOLS = {
             success: 1,
             file: {
               url: imageUrl,
-              // ... and any additional fields you want to store, such as width, height, color, extension, etc
             },
           };
         },

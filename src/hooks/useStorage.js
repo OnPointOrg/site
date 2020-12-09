@@ -11,7 +11,6 @@ const useStorage = (file, location) => {
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
-    // references
     const storageRef = projectStorage.ref(`${location}/` + file.name);
     const collectionRef = firestoreDatabase.collection("images");
 
