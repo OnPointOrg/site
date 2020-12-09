@@ -41,7 +41,6 @@ const getDocs = async (articleID) => {
       articleHtmlInformation.push(convertFromUnix(article.content.time));
 
       caseChecks(article);
-      // return articleHtmlBody;
     })
     .then(() => {
       return articleHtmlBody;

@@ -44,7 +44,7 @@ export class BlogTrendingNew extends Component {
           <Grid templateColumns="repeat(3, 1fr)" gap={6} margin="15px">
             {this.state.articles != null &&
               this.state.articles.slice(0, 4).map((article) => {
-                console.log(article)
+                console.log(article);
                 console.log("DOCUMENT ID =====================");
                 console.log(article.documentId);
                 return (
@@ -59,31 +59,6 @@ export class BlogTrendingNew extends Component {
               })}
           </Grid>
         </Box>
-        {/* <Box margin="15px">
-          <Heading
-            as="h1"
-            fontSize="50px"
-            textAlign="center"
-            marginBottom="25px"
-            marginTop="25px"
-          >
-            New Articles
-          </Heading>
-          <Divider />
-          <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
-            {this.state.articles != null &&
-              this.state.articles.slice(0, 4).map((article) => {
-                return (
-                  <BlogPost
-                    title={article.title}
-                    summary={article.summary}
-                    date={article.content.time}
-                    user={article.username}
-                  />
-                );
-              })}
-          </Grid>
-        </Box> */}
       </div>
     );
   }

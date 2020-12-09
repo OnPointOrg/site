@@ -30,7 +30,6 @@ export class Home extends React.Component {
   };
 
   componentDidMount = () => {
-    // console.log(firebase.auth().currentUser);
     firebase.auth().onAuthStateChanged((user) => {
       console.log(user);
       if (user) {

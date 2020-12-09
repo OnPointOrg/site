@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { ThemeProvider, ColorModeProvider, CSSReset } from "@chakra-ui/core";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
@@ -11,14 +10,9 @@ import NewStory from "./pages/NewStory";
 import ForgotPassword from "./pages/ForgotPassword";
 import BlogContentPost from "./components/blog/BlogContentPost";
 
-// import customTheme from "./components/theme/theme.js";
-
 export class App extends Component {
   render() {
     return (
-      // <ThemeProvider theme={customTheme}>
-      //   <ColorModeProvider>
-      //     <CSSReset />
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />
@@ -29,18 +23,9 @@ export class App extends Component {
           <Route path="/blog" exact component={Blog} />
           <Route path="/newstory" component={NewStory} />
           <Route path="/blog/:docId" exact component={BlogContentPost} />
-          {/* <Route
-            path="/blog/:docId"
-            exact
-            component={() => (
-              <BlogContentPost timestamp={new Date().toString()} />
-            )}
-          /> */}
           <Route path="/forgotpassword" component={ForgotPassword} />
         </Switch>
       </Router>
-      //   </ColorModeProvider>
-      // </ThemeProvider>
     );
   }
 }

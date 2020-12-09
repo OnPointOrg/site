@@ -31,7 +31,6 @@ const ProgressBar = ({ file, setFile }) => {
 const UploadForm = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
-  // const [uploadState, setUploadState] = useState("Upload Thumbnail File");
 
   const hiddenFileInput = React.useRef(null);
 

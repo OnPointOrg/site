@@ -6,8 +6,6 @@ import Footer from "../components/Footer";
 import firebase from "firebase";
 import { Box } from "@chakra-ui/core";
 
-// import getDocs from "../hooks/ReadArticlesFromFirebase";
-
 class Blog extends Component {
   state = {
     currentNav: <DefaultNav />,
@@ -31,11 +29,7 @@ class Blog extends Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        {/* <BlogTrendingNew /> */}
         <BlogGrid />
-        {/* <Button onClick={getDocs}>
-          Click Me For Juicy Firebse Data! Members Only!
-        </Button> */}
         <Footer />
       </Box>
     );

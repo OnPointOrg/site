@@ -10,8 +10,6 @@ import getDocs, {
 import DefaultNav from "../nav/DefaultNav";
 import VerifiedNav from "../nav/VerifiedNav";
 
-// import { Link } from "react-router-dom";
-
 export class BlogContentPost extends Component {
   state = {
     article: null,
@@ -42,7 +40,6 @@ export class BlogContentPost extends Component {
     await getDocs(docId).then(() => {
       console.log(this.state.articleContent);
       console.log(articleHtmlBody);
-      // return articleHtmlBody;
     });
 
     this.setState({
