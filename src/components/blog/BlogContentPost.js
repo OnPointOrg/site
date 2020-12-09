@@ -40,7 +40,6 @@ export class BlogContentPost extends Component {
     await getDocs(docId).then(() => {
       console.log(this.state.articleContent);
       console.log(articleHtmlBody);
-      // return articleHtmlBody;
     });
 
     this.setState({
