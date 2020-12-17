@@ -100,7 +100,14 @@ export class BlogPost extends React.Component {
                   Show {this.state.show ? "Less" : "More"}
                 </Button>
               </Box>
-              <Link to={() => `/blog/${this.props.docId}`}>
+              <Link
+                to={() => `/blog/${this.props.docId}`}
+                onClick={() => {
+                  setTimeout(() => {
+                    window.location.reload();
+                  }, 5);
+                }}
+              >
                 <Button size="sm" ml="10px" mt="1rem" variant="ghost">
                   {console.log(
                     "PROPS DOC ID ===================" + this.props.docId
