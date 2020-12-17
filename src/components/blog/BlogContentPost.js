@@ -63,12 +63,7 @@ export class BlogContentPost extends Component {
         console.log(currentArticleHtmlBody);
       });
   };
-
-  // returnArticleContent = async () => {
-  //   console.log("Returning Article Content: " + this.state.articleContent);
-  //   return this.state.articleContent;
-  // };
-
+  
   render() {
     return (
       <div>
