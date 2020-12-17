@@ -33,7 +33,6 @@ const getDocs = async (articleID) => {
     .get()
     .then((querySnapshot) => {
       const article = querySnapshot.data();
-      console.log(articleHtmlBody)
 
       articleHtmlInformation.push(article.title);
       articleHtmlInformation.push(article.username);
@@ -111,7 +110,9 @@ const caseChecks = (article) => {
       case "quote":
         const quote = article.content.blocks[i].data.text;
         const credits = article.content.blocks[i].data.caption;
-        articleHtmlBody.push(<Quote quote={quote} credits={credits} />);
+        articleHtmlBody.push(
+          <Quote quote={quote} credits={credits} />
+        );
         break;
 
       case "image":
