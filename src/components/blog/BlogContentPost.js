@@ -10,6 +10,8 @@ import getDocs, {
 import DefaultNav from "../nav/DefaultNav";
 import VerifiedNav from "../nav/VerifiedNav";
 
+let currentArticleHtmlBody = [];
+
 export class BlogContentPost extends Component {
   state = {
     article: null,
@@ -17,11 +19,16 @@ export class BlogContentPost extends Component {
     articleAuthor: null,
     articleSummary: null,
     articleDate: null,
-    articleContent: null,
+    articleContent: [],
     currentNav: <DefaultNav />,
   };
 
   componentDidMount = async () => {
+    currentArticleHtmlBody = [];
+    currentArticleHtmlBody = articleHtmlBody;
+    this.setState({
+      articleContent: currentArticleHtmlBody,
+    });
     console.log(this.props.timestamp);
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -37,32 +44,26 @@ export class BlogContentPost extends Component {
 
     let docId = this.props.match.params.docId;
 
-    await getDocs(docId).then(() => {
-      console.log(this.state.articleContent);
-      console.log(articleHtmlBody);
-    });
-
-    this.setState({
-      articleTitle: articleHtmlInformation[0],
-      articleAuthor: articleHtmlInformation[1],
-      articleSummary: articleHtmlInformation[2],
-      articleDate: articleHtmlInformation[4],
-      articleContent: articleHtmlBody,
-    });
-
-    // let currentPath = window.location.pathname;
-    // this.props.history.replace(`${currentPath}/replace`);
-    // setTimeout(() => {
-    //   this.props.history.replace(currentPath);
-
-    // }, 0);
+    await getDocs(docId)
+      .then(() => {
+        this.setState({ articleContent: [] });
+        console.log("Get Docs Article Content:" + this.state.articleContent);
+        console.log(currentArticleHtmlBody);
+        this.setState({
+          articleTitle: articleHtmlInformation[0],
+          articleAuthor: articleHtmlInformation[1],
+          articleSummary: articleHtmlInformation[2],
+          articleDate: articleHtmlInformation[4],
+          articleContent: currentArticleHtmlBody,
+        });
+      })
+      .then(() => {
+        currentArticleHtmlBody = [];
+        console.log(articleHtmlBody);
+        console.log(currentArticleHtmlBody);
+      });
   };
-
-  returnArticleContent = async () => {
-    console.log(this.state.articleContent);
-    return this.state.articleContent;
-  };
-
+  
   render() {
     return (
       <div>
@@ -97,7 +98,7 @@ export class BlogContentPost extends Component {
         </Grid>
         <Divider mx="100px" my="50px" />
         <Box mx="125px" marginBottom="75px">
-          {articleHtmlBody.map((element) => (
+          {this.state.articleContent.map((element) => (
             <Box margin="25px">{element}</Box>
           ))}
         </Box>
