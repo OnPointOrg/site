@@ -63,7 +63,7 @@ export class BlogContentPost extends Component {
         console.log(currentArticleHtmlBody);
       });
   };
-  
+
   render() {
     return (
       <div>
