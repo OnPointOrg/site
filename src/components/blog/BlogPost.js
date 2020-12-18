@@ -39,8 +39,13 @@ export class BlogPost extends React.Component {
   render() {
     return (
       <Box borderWidth="1px" rounded="lg" overflow="hidden">
-        <Box maxHeight="300px" overflow="hidden">
-          <Image src={this.props.thumbnailImage} width="100%" />
+        <Box height="auto">
+          <Image
+            src={this.props.thumbnailImage}
+            height="auto"
+            width="100%"
+            overflow="hidden"
+          />
         </Box>
         <Box>
           <Box p="6">
@@ -105,7 +110,7 @@ export class BlogPost extends React.Component {
                 onClick={() => {
                   setTimeout(() => {
                     window.location.reload();
-                  }, 10);
+                  }, 5);
                 }}
               >
                 <Button size="sm" ml="10px" mt="1rem" variant="ghost">
