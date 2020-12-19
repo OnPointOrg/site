@@ -20,6 +20,7 @@ import firebase from "firebase";
 
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
+import Footer from "../components/Footer";
 
 class Contact extends Component {
   state = {
@@ -91,6 +92,7 @@ class Contact extends Component {
             </Box>
           </Box>
         </Flex>
+        <Footer />
       </Box>
     );
   }
