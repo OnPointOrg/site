@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Heading, Box, Text, Grid, Divider, Skeleton } from "@chakra-ui/core";
+import {
+  Heading,
+  Box,
+  Text,
+  Grid,
+  Divider,
+  Skeleton,
+  Image,
+} from "@chakra-ui/core";
 
 import firebase from "firebase";
 import getDocs, {
@@ -54,6 +62,7 @@ export class BlogContentPost extends Component {
           articleAuthor: articleHtmlInformation[1],
           articleSummary: articleHtmlInformation[2],
           articleDate: articleHtmlInformation[4],
+          articleImage: articleHtmlInformation[5],
           articleContent: currentArticleHtmlBody,
         });
       })
@@ -69,7 +78,10 @@ export class BlogContentPost extends Component {
       <div>
         {this.state.currentNav}
         <Box />
-        <Box alignItems="center">
+        <Box textAlign="center">
+          <Image src={this.state.articleImage} display="block" mx="auto" height="auto" width="35%" mt="25px" rounded="lg" />
+        </Box>
+        <Box alignItems="center" display="block" mx="auto" width="75%">
           <Heading
             as="h1"
             fontSize="50px"
@@ -92,7 +104,7 @@ export class BlogContentPost extends Component {
         <Box />
         <Box />
         <Divider mx="100px" my="50px" />
-        <Box mx="125px" marginBottom="75px">
+        <Box mx="125px" marginBottom="75px" display="block" mx="auto" width="80%">
           {this.state.articleContent.map((element) => (
             <Box margin="25px">{element}</Box>
           ))}

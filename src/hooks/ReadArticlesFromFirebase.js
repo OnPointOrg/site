@@ -39,6 +39,7 @@ const getDocs = async (articleID) => {
       articleHtmlInformation.push(article.summary);
       articleHtmlInformation.push(article.category);
       articleHtmlInformation.push(convertFromUnix(article.content.time));
+      articleHtmlInformation.push(article.thumbnailImage)
 
       caseChecks(article);
     })
