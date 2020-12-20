@@ -13,7 +13,10 @@ import {
   Progress,
 } from "@chakra-ui/core";
 
-export let fileURL = "";
+// import placeholderimage from "../../images/placeholderimage.jpg";
+
+export let fileURL =
+  "https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/placeholder.jpg?alt=media&token=d818ce78-464a-4993-9f53-ee459d135d29";
 
 const ProgressBar = ({ file, setFile }) => {
   const { url, progress } = useStorage(file, "BlogThumbnail");
