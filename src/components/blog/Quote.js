@@ -7,7 +7,6 @@ export class Quote extends Component {
   render() {
     return (
       <Box
-        width="900px"
         borderWidth="1px"
         rounded="lg"
         overflow="hidden"

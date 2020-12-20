@@ -127,7 +127,8 @@ export class CreateStory extends Component {
         const { history } = this.props;
         setTimeout(() => {
           history.push(`/blog/${docRef.id}`);
-        }, 1500);
+          window.location.reload();
+        }, 5);
       })
       .catch((error) => {
         console.error("Error adding document: ", error);

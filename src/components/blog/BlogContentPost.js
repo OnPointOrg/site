@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Heading, Box, Text, Grid, Divider } from "@chakra-ui/core";
+import { Heading, Box, Text, Grid, Divider, Skeleton } from "@chakra-ui/core";
 
 import firebase from "firebase";
 import getDocs, {
@@ -68,34 +68,32 @@ export class BlogContentPost extends Component {
     return (
       <div>
         {this.state.currentNav}
-        <Grid templateColumns="repeat(4, 1fr)" gap={1}>
-          <Box />
-          <Box width="200%" alignItems="center">
-            <Heading
-              as="h1"
-              fontSize="50px"
-              textAlign="center"
-              mx="50px"
-              my="25px"
-            >
-              {this.state.articleTitle}
-            </Heading>
-            <Text textAlign="center" fontSize="25px">
-              By <Text as="strong">{this.state.articleAuthor}</Text>
-            </Text>
-            <Text textAlign="center" fontSize="25px">
-              &bull;&bull;&bull;
-            </Text>
-            <Text textAlign="center" fontSize="25px">
-              {this.state.articleDate}
-            </Text>
-            <Text padding="10px" textAlign="center" marginTop="25px">
-              {this.state.articleSummary}
-            </Text>
-          </Box>
-          <Box />
-          <Box />
-        </Grid>
+        <Box />
+        <Box alignItems="center">
+          <Heading
+            as="h1"
+            fontSize="50px"
+            textAlign="center"
+            mx="50px"
+            my="25px"
+          >
+            {this.state.articleTitle}
+          </Heading>
+          <Text textAlign="center" fontSize="25px">
+            By <Text as="strong">{this.state.articleAuthor}</Text>
+          </Text>
+          <Text textAlign="center" fontSize="25px">
+            &bull;&bull;&bull;
+          </Text>
+          <Text textAlign="center" fontSize="25px">
+            {this.state.articleDate}
+          </Text>
+          <Text padding="10px" textAlign="center" marginTop="25px">
+            {this.state.articleSummary}
+          </Text>
+        </Box>
+        <Box />
+        <Box />
         <Divider mx="100px" my="50px" />
         <Box mx="125px" marginBottom="75px">
           {this.state.articleContent.map((element) => (
