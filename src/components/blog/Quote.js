@@ -8,11 +8,11 @@ export class Quote extends Component {
     return (
       <Box
         border="1px"
-        width="auto"
         rounded="lg"
         overflow="hidden"
-        mx="125px"
+        width="50%"
         my="25px"
+        display="block" mx="auto"
       >
         <Box margin="25px">
           <Heading>
