@@ -7,14 +7,14 @@ export class Quote extends Component {
   render() {
     return (
       <Box
-        width="900px"
-        borderWidth="1px"
+        border="1px"
+        width="auto"
         rounded="lg"
         overflow="hidden"
         mx="125px"
         my="25px"
       >
-        <Box marginTop="50px" marginLeft="50px">
+        <Box margin="25px">
           <Heading>
             <FaQuoteLeft />
           </Heading>
@@ -30,13 +30,14 @@ export class Quote extends Component {
               {this.props.quote}
             </Text>
             <Box
-              d="flex"
               alignItems="center"
               color="gray.600"
-              marginTop="50px"
-              margin="50px"
+              margin="25px"
+              mr="50px"
             >
-              <Text fontSize="lg">- {this.props.credits}</Text>
+              <Text fontSize="lg" textAlign="right">
+                - {this.props.credits}
+              </Text>
             </Box>
           </Box>
         </Box>

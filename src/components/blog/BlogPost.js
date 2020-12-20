@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Badge, Box, Image, Collapse, Button } from "@chakra-ui/core";
+import { Badge, Box, Image, Collapse, Button, Stack } from "@chakra-ui/core";
 import firebase from "firebase";
 import { Link } from "react-router-dom";
 
@@ -39,20 +39,23 @@ export class BlogPost extends React.Component {
   render() {
     return (
       <Box borderWidth="1px" rounded="lg" overflow="hidden">
-        <Box height="auto">
+        <Box height="200px" overflow="hidden">
           <Image
             src={this.props.thumbnailImage}
-            height="auto"
             width="100%"
-            overflow="hidden"
           />
         </Box>
         <Box>
           <Box p="6">
             <Box d="flex" alignItems="baseline">
-              <Badge rounded="full" px="3" variantColor="teal">
-                Trending
-              </Badge>
+              <Stack isInline>
+                <Badge rounded="md" py="1" px="2" variantColor="teal">
+                  Trending
+                </Badge>
+                <Badge rounded="md" py="1" px="2" variantColor="teal">
+                  Featured
+                </Badge>
+              </Stack>
               <Box
                 color="gray.500"
                 fontWeight="semibold"
