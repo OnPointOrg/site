@@ -83,9 +83,6 @@ export class BlogContentPost extends Component {
             By <Text as="strong">{this.state.articleAuthor}</Text>
           </Text>
           <Text textAlign="center" fontSize="25px">
-            &bull;&bull;&bull;
-          </Text>
-          <Text textAlign="center" fontSize="25px">
             {this.state.articleDate}
           </Text>
           <Text padding="10px" textAlign="center" marginTop="25px">
