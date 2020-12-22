@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Feature = ({ title, icon, children, ...props }) => {
   return (
-    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
+    <motion.div whileHover={{ scale: 1.1 }}>
       <Box rounded="12px" shadow="base" p="40px" {...props} borderWidth="5px">
         <Flex
           rounded="full"

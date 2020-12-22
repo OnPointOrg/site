@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import {
-  ThemeProvider,
-  ColorModeProvider,
-  CSSReset,
-  theme,
   Button,
   Input,
   Textarea,
   FormLabel,
   FormControl,
   Heading,
-  IconButton,
   Flex,
   Box,
-  useColorMode,
 } from "@chakra-ui/core";
 
 import firebase from "firebase";
