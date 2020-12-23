@@ -53,14 +53,14 @@ export class Home extends React.Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        <Box width="100%" bg="teal.700" height="800px">
+        <Box width="100%" bg="teal.700" height="100%" mt="15px" pt="100px">
           <Flex
             direction="column"
             align="center"
             width="90%"
             display="block"
             mx="auto"
-            height="auto"
+            height="100%"
             justifyContent="center"
           >
             <Flex align="center" px={8} mb={16}>
@@ -171,7 +171,7 @@ export class Home extends React.Component {
           justifyContent="center"
         >
           <Box as="section">
-            <Box py="120px">
+            <Box pb="120px">
               <Box maxW="760px" mx="auto" textAlign="center" mb="56px">
                 <Heading as="h2" fontSize="50px" mb="5">
                   Redefine The Media
