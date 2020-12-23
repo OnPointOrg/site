@@ -15,6 +15,7 @@ import {
   MenuButton,
   useToast,
   Stack,
+  Avatar,
 } from "@chakra-ui/core";
 import ThemeButton from "./ThemeButton";
 import logo from "../../images/logo.png";
@@ -69,8 +70,13 @@ export const VerifiedNav = (props) => {
                   _focus={{ outline: 0, boxShadow: "outline" }}
                   marginRight="2px"
                   marginLeft="-2px"
-                  width="8rem"
+                  // width="8rem"
                 >
+                  <Avatar
+                    marginRight="10px"
+                    size="xs"
+                    src={`https://unavatar.now.sh/gravatar/${email}`}
+                  />{" "}
                   Profile <Icon name="chevron-down" />
                 </MenuButton>
                 <MenuList>
