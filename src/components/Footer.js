@@ -25,9 +25,9 @@ const Footer = () => {
             About
           </Button>
         </Link>
-        <Link to="/blog">
+        <Link to="/article">
           <Button variant="ghost" mx="15px">
-            Blog
+            Articles
           </Button>
         </Link>
         <Link to="/contact">

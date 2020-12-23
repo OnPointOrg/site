@@ -1,11 +1,11 @@
 import * as React from "react";
-import { Box, Flex, Heading, Icon, Text } from "@chakra-ui/core";
+import { Box, Flex, Heading, Icon, Text, useColorMode } from "@chakra-ui/core";
 import { motion } from "framer-motion";
 
 const Feature = ({ title, icon, children, ...props }) => {
   return (
     <motion.div whileHover={{ scale: 1.1 }}>
-      <Box rounded="12px" shadow="base" p="40px" {...props} borderWidth="5px">
+      <Box bg={useColorMode("white", "teal.500")} rounded="12px" boxShadow="lg" borderColor="black" p="40px" {...props} minH="300px">
         <Flex
           rounded="full"
           w="12"

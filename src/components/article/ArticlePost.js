@@ -4,7 +4,7 @@ import { Badge, Box, Image, Collapse, Button, Stack } from "@chakra-ui/core";
 import firebase from "firebase";
 import { Link } from "react-router-dom";
 
-export class BlogPost extends React.Component {
+export class ArticlePost extends React.Component {
   state = {
     show: false,
   };
@@ -38,7 +38,7 @@ export class BlogPost extends React.Component {
 
   render() {
     return (
-      <Box borderWidth="1px" rounded="lg" overflow="hidden">
+      <Box borderWidth="1px" shadow="md" rounded="lg" overflow="hidden">
         <Box height="200px" overflow="hidden">
           <Image
             src={this.props.thumbnailImage}
@@ -109,7 +109,7 @@ export class BlogPost extends React.Component {
                 </Button>
               </Box>
               <Link
-                to={() => `/blog/${this.props.docId}`}
+                to={() => `/article/${this.props.docId}`}
                 onClick={() => {
                   setTimeout(() => {
                     window.location.reload();
@@ -131,4 +131,4 @@ export class BlogPost extends React.Component {
   }
 }
 
-export default BlogPost;
+export default ArticlePost;

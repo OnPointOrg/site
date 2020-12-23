@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
-import BlogGrid from "../components/blog/BlogGrid";
+import ArticleGrid from "../components/article/ArticleGrid";
 import Footer from "../components/Footer";
 import firebase from "firebase";
 import { Box } from "@chakra-ui/core";
 
-class Blog extends Component {
+class Articles extends Component {
   state = {
     currentNav: <DefaultNav />,
   };
@@ -29,11 +29,11 @@ class Blog extends Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        <BlogGrid />
+        <ArticleGrid />
         <Footer />
       </Box>
     );
   }
 }
 
-export default Blog;
+export default Articles;

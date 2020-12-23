@@ -210,7 +210,7 @@ class SignUp extends Component {
 
   render() {
     return (
-      <Box>
+      <Box height="100%">
         {this.state.currentNav}
         <Flex
           my={"5rem"}
