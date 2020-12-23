@@ -12,7 +12,7 @@ import VerifiedNav from "../nav/VerifiedNav";
 
 let currentArticleHtmlBody = [];
 
-export class BlogContentPost extends Component {
+export class ArticleContentPost extends Component {
   state = {
     article: null,
     articleTitle: null,
@@ -114,4 +114,4 @@ export class BlogContentPost extends Component {
   }
 }
 
-export default BlogContentPost;
+export default ArticleContentPost;

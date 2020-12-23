@@ -14,7 +14,7 @@ import {
   Divider,
   Image,
 } from "@chakra-ui/core";
-import Quote from "../components/blog/Quote";
+import Quote from "../components/article/Quote";
 
 const convertFromUnix = (date) => {
   const dateObject = new Date(date);

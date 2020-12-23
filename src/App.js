@@ -5,10 +5,10 @@ import SignIn from "./pages/SignIn";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
-import Blog from "./pages/Blog";
+import Articles from "./pages/Articles";
 import NewStory from "./pages/NewStory";
 import ForgotPassword from "./pages/ForgotPassword";
-import BlogContentPost from "./components/blog/BlogContentPost";
+import ArticleContentPost from "./components/article/ArticleContentPost";
 
 export class App extends Component {
   render() {
@@ -20,9 +20,9 @@ export class App extends Component {
           <Route path="/signin" component={SignIn} />
           <Route path="/about" component={AboutUs} />
           <Route path="/contact" component={ContactUs} />
-          <Route path="/blog" exact component={Blog} />
+          <Route path="/article" exact component={Articles} />
           <Route path="/newstory" component={NewStory} />
-          <Route path="/blog/:docId" exact component={BlogContentPost} />
+          <Route path="/article/:docId" exact component={ArticleContentPost} />
           <Route path="/forgotpassword" component={ForgotPassword} />
         </Switch>
       </Router>
