@@ -53,7 +53,7 @@ export class Home extends React.Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        <Box width="100%" bg="teal.700" height="100%" mt="15px" pt="100px">
+        <Box width="100%" bg="teal.700" height="700px">
           <Flex
             direction="column"
             align="center"
@@ -172,7 +172,7 @@ export class Home extends React.Component {
         >
           <Box as="section">
             <Box pb="120px">
-              <Box maxW="760px" mx="auto" textAlign="center" mb="56px">
+              <Box maxW="760px" mx="auto" textAlign="center" mb="56px" mt="5rem">
                 <Heading as="h2" fontSize="50px" mb="5">
                   Redefine The Media
                 </Heading>
