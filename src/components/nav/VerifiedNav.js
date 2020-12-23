@@ -47,7 +47,6 @@ export const VerifiedNav = (props) => {
         background: "rgba(0, 0, 0, 1)",
         position: "fixed",
         zIndex: "999",
-        // backdropFilter: "blur(50px) !important",
       }}
     >
       <Stack isInline justifyContent="space-between" alignItems="center" py={4}>
