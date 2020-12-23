@@ -49,7 +49,7 @@ export class Home extends React.Component {
       <Box width="100%">
         {this.state.currentNav}
         <Flex direction="column" align="center">
-          <Flex align="center" px={8} mb={16}>
+          <Flex align="center" px={8} mb={16} width="90%">
             <Stack spacing={4} height="100%">
               <Heading
                 mt="10px"
@@ -58,6 +58,7 @@ export class Home extends React.Component {
                 fontSize="6rem"
                 fontWeight="bold"
                 color="primary.800"
+                width="80%"
               >
                 This Is OnPoint.
               </Heading>
