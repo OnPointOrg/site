@@ -7,7 +7,6 @@ import {
   Menu,
   Heading,
   Image,
-  Icon,
   MenuList,
   MenuDivider,
   MenuGroup,
@@ -68,7 +67,7 @@ export const VerifiedNav = (props) => {
           <Box>
             <Flex align="center" ml={5}>
               <Link to="/">
-                <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
+                <Heading as="h1" size="xl" letterSpacing={"-.1rem"} mr="2rem">
                   <Image src={logo} width="50px" rounded="full" />
                 </Heading>
               </Link>
@@ -82,22 +81,19 @@ export const VerifiedNav = (props) => {
               <Flex justifyContent="space-between" color="gray.500">
                 <Menu closeOnSelect="false">
                   <MenuButton
-                    px={6}
+                    px={2}
                     py={2}
                     transition="all 0.2s"
                     rounded="md"
-                    borderWidth="1px"
                     _focus={{ outline: 0, boxShadow: "outline" }}
                     marginRight="2px"
                     marginLeft="-2px"
                     // width="8rem"
                   >
                     <Avatar
-                      marginRight="10px"
-                      size="xs"
+                      size="sm"
                       src={`https://unavatar.now.sh/gravatar/${email}`}
-                    />{" "}
-                    Profile <Icon name="chevron-down" />
+                      />
                   </MenuButton>
                   <MenuList>
                     <MenuGroup title="Profile">
