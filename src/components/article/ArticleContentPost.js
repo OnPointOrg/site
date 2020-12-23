@@ -70,7 +70,7 @@ export class ArticleContentPost extends Component {
       <div>
         {this.state.currentNav}
         <Box />
-        <Box textAlign="center">
+        <Box textAlign="center" mt="125px">
           <Image
             src={this.state.articleImage}
             display="block"
