@@ -5,6 +5,7 @@ import {
   Button,
   Stack,
   Icon,
+  Box
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import React from "react";
@@ -12,14 +13,8 @@ import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div justifyContent="center">
-      <Stack
-        pt={3}
-        direction="row"
-        justify="center"
-        borderTop="2px solid"
-        borderTopColor="teal.400"
-      >
+    <Box justifyContent="center" borderTopColor="teal" borderTopWidth="5px" >
+      <Stack pt={5} direction="row" justify="center" mt="25px">
         <Link to="/about">
           <Button variant="ghost" mx="15px">
             About
@@ -106,10 +101,10 @@ const Footer = () => {
           />
         </ChakraLink>
       </Stack>
-      <Text mt="15px" mb="25px" textAlign="center">
+      <Text mt="15px" mb="25px" fontSize="lg" textAlign="center">
         Copyright &copy; {new Date().getFullYear()}. OnPoint News.
       </Text>
-      <Text m={3} fontSize="xs" textAlign="center">
+      <Text m={3} fontSize="xs" textAlign="center" mb="50px">
         Developed With{" "}
         <span role="img" aria-label="heart">
           ❤️
@@ -123,7 +118,7 @@ const Footer = () => {
           Aditya Rawat <Icon name="external-link" mx="2px" />
         </ChakraLink>
       </Text>
-    </div>
+    </Box>
   );
 };
 

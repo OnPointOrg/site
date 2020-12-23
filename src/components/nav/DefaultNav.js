@@ -6,7 +6,6 @@ import {
   Heading,
   Button,
   Image,
-
   Stack,
   Text,
 } from "@chakra-ui/core";
@@ -27,11 +26,19 @@ const DefaultNav = (props) => {
       as="header"
       fontWeight="bold"
       transition="box-shadow 0.2s"
-      top="0"
       left="0"
       right="0"
       borderBottom="6px solid"
+      position="fixed"
+      top="0"
       width="100%"
+      float="left"
+      style={{
+        background: "rgba(0, 0, 0,0.6)",
+        position: "fixed",
+        zIndex: "999",
+        backdropFilter: "blur(50px) !important",
+      }}
     >
       <Stack isInline justifyContent="space-between" alignItems="center" py={4}>
         <Box>

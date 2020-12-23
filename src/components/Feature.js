@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Feature = ({ title, icon, children, ...props }) => {
   return (
     <motion.div whileHover={{ scale: 1.1 }}>
-      <Box bg={useColorMode("white", "teal.500")} rounded="12px" boxShadow="lg" borderColor="black" p="40px" {...props} minH="300px">
+      <Box bg={useColorMode("white", "teal.500")} rounded="12px" boxShadow="lg" borderWidth="5px" p="40px" {...props} minH="300px">
         <Flex
           rounded="full"
           w="12"

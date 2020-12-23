@@ -14,12 +14,18 @@ import {
 import { Link } from "react-router-dom";
 import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
-import { FaBookReader } from "react-icons/fa";
 import firebase from "firebase";
 import logo from "../images/logo.png";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
-import { MdAccessibility, MdGrain, MdPalette, MdEmail } from "react-icons/md";
+import {
+  MdAccessibility,
+  MdGrain,
+  MdPalette,
+  MdEmail,
+  MdLibraryBooks,
+  MdDoneAll,
+} from "react-icons/md";
 import Feature from "../components/Feature";
 import ArticleTrendingNew from "../components/article/ArticleTrendingNew";
 
@@ -47,15 +53,16 @@ export class Home extends React.Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        <Box
-          width="90%"
-          display="block"
-          mx="auto"
-          height="auto"
-          align="center"
-          justifyContent="center"
-        >
-          <Flex direction="column" align="center">
+        <Box width="100%" bg="teal.700" height="800px">
+          <Flex
+            direction="column"
+            align="center"
+            width="90%"
+            display="block"
+            mx="auto"
+            height="auto"
+            justifyContent="center"
+          >
             <Flex align="center" px={8} mb={16}>
               <Stack spacing={4} height="100%">
                 <Heading
@@ -91,7 +98,7 @@ export class Home extends React.Component {
                       fontSize="1.5rem"
                       as="a"
                       size="lg"
-                      colorScheme="teal"
+                      colorScheme="teal.500"
                       rightIcon={"arrow-forward"}
                     >
                       Get Started
@@ -106,7 +113,7 @@ export class Home extends React.Component {
                       borderRadius="10px"
                       px="40px"
                       fontSize="1.5rem"
-                      leftIcon={FaBookReader}
+                      leftIcon={MdLibraryBooks}
                     >
                       Start Reading
                     </Button>
@@ -154,6 +161,15 @@ export class Home extends React.Component {
               </Box>
             </Flex>
           </Flex>
+        </Box>
+        <Box
+          width="90%"
+          display="block"
+          mx="auto"
+          height="auto"
+          align="center"
+          justifyContent="center"
+        >
           <Box as="section">
             <Box py="120px">
               <Box maxW="760px" mx="auto" textAlign="center" mb="56px">
@@ -209,17 +225,39 @@ export class Home extends React.Component {
           bgPos="bottom center"
           bgSize="120px"
           bgRepeat="repeat no-repeat"
+          mt="100px"
+          borderTopColor="teal.500"
+          borderTopWidth="10px"
+          borderBottomColor="teal.500"
+          borderBottomWidth="10px"
         >
-          <Box pt="7.5rem" pb="10rem" maxW="50rem" mx="auto" textAlign="center">
+          <Box
+            pt="12rem"
+            maxW="50rem"
+            height="735px"
+            mx="auto"
+            textAlign="center"
+          >
             <Flex direction="column" align="center" mx="auto">
-              <Icon />
+              <Icon as={MdDoneAll} fontSize="75px" />
               <Heading textStyle="heading" mt="6" mb="6">
-                Invite us to speak at your next event
+                Get Started!
               </Heading>
               <Text mb="40px" fontSize="lg" opacity={0.7}>
-                Want a Chakra UI core team member to speak at your next event?
-                Invite us to create a memorable and engaging experience for your
-                attendees.
+                Make your free account to start writing the next big story! If
+                you have any other questions, contact us by{" "}
+                <ChakraLink
+                  href="mailto:aditya1rawat@gmail.com"
+                  textDecoration="underline"
+                  isExternal
+                >
+                  email <Icon name="external-link" mx="2px" />
+                </ChakraLink>{" "}
+                or go{" "}
+                <ChakraLink textDecoration="underline">
+                  <Link to="/contact">here</Link>
+                </ChakraLink>
+                !
               </Text>
             </Flex>
             <Link to="/signup">
