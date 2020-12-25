@@ -16,6 +16,8 @@ import DefaultNav from "../components/nav/DefaultNav";
 import VerifiedNav from "../components/nav/VerifiedNav";
 import firebase from "firebase";
 import logo from "../images/logo.png";
+import paypallogo from "../images/paypallogo.png";
+import hcbanklogo from "../images/hcbanklogo.svg";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import {
@@ -27,7 +29,7 @@ import {
   MdDoneAll,
 } from "react-icons/md";
 import Feature from "../components/Feature";
-import ArticleTrendingNew from "../components/article/ArticleTrendingNew";
+// import ArticleTrendingNew from "../components/article/ArticleTrendingNew";
 
 export class Home extends React.Component {
   state = {
@@ -53,7 +55,7 @@ export class Home extends React.Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        <Box width="100%" bg="teal.700" height="700px">
+        <Box width="100%" bg="teal.700" py="35px">
           <Flex
             direction="column"
             align="center"
@@ -98,7 +100,7 @@ export class Home extends React.Component {
                       fontSize="1.5rem"
                       as="a"
                       size="lg"
-                      colorScheme="teal.500"
+                      bg="teal.900"
                       rightIcon={"arrow-forward"}
                     >
                       Get Started
@@ -172,7 +174,13 @@ export class Home extends React.Component {
         >
           <Box as="section">
             <Box pb="120px">
-              <Box maxW="760px" mx="auto" textAlign="center" mb="56px" mt="5rem">
+              <Box
+                maxW="760px"
+                mx="auto"
+                textAlign="center"
+                mb="56px"
+                mt="5rem"
+              >
                 <Heading as="h2" fontSize="50px" mb="5">
                   Redefine The Media
                 </Heading>
@@ -218,14 +226,153 @@ export class Home extends React.Component {
               </Grid>
             </Box>
           </Box>
-          <ArticleTrendingNew />
         </Box>
+
+        <Box bg="teal.500">
+          <Box py="120px" px="32px" color="white">
+            <Box mx="auto" textAlign="center" mb="56px" width="75%">
+              <Heading as="h2" fontSize="50px" mb="5">
+                Support OnPoint
+              </Heading>
+              <Text fontSize="lg" opacity={0.7}>
+                There is literally one man making this website. He also doesn't
+                get paid. This is a plea for help. Please donate. 🙏
+              </Text>
+            </Box>
+
+            <Flex
+              direction={{ base: "column", md: "row" }}
+              spacing="6"
+              maxW="600px"
+              mx="auto"
+              bg="white"
+              color="gray.800"
+              shadow="md"
+              rounded="lg"
+              p="6"
+            >
+              <Flex flex="1" isInline spacing="6">
+                <Image h="50px" w="50px" src={hcbanklogo} mr="20px" mt="1px" />
+                <Box flex="1">
+                  <Text fontSize="lg" fontWeight="bold" mt="-1">
+                    Hack Club Bank
+                  </Text>
+                  <Text opacity={0.7}>
+                    Support Us So We Can Continue To Grow
+                  </Text>
+                </Box>
+              </Flex>
+              <Button
+                w={{ base: "100%", md: "auto" }}
+                alignSelf="center"
+                as="a"
+                minW="7rem"
+                bg="teal.500"
+                _hover={{
+                  backgroundColor: "teal.800",
+                }}
+                href="#"
+                target="_blank"
+                color="white"
+              >
+                Sponsor
+              </Button>
+            </Flex>
+
+            <Flex
+              direction={{ base: "column", md: "row" }}
+              spacing="6"
+              maxW="600px"
+              mx="auto"
+              bg="white"
+              color="gray.800"
+              shadow="md"
+              rounded="lg"
+              p="6"
+              mt="6"
+            >
+              <Flex flex="1" isInline spacing="6">
+                <Image h="50px" w="50px" src={paypallogo} mr="20px" mt="1px" />
+                <Box flex="1">
+                  <Text fontSize="lg" fontWeight="bold" mt="-1">
+                    PayPal
+                  </Text>
+                  <Text opacity={0.7}>
+                    Support The Developer, Aditya Rawat.
+                  </Text>
+                </Box>
+              </Flex>
+              <Button
+                w={{ base: "100%", md: "auto" }}
+                alignSelf="center"
+                as="a"
+                minW="7rem"
+                bg="teal.500"
+                _hover={{
+                  backgroundColor: "teal.800",
+                }}
+                href="#"
+                target="_blank"
+                color="white"
+              >
+                Sponsor
+              </Button>
+            </Flex>
+
+            <Box maxW="600px" mx="auto" textAlign="center">
+              <Text textStyle="caps" mb="8" mt="4rem">
+                Organization Sponsors 🏦
+              </Text>
+              <Flex justify="center">
+                <Box>
+                  {/* <Circle
+                    as="a"
+                    // href={i.website}
+                    target="_blank"
+                    rel="noopener"
+                    size="80px"
+                    bg="white"
+                    shadow="lg"
+                  > */}
+                  <Image
+                    rounded="full"
+                    w="56px"
+                    h="56px"
+                    alt={"alt"}
+                    src={
+                      "https://images.unsplash.com/photo-1608751404293-881d7ec6f77a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80"
+                    }
+                    loading="lazy"
+                  />
+                  {/* </Circle> */}
+                </Box>
+              </Flex>
+
+              {/* <Text mb="8" mt="4rem" textStyle="caps">
+                Individual Sponsors 🥇
+              </Text>
+              <Flex justify="center">
+                <Image
+                  rounded="full"
+                  w="40px"
+                  h="40px"
+                  objectFit="cover"
+                  alt={"alt"}
+                  src={
+                    "https://images.unsplash.com/photo-1608751404293-881d7ec6f77a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80"
+                  }
+                  loading="lazy"
+                />
+              </Flex> */}
+            </Box>
+          </Box>
+        </Box>
+
         <Box
           bg={"#81e6d91c"}
           bgPos="bottom center"
           bgSize="120px"
           bgRepeat="repeat no-repeat"
-          mt="100px"
           borderTopColor="teal.500"
           borderTopWidth="10px"
           borderBottomColor="teal.500"
