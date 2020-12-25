@@ -1,10 +1,16 @@
 import React from "react";
-import { IconButton, useColorMode } from "@chakra-ui/core";
+import { IconButton, useColorMode, Tooltip } from "@chakra-ui/core";
 
 const ThemeButton = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
+  // const { toggleColorMode } = useColorMode();
+
   return (
-    <div>
+    <Tooltip
+      label="Light Mode Is Broken At The Moment"
+      placement="bottom"
+      zIndex="1000"
+    >
       <IconButton
         size="lg"
         aria-label={`Switch to ${
@@ -13,13 +19,13 @@ const ThemeButton = () => {
         variant="outline"
         color="current"
         fontSize={["20px", "20px", "20px", "20px"]}
-        onClick={toggleColorMode}
+        // onClick={toggleColorMode}
         icon={colorMode === "light" ? "moon" : "sun"}
         _focus={{
           outline: "none",
         }}
       />
-    </div>
+    </Tooltip>
   );
 };
 
