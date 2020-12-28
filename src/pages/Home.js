@@ -236,7 +236,7 @@ export class Home extends React.Component {
               </Heading>
               <Text fontSize="lg" opacity={0.7}>
                 There is literally one man making this website. He also doesn't
-                get paid. This is a plea for help. Please donate. 🙏
+                get paid. This is a plea for help. Please donate. <span role="img" aria-label="emoji pray">🙏</span>
               </Text>
             </Box>
 
@@ -321,7 +321,7 @@ export class Home extends React.Component {
 
             <Box maxW="600px" mx="auto" textAlign="center">
               <Text textStyle="caps" mb="8" mt="4rem">
-                Organization Sponsors 🏦
+                Organization Sponsors <span role="img" aria-label="emoji building">🏦</span>
               </Text>
               <Flex justify="center">
                 <Box>
