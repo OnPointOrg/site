@@ -156,7 +156,6 @@ export class Home extends React.Component {
                     size="100%"
                     rounded="1rem"
                     shadow="2xl"
-                    mt="15px"
                     ml="30px"
                   />
                 </motion.div>
@@ -325,15 +324,6 @@ export class Home extends React.Component {
               </Text>
               <Flex justify="center">
                 <Box>
-                  {/* <Circle
-                    as="a"
-                    // href={i.website}
-                    target="_blank"
-                    rel="noopener"
-                    size="80px"
-                    bg="white"
-                    shadow="lg"
-                  > */}
                   <Image
                     rounded="full"
                     w="56px"
@@ -344,7 +334,6 @@ export class Home extends React.Component {
                     }
                     loading="lazy"
                   />
-                  {/* </Circle> */}
                 </Box>
               </Flex>
 
