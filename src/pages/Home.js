@@ -235,7 +235,10 @@ export class Home extends React.Component {
               </Heading>
               <Text fontSize="lg" opacity={0.7}>
                 There is literally one man making this website. He also doesn't
-                get paid. This is a plea for help. Please donate. <span role="img" aria-label="emoji pray">🙏</span>
+                get paid. This is a plea for help. Please donate.{" "}
+                <span role="img" aria-label="emoji pray">
+                  🙏
+                </span>
               </Text>
             </Box>
 
@@ -320,20 +323,29 @@ export class Home extends React.Component {
 
             <Box maxW="600px" mx="auto" textAlign="center">
               <Text textStyle="caps" mb="8" mt="4rem">
-                Organization Sponsors <span role="img" aria-label="emoji building">🏦</span>
+                Organization Sponsors{" "}
+                <span role="img" aria-label="emoji building">
+                  🏦
+                </span>
               </Text>
               <Flex justify="center">
                 <Box>
-                  <Image
-                    rounded="full"
-                    w="56px"
-                    h="56px"
-                    alt={"alt"}
-                    src={
-                      "https://images.unsplash.com/photo-1608751404293-881d7ec6f77a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80"
-                    }
-                    loading="lazy"
-                  />
+                  <motion.div whileHover={{scale: 1.1}}>
+                    <ChakraLink
+                      href="https://hackclub.com"
+                      target="_blank"
+                      _hover=""
+                    >
+                      <Image
+                        // rounded="full"
+                        w="56px"
+                        h="56px"
+                        alt={"alt"}
+                        src={"https://assets.hackclub.com/icon-rounded.png"}
+                        loading="lazy"
+                      />
+                    </ChakraLink>
+                  </motion.div>
                 </Box>
               </Flex>
 
