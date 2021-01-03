@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   Tag,
@@ -6,9 +6,9 @@ import {
   Stack,
   Avatar,
   IconButton,
-  Link as ChakraLink,
-} from "@chakra-ui/core";
-import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
+  Link as ChakraLink
+} from '@chakra-ui/core';
+import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
 
 class Profile extends React.Component {
   render() {
@@ -31,7 +31,7 @@ class Profile extends React.Component {
             <Stack isInline align="center" spacing={2}>
               {this.props.roles.map((role) => {
                 return (
-                  <Tag size={"sm"} key={"sm"} variantColor="gray" mr={"5px"}>
+                  <Tag size={'sm'} key={'sm'} variantColor="gray" mr={'5px'}>
                     {role}
                   </Tag>
                 );

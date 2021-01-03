@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import Home from "./pages/Home";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
-import Articles from "./pages/Articles";
-import NewStory from "./pages/NewStory";
-import ForgotPassword from "./pages/ForgotPassword";
-import ArticleContentPost from "./components/article/ArticleContentPost";
+import React, { Component } from 'react';
+import Home from './pages/Home';
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AboutUs from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
+import Articles from './pages/Articles';
+import NewStory from './pages/NewStory';
+import ForgotPassword from './pages/ForgotPassword';
+import ArticleContentPost from './components/article/ArticleContentPost';
 
 export class App extends Component {
   render() {

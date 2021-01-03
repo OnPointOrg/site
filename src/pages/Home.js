@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Heading,
   Button,
@@ -9,31 +9,31 @@ import {
   Image,
   Text,
   Grid,
-  Icon,
-} from "@chakra-ui/core";
-import { Link } from "react-router-dom";
-import DefaultNav from "../components/nav/DefaultNav";
-import VerifiedNav from "../components/nav/VerifiedNav";
-import firebase from "firebase";
-import logo from "../images/logo.png";
-import paypallogo from "../images/paypallogo.png";
-import hcbanklogo from "../images/hcbanklogo.svg";
-import { motion } from "framer-motion";
-import Footer from "../components/Footer";
+  Icon
+} from '@chakra-ui/core';
+import { Link } from 'react-router-dom';
+import DefaultNav from '../components/nav/DefaultNav';
+import VerifiedNav from '../components/nav/VerifiedNav';
+import firebase from 'firebase';
+import logo from '../images/logo.png';
+import paypallogo from '../images/paypallogo.png';
+import hcbanklogo from '../images/hcbanklogo.svg';
+import { motion } from 'framer-motion';
+import Footer from '../components/Footer';
 import {
   MdAccessibility,
   MdGrain,
   MdPalette,
   MdEmail,
   MdLibraryBooks,
-  MdDoneAll,
-} from "react-icons/md";
-import Feature from "../components/Feature";
+  MdDoneAll
+} from 'react-icons/md';
+import Feature from '../components/Feature';
 // import ArticleTrendingNew from "../components/article/ArticleTrendingNew";
 
 export class Home extends React.Component {
   state = {
-    currentNav: <DefaultNav />,
+    currentNav: <DefaultNav />
   };
 
   componentDidMount = () => {
@@ -41,11 +41,11 @@ export class Home extends React.Component {
       console.log(user);
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          currentNav: <VerifiedNav />
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          currentNav: <DefaultNav />
         });
       }
     });
@@ -101,7 +101,7 @@ export class Home extends React.Component {
                       as="a"
                       size="lg"
                       bg="teal.900"
-                      rightIcon={"arrow-forward"}
+                      rightIcon={'arrow-forward'}
                     >
                       Get Started
                     </Button>
@@ -135,20 +135,20 @@ export class Home extends React.Component {
                 </Box>
               </Stack>
               <Box
-                w={{ base: "80%", sm: "60%", md: "50%" }}
+                w={{ base: '80%', sm: '60%', md: '50%' }}
                 mb={{ base: 12, md: 0 }}
               >
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ rotate: 360, scale: 0.8 }}
                   transition={{
-                    type: "spring",
+                    type: 'spring',
                     stiffness: 180,
-                    damping: 20,
+                    damping: 20
                   }}
                   whileHover={{
                     rotate: 360,
-                    scale: 0.9,
+                    scale: 0.9
                   }}
                 >
                   <Image
@@ -189,8 +189,8 @@ export class Home extends React.Component {
               </Box>
               <Grid
                 templateColumns={{
-                  base: "repeat(1, 1fr)",
-                  md: "repeat(3, 1fr)",
+                  base: 'repeat(1, 1fr)',
+                  md: 'repeat(3, 1fr)'
                 }}
                 gap={10}
                 px={{ md: 12 }}
@@ -235,7 +235,7 @@ export class Home extends React.Component {
               </Heading>
               <Text fontSize="lg" opacity={0.7}>
                 There is literally one man making this website. He also doesn't
-                get paid. This is a plea for help. Please donate.{" "}
+                get paid. This is a plea for help. Please donate.{' '}
                 <span role="img" aria-label="emoji pray">
                   🙏
                 </span>
@@ -243,7 +243,7 @@ export class Home extends React.Component {
             </Box>
 
             <Flex
-              direction={{ base: "column", md: "row" }}
+              direction={{ base: 'column', md: 'row' }}
               spacing="6"
               maxW="600px"
               mx="auto"
@@ -265,13 +265,13 @@ export class Home extends React.Component {
                 </Box>
               </Flex>
               <Button
-                w={{ base: "100%", md: "auto" }}
+                w={{ base: '100%', md: 'auto' }}
                 alignSelf="center"
                 as="a"
                 minW="7rem"
                 bg="teal.500"
                 _hover={{
-                  backgroundColor: "teal.800",
+                  backgroundColor: 'teal.800'
                 }}
                 href="#"
                 target="_blank"
@@ -282,7 +282,7 @@ export class Home extends React.Component {
             </Flex>
 
             <Flex
-              direction={{ base: "column", md: "row" }}
+              direction={{ base: 'column', md: 'row' }}
               spacing="6"
               maxW="600px"
               mx="auto"
@@ -305,13 +305,13 @@ export class Home extends React.Component {
                 </Box>
               </Flex>
               <Button
-                w={{ base: "100%", md: "auto" }}
+                w={{ base: '100%', md: 'auto' }}
                 alignSelf="center"
                 as="a"
                 minW="7rem"
                 bg="teal.500"
                 _hover={{
-                  backgroundColor: "teal.800",
+                  backgroundColor: 'teal.800'
                 }}
                 href="#"
                 target="_blank"
@@ -323,14 +323,14 @@ export class Home extends React.Component {
 
             <Box maxW="600px" mx="auto" textAlign="center">
               <Text textStyle="caps" mb="8" mt="4rem">
-                Organization Sponsors{" "}
+                Organization Sponsors{' '}
                 <span role="img" aria-label="emoji building">
                   🏦
                 </span>
               </Text>
               <Flex justify="center">
                 <Box>
-                  <motion.div whileHover={{scale: 1.1}}>
+                  <motion.div whileHover={{ scale: 1.1 }}>
                     <ChakraLink
                       href="https://hackclub.com"
                       target="_blank"
@@ -340,8 +340,8 @@ export class Home extends React.Component {
                         // rounded="full"
                         w="56px"
                         h="56px"
-                        alt={"alt"}
-                        src={"https://assets.hackclub.com/icon-rounded.png"}
+                        alt={'alt'}
+                        src={'https://assets.hackclub.com/icon-rounded.png'}
                         loading="lazy"
                       />
                     </ChakraLink>
@@ -370,7 +370,7 @@ export class Home extends React.Component {
         </Box>
 
         <Box
-          bg={"#81e6d91c"}
+          bg={'#81e6d91c'}
           bgPos="bottom center"
           bgSize="120px"
           bgRepeat="repeat no-repeat"
@@ -393,15 +393,15 @@ export class Home extends React.Component {
               </Heading>
               <Text mb="40px" fontSize="lg" opacity={0.7}>
                 Make your free account to start writing the next big story! If
-                you have any other questions, contact us by{" "}
+                you have any other questions, contact us by{' '}
                 <ChakraLink
                   href="mailto:aditya1rawat@gmail.com"
                   textDecoration="underline"
                   isExternal
                 >
                   email <Icon name="external-link" mx="2px" />
-                </ChakraLink>{" "}
-                or go{" "}
+                </ChakraLink>{' '}
+                or go{' '}
                 <ChakraLink textDecoration="underline">
                   <Link to="/contact">here</Link>
                 </ChakraLink>
@@ -416,7 +416,7 @@ export class Home extends React.Component {
                 as="a"
                 size="lg"
                 colorScheme="teal"
-                rightIcon={"arrow-forward"}
+                rightIcon={'arrow-forward'}
               >
                 Get Started Now
               </Button>

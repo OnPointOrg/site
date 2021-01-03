@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -7,16 +7,16 @@ import {
   Button,
   Image,
   Stack,
-  Text,
-} from "@chakra-ui/core";
-import ThemeButton from "./ThemeButton";
-import logo from "../../images/logo.png";
+  Text
+} from '@chakra-ui/core';
+import ThemeButton from './ThemeButton';
+import logo from '../../images/logo.png';
 
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import NavLink from "./NavLink";
+import NavLink from './NavLink';
 
-const breakpoints = ["360px", "768px", "1024px", "1440px"];
+const breakpoints = ['360px', '768px', '1024px', '1440px'];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
@@ -31,12 +31,11 @@ const StickyNav = styled(Flex)`
 `;
 
 const DefaultNav = (props) => {
-
   const bgColor = {
-    light: "rgb(76, 110, 245, 0.8)",
-    dark: "rgb(26, 32, 44, 0.5)",
+    light: 'rgb(76, 110, 245, 0.8)',
+    dark: 'rgb(26, 32, 44, 0.5)'
   };
-  const color = { light: "white", dark: "gray.800" };
+  const color = { light: 'white', dark: 'gray.800' };
   return (
     <StickyNav bg={bgColor} color={color}>
       <Box
@@ -56,7 +55,7 @@ const DefaultNav = (props) => {
           <Box>
             <Flex align="center" ml={5}>
               <Link to="/">
-                <Heading as="h1" size="xl" letterSpacing={"-.1rem"}>
+                <Heading as="h1" size="xl" letterSpacing={'-.1rem'}>
                   <Image src={logo} width="50px" rounded="full" />
                 </Heading>
               </Link>

@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Heading, Box, Text, Divider, Image } from "@chakra-ui/core";
+import React, { Component } from 'react';
+import { Heading, Box, Text, Divider, Image } from '@chakra-ui/core';
 
-import firebase from "firebase";
+import firebase from 'firebase';
 import getDocs, {
   articleHtmlBody,
-  articleHtmlInformation,
-} from "../../hooks/ReadArticlesFromFirebase";
+  articleHtmlInformation
+} from '../../hooks/ReadArticlesFromFirebase';
 
-import DefaultNav from "../nav/DefaultNav";
-import VerifiedNav from "../nav/VerifiedNav";
+import DefaultNav from '../nav/DefaultNav';
+import VerifiedNav from '../nav/VerifiedNav';
 
 let currentArticleHtmlBody = [];
 
@@ -20,24 +20,24 @@ export class ArticleContentPost extends Component {
     articleSummary: null,
     articleDate: null,
     articleContent: [],
-    currentNav: <DefaultNav />,
+    currentNav: <DefaultNav />
   };
 
   componentDidMount = async () => {
     currentArticleHtmlBody = [];
     currentArticleHtmlBody = articleHtmlBody;
     this.setState({
-      articleContent: currentArticleHtmlBody,
+      articleContent: currentArticleHtmlBody
     });
     console.log(this.props.timestamp);
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          currentNav: <VerifiedNav />
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          currentNav: <DefaultNav />
         });
       }
     });
@@ -47,7 +47,7 @@ export class ArticleContentPost extends Component {
     await getDocs(docId)
       .then(() => {
         this.setState({ articleContent: [] });
-        console.log("Get Docs Article Content:" + this.state.articleContent);
+        console.log('Get Docs Article Content:' + this.state.articleContent);
         console.log(currentArticleHtmlBody);
         this.setState({
           articleTitle: articleHtmlInformation[0],
@@ -55,7 +55,7 @@ export class ArticleContentPost extends Component {
           articleSummary: articleHtmlInformation[2],
           articleDate: articleHtmlInformation[4],
           articleImage: articleHtmlInformation[5],
-          articleContent: currentArticleHtmlBody,
+          articleContent: currentArticleHtmlBody
         });
       })
       .then(() => {
@@ -70,14 +70,13 @@ export class ArticleContentPost extends Component {
       <div>
         {this.state.currentNav}
         <Box />
-        <Box textAlign="center" mt="125px">
+        <Box textAlign="center" mt="50px">
           <Image
             src={this.state.articleImage}
             display="block"
             mx="auto"
             height="auto"
             width="35%"
-            mt="25px"
             rounded="lg"
           />
         </Box>
@@ -88,6 +87,7 @@ export class ArticleContentPost extends Component {
             textAlign="center"
             mx="50px"
             my="25px"
+            mt="50px"
           >
             {this.state.articleTitle}
           </Heading>

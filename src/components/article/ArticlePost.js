@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import { Badge, Box, Image, Collapse, Button, Stack } from "@chakra-ui/core";
-import firebase from "firebase";
-import { Link } from "react-router-dom";
+import { Badge, Box, Image, Collapse, Button, Stack } from '@chakra-ui/core';
+import firebase from 'firebase';
+import { Link } from 'react-router-dom';
 
 export class ArticlePost extends React.Component {
   state = {
-    show: false,
+    show: false
   };
 
   handleToggle = () => {
     this.setState({
-      show: !this.state.show,
+      show: !this.state.show
     });
   };
 
@@ -27,11 +27,11 @@ export class ArticlePost extends React.Component {
 
     if (user != null) {
       user.providerData.forEach((profile) => {
-        console.log("Sign-in provider: " + profile.providerId);
-        console.log("  Provider-specific UID: " + profile.uid);
-        console.log("  Name: " + profile.displayName);
-        console.log("  Email: " + profile.email);
-        console.log("  Photo URL: " + profile.photoURL);
+        console.log('Sign-in provider: ' + profile.providerId);
+        console.log('  Provider-specific UID: ' + profile.uid);
+        console.log('  Name: ' + profile.displayName);
+        console.log('  Email: ' + profile.email);
+        console.log('  Photo URL: ' + profile.photoURL);
       });
     }
   };
@@ -40,10 +40,7 @@ export class ArticlePost extends React.Component {
     return (
       <Box borderWidth="1px" shadow="md" rounded="lg" overflow="hidden">
         <Box height="200px" overflow="hidden">
-          <Image
-            src={this.props.thumbnailImage}
-            width="100%"
-          />
+          <Image src={this.props.thumbnailImage} width="100%" />
         </Box>
         <Box>
           <Box p="6">
@@ -105,7 +102,7 @@ export class ArticlePost extends React.Component {
                   mt="1rem"
                   variant="outline"
                 >
-                  Show {this.state.show ? "Less" : "More"}
+                  Show {this.state.show ? 'Less' : 'More'}
                 </Button>
               </Box>
               <Link
@@ -118,7 +115,7 @@ export class ArticlePost extends React.Component {
               >
                 <Button size="sm" ml="10px" mt="1rem" variant="ghost">
                   {console.log(
-                    "PROPS DOC ID ===================" + this.props.docId
+                    'PROPS DOC ID ===================' + this.props.docId
                   )}
                   Read More
                 </Button>

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import useStorage from "../../hooks/useStorage";
+import React, { useEffect, useState } from 'react';
+import useStorage from '../../hooks/useStorage';
 
-import { FiUpload } from "react-icons/fi";
+import { FiUpload } from 'react-icons/fi';
 
 import {
   Button,
@@ -10,16 +10,16 @@ import {
   FormControl,
   FormLabel,
   InputGroup,
-  Progress,
-} from "@chakra-ui/core";
+  Progress
+} from '@chakra-ui/core';
 
 // import placeholderimage from "../../images/placeholderimage.jpg";
 
 export let fileURL =
-  "https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/placeholder.jpg?alt=media&token=d818ce78-464a-4993-9f53-ee459d135d29";
+  'https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/placeholder.jpg?alt=media&token=d818ce78-464a-4993-9f53-ee459d135d29';
 
 const ProgressBar = ({ file, setFile }) => {
-  const { url, progress } = useStorage(file, "ArticleThumbnail");
+  const { url, progress } = useStorage(file, 'ArticleThumbnail');
 
   useEffect(() => {
     if (url) {
@@ -41,20 +41,20 @@ const UploadForm = () => {
     hiddenFileInput.current.click();
   };
 
-  const types = ["image/png", "image/jpeg", "image/jpg", "image/gif"];
+  const types = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'];
 
   const changeHandler = (e) => {
     let selected = e.target.files[0];
     console.log(selected);
-    console.log("changed");
+    console.log('changed');
 
     if (selected && types.includes(selected.type)) {
       setFile(selected);
       console.log(selected.name);
-      setError("");
+      setError('');
     } else {
       setFile(null);
-      setError("Please Select An Allowed Image File(.png, .jpg, .jpeg, .gif)");
+      setError('Please Select An Allowed Image File(.png, .jpg, .jpeg, .gif)');
     }
   };
 
@@ -74,7 +74,7 @@ const UploadForm = () => {
               <input
                 type="file"
                 accept="image/*"
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
                 ref={hiddenFileInput}
               />
               Upload Thumbnail File

@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -14,17 +14,17 @@ import {
   MenuButton,
   useToast,
   Stack,
-  Avatar,
-} from "@chakra-ui/core";
-import ThemeButton from "./ThemeButton";
-import logo from "../../images/logo.png";
-import firebase from "firebase";
+  Avatar
+} from '@chakra-ui/core';
+import ThemeButton from './ThemeButton';
+import logo from '../../images/logo.png';
+import firebase from 'firebase';
 
-import NavLink from "./NavLink";
+import NavLink from './NavLink';
 
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-const breakpoints = ["360px", "768px", "1024px", "1440px"];
+const breakpoints = ['360px', '768px', '1024px', '1440px'];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
@@ -43,10 +43,10 @@ export const VerifiedNav = (props) => {
   const email = firebase.auth().currentUser.email;
 
   const bgColor = {
-    light: "rgb(76, 110, 245, 0.8)",
-    dark: "rgb(26, 32, 44, 0.5)",
+    light: 'rgb(76, 110, 245, 0.8)',
+    dark: 'rgb(26, 32, 44, 0.5)'
   };
-  const color = { light: "white", dark: "gray.800" };
+  const color = { light: 'white', dark: 'gray.800' };
 
   return (
     <StickyNav bg={bgColor} color={color}>
@@ -67,7 +67,7 @@ export const VerifiedNav = (props) => {
           <Box>
             <Flex align="center" ml={5}>
               <Link to="/">
-                <Heading as="h1" size="xl" letterSpacing={"-.1rem"} mr="2rem">
+                <Heading as="h1" size="xl" letterSpacing={'-.1rem'} mr="2rem">
                   <Image src={logo} width="50px" rounded="full" />
                 </Heading>
               </Link>
@@ -85,7 +85,7 @@ export const VerifiedNav = (props) => {
                     py={2}
                     transition="all 0.2s"
                     rounded="md"
-                    _focus={{ outline: 0, boxShadow: "outline" }}
+                    _focus={{ outline: 0, boxShadow: 'outline' }}
                     marginRight="2px"
                     marginLeft="-2px"
                     // width="8rem"
@@ -93,7 +93,7 @@ export const VerifiedNav = (props) => {
                     <Avatar
                       size="sm"
                       src={`https://unavatar.now.sh/gravatar/${email}`}
-                      />
+                    />
                   </MenuButton>
                   <MenuList>
                     <MenuGroup title="Profile">
@@ -113,12 +113,12 @@ export const VerifiedNav = (props) => {
                               .sendPasswordResetEmail(email)
                               .then(() => {
                                 toast({
-                                  title: "Password Reset Email Has Been Sent",
+                                  title: 'Password Reset Email Has Been Sent',
                                   description:
-                                    "In Order To Reset Your Password, Please Check Your Email",
-                                  status: "success",
+                                    'In Order To Reset Your Password, Please Check Your Email',
+                                  status: 'success',
                                   duration: 5000,
-                                  isClosable: true,
+                                  isClosable: true
                                 });
                               })
                               .catch(function (e) {
@@ -144,18 +144,18 @@ export const VerifiedNav = (props) => {
                             .auth()
                             .signOut()
                             .then(() => {
-                              console.log("Signed Out");
+                              console.log('Signed Out');
                             })
                             .catch((error) => {
                               console.log(error);
                             }) &&
                             toast({
-                              title: "Signed Out Successfully",
+                              title: 'Signed Out Successfully',
                               description:
-                                "You Have Been Signed Out Successfully. Please Note You Will Have To Be Signed In To Access Some Parts Of This Application",
-                              status: "success",
+                                'You Have Been Signed Out Successfully. Please Note You Will Have To Be Signed In To Access Some Parts Of This Application',
+                              status: 'success',
                               duration: 5000,
-                              isClosable: true,
+                              isClosable: true
                             });
                         }}
                       >

@@ -1,7 +1,7 @@
-import React from "react";
-import { Box, Avatar } from "@chakra-ui/core";
+import React from 'react';
+import { Box, Avatar } from '@chakra-ui/core';
 
-import adityarawat from "../../images/team/adityarawat1.jpg";
+import adityarawat from '../../images/team/adityarawat1.jpg';
 
 const Toast = () => {
   return (
@@ -20,10 +20,9 @@ const Toast = () => {
       <Box fontSize="sm">
         <p>
           Aditya Rawat
-          <br />
-          {" "}
+          <br />{' '}
           <Box as="span" opacity={0.7}>
-            {"@aditya1rawat"} <br /> {"11 / 24 / 20"}
+            {'@aditya1rawat'} <br /> {'11 / 24 / 20'}
           </Box>
         </p>
         <Box as="p" mt="2">

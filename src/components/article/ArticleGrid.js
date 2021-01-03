@@ -1,27 +1,27 @@
-import React, { Component } from "react";
-import { Grid, Heading, Box, Divider } from "@chakra-ui/core";
-import ArticlePost from "./ArticlePost";
+import React, { Component } from 'react';
+import { Grid, Heading, Box, Divider } from '@chakra-ui/core';
+import ArticlePost from './ArticlePost';
 
-import firestoreDatabase from "../../firebase/config";
+import firestoreDatabase from '../../firebase/config';
 
 export class ArticleGrid extends Component {
   state = {
-    documents: null,
+    documents: null
   };
 
   componentDidMount = () => {
     firestoreDatabase
-      .collection("articles")
+      .collection('articles')
       .get()
       .then((querySnapshot) => {
         const documents = [];
         querySnapshot.forEach((doc) => {
-          console.log("ARTICLE ID: ==========================");
+          console.log('ARTICLE ID: ==========================');
           console.log(doc.id);
           documents.push(doc);
         });
         this.setState({
-          documents: documents,
+          documents: documents
         });
       });
   };
@@ -43,7 +43,7 @@ export class ArticleGrid extends Component {
           <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
             {this.state.documents != null &&
               this.state.documents.map((document) => {
-                console.log("DOCUMENT ID =====================");
+                console.log('DOCUMENT ID =====================');
                 console.log(document.id);
                 return (
                   <ArticlePost
