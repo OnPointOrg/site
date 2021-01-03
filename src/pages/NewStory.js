@@ -1,4 +1,4 @@
-import React, { Component, createRef } from "react";
+import React, { Component, createRef } from 'react';
 import {
   Box,
   Flex,
@@ -14,47 +14,47 @@ import {
   InputGroup,
   SimpleGrid,
   Select,
-  Tooltip,
-} from "@chakra-ui/core";
+  Tooltip
+} from '@chakra-ui/core';
 
-import EditorJs from "react-editor-js";
+import EditorJs from 'react-editor-js';
 
-import { EDITOR_JS_TOOLS } from "../components/editor/Constants";
+import { EDITOR_JS_TOOLS } from '../components/editor/Constants';
 
-import firestoreDatabase from "../firebase/config";
-import firebase from "firebase";
+import firestoreDatabase from '../firebase/config';
+import firebase from 'firebase';
 
-import UploadForm, { fileURL } from "../components/editor/UploadForm";
+import UploadForm, { fileURL } from '../components/editor/UploadForm';
 
-import VerifiedNav from "../components/nav/VerifiedNav";
-import DefaultNav from "../components/nav/DefaultNav";
+import VerifiedNav from '../components/nav/VerifiedNav';
+import DefaultNav from '../components/nav/DefaultNav';
 
-const VARIANT_COLOR = "teal";
+const VARIANT_COLOR = 'teal';
 const instanceRef = createRef();
 
 export class CreateStory extends Component {
   state = {
-    title: "",
-    category: "",
-    summary: "",
-    articleContent: "",
-    useruid: "",
-    username: "",
-    thumbnailImage: "",
+    title: '',
+    category: '',
+    summary: '',
+    articleContent: '',
+    useruid: '',
+    username: '',
+    thumbnailImage: '',
     currentNav: <DefaultNav />,
     loadingState: false,
-    disabledState: false,
+    disabledState: false
   };
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          currentNav: <VerifiedNav />
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          currentNav: <DefaultNav />
         });
       }
     });
@@ -69,17 +69,17 @@ export class CreateStory extends Component {
       console.log(uid);
       this.setState({
         useruid: uid,
-        username: name,
+        username: name
       });
     } else {
-      alert("Please Sign In!");
+      alert('Please Sign In!');
     }
   };
 
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value,
-      thumbnailImage: fileURL,
+      thumbnailImage: fileURL
     });
     console.log(this.state.thumbnailImage);
   };
@@ -89,7 +89,7 @@ export class CreateStory extends Component {
     console.log(this.state);
     this.setState({
       loadingState: true,
-      disabledState: true,
+      disabledState: true
     });
     this.writeArticleData(this.state);
   };
@@ -97,22 +97,22 @@ export class CreateStory extends Component {
   handleSave = () => {
     this.getTheUserInformation();
     const savedData = instanceRef.current.save();
-    console.log("Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ");
+    console.log('Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ');
     savedData
       .then((outputData) => {
-        console.log("Article data: ", outputData);
+        console.log('Article data: ', outputData);
         this.setState({
-          articleContent: outputData,
+          articleContent: outputData
         });
       })
       .catch((error) => {
-        console.log("Saving failed: ", error);
+        console.log('Saving failed: ', error);
       });
   };
 
   writeArticleData() {
     firestoreDatabase
-      .collection("articles")
+      .collection('articles')
       .add({
         title: this.state.title,
         category: this.state.category,
@@ -120,10 +120,10 @@ export class CreateStory extends Component {
         content: this.state.articleContent,
         useruid: this.state.useruid,
         username: this.state.username,
-        thumbnailImage: this.state.thumbnailImage,
+        thumbnailImage: this.state.thumbnailImage
       })
       .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
+        console.log('Document written with ID: ', docRef.id);
         const { history } = this.props;
         setTimeout(() => {
           history.push(`/article/${docRef.id}`);
@@ -131,12 +131,12 @@ export class CreateStory extends Component {
         }, 5);
       })
       .catch((error) => {
-        console.error("Error adding document: ", error);
+        console.error('Error adding document: ', error);
       });
   }
 
   handleEditorChange = (content, editor) => {
-    console.log("Content was updated:", content);
+    console.log('Content was updated:', content);
   };
 
   render() {
@@ -150,14 +150,14 @@ export class CreateStory extends Component {
                 <Text>New Article</Text>
                 <Heading>Share The Story</Heading>
                 <Text fontSize="xs">
-                  Before You Submit.{" "}
+                  Before You Submit.{' '}
                   <Tooltip label="Need To Add Document Of Requirements Here Later">
                     <ChakraLink
                       href="https://www.google.com"
                       color="teal.500"
                       isExternal
                     >
-                      Check The Requirements Here{" "}
+                      Check The Requirements Here{' '}
                       <Icon name="external-link" mx="2px" />
                     </ChakraLink>
                   </Tooltip>
@@ -195,7 +195,7 @@ export class CreateStory extends Component {
                             color="white"
                             value="politics"
                             onClick={() => {
-                              this.setState({ category: "Politics" });
+                              this.setState({ category: 'Politics' });
                             }}
                           >
                             Politics
@@ -205,7 +205,7 @@ export class CreateStory extends Component {
                             color="white"
                             value="technology"
                             onClick={() => {
-                              this.setState({ category: "Technology" });
+                              this.setState({ category: 'Technology' });
                             }}
                           >
                             Technology
@@ -215,7 +215,7 @@ export class CreateStory extends Component {
                             color="white"
                             value="sports"
                             onClick={() => {
-                              this.setState({ category: "Sports" });
+                              this.setState({ category: 'Sports' });
                             }}
                           >
                             Sports
@@ -257,12 +257,12 @@ export class CreateStory extends Component {
                       autofocus
                       onChange={(data) =>
                         this.setState({
-                          articleContent: data,
+                          articleContent: data
                         })
                       }
                       tools={EDITOR_JS_TOOLS}
                       i18n={{
-                        messages: {},
+                        messages: {}
                       }}
                       onReady={() => console.log()}
                       data={{}}

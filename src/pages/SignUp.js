@@ -1,6 +1,6 @@
-import React from "react";
-import { Component } from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -14,45 +14,45 @@ import {
   Button,
   InputGroup,
   InputLeftElement,
-  Icon,
-} from "@chakra-ui/core";
+  Icon
+} from '@chakra-ui/core';
 
-import * as firebase from "firebase";
+import * as firebase from 'firebase';
 
-import DefaultNav from "../components/nav/DefaultNav";
-import VerifiedNav from "../components/nav/VerifiedNav";
-import Footer from "../components/Footer";
+import DefaultNav from '../components/nav/DefaultNav';
+import VerifiedNav from '../components/nav/VerifiedNav';
+import Footer from '../components/Footer';
 
-const VARIANT_COLOR = "teal";
+const VARIANT_COLOR = 'teal';
 
 class SignUp extends Component {
   state = {
-    fullName: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    emailError: "",
-    passwordError: "",
-    signUpSuccess: "",
+    fullName: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    emailError: '',
+    passwordError: '',
+    signUpSuccess: '',
     redirect: null,
     currentNav: <DefaultNav />,
     signButton: (
       <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={4}>
         Sign Up
       </Button>
-    ),
+    )
   };
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          currentNav: <VerifiedNav />
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          currentNav: <DefaultNav />
         });
       }
     });
@@ -60,7 +60,7 @@ class SignUp extends Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value,
+      [e.target.id]: e.target.value
     });
   };
 
@@ -77,7 +77,7 @@ class SignUp extends Component {
         >
           Sign Up
         </Button>
-      ),
+      )
     });
     this.signUpSubmit(this.state);
   };
@@ -87,14 +87,14 @@ class SignUp extends Component {
 
     user
       .updateProfile({
-        displayName: this.state.fullName,
+        displayName: this.state.fullName
       })
       .then(function () {
-        console.log("Info Saved");
-        console.log("displayName: " + user.displayName);
+        console.log('Info Saved');
+        console.log('displayName: ' + user.displayName);
       })
       .catch((error) => {
-        console.log("User Info Error: " + error);
+        console.log('User Info Error: ' + error);
       });
   };
 
@@ -107,11 +107,11 @@ class SignUp extends Component {
       .createUserWithEmailAndPassword(email, password)
       .catch((error) => {
         const errorCode = error.code;
-        if (errorCode === "auth/email-already-in-use") {
+        if (errorCode === 'auth/email-already-in-use') {
           this.setState({
             emailError:
-              "This Email Is Already In Use! Please Sign In Or Use A Different Email!",
-            signUpSuccess: "",
+              'This Email Is Already In Use! Please Sign In Or Use A Different Email!',
+            signUpSuccess: '',
             signButton: (
               <Button
                 type="submit"
@@ -121,13 +121,13 @@ class SignUp extends Component {
               >
                 Sign Up
               </Button>
-            ),
+            )
           });
           if (this.state.password.length < 8) {
             this.setState({
               passwordError:
-                "This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!",
-              signUpSuccess: "",
+                'This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!',
+              signUpSuccess: '',
               signButton: (
                 <Button
                   type="submit"
@@ -137,22 +137,22 @@ class SignUp extends Component {
                 >
                   Sign Up
                 </Button>
-              ),
+              )
             });
           } else {
             this.setState({
-              passwordError: "",
-              signUpSuccess: "",
+              passwordError: '',
+              signUpSuccess: ''
             });
           }
         } else if (
           this.state.password.length < 8 ||
-          errorCode === "auth/weak-password"
+          errorCode === 'auth/weak-password'
         ) {
           this.setState({
             passwordError:
-              "This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!",
-            signUpSuccess: "",
+              'This Password Is Too Short And/Or Weak! Please Choose A Stronger Password With At Least 8 Characters!',
+            signUpSuccess: '',
             signButton: (
               <Button
                 type="submit"
@@ -162,13 +162,13 @@ class SignUp extends Component {
               >
                 Sign Up
               </Button>
-            ),
+            )
           });
-          if (errorCode === "auth/email-already-in-use") {
+          if (errorCode === 'auth/email-already-in-use') {
             this.setState({
               emailError:
-                "This Email Is Already In Use! Please Sign In Or Use A Different Email!",
-              signUpSuccess: "",
+                'This Email Is Already In Use! Please Sign In Or Use A Different Email!',
+              signUpSuccess: '',
               signButton: (
                 <Button
                   type="submit"
@@ -178,12 +178,12 @@ class SignUp extends Component {
                 >
                   Sign Up
                 </Button>
-              ),
+              )
             });
           } else {
             this.setState({
-              emailError: "",
-              signUpSuccess: "",
+              emailError: '',
+              signUpSuccess: ''
             });
           }
         }
@@ -193,13 +193,13 @@ class SignUp extends Component {
         if (user) {
           const { history } = this.props;
           this.setState({
-            emailError: "",
-            passwordError: "",
+            emailError: '',
+            passwordError: '',
             signUpSuccess:
-              "Account Created Successfully! You Are Now Logged In!",
+              'Account Created Successfully! You Are Now Logged In!',
             redirect: setTimeout(() => {
-              history.push("/");
-            }, 2000),
+              history.push('/');
+            }, 2000)
           });
           console.log(user);
           user.updateProfile({ displayName: fullName });
@@ -213,7 +213,7 @@ class SignUp extends Component {
       <Box height="100%">
         {this.state.currentNav}
         <Flex
-          my={"5rem"}
+          my={'5rem'}
           minHeight="50vh"
           width="full"
           align="center"
@@ -279,7 +279,7 @@ class SignUp extends Component {
                   <Text fontSize="xs">{this.state.redirect}</Text>
 
                   <Box mt={1}>
-                    Already Have An Account?{" "}
+                    Already Have An Account?{' '}
                     <ChakraLink color={`${VARIANT_COLOR}.500`}>
                       <Link to="/signin">Sign In Here.</Link>
                     </ChakraLink>

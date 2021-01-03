@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -12,41 +12,41 @@ import {
   InputGroup,
   InputLeftElement,
   Icon,
-  Link as ChakraLink,
-} from "@chakra-ui/core";
+  Link as ChakraLink
+} from '@chakra-ui/core';
 
-import DefaultNav from "../components/nav/DefaultNav";
-import VerifiedNav from "../components/nav/VerifiedNav";
+import DefaultNav from '../components/nav/DefaultNav';
+import VerifiedNav from '../components/nav/VerifiedNav';
 
-import * as firebase from "firebase";
-import Footer from "../components/Footer";
+import * as firebase from 'firebase';
+import Footer from '../components/Footer';
 
-const VARIANT_COLOR = "teal";
+const VARIANT_COLOR = 'teal';
 
 class SignIn extends React.Component {
   state = {
-    email: "",
-    password: "",
-    emailError: "",
-    passwordError: "",
+    email: '',
+    password: '',
+    emailError: '',
+    passwordError: '',
     signButton: (
       <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={5}>
         Sign In
       </Button>
     ),
     redirect: null,
-    currentNav: <DefaultNav />,
+    currentNav: <DefaultNav />
   };
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          currentNav: <VerifiedNav />
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          currentNav: <DefaultNav />
         });
       }
     });
@@ -54,7 +54,7 @@ class SignIn extends React.Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value,
+      [e.target.id]: e.target.value
     });
   };
 
@@ -63,7 +63,7 @@ class SignIn extends React.Component {
     this.setState({
       signButton: (
         <Button isLoading loadingText="Signing In..." width="full" mt={4} />
-      ),
+      )
     });
     this.signInSubmit();
     console.log(this.state);
@@ -83,7 +83,7 @@ class SignIn extends React.Component {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            if (errorCode === "auth/wrong-password") {
+            if (errorCode === 'auth/wrong-password') {
               this.setState({
                 passwordError: (
                   <Text fontSize="xs">
@@ -91,7 +91,7 @@ class SignIn extends React.Component {
                     Your Password
                   </Text>
                 ),
-                emailError: "",
+                emailError: '',
                 signButton: (
                   <Button
                     type="submit"
@@ -101,14 +101,14 @@ class SignIn extends React.Component {
                   >
                     Sign In
                   </Button>
-                ),
+                )
               });
-            } else if (errorCode === "auth/user-not-found") {
+            } else if (errorCode === 'auth/user-not-found') {
               this.setState({
                 emailError: (
                   <Text fontSize="xs">This Email Does Not Exist</Text>
                 ),
-                passwordError: "",
+                passwordError: '',
                 signButton: (
                   <Button
                     type="submit"
@@ -118,9 +118,9 @@ class SignIn extends React.Component {
                   >
                     Sign In
                   </Button>
-                ),
+                )
               });
-            } else if (errorCode === "auth/too-many-requests") {
+            } else if (errorCode === 'auth/too-many-requests') {
               this.setState({
                 emailError: (
                   <Text fontSize="xs">
@@ -128,7 +128,7 @@ class SignIn extends React.Component {
                     This Is A Mistake
                   </Text>
                 ),
-                passwordError: "",
+                passwordError: '',
                 signButton: (
                   <Button
                     type="submit"
@@ -138,11 +138,11 @@ class SignIn extends React.Component {
                   >
                     Sign In
                   </Button>
-                ),
+                )
               });
             }
-            console.log("Error Message: " + errorMessage);
-            console.log("Error Code: " + errorCode);
+            console.log('Error Message: ' + errorMessage);
+            console.log('Error Code: ' + errorCode);
           })
           .then(() => {
             const { history } = this.props;
@@ -150,8 +150,8 @@ class SignIn extends React.Component {
             if (user) {
               this.setState({
                 redirect: setTimeout(() => {
-                  history.push("/");
-                }, 1500),
+                  history.push('/');
+                }, 1500)
               });
             }
           });
@@ -208,7 +208,7 @@ class SignIn extends React.Component {
                   </FormControl>
                   {this.state.signButton}
                   <Box mt={1}>
-                    Need An Account?{" "}
+                    Need An Account?{' '}
                     <ChakraLink color={`${VARIANT_COLOR}.500`}>
                       <Link to="/signup">Sign Up Here</Link>
                     </ChakraLink>

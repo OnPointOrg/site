@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Button, Link as ChakraLink } from "@chakra-ui/core";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Box, Button, Link as ChakraLink } from '@chakra-ui/core';
+import { Link } from 'react-router-dom';
 
 const NavLink = (props) => {
   return (

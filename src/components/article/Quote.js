@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Box, Heading, Text } from "@chakra-ui/core";
+import React, { Component } from 'react';
+import { Box, Heading, Text } from '@chakra-ui/core';
 
-import { FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteLeft } from 'react-icons/fa';
 
 export class Quote extends Component {
   render() {
@@ -12,7 +12,8 @@ export class Quote extends Component {
         overflow="hidden"
         width="50%"
         my="25px"
-        display="block" mx="auto"
+        display="block"
+        mx="auto"
       >
         <Box margin="25px">
           <Heading>
@@ -29,12 +30,7 @@ export class Quote extends Component {
             <Text fontSize="xl" mx="100px">
               {this.props.quote}
             </Text>
-            <Box
-              alignItems="center"
-              color="gray.600"
-              margin="25px"
-              mr="50px"
-            >
+            <Box alignItems="center" color="gray.600" margin="25px" mr="50px">
               <Text fontSize="lg" textAlign="right">
                 - {this.props.credits}
               </Text>

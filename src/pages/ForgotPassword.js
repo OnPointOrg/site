@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import {
   Box,
   Flex,
@@ -12,36 +12,36 @@ import {
   InputGroup,
   InputLeftElement,
   Icon,
-  Link as ChakraLink,
-} from "@chakra-ui/core";
+  Link as ChakraLink
+} from '@chakra-ui/core';
 
-import DefaultNav from "../components/nav/DefaultNav";
-import VerifiedNav from "../components/nav/VerifiedNav";
+import DefaultNav from '../components/nav/DefaultNav';
+import VerifiedNav from '../components/nav/VerifiedNav';
 
-import * as firebase from "firebase";
+import * as firebase from 'firebase';
 
 class ForgotPassword extends React.Component {
   state = {
-    email: "",
-    emailError: "",
-    passwordError: "",
+    email: '',
+    emailError: '',
+    passwordError: '',
     submitStatus: (
       <Button type="submit" variantColor="teal" width="full" mt={5}>
         Send
       </Button>
     ),
-    currentNav: <DefaultNav />,
+    currentNav: <DefaultNav />
   };
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          currentNav: <VerifiedNav />
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          currentNav: <DefaultNav />
         });
       }
     });
@@ -53,23 +53,23 @@ class ForgotPassword extends React.Component {
       .auth()
       .sendPasswordResetEmail(email)
       .then(() => {
-        console.log("Email Sent");
+        console.log('Email Sent');
         this.setState({
           submitStatus: (
             <Button variantColor="teal" width="full" mt={5}>
               Email Sent! Please Check Your Inbox In A Few Minutes!
             </Button>
-          ),
+          )
         });
       })
       .catch((error) => {
-        if (error.code === "auth/user-not-found") {
+        if (error.code === 'auth/user-not-found') {
           this.setState({
             submitStatus: (
               <Button variantColor="teal" width="full" mt={5}>
                 User Not Found! If This Is An Error, Contact Us!
               </Button>
-            ),
+            )
           });
         }
       });
@@ -77,7 +77,7 @@ class ForgotPassword extends React.Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.id]: e.target.value,
+      [e.target.id]: e.target.value
     });
   };
 
@@ -86,7 +86,7 @@ class ForgotPassword extends React.Component {
     this.setState({
       submitStatus: (
         <Button isLoading loadingText="Sending..." width="full" mt={4} />
-      ),
+      )
     });
     this.signInSubmit();
     console.log(this.state);

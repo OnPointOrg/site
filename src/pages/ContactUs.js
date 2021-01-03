@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Button,
   Input,
@@ -7,29 +7,29 @@ import {
   FormControl,
   Heading,
   Flex,
-  Box,
-} from "@chakra-ui/core";
+  Box
+} from '@chakra-ui/core';
 
-import firebase from "firebase";
+import firebase from 'firebase';
 
-import DefaultNav from "../components/nav/DefaultNav";
-import VerifiedNav from "../components/nav/VerifiedNav";
-import Footer from "../components/Footer";
+import DefaultNav from '../components/nav/DefaultNav';
+import VerifiedNav from '../components/nav/VerifiedNav';
+import Footer from '../components/Footer';
 
 class Contact extends Component {
   state = {
-    currentNav: <DefaultNav />,
+    currentNav: <DefaultNav />
   };
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          currentNav: <VerifiedNav />
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          currentNav: <DefaultNav />
         });
       }
     });

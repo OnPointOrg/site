@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import {
   projectStorage,
   firestoreDatabase,
-  timestamp,
-} from "../firebase/config";
+  timestamp
+} from '../firebase/config';
 
 const useStorage = (file, location) => {
   const [progress, setProgress] = useState(0);
@@ -12,10 +12,10 @@ const useStorage = (file, location) => {
 
   useEffect(() => {
     const storageRef = projectStorage.ref(`${location}/` + file.name);
-    const collectionRef = firestoreDatabase.collection("images");
+    const collectionRef = firestoreDatabase.collection('images');
 
     storageRef.put(file).on(
-      "state_changed",
+      'state_changed',
       (snap) => {
         let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
         setProgress(percentage);

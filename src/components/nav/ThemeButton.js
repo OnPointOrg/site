@@ -1,5 +1,5 @@
-import React from "react";
-import { IconButton, useColorMode, Tooltip } from "@chakra-ui/core";
+import React from 'react';
+import { IconButton, useColorMode, Tooltip } from '@chakra-ui/core';
 
 const ThemeButton = () => {
   const { colorMode } = useColorMode();
@@ -14,15 +14,15 @@ const ThemeButton = () => {
       <IconButton
         size="lg"
         aria-label={`Switch to ${
-          colorMode === "light" ? "dark" : "light"
+          colorMode === 'light' ? 'dark' : 'light'
         } mode`}
         variant="outline"
         color="current"
-        fontSize={["20px", "20px", "20px", "20px"]}
+        fontSize={['20px', '20px', '20px', '20px']}
         // onClick={toggleColorMode}
-        icon={colorMode === "light" ? "moon" : "sun"}
+        icon={colorMode === 'light' ? 'moon' : 'sun'}
         _focus={{
-          outline: "none",
+          outline: 'none'
         }}
       />
     </Tooltip>

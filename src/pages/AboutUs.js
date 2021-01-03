@@ -1,33 +1,33 @@
-import React from "react";
-import { Heading, Text, Box, SimpleGrid } from "@chakra-ui/core";
-import DefaultNav from "../components/nav/DefaultNav";
-import VerifiedNav from "../components/nav/VerifiedNav";
-import Footer from "../components/Footer";
-import firebase from "firebase";
-import adityaverma from "../images/team/adityaverma.png";
-import sujithsanniboyina from "../images/team/sujith1.jpg";
-import adityarawat from "../images/team/adityarawat1.jpg";
-import adityagirish from "../images/team/adityagirish.png";
-import adityahari from "../images/team/adityahari.jpg";
-import adityaguntupalli from "../images/team/adityaguntupalli.png";
-import yashkhot from "../images/team/yashkhot.jpg";
+import React from 'react';
+import { Heading, Text, Box, SimpleGrid } from '@chakra-ui/core';
+import DefaultNav from '../components/nav/DefaultNav';
+import VerifiedNav from '../components/nav/VerifiedNav';
+import Footer from '../components/Footer';
+import firebase from 'firebase';
+import adityaverma from '../images/team/adityaverma.png';
+import sujithsanniboyina from '../images/team/sujith1.jpg';
+import adityarawat from '../images/team/adityarawat1.jpg';
+import adityagirish from '../images/team/adityagirish.png';
+import adityahari from '../images/team/adityahari.jpg';
+import adityaguntupalli from '../images/team/adityaguntupalli.png';
+import yashkhot from '../images/team/yashkhot.jpg';
 
-import Profile from "../components/Profile";
+import Profile from '../components/Profile';
 
 export class AboutUs extends React.Component {
   state = {
-    currentNav: <DefaultNav />,
+    currentNav: <DefaultNav />
   };
 
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
-          currentNav: <VerifiedNav />,
+          currentNav: <VerifiedNav />
         });
       } else {
         this.setState({
-          currentNav: <DefaultNav />,
+          currentNav: <DefaultNav />
         });
       }
     });
@@ -79,11 +79,11 @@ export class AboutUs extends React.Component {
               </Text>
             </Box>
           </Box>
-          <Box mx="25px" height="100%" mt={"50px"} justifyContent="center">
+          <Box mx="25px" height="100%" mt={'50px'} justifyContent="center">
             <SimpleGrid columns={[2, null, 3]} spacing="20px">
               <Profile
                 name="Aditya Verma"
-                roles={["CEO", "Founder"]}
+                roles={['CEO', 'Founder']}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaverma}
@@ -93,7 +93,7 @@ export class AboutUs extends React.Component {
               />
               <Profile
                 name="Aditya Rawat"
-                roles={["Co-Founder", "CTO"]}
+                roles={['Co-Founder', 'CTO']}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityarawat}
@@ -103,7 +103,7 @@ export class AboutUs extends React.Component {
               />
               <Profile
                 name="Aditya Girish"
-                roles={["Co-Founder", "Tech Lead"]}
+                roles={['Co-Founder', 'Tech Lead']}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityagirish}
@@ -112,7 +112,7 @@ export class AboutUs extends React.Component {
               />
               <Profile
                 name="Aditya Guntupalli"
-                roles={["Co-Founder", "Chief Editor"]}
+                roles={['Co-Founder', 'Chief Editor']}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityaguntupalli}
@@ -122,7 +122,7 @@ export class AboutUs extends React.Component {
               />
               <Profile
                 name="Aditya Hari"
-                roles={["Co-Founder", "HR"]}
+                roles={['Co-Founder', 'HR']}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={adityahari}
@@ -131,7 +131,7 @@ export class AboutUs extends React.Component {
               />
               <Profile
                 name="Sujith Sanniboyina"
-                roles={["Co-Founder", "Secretary"]}
+                roles={['Co-Founder', 'Secretary']}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={sujithsanniboyina}
@@ -140,7 +140,7 @@ export class AboutUs extends React.Component {
               />
               <Profile
                 name="Yash Khot"
-                roles={["Co-Founder", "Entertainment"]}
+                roles={['Co-Founder', 'Entertainment']}
                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                 img={yashkhot}

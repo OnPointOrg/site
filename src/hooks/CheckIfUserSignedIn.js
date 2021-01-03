@@ -1,8 +1,8 @@
-import React from "react";
-import * as firebase from "firebase";
-import DefaultNav from "../components/nav/DefaultNav";
-import VerifiedNav from "../components/nav/VerifiedNav";
-import { Link } from "react-router-dom";
+import React from 'react';
+import * as firebase from 'firebase';
+import DefaultNav from '../components/nav/DefaultNav';
+import VerifiedNav from '../components/nav/VerifiedNav';
+import { Link } from 'react-router-dom';
 
 import {
   Alert,
@@ -11,17 +11,17 @@ import {
   AlertDescription,
   CloseButton,
   Link as ChakraLink,
-  Icon,
-} from "@chakra-ui/core";
+  Icon
+} from '@chakra-ui/core';
 
 const CheckIfUserSignedIn = () => {
   const user = firebase.auth().currentUser;
   if (user) {
-    console.log("The User Is Logged In.");
+    console.log('The User Is Logged In.');
     console.log(user);
     return <VerifiedNav />;
   } else {
-    console.log("The User Is Not Logged In");
+    console.log('The User Is Not Logged In');
     return (
       <div>
         <DefaultNav />
@@ -29,13 +29,13 @@ const CheckIfUserSignedIn = () => {
           <AlertIcon />
           <AlertTitle mr={2}>Uh Oh!</AlertTitle>
           <AlertDescription>
-            You Are Not Signed In! Your Experience May Be Limited! Sign Up{" "}
+            You Are Not Signed In! Your Experience May Be Limited! Sign Up{' '}
             <Link to="/signup">
               <ChakraLink color="teal.500">
                 Here <Icon name="external-link" mx="2px" />
               </ChakraLink>
-            </Link>{" "}
-            Sign In{" "}
+            </Link>{' '}
+            Sign In{' '}
             <Link to="/signin">
               <ChakraLink color="teal.500">
                 Here <Icon name="external-link" mx="2px" />

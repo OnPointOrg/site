@@ -1,5 +1,5 @@
-import React from "react";
-import firestoreDatabase from "../firebase/config";
+import React from 'react';
+import firestoreDatabase from '../firebase/config';
 import {
   Heading,
   List,
@@ -12,9 +12,9 @@ import {
   AlertDescription,
   Code,
   Divider,
-  Image,
-} from "@chakra-ui/core";
-import Quote from "../components/article/Quote";
+  Image
+} from '@chakra-ui/core';
+import Quote from '../components/article/Quote';
 
 const convertFromUnix = (date) => {
   const dateObject = new Date(date);
@@ -28,7 +28,7 @@ export const articleHtmlBody = [];
 
 const getDocs = async (articleID) => {
   await firestoreDatabase
-    .collection("articles")
+    .collection('articles')
     .doc(articleID)
     .get()
     .then((querySnapshot) => {
@@ -39,7 +39,7 @@ const getDocs = async (articleID) => {
       articleHtmlInformation.push(article.summary);
       articleHtmlInformation.push(article.category);
       articleHtmlInformation.push(convertFromUnix(article.content.time));
-      articleHtmlInformation.push(article.thumbnailImage)
+      articleHtmlInformation.push(article.thumbnailImage);
 
       caseChecks(article);
     })
@@ -56,17 +56,17 @@ const caseChecks = (article) => {
       default:
         break;
 
-      case "paragraph":
+      case 'paragraph':
         const paragraphText = article.content.blocks[i].data.text;
         articleHtmlBody.push(<Text>{paragraphText}</Text>);
         break;
 
-      case "header":
+      case 'header':
         const headerText = article.content.blocks[i].data.text;
         articleHtmlBody.push(<Heading>{headerText}</Heading>);
         break;
 
-      case "list":
+      case 'list':
         const items = article.content.blocks[i].data.items;
         const allItems = [];
         for (let j = 0; j < items.length; j++) {
@@ -82,7 +82,7 @@ const caseChecks = (article) => {
         );
         break;
 
-      case "warning":
+      case 'warning':
         const warningText = article.content.blocks[i].data.message;
         const warningTitle = article.content.blocks[i].data.title;
         articleHtmlBody.push(
@@ -95,29 +95,27 @@ const caseChecks = (article) => {
         );
         break;
 
-      case "code":
+      case 'code':
         const codeContent = article.content.blocks[i].data.code;
         articleHtmlBody.push(<Code>{codeContent}</Code>);
 
         break;
 
-      case "linkTool":
+      case 'linkTool':
         break;
 
-      case "delimiter":
+      case 'delimiter':
         articleHtmlBody.push(<Divider m="10" />);
         break;
 
-      case "quote":
+      case 'quote':
         const quote = article.content.blocks[i].data.text;
         const credits = article.content.blocks[i].data.caption;
-        articleHtmlBody.push(
-          <Quote quote={quote} credits={credits} />
-        );
+        articleHtmlBody.push(<Quote quote={quote} credits={credits} />);
         break;
 
-      case "image":
-        console.log("--------- Image URL Inside The Image Case ---------");
+      case 'image':
+        console.log('--------- Image URL Inside The Image Case ---------');
         console.log(this.imageUrl);
         articleHtmlBody.push(<Image src="" alt="" />);
         break;

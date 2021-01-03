@@ -1,25 +1,25 @@
-import React, { Component } from "react";
-import { Grid, Box, Divider, Heading } from "@chakra-ui/core";
+import React, { Component } from 'react';
+import { Grid, Box, Divider, Heading } from '@chakra-ui/core';
 
-import firestoreDatabase from "../../firebase/config";
+import firestoreDatabase from '../../firebase/config';
 
-import HomeArticles from "./HomeArticles";
+import HomeArticles from './HomeArticles';
 
 export class ArticleTrendingNew extends Component {
   state = {
     articles: null,
-    show: false,
+    show: false
   };
 
   handleToggle = () => {
     this.setState({
-      show: !this.state.show,
+      show: !this.state.show
     });
   };
 
   componentDidMount = () => {
     firestoreDatabase
-      .collection("articles")
+      .collection('articles')
       .get()
       .then((querySnapshot) => {
         const articles = [];
@@ -28,7 +28,7 @@ export class ArticleTrendingNew extends Component {
           articles.push(article);
         });
         this.setState({
-          articles: articles,
+          articles: articles
         });
       });
   };
@@ -45,7 +45,7 @@ export class ArticleTrendingNew extends Component {
             {this.state.articles != null &&
               this.state.articles.slice(0, 4).map((article) => {
                 console.log(article);
-                console.log("DOCUMENT ID =====================");
+                console.log('DOCUMENT ID =====================');
                 console.log(article.documentId);
                 return (
                   <HomeArticles

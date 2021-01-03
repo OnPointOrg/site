@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Box,
   Stack,
@@ -6,13 +6,13 @@ import {
   Text,
   Heading,
   Button,
-  Collapse,
-} from "@chakra-ui/core";
-import { Link } from "react-router-dom";
+  Collapse
+} from '@chakra-ui/core';
+import { Link } from 'react-router-dom';
 
 export class HomeArticles extends Component {
   state = {
-    show: false,
+    show: false
   };
 
   convertFromUnix = (date) => {
@@ -24,7 +24,7 @@ export class HomeArticles extends Component {
 
   handleToggle = () => {
     this.setState({
-      show: !this.state.show,
+      show: !this.state.show
     });
   };
   render() {
@@ -62,7 +62,7 @@ export class HomeArticles extends Component {
                 mr="10px"
                 variant="outline"
               >
-                Show {this.state.show ? "Less" : "More"}
+                Show {this.state.show ? 'Less' : 'More'}
               </Button>
               <Link to={() => `/article/${this.props.docId}`}>
                 <Button rightIcon="arrow-forward" variant="ghost" fontSize="sm">

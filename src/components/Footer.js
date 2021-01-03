@@ -6,14 +6,14 @@ import {
   Stack,
   Icon,
   Box
-} from "@chakra-ui/core";
-import { Link } from "react-router-dom";
-import React from "react";
-import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from "react-icons/fa";
+} from '@chakra-ui/core';
+import { Link } from 'react-router-dom';
+import React from 'react';
+import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <Box justifyContent="center" borderTopColor="teal" borderTopWidth="5px" >
+    <Box justifyContent="center" borderTopColor="teal" borderTopWidth="5px">
       <Stack pt={5} direction="row" justify="center" mt="25px">
         <Link to="/about">
           <Button variant="ghost" mx="15px">
@@ -105,11 +105,11 @@ const Footer = () => {
         Copyright &copy; {new Date().getFullYear()}. OnPoint News.
       </Text>
       <Text m={3} fontSize="xs" textAlign="center" mb="50px">
-        Developed With{" "}
+        Developed With{' '}
         <span role="img" aria-label="heart">
           ❤️
-        </span>{" "}
-        By{" "}
+        </span>{' '}
+        By{' '}
         <ChakraLink
           href="https://github.com/aditya1rawat"
           isExternal
