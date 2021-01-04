@@ -337,7 +337,6 @@ export class Home extends React.Component {
                       _hover=""
                     >
                       <Image
-                        // rounded="full"
                         w="56px"
                         h="56px"
                         alt={'alt'}

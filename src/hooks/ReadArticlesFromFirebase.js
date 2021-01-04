@@ -18,8 +18,10 @@ import Quote from '../components/article/Quote';
 
 const convertFromUnix = (date) => {
   const dateObject = new Date(date);
+  // const month = dateObject.getMonth()
+  // const day = dateObject.getDay()
 
-  date = dateObject.toLocaleString();
+  date = dateObject.toLocaleDateString('en-US');
   return date;
 };
 
@@ -58,7 +60,7 @@ const caseChecks = (article) => {
 
       case 'paragraph':
         const paragraphText = article.content.blocks[i].data.text;
-        articleHtmlBody.push(<Text>{paragraphText}</Text>);
+        articleHtmlBody.push(<Text fontSize="20px">{paragraphText}</Text>);
         break;
 
       case 'header':
