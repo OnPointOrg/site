@@ -6,7 +6,8 @@ import {
   Divider,
   Image,
   SimpleGrid,
-  Stack
+  Stack,
+  Link as ChakraLink
 } from '@chakra-ui/core';
 
 import { Link } from 'react-router-dom';
@@ -83,54 +84,53 @@ export class ArticleContentPost extends Component {
         {/* <Box textAlign="center" mt="50px">
           
         </Box> */}
-        <Box
-          alignItems="center"
-          display="block"
-          mx="auto"
-          width="75%"
-          mt="25px"
-        >
-          <SimpleGrid minChildWidth="120px" spacing="250px" columns={2}>
-            <Box width="175%" margin="25px">
-              <Heading
-                as="h1"
-                fontSize="50px"
-                textAlign="left"
-                mx="50px"
-                my="15px"
-                mt="50px"
-              >
-                {this.state.articleTitle}
-              </Heading>
-            </Box>
-            <Box width="100%" margin="15px">
-              <Image
-                src={this.state.articleImage}
-                display="block"
-                mx="auto"
-                height="auto"
-                width="60%"
-                rounded="lg"
-              />
-            </Box>
-          </SimpleGrid>
-          <Box>
-            <Stack isInline>
-              <Box ml="75px" textAlign="left" fontSize="15px">
-                By{' '}
-                <Link to={`/${this.state.articleAuthor}`}>
-                  <Box as="span" textDecor="underline">
-                    {this.state.articleAuthor}
-                  </Box>
-                </Link>
+        <SimpleGrid minChildWidth="120px" spacing="100px" columns={2}>
+          <Box
+            alignItems="center"
+            display="block"
+            mx="auto"
+            width="75%"
+            mt="25px"
+          >
+            <Box mt="75px">
+              <Box width="100%" ml="25px">
+                <Heading as="h1" fontSize="50px" textAlign="left" mx="50px">
+                  {this.state.articleTitle}
+                </Heading>
               </Box>
-              <Text fontSize="15px">{this.state.articleDate}</Text>
-            </Stack>
+            </Box>
+
+            <Box>
+              <Stack isInline mt="35px">
+                <Box ml="75px" textAlign="left" fontSize="20px">
+                  By{' '}
+                  <ChakraLink color="teal.500">
+                    <Link to={`/${this.state.articleAuthor}`}>
+                      {this.state.articleAuthor}
+                    </Link>
+                  </ChakraLink>
+                </Box>
+                <Text fontSize="20px">
+                  <span>&bull;&bull;&bull;</span>
+                </Text>
+                <Text fontSize="20px">{this.state.articleDate}</Text>
+              </Stack>
+            </Box>
+            <Text paddingLeft="75px" marginTop="25px" width="125%">
+              {this.state.articleSummary}
+            </Text>
           </Box>
-          <Text paddingLeft="75px" marginTop="25px">
-            {this.state.articleSummary}
-          </Text>
-        </Box>
+          <Box width="75%" my="auto">
+            <Image
+              mt="75px"
+              src={this.state.articleImage}
+              display="block"
+              mx="auto"
+              // height="auto"
+              rounded="lg"
+            />
+          </Box>
+        </SimpleGrid>
         <Box />
         <Box />
         <Divider mx="100px" my="50px" />
