@@ -81,9 +81,6 @@ export class ArticleContentPost extends Component {
       <div>
         {this.state.currentNav}
         <Box />
-        {/* <Box textAlign="center" mt="50px">
-          
-        </Box> */}
         <SimpleGrid minChildWidth="120px" spacing="100px" columns={2}>
           <Box
             alignItems="center"
@@ -126,7 +123,6 @@ export class ArticleContentPost extends Component {
               src={this.state.articleImage}
               display="block"
               mx="auto"
-              // height="auto"
               rounded="lg"
             />
           </Box>
