@@ -6,7 +6,12 @@ const NavLink = (props) => {
   return (
     <Box mx={3}>
       <Link to={`/${props.link}`}>
-        <Button variantColor="teal" variant="ghost" rounded="full">
+        <Button
+          variantColor="teal"
+          variant="ghost"
+          rounded="full"
+          _hover={{ textDecoration: 'none' }}
+        >
           <ChakraLink p={4}>{props.name}</ChakraLink>
         </Button>
       </Link>

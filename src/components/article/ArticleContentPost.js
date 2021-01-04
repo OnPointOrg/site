@@ -104,7 +104,7 @@ export class ArticleContentPost extends Component {
         <Box />
         <Box />
         <Divider mx="100px" my="50px" />
-        <Box marginBottom="75px" display="block" mx="auto" width="80%">
+        <Box marginBottom="75px" display="block" mx="auto" width="55%">
           {this.state.articleContent.map((element) => (
             <Box margin="25px">{element}</Box>
           ))}

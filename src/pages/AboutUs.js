@@ -37,9 +37,15 @@ export class AboutUs extends React.Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        <Box mb={20} overflow="hidden" mt="5rem">
-          <Box as="section" mt="3rem">
-            <Box maxW="760px" mx="auto" textAlign="center">
+        <Box mb={20} overflow="hidden" mt="5rem" as="section">
+          <Box as="section">
+            <Box
+              maxW="760px"
+              mx="auto"
+              textAlign="center"
+              pb="15rem"
+              pt="11rem"
+            >
               <Heading
                 fontSize="5rem"
                 letterSpacing="tight"
@@ -47,32 +53,38 @@ export class AboutUs extends React.Component {
                 mb="16px"
                 lineHeight="1.2"
               >
-                We Are OnPoint
+                About Us
               </Heading>
 
               <Heading
-                fontSize="3.5rem"
+                // fontSize="3.5rem"
                 letterSpacing="tight"
                 fontWeight="bold"
-                mb="16px"
                 lineHeight="1.2"
               >
                 <Box as="span" color="teal.500">
                   We're Changing The Way You See Media Forever
                 </Box>
               </Heading>
-
+            </Box>
+            <Box bg="black" padding="50px" mt="25px">
               <Heading
-                fontSize="2rem"
+                fontSize="3rem"
                 letterSpacing="tight"
                 fontWeight="bold"
-                mt="3rem"
                 lineHeight="1.2"
                 textAlign="center"
               >
                 Our Mission
               </Heading>
-              <Text fontSize="1.5rem" mt="6">
+              <Text
+                fontSize="1.5rem"
+                mt="6"
+                width="75%"
+                textAlign="center"
+                display="block"
+                mx="auto"
+              >
                 Our mission is to provide a platform for teenagers to create
                 quality media about various topics in the modern world to
                 educate and inform the public.
@@ -80,6 +92,16 @@ export class AboutUs extends React.Component {
             </Box>
           </Box>
           <Box mx="25px" height="100%" mt={'50px'} justifyContent="center">
+            <Heading
+              fontSize="3rem"
+              letterSpacing="tight"
+              fontWeight="bold"
+              lineHeight="1.2"
+              textAlign="center"
+              mb="2rem"
+            >
+              Our Team
+            </Heading>
             <SimpleGrid columns={[2, null, 3]} spacing="20px">
               <Profile
                 name="Aditya Verma"
