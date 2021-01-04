@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
-import { Heading, Box, Text, Divider, Image } from '@chakra-ui/core';
+import {
+  Heading,
+  Box,
+  Text,
+  Divider,
+  Image,
+  SimpleGrid,
+  Stack
+} from '@chakra-ui/core';
+
+import { Link } from 'react-router-dom';
 
 import firebase from 'firebase';
 import getDocs, {
@@ -70,34 +80,54 @@ export class ArticleContentPost extends Component {
       <div>
         {this.state.currentNav}
         <Box />
-        <Box textAlign="center" mt="50px">
-          <Image
-            src={this.state.articleImage}
-            display="block"
-            mx="auto"
-            height="auto"
-            width="35%"
-            rounded="lg"
-          />
-        </Box>
-        <Box alignItems="center" display="block" mx="auto" width="75%">
-          <Heading
-            as="h1"
-            fontSize="50px"
-            textAlign="center"
-            mx="50px"
-            my="25px"
-            mt="50px"
-          >
-            {this.state.articleTitle}
-          </Heading>
-          <Text textAlign="center" fontSize="25px">
-            By <Text as="strong">{this.state.articleAuthor}</Text>
-          </Text>
-          <Text textAlign="center" fontSize="25px">
-            {this.state.articleDate}
-          </Text>
-          <Text padding="10px" textAlign="center" marginTop="25px">
+        {/* <Box textAlign="center" mt="50px">
+          
+        </Box> */}
+        <Box
+          alignItems="center"
+          display="block"
+          mx="auto"
+          width="75%"
+          mt="25px"
+        >
+          <SimpleGrid minChildWidth="120px" spacing="250px" columns={2}>
+            <Box width="175%" margin="25px">
+              <Heading
+                as="h1"
+                fontSize="50px"
+                textAlign="left"
+                mx="50px"
+                my="15px"
+                mt="50px"
+              >
+                {this.state.articleTitle}
+              </Heading>
+            </Box>
+            <Box width="100%" margin="15px">
+              <Image
+                src={this.state.articleImage}
+                display="block"
+                mx="auto"
+                height="auto"
+                width="60%"
+                rounded="lg"
+              />
+            </Box>
+          </SimpleGrid>
+          <Box>
+            <Stack isInline>
+              <Box ml="75px" textAlign="left" fontSize="15px">
+                By{' '}
+                <Link to={`/${this.state.articleAuthor}`}>
+                  <Box as="span" textDecor="underline">
+                    {this.state.articleAuthor}
+                  </Box>
+                </Link>
+              </Box>
+              <Text fontSize="15px">{this.state.articleDate}</Text>
+            </Stack>
+          </Box>
+          <Text paddingLeft="75px" marginTop="25px">
             {this.state.articleSummary}
           </Text>
         </Box>

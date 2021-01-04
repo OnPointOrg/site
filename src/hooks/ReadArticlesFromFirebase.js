@@ -58,7 +58,7 @@ const caseChecks = (article) => {
 
       case 'paragraph':
         const paragraphText = article.content.blocks[i].data.text;
-        articleHtmlBody.push(<Text>{paragraphText}</Text>);
+        articleHtmlBody.push(<Text fontSize="20px">{paragraphText}</Text>);
         break;
 
       case 'header':
