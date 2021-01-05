@@ -61,7 +61,7 @@ const DefaultNav = (props) => {
               </Link>
               <NavLink name="About" link="about" />
               <NavLink name="Articles" link="article" />
-              <NavLink name="Contact" link="contact" />
+              {/* <NavLink name="Contact" link="contact" /> */}
             </Flex>
           </Box>
           <Box>

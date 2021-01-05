@@ -4,10 +4,9 @@ import {
   Input,
   Textarea,
   FormLabel,
-  FormControl,
   Heading,
-  Flex,
-  Box
+  Box,
+  Text
 } from '@chakra-ui/core';
 
 import firebase from 'firebase';
@@ -34,60 +33,74 @@ class Contact extends Component {
       }
     });
   };
-
   render() {
     return (
       <Box>
         {this.state.currentNav}
-        <Flex
-          width="80%"
-          display="block"
-          mx="auto"
-          height="auto"
-          align="center"
-          justifyContent="center"
-          my="7rem"
-        >
-          <Box
-            borderWidth={1}
-            px={4}
-            width="full"
-            borderRadius={4}
+        <Box maxW="1000px" mx="auto" py={16} px={8}>
+          <Heading
+            as="h2"
+            lineHeight="shorter"
+            fontWeight="900"
             textAlign="center"
-            boxShadow="lg"
+            mb={8}
           >
-            <Box p={4}>
-              <Box textAlign="center">
-                <Heading>Contact Us</Heading>
-              </Box>
-              <Box my={8} textAlign="left">
-                <form>
-                  <FormControl>
-                    <FormLabel>Name</FormLabel>
-                    <Input type="text" placeholder="Enter your name" />
-                  </FormControl>
-
-                  <FormControl mt="5">
-                    <FormLabel>Email</FormLabel>
-                    <Input type="email" placeholder="Enter your email" />
-                  </FormControl>
-
-                  <FormControl mt="5">
-                    <FormLabel>Message</FormLabel>
-                    <Textarea
-                      type="textarea"
-                      placeholder="Enter your message"
-                    />
-                  </FormControl>
-
-                  <Button variantColor="blue" type="submit" mt={4}>
-                    Submit
-                  </Button>
-                </form>
-              </Box>
+            Contact Us
+          </Heading>
+          <Text>Need any help? Found an issue?</Text>
+          <form
+            name="contact"
+            data-netlify="true"
+            method="post"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="form-name" value="contact" />
+            <Box>
+              <FormLabel htmlFor="name">Your Name</FormLabel>
+              <Input
+                type="name"
+                name="name"
+                aria-describedby="name-helper-text"
+                placeholder="Your name"
+                size="lg"
+                mb={4}
+              />
             </Box>
-          </Box>
-        </Flex>
+            <Box>
+              <FormLabel htmlFor="email">Email address</FormLabel>
+              <Input
+                type="email"
+                name="email"
+                aria-describedby="email-helper-text"
+                placeholder="Your email"
+                size="lg"
+                mb={4}
+                is
+              />
+            </Box>
+            <Box>
+              <FormLabel>Message</FormLabel>
+              <Textarea
+                type="message"
+                name="message"
+                resize="none"
+                placeholder="Type your message here..."
+                size="lg"
+                mb={4}
+              />
+            </Box>
+            <Button
+              size="lg"
+              fontWeight={600}
+              type="submit"
+              isFullWidth
+              my="15px"
+            >
+              Submit
+            </Button>
+          </form>
+        </Box>
         <Footer />
       </Box>
     );
