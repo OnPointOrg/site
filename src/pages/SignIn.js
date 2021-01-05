@@ -12,7 +12,8 @@ import {
   InputGroup,
   InputLeftElement,
   Icon,
-  Link as ChakraLink
+  Link as ChakraLink,
+  Checkbox
 } from '@chakra-ui/core';
 
 import DefaultNav from '../components/nav/DefaultNav';
@@ -29,6 +30,7 @@ class SignIn extends React.Component {
     password: '',
     emailError: '',
     passwordError: '',
+    isChecked: false,
     signButton: (
       <Button type="submit" variantColor={VARIANT_COLOR} width="full" mt={5}>
         Sign In
@@ -50,6 +52,14 @@ class SignIn extends React.Component {
         });
       }
     });
+
+    if (localStorage.checkbox && localStorage.email !== '') {
+      this.setState({
+        isChecked: true,
+        email: localStorage.email,
+        password: localStorage.password
+      });
+    }
   };
 
   handleChange = (e) => {
@@ -67,6 +77,14 @@ class SignIn extends React.Component {
     });
     this.signInSubmit();
     console.log(this.state);
+  };
+
+  onChangeCheckbox = (event) => {
+    // console.log(this.state.isChecked);
+    this.setState({
+      isChecked: event.target.checked
+    });
+    console.log(this.state.isChecked);
   };
 
   signInSubmit = () => {
@@ -145,6 +163,14 @@ class SignIn extends React.Component {
             console.log('Error Code: ' + errorCode);
           })
           .then(() => {
+            if (this.state.isChecked) {
+              sessionStorage.setItem('email', this.state.email);
+              sessionStorage.setItem('password', this.state.password);
+              sessionStorage.setItem('checkbox', this.state.isChecked);
+              localStorage.email = sessionStorage.getItem('email');
+              localStorage.password = sessionStorage.getItem('password');
+              localStorage.checkbox = sessionStorage.getItem('checkbox');
+            }
             const { history } = this.props;
             const user = firebase.auth().currentUser;
             if (user) {
@@ -186,6 +212,7 @@ class SignIn extends React.Component {
                         autoComplete="on"
                         onChange={this.handleChange}
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="john@doe.org"
                         value={this.state.email}
@@ -200,6 +227,7 @@ class SignIn extends React.Component {
                       <Input
                         onChange={this.handleChange}
                         id="password"
+                        name="email"
                         type="password"
                         placeholder="notpassword123"
                         value={this.state.password}
@@ -208,6 +236,17 @@ class SignIn extends React.Component {
                     <Text fontSize="xs">{this.state.passwordError}</Text>
                   </FormControl>
                   {this.state.signButton}
+
+                  <Box mt={1}>
+                    <Checkbox
+                      checked={this.state.isChecked}
+                      name="lsRememberMe"
+                      onChange={this.onChangeCheckbox}
+                    >
+                      Remember Me
+                    </Checkbox>
+                  </Box>
+
                   <Box mt={1}>
                     Need An Account?{' '}
                     <ChakraLink color={`${VARIANT_COLOR}.500`}>

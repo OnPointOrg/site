@@ -218,7 +218,7 @@ class SignUp extends Component {
               'Account Created Successfully! You Are Now Logged In!',
             redirect: setTimeout(() => {
               history.push('/');
-            }, 2000)
+            }, 1500)
           });
           console.log(user);
           user.updateProfile({ displayName: fullName });
