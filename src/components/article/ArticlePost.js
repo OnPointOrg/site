@@ -17,8 +17,7 @@ export class ArticlePost extends React.Component {
 
   convertFromUnix = (date) => {
     const dateObject = new Date(date);
-
-    date = dateObject.toLocaleString();
+    date = dateObject.toLocaleDateString('en-US');
     return date;
   };
 
@@ -62,7 +61,6 @@ export class ArticlePost extends React.Component {
                 ml="2"
               >
                 {console.log(this.props.user)}
-                {this.convertFromUnix(this.props.date)}
               </Box>
             </Box>
 
@@ -89,7 +87,8 @@ export class ArticlePost extends React.Component {
               lineHeight="tight"
               isTruncated
             >
-              {this.props.user}
+              {this.props.user} &bull;&bull;&bull;{' '}
+              {this.convertFromUnix(this.props.date)}
             </Box>
             <Box marginTop="3">
               <Box as="span" color="white.600" fontSize="sm">
@@ -106,7 +105,7 @@ export class ArticlePost extends React.Component {
                 </Button>
               </Box>
               <Link
-                to={() => `/article/${this.props.docId}`}
+                to={() => `/articles/${this.props.docId}`}
                 onClick={() => {
                   setTimeout(() => {
                     window.location.reload();

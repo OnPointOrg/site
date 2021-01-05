@@ -18,7 +18,7 @@ const ThemeButton = () => {
         } mode`}
         variant="outline"
         color="current"
-        fontSize={['20px', '20px', '20px', '20px']}
+        fontSize="20px"
         // onClick={toggleColorMode}
         icon={colorMode === 'light' ? 'moon' : 'sun'}
         _focus={{

@@ -63,32 +63,29 @@ export const VerifiedNav = (props) => {
           justifyContent="space-between"
           alignItems="center"
           py={4}
+          display="flex"
         >
-          <Box>
+          <Box ml="100px">
             <Flex align="center" ml={5}>
               <Link to="/">
-                <Heading as="h1" size="xl" letterSpacing={'-.1rem'} mr="2rem">
-                  <Image src={logo} width="50px" rounded="full" />
+                <Heading as="h1" size="xl" letterSpacing={'-.1rem'}>
+                  <Image src={logo} width="60px" rounded="full" />
                 </Heading>
               </Link>
-              <NavLink name="About" link="about" />
-              <NavLink name="Articles" link="article" />
-              <NavLink name="Contact" link="contact" />
             </Flex>
           </Box>
+
           <Box>
-            <Stack isInline spacing={4} alignItems="center">
+            <Stack isInline alignItems="center" mr="100px">
               <Flex justifyContent="space-between" color="gray.500">
-                <Menu closeOnSelect="false">
+                <NavLink name="About" link="about" />
+                <NavLink name="Articles" link="articles" />
+                <Menu closeOnSelect="false" overflow="hidden">
                   <MenuButton
-                    px={2}
-                    py={2}
+                    mx="25px"
                     transition="all 0.2s"
                     rounded="md"
                     _focus={{ outline: 0, boxShadow: 'outline' }}
-                    marginRight="2px"
-                    marginLeft="-2px"
-                    // width="8rem"
                   >
                     <Avatar
                       size="sm"
@@ -165,7 +162,7 @@ export const VerifiedNav = (props) => {
                   </MenuList>
                 </Menu>
               </Flex>
-              <Flex justifyContent="space-between" color="gray.500" px="25px">
+              <Flex justifyContent="space-between" color="gray.500">
                 <ThemeButton />
               </Flex>
             </Stack>

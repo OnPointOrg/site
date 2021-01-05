@@ -55,7 +55,7 @@ export class Home extends React.Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        <Box width="100%" bg="teal.700" py="35px">
+        <Box as="section" width="100%" bg="teal.700" py="35px">
           <Flex
             direction="column"
             align="center"
@@ -106,7 +106,7 @@ export class Home extends React.Component {
                       Get Started
                     </Button>
                   </Link>
-                  <Link to="/article">
+                  <Link to="/articles">
                     <Button
                       as="a"
                       size="lg"
@@ -171,63 +171,54 @@ export class Home extends React.Component {
           align="center"
           justifyContent="center"
         >
-          <Box as="section">
-            <Box pb="120px">
-              <Box
-                maxW="760px"
-                mx="auto"
-                textAlign="center"
-                mb="56px"
-                mt="5rem"
-              >
-                <Heading as="h2" fontSize="50px" mb="5">
-                  Redefine The Media
-                </Heading>
-                <Text opacity={0.7} fontSize="lg">
-                  Well Maybe Not Redefine, But You'll Still Make An Impact
-                </Text>
-              </Box>
-              <Grid
-                templateColumns={{
-                  base: 'repeat(1, 1fr)',
-                  md: 'repeat(3, 1fr)'
-                }}
-                gap={10}
-                px={{ md: 12 }}
-                mx="auto"
-                height="auto"
-                align="center"
-                justifyContent="center"
-              >
-                <Feature icon={MdAccessibility} title="Accessible">
-                  This is an interesting feature
-                </Feature>
-                <Feature icon={MdPalette} title="Themeable">
-                  Customize any part of our components to match your design
-                  needs.
-                </Feature>
-                <Feature icon={MdGrain} title="Composable">
-                  Designed with composition in mind. Compose new components with
-                  ease.
-                </Feature>
-                <Feature icon={MdAccessibility} title="Light and Dark UI">
-                  Optimized for multiple color modes. Use light or dark, your
-                  choice.
-                </Feature>
-                <Feature icon={MdAccessibility} title="Developer Experience">
-                  Guaranteed to boost your productivity when building your app
-                  or website.
-                </Feature>
-                <Feature icon={MdEmail} title="Active Community">
-                  We're a team of active maintainers ready to help you whenever
-                  you need.
-                </Feature>
-              </Grid>
+          <Box pb="120px">
+            <Box maxW="760px" mx="auto" textAlign="center" mb="56px" mt="5rem">
+              <Heading as="h2" fontSize="50px" mb="5">
+                Redefine The Media
+              </Heading>
+              <Text opacity={0.7} fontSize="lg">
+                Well Maybe Not Redefine, But You'll Still Make An Impact
+              </Text>
             </Box>
+            <Grid
+              templateColumns={{
+                base: 'repeat(1, 1fr)',
+                md: 'repeat(3, 1fr)'
+              }}
+              gap={10}
+              px={{ md: 12 }}
+              mx="auto"
+              height="auto"
+              align="center"
+              justifyContent="center"
+            >
+              <Feature icon={MdAccessibility} title="Accessible">
+                This is an interesting feature
+              </Feature>
+              <Feature icon={MdPalette} title="Themeable">
+                Customize any part of our components to match your design needs.
+              </Feature>
+              <Feature icon={MdGrain} title="Composable">
+                Designed with composition in mind. Compose new components with
+                ease.
+              </Feature>
+              <Feature icon={MdAccessibility} title="Light and Dark UI">
+                Optimized for multiple color modes. Use light or dark, your
+                choice.
+              </Feature>
+              <Feature icon={MdAccessibility} title="Developer Experience">
+                Guaranteed to boost your productivity when building your app or
+                website.
+              </Feature>
+              <Feature icon={MdEmail} title="Active Community">
+                We're a team of active maintainers ready to help you whenever
+                you need.
+              </Feature>
+            </Grid>
           </Box>
         </Box>
 
-        <Box bg="teal.500">
+        <Box bg="teal.500" as="section">
           <Box py="120px" px="32px" color="white">
             <Box mx="auto" textAlign="center" mb="56px" width="75%">
               <Heading as="h2" fontSize="50px" mb="5">
@@ -323,7 +314,7 @@ export class Home extends React.Component {
 
             <Box maxW="600px" mx="auto" textAlign="center">
               <Text textStyle="caps" mb="8" mt="4rem">
-                Organization Sponsors{' '}
+                Sponsors{' '}
                 <span role="img" aria-label="emoji building">
                   🏦
                 </span>
@@ -347,28 +338,12 @@ export class Home extends React.Component {
                   </motion.div>
                 </Box>
               </Flex>
-
-              {/* <Text mb="8" mt="4rem" textStyle="caps">
-                Individual Sponsors 🥇
-              </Text>
-              <Flex justify="center">
-                <Image
-                  rounded="full"
-                  w="40px"
-                  h="40px"
-                  objectFit="cover"
-                  alt={"alt"}
-                  src={
-                    "https://images.unsplash.com/photo-1608751404293-881d7ec6f77a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80"
-                  }
-                  loading="lazy"
-                />
-              </Flex> */}
             </Box>
           </Box>
         </Box>
 
         <Box
+          as="section"
           bg={'#81e6d91c'}
           bgPos="bottom center"
           bgSize="120px"
@@ -400,11 +375,6 @@ export class Home extends React.Component {
                 >
                   email <Icon name="external-link" mx="2px" />
                 </ChakraLink>{' '}
-                or go{' '}
-                <ChakraLink textDecoration="underline">
-                  <Link to="/contact">here</Link>
-                </ChakraLink>
-                !
               </Text>
             </Flex>
             <Link to="/signup">

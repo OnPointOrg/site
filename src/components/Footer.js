@@ -13,23 +13,34 @@ import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <Box justifyContent="center" borderTopColor="teal" borderTopWidth="5px">
+    <Box
+      as="footer"
+      justifyContent="center"
+      borderTopColor="teal"
+      borderTopWidth="5px"
+      display="block"
+    >
       <Stack pt={5} direction="row" justify="center" mt="25px">
         <Link to="/about">
           <Button variant="ghost" mx="15px">
             About
           </Button>
         </Link>
-        <Link to="/article">
+        <Link to="/articles">
           <Button variant="ghost" mx="15px">
             Articles
           </Button>
         </Link>
-        <Link to="/contact">
+        <Text
+          as="a"
+          textDecor="none"
+          href="mailto:aditya1rawat@gmail.com"
+          // isExternal
+        >
           <Button variant="ghost" mx="15px">
             Contact
           </Button>
-        </Link>
+        </Text>
       </Stack>
       <Stack my={2} direction="row" justify="center">
         <ChakraLink

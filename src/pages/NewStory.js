@@ -58,6 +58,10 @@ export class CreateStory extends Component {
         });
       }
     });
+
+    window.onbeforeunload = () => {
+      return 'Changes you made may not be saved.';
+    };
   };
 
   getTheUserInformation = () => {
@@ -126,7 +130,7 @@ export class CreateStory extends Component {
         console.log('Document written with ID: ', docRef.id);
         const { history } = this.props;
         setTimeout(() => {
-          history.push(`/article/${docRef.id}`);
+          history.push(`/articles/${docRef.id}`);
           window.location.reload();
         }, 5);
       })

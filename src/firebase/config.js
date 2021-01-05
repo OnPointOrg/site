@@ -1,14 +1,14 @@
 import * as firebase from 'firebase';
 
 const config = {
-  apiKey: 'AIzaSyCikY7FxY0XE0hPeSwrpcAgmj61H8RshyY',
-  authDomain: 'onpointnewsorg.firebaseapp.com',
-  databaseURL: 'https://onpointnewsorg.firebaseio.com',
-  projectId: 'onpointnewsorg',
-  storageBucket: 'onpointnewsorg.appspot.com',
-  messagingSenderId: '65120918931',
-  appId: '1:65120918931:web:ae558371d2cc82efc21c66',
-  measurementId: 'G-4MCLR7Y6CV'
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 firebase.initializeApp(config);

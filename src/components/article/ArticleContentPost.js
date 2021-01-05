@@ -98,7 +98,7 @@ export class ArticleContentPost extends Component {
             </Box>
 
             <Box>
-              <Stack isInline mt="35px">
+              <Stack isInline my="35px">
                 <Box ml="75px" textAlign="left" fontSize="20px">
                   By{' '}
                   <ChakraLink color="teal.500">
@@ -119,7 +119,7 @@ export class ArticleContentPost extends Component {
           </Box>
           <Box width="75%" my="auto">
             <Image
-              mt="75px"
+              my="75px"
               src={this.state.articleImage}
               display="block"
               mx="auto"
