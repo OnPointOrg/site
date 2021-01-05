@@ -18,9 +18,6 @@ import Quote from '../components/article/Quote';
 
 const convertFromUnix = (date) => {
   const dateObject = new Date(date);
-  // const month = dateObject.getMonth()
-  // const day = dateObject.getDay()
-
   date = dateObject.toLocaleDateString('en-US');
   return date;
 };

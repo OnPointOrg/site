@@ -1,18 +1,13 @@
 import React from 'react';
-import { Box, Button, Link as ChakraLink } from '@chakra-ui/core';
+import { Box, Button, Text } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 
 const NavLink = (props) => {
   return (
     <Box mx={3}>
       <Link to={`/${props.link}`}>
-        <Button
-          variantColor="teal"
-          variant="ghost"
-          rounded="full"
-          _hover={{ textDecoration: 'none' }}
-        >
-          <ChakraLink p={4}>{props.name}</ChakraLink>
+        <Button size="md" variant="ghost">
+          <Text fontSize="lg">{props.name}</Text>
         </Button>
       </Link>
     </Box>

@@ -58,6 +58,10 @@ export class CreateStory extends Component {
         });
       }
     });
+
+    window.onbeforeunload = () => {
+      return 'Changes you made may not be saved.';
+    };
   };
 
   getTheUserInformation = () => {
