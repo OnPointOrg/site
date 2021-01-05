@@ -14,7 +14,8 @@ import {
   Button,
   InputGroup,
   InputLeftElement,
-  Icon
+  Icon,
+  Checkbox
 } from '@chakra-ui/core';
 
 import * as firebase from 'firebase';
@@ -32,6 +33,7 @@ class SignUp extends Component {
     lastName: '',
     email: '',
     password: '',
+    isChecked: false,
     emailError: '',
     passwordError: '',
     signUpSuccess: '',
@@ -80,6 +82,14 @@ class SignUp extends Component {
       )
     });
     this.signUpSubmit(this.state);
+  };
+
+  onChangeCheckbox = (event) => {
+    // console.log(this.state.isChecked);
+    this.setState({
+      isChecked: event.target.checked
+    });
+    console.log(this.state.isChecked);
   };
 
   setUserInfo = () => {
@@ -189,6 +199,15 @@ class SignUp extends Component {
         }
       })
       .then(() => {
+        console.log(this.state);
+        if (this.state.isChecked) {
+          sessionStorage.setItem('email', this.state.email);
+          sessionStorage.setItem('password', this.state.password);
+          sessionStorage.setItem('checkbox', this.state.isChecked);
+          localStorage.email = sessionStorage.getItem('email');
+          localStorage.password = sessionStorage.getItem('password');
+          localStorage.checkbox = sessionStorage.getItem('checkbox');
+        }
         const user = firebase.auth().currentUser;
         if (user) {
           const { history } = this.props;
@@ -237,6 +256,7 @@ class SignUp extends Component {
                         id="fullName"
                         type="text"
                         placeholder="John Doe"
+                        name="name"
                         value={this.state.fullName}
                       />
                     </InputGroup>
@@ -251,6 +271,7 @@ class SignUp extends Component {
                         onChange={this.handleChange}
                         id="email"
                         type="email"
+                        name="email"
                         placeholder="john@doe.org"
                         value={this.state.email}
                       />
@@ -265,6 +286,7 @@ class SignUp extends Component {
                         onChange={this.handleChange}
                         id="password"
                         type="password"
+                        name="password"
                         placeholder="notpassword123"
                         value={this.state.password}
                       />
@@ -277,6 +299,16 @@ class SignUp extends Component {
                   {this.state.signButton}
                   <Text fontSize="xs">{this.state.signUpSuccess}</Text>
                   <Text fontSize="xs">{this.state.redirect}</Text>
+
+                  <Box mt={1}>
+                    <Checkbox
+                      checked={this.state.isChecked}
+                      name="lsRememberMe"
+                      onChange={this.onChangeCheckbox}
+                    >
+                      Remember Me
+                    </Checkbox>
+                  </Box>
 
                   <Box mt={1}>
                     Already Have An Account?{' '}

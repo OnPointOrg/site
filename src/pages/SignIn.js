@@ -183,6 +183,7 @@ class SignIn extends React.Component {
                     <InputGroup>
                       <InputLeftElement children={<Icon name="email" />} />
                       <Input
+                        autoComplete="on"
                         onChange={this.handleChange}
                         id="email"
                         type="email"

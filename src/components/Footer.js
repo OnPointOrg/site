@@ -13,7 +13,13 @@ import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <Box justifyContent="center" borderTopColor="teal" borderTopWidth="5px">
+    <Box
+      as="footer"
+      justifyContent="center"
+      borderTopColor="teal"
+      borderTopWidth="5px"
+      display="block"
+    >
       <Stack pt={5} direction="row" justify="center" mt="25px">
         <Link to="/about">
           <Button variant="ghost" mx="15px">

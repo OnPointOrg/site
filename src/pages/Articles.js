@@ -30,23 +30,19 @@ class Articles extends Component {
         borderTopWidth="10px"
         borderBottomColor="teal.500"
         borderBottomWidth="10px"
+        minH="100%"
+        width="100%"
       >
-        <Box
-          pt="12rem"
-          maxW="50rem"
-          height="735px"
-          mx="auto"
-          textAlign="center"
-        >
+        <Box py="12rem" w="100%" mx="auto" textAlign="center">
           <Flex direction="column" align="center" mx="auto">
             <Icon as={MdDoneAll} fontSize="75px" />
-            <Heading textStyle="heading" mt="6" mb="6">
+            <Heading textStyle="heading" my="atuo">
               Get Started!
             </Heading>
-            <Text mb="40px" fontSize="lg" opacity={0.7}>
-              You cannot view our collection of articles without an account?
-              Make your free account to start writing the next big story! If you
-              have any other questions, contact us by{' '}
+            <Text mb="40px" fontSize="lg" opacity={0.7} width="50%">
+              You cannot view our collection of articles without an account!
+              Make your free account to view all of our articles! If you have
+              any other questions, contact us by{' '}
               <ChakraLink
                 href="mailto:aditya1rawat@gmail.com"
                 textDecoration="underline"
