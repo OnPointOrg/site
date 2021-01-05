@@ -55,7 +55,6 @@ class SignIn extends React.Component {
 
     if (localStorage.checkbox && localStorage.email !== '') {
       this.setState({
-        isChecked: true,
         email: localStorage.email,
         password: localStorage.password
       });
@@ -170,6 +169,9 @@ class SignIn extends React.Component {
               localStorage.email = sessionStorage.getItem('email');
               localStorage.password = sessionStorage.getItem('password');
               localStorage.checkbox = sessionStorage.getItem('checkbox');
+            } else {
+              localStorage.clear();
+              sessionStorage.clear();
             }
             const { history } = this.props;
             const user = firebase.auth().currentUser;
