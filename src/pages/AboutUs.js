@@ -37,7 +37,7 @@ export class AboutUs extends React.Component {
     return (
       <Box width="100%">
         {this.state.currentNav}
-        <Box mb={20} overflow="hidden" mt="5rem" as="section">
+        <Box mb={20} overflow="hidden" my="5rem" as="section">
           <Box as="section">
             <Box
               maxW="760px"
