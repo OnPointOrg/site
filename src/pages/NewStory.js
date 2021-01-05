@@ -58,10 +58,6 @@ export class CreateStory extends Component {
         });
       }
     });
-
-    window.onbeforeunload = () => {
-      return 'Changes you made may not be saved.';
-    };
   };
 
   getTheUserInformation = () => {
@@ -129,10 +125,8 @@ export class CreateStory extends Component {
       .then((docRef) => {
         console.log('Document written with ID: ', docRef.id);
         const { history } = this.props;
-        setTimeout(() => {
-          history.push(`/articles/${docRef.id}`);
-          window.location.reload();
-        }, 5);
+        history.push(`/articles/${docRef.id}`);
+        window.location.reload();
       })
       .catch((error) => {
         console.error('Error adding document: ', error);
