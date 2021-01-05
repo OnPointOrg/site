@@ -177,9 +177,7 @@ class SignIn extends React.Component {
             const user = firebase.auth().currentUser;
             if (user) {
               this.setState({
-                redirect: setTimeout(() => {
-                  history.push('/');
-                }, 1500)
+                redirect: history.push('/')
               });
             }
           });

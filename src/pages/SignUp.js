@@ -216,9 +216,7 @@ class SignUp extends Component {
             passwordError: '',
             signUpSuccess:
               'Account Created Successfully! You Are Now Logged In!',
-            redirect: setTimeout(() => {
-              history.push('/');
-            }, 1500)
+            redirect: history.push('/')
           });
           console.log(user);
           user.updateProfile({ displayName: fullName });
