@@ -64,7 +64,7 @@ export class HomeArticles extends Component {
               >
                 Show {this.state.show ? 'Less' : 'More'}
               </Button>
-              <Link to={() => `/article/${this.props.docId}`}>
+              <Link to={() => `/articles/${this.props.docId}`}>
                 <Button rightIcon="arrow-forward" variant="ghost" fontSize="sm">
                   Read more
                 </Button>

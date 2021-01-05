@@ -79,7 +79,7 @@ export const VerifiedNav = (props) => {
             <Stack isInline alignItems="center" mr="100px">
               <Flex justifyContent="space-between" color="gray.500">
                 <NavLink name="About" link="about" />
-                <NavLink name="Articles" link="article" />
+                <NavLink name="Articles" link="articles" />
                 <Menu closeOnSelect="false" overflow="hidden">
                   <MenuButton
                     mx="25px"

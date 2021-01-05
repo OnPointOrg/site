@@ -20,16 +20,21 @@ const Footer = () => {
             About
           </Button>
         </Link>
-        <Link to="/article">
+        <Link to="/articles">
           <Button variant="ghost" mx="15px">
             Articles
           </Button>
         </Link>
-        <Link to="/contact">
+        <Text
+          as="a"
+          textDecor="none"
+          href="mailto:aditya1rawat@gmail.com"
+          // isExternal
+        >
           <Button variant="ghost" mx="15px">
             Contact
           </Button>
-        </Link>
+        </Text>
       </Stack>
       <Stack my={2} direction="row" justify="center">
         <ChakraLink

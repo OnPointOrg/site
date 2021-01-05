@@ -105,7 +105,7 @@ export class ArticlePost extends React.Component {
                 </Button>
               </Box>
               <Link
-                to={() => `/article/${this.props.docId}`}
+                to={() => `/articles/${this.props.docId}`}
                 onClick={() => {
                   setTimeout(() => {
                     window.location.reload();

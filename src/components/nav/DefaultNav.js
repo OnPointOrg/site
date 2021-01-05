@@ -51,37 +51,40 @@ const DefaultNav = (props) => {
           justifyContent="space-between"
           alignItems="center"
           py={4}
+          display="flex"
         >
-          <Box>
+          <Box ml="100px">
             <Flex align="center" ml={5}>
               <Link to="/">
                 <Heading as="h1" size="xl" letterSpacing={'-.1rem'}>
-                  <Image src={logo} width="50px" rounded="full" />
+                  <Image src={logo} width="60px" rounded="full" />
                 </Heading>
               </Link>
-              <NavLink name="About" link="about" />
-              <NavLink name="Articles" link="article" />
-              {/* <NavLink name="Contact" link="contact" /> */}
             </Flex>
           </Box>
+
           <Box>
-            <Stack isInline spacing={4} alignItems="center">
-              <Flex justifyContent="space-between" color="gray.500">
-                <Link to="/signin">
-                  <Button size="md" variant="solid" rounded="full">
-                    Sign In
-                  </Button>
-                </Link>
-                <Text isInline mt="6px" mx="10px">
-                  /
-                </Text>
-                <Link to="/signup">
-                  <Button size="md" variant="outline" rounded="full">
-                    Sign Up
-                  </Button>
-                </Link>
+            <Stack isInline alignItems="center" mr="100px">
+              <Flex justifyContent="space-between" color="gray.500" pr="25px">
+                <NavLink name="About" link="about" />
+                <NavLink name="Articles" link="articles" />
+                <Flex justifyContent="space-between" color="gray.500" ml="15px">
+                  <Link to="/signin">
+                    <Button size="md" variant="solid" rounded="full">
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Text isInline mt="6px" mx="10px">
+                    /
+                  </Text>
+                  <Link to="/signup">
+                    <Button size="md" variant="outline" rounded="full">
+                      Sign Up
+                    </Button>
+                  </Link>
+                </Flex>
               </Flex>
-              <Flex justifyContent="space-between" color="gray.500" px="25px">
+              <Flex justifyContent="space-between" color="gray.500">
                 <ThemeButton />
               </Flex>
             </Stack>

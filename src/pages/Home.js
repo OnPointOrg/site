@@ -106,7 +106,7 @@ export class Home extends React.Component {
                       Get Started
                     </Button>
                   </Link>
-                  <Link to="/article">
+                  <Link to="/articles">
                     <Button
                       as="a"
                       size="lg"
@@ -323,7 +323,7 @@ export class Home extends React.Component {
 
             <Box maxW="600px" mx="auto" textAlign="center">
               <Text textStyle="caps" mb="8" mt="4rem">
-                Organization Sponsors{' '}
+                Sponsors{' '}
                 <span role="img" aria-label="emoji building">
                   🏦
                 </span>
@@ -347,23 +347,6 @@ export class Home extends React.Component {
                   </motion.div>
                 </Box>
               </Flex>
-
-              {/* <Text mb="8" mt="4rem" textStyle="caps">
-                Individual Sponsors 🥇
-              </Text>
-              <Flex justify="center">
-                <Image
-                  rounded="full"
-                  w="40px"
-                  h="40px"
-                  objectFit="cover"
-                  alt={"alt"}
-                  src={
-                    "https://images.unsplash.com/photo-1608751404293-881d7ec6f77a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80"
-                  }
-                  loading="lazy"
-                />
-              </Flex> */}
             </Box>
           </Box>
         </Box>
@@ -400,11 +383,6 @@ export class Home extends React.Component {
                 >
                   email <Icon name="external-link" mx="2px" />
                 </ChakraLink>{' '}
-                or go{' '}
-                <ChakraLink textDecoration="underline">
-                  <Link to="/contact">here</Link>
-                </ChakraLink>
-                !
               </Text>
             </Flex>
             <Link to="/signup">
