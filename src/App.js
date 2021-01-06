@@ -10,22 +10,26 @@ import ForgotPassword from './pages/ForgotPassword';
 import ArticleContentPost from './components/article/ArticleContentPost';
 
 export class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/about" component={AboutUs} />
-          <Route path="/articles" exact component={Articles} />
-          <Route path="/newstory" component={NewStory} />
-          <Route path="/articles/:docId" exact component={ArticleContentPost} />
-          <Route path="/forgotpassword" component={ForgotPassword} />
-        </Switch>
-      </Router>
-    );
-  }
+    render() {
+        return (
+            <Router>
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/signup" component={SignUp} />
+                    <Route path="/signin" component={SignIn} />
+                    <Route path="/about" component={AboutUs} />
+                    <Route path="/articles" exact component={Articles} />
+                    <Route path="/newstory" component={NewStory} />
+                    <Route
+                        path="/articles/:docId"
+                        exact
+                        component={ArticleContentPost}
+                    />
+                    <Route path="/forgotpassword" component={ForgotPassword} />
+                </Switch>
+            </Router>
+        );
+    }
 }
 
 export default App;
