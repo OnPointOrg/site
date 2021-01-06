@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Flex, Heading, Icon, Text, useColorMode } from '@chakra-ui/core';
+import { Box, Flex, Heading, Text } from '@chakra-ui/core';
 import { motion } from 'framer-motion';
 
 const Feature = ({ title, icon, children, ...props }) => {
