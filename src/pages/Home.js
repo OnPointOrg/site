@@ -207,8 +207,7 @@ export class Home extends React.Component {
                   >
                      <Feature icon={<FaCalendar />} title="Daily Articles">
                         Articles about relevant topics that are concise yet
-                        detailed and include visual aids. Crafted to include the
-                        most important information.
+                        detailed and include visual aids. Crafted for precision.
                      </Feature>
                      <Feature icon={<FaSearch />} title="Analytic Articles">
                         Long articles containing deep analysis about certain
@@ -393,7 +392,7 @@ export class Home extends React.Component {
                   textAlign="center"
                >
                   <Flex direction="column" align="center" mx="auto">
-                     <Icon as={FaCheckCircle} fontSize="75px" />
+                     <FaCheckCircle fontSize="75px" />
                      <Heading textStyle="heading" mt="6" mb="6">
                         Get Started!
                      </Heading>

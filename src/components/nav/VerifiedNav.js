@@ -149,6 +149,7 @@ export const VerifiedNav = (props) => {
                                           .auth()
                                           .signOut()
                                           .then(() => {
+                                             window.location.reload();
                                              console.log('Signed Out');
                                           })
                                           .catch((error) => {

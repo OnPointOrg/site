@@ -14,6 +14,8 @@ import {
    Icon
 } from '@chakra-ui/core';
 
+import { FaCheckCircle } from 'react-icons/fa';
+
 import { Link } from 'react-router-dom';
 
 class Articles extends Component {
@@ -34,7 +36,7 @@ class Articles extends Component {
          >
             <Box py="12rem" w="100%" mx="auto" textAlign="center">
                <Flex direction="column" align="center" mx="auto">
-                  {/* <Icon as={MdDoneAll} fontSize="75px" /> */}
+                  <FaCheckCircle fontSize="75px" />
                   <Heading textStyle="heading" my="atuo">
                      Get Started!
                   </Heading>
