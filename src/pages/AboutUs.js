@@ -109,6 +109,7 @@ export class AboutUs extends React.Component {
                         bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                         img={adityaverma}
+                        github="adiviusd"
                         instagram="_adityavermaaa"
                         email="adiviusd@gmail.com"
                         twitter={false}
@@ -119,6 +120,7 @@ export class AboutUs extends React.Component {
                         bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                         img={adityarawat}
+                        github="aditya1rawat"
                         instagram="ad1tya_rawhaaat"
                         email="aditya1rawat@gmail.com"
                         twitter="aditya1rawat"
@@ -138,6 +140,7 @@ export class AboutUs extends React.Component {
                         bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua"
                         img={adityaguntupalli}
+                        github="BilePolice"
                         instagram="aditya.guntupalli"
                         email="adityaguntupalli10@gmail.com"
                         twitter="AdityaGuntupal1"

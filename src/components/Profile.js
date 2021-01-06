@@ -43,71 +43,80 @@ class Profile extends React.Component {
                      })}
                   </Stack>
                   <Stack isInline align="center" spacing={2}>
-                     <ChakraLink
-                        href="https://github.com/OnPointOrg"
-                        title="GitHub"
-                        isExternal
-                     >
-                        <IconButton
-                           color="gray.500"
-                           variant="ghost"
-                           aria-label="Github"
-                           name="github"
-                           fontSize="20px"
-                           size="50px"
-                           padding="5px"
-                           icon={FaGithub}
-                        />
-                     </ChakraLink>
-                     <ChakraLink
-                        href={`https://twitter.com/${this.props.twitter}`}
-                        title="Twitter"
-                        isExternal
-                     >
-                        <IconButton
-                           color="gray.500"
-                           variant="ghost"
-                           aria-label="Twitter"
-                           name="twitter"
-                           fontSize="20px"
-                           size="50px"
-                           padding="5px"
-                           icon={FaTwitter}
-                        />
-                     </ChakraLink>
-                     <ChakraLink
-                        href={`https://www.instagram.com/${this.props.instagram}`}
-                        title="Instagram"
-                        isExternal
-                     >
-                        <IconButton
-                           color="gray.500"
-                           variant="ghost"
-                           aria-label="Instagram"
-                           name="instagram"
-                           fontSize="20px"
-                           size="50px"
-                           padding="5px"
-                           icon={FaInstagram}
-                        />
-                     </ChakraLink>
+                     {this.props.github ? (
+                        <ChakraLink
+                           href={`https://github.com/${this.props.github}`}
+                           title="GitHub"
+                           isExternal
+                        >
+                           <IconButton
+                              color="gray.500"
+                              variant="ghost"
+                              aria-label="Github"
+                              name="github"
+                              fontSize="20px"
+                              size="50px"
+                              padding="5px"
+                              icon={FaGithub}
+                           />
+                        </ChakraLink>
+                     ) : null}
 
-                     <ChakraLink
-                        href={`mailto:${this.props.email}`}
-                        title="Email"
-                        isExternal
-                     >
-                        <IconButton
-                           color="gray.500"
-                           variant="ghost"
-                           aria-label="Email"
-                           name="email"
-                           fontSize="20px"
-                           size="50px"
-                           padding="5px"
-                           icon={FaEnvelope}
-                        />
-                     </ChakraLink>
+                     {this.props.twitter ? (
+                        <ChakraLink
+                           href={`https://twitter.com/${this.props.twitter}`}
+                           title="Twitter"
+                           isExternal
+                        >
+                           <IconButton
+                              color="gray.500"
+                              variant="ghost"
+                              aria-label="Twitter"
+                              name="twitter"
+                              fontSize="20px"
+                              size="50px"
+                              padding="5px"
+                              icon={FaTwitter}
+                           />
+                        </ChakraLink>
+                     ) : null}
+
+                     {this.props.instagram ? (
+                        <ChakraLink
+                           href={`https://www.instagram.com/${this.props.instagram}`}
+                           title="Instagram"
+                           isExternal
+                        >
+                           <IconButton
+                              color="gray.500"
+                              variant="ghost"
+                              aria-label="Instagram"
+                              name="instagram"
+                              fontSize="20px"
+                              size="50px"
+                              padding="5px"
+                              icon={FaInstagram}
+                           />
+                        </ChakraLink>
+                     ) : null}
+                     {this.props.email ? (
+                        <ChakraLink
+                           href={`mailto:${this.props.email}`}
+                           title="Email"
+                           isExternal
+                        >
+                           <IconButton
+                              color="gray.500"
+                              variant="ghost"
+                              aria-label="Email"
+                              name="email"
+                              fontSize="20px"
+                              size="50px"
+                              padding="5px"
+                              icon={FaEnvelope}
+                           />
+                        </ChakraLink>
+                     ) : null}
                   </Stack>
                </Stack>
             </Stack>
