@@ -10,16 +10,17 @@ const ExploreCard = (props) => {
             cursor: 'pointer'
          }}
          _hover={{
-            boxShadow: '0px 0px 20px rgba(115, 108, 124, 0.58)'
+            boxShadow: '0px 0px 20px rgba(115, 108, 124, 0.58)',
+            transform: 'scale(1.01)'
          }}
          h="100%"
          borderRadius="0.5rem"
       >
          <Flex
-            bgImage={`url(${props.image})`}
             h="100%"
             borderRadius="0.5rem"
             style={{
+               backgroundImage: `url(${props.image})`,
                backgroundSize: 'cover',
                backgroundPosition: 'center center'
             }}
