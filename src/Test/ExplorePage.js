@@ -27,7 +27,7 @@ const ExplorePage = (props) => {
                {/* Icon */}
             </Flex>
          </Flex>
-         <Box w="80%" align="center" display="block" mx="auto">
+         <Box w="100%" align="center" display="block" mx="auto">
             <Flex
                backgroundImage={
                   'url(https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/BlogThumbnail%2Fales-nesetril-Im7lZjxeLhg-unsplash.jpg?alt=media&token=de296acd-f57e-4108-8f52-fb3dfa9ee966)'
@@ -45,13 +45,13 @@ const ExplorePage = (props) => {
                marginX="4rem"
             >
                <Text color="rgba(255, 255, 255, 0.61);" fontSize="0.75rem">
-                  rapid staff favourite
+                  Featured Article Of The Week
                </Text>
                <Text fontSize="3rem" as="b" color="red.50">
-                  Jellyfishes
+                  Article Title
                </Text>
                <Text fontSize="1.5rem" color="red.50">
-                  A community for the abstract
+                  Article Description
                </Text>
                <Flex marginTop="auto">
                   <Badge
