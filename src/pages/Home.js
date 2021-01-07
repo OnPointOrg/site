@@ -33,17 +33,20 @@ import {
 import Feature from '../components/Feature';
 // import ArticleTrendingNew from "../components/article/ArticleTrendingNew";
 
+import ExplorePage from '../Test/ExplorePage';
+
 export class Home extends React.Component {
    state = {
-      currentNav: <DefaultNav />
+      currentNav: <DefaultNav />,
+      user: ''
    };
 
    componentDidMount = () => {
-      firebase.auth().onAuthStateChanged((user) => {
-         console.log(user);
-         if (user) {
+      firebase.auth().onAuthStateChanged((firebaseUser) => {
+         if (firebaseUser) {
             this.setState({
-               currentNav: <VerifiedNav />
+               currentNav: <VerifiedNav />,
+               user: firebaseUser.displayName
             });
          } else {
             this.setState({
@@ -58,6 +61,7 @@ export class Home extends React.Component {
          <Box width="100%">
             {this.state.currentNav}
             <Box as="section" width="100%" bg="teal.700" py="35px">
+               <ExplorePage user={this.state.user} />
                <Flex
                   direction="column"
                   align="center"
