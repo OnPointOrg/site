@@ -41,12 +41,7 @@ export class ExplorePage extends React.Component {
          <Box direction="column" overflowX="hidden" bg="#81e6d91c">
             <Flex direction="column" padding="2rem 4rem">
                <Flex align="center">
-                  <Text
-                     fontSize="2.25rem"
-                     color="teal"
-                     as="b"
-                     marginRight="10px"
-                  >
+                  <Text fontSize="3rem" color="teal" as="b" marginRight="10px">
                      Good {tod()}, {user}!
                   </Text>
                   {todIcon}
@@ -58,20 +53,21 @@ export class ExplorePage extends React.Component {
                      borderRadius: '1.5rem',
                      marginRight: 'auto',
                      marginLeft: 'auto',
-                     width: '90%',
+                     width: '100%',
+                     marginTop: '15px',
                      boxShadow: '0px 0px 5px 5px rgba(0, 0, 0, 0.9)'
                   }}
                   whileHover={{
-                     scale: 1.05,
+                     scale: 1.02,
                      boxShadow: '0px 0px 20px rgba(115, 108, 124, 0.58)'
                   }}
-                  transition={{ duration: 0.25 }}
+                  // transition={{ duration: 0.25 }}
                >
                   <Box
                      backgroundImage={
                         'url(https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/BlogThumbnail%2Fales-nesetril-Im7lZjxeLhg-unsplash.jpg?alt=media&token=de296acd-f57e-4108-8f52-fb3dfa9ee966)'
                      }
-                     h="25rem"
+                     h="30rem"
                      style={{
                         backgroundSize: 'cover',
                         backgroundPosition: 'center center'
@@ -135,6 +131,7 @@ export class ExplorePage extends React.Component {
                padding="2rem 4rem"
                direction="row"
                align="center"
+               mt="2.5rem"
                mx="auto"
             >
                <Flex direction="column" w="100%" marginRight="47px">
@@ -156,12 +153,7 @@ export class ExplorePage extends React.Component {
                </Flex>
                <Flex direction="column" w="100%" marginLeft="47px">
                   <Flex align="center">
-                     <Text
-                        fontSize="2.25rem"
-                        as="b"
-                        marginRight="15px"
-                        textAlign="right"
-                     >
+                     <Text fontSize="2.25rem" as="b" marginRight="15px">
                         Recommended
                      </Text>
                      <FaThumbsUp size="2.3rem" />
