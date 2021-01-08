@@ -26,23 +26,21 @@ const tod = () => {
    }
 };
 
-let user = '';
-
 export class ExplorePage extends React.Component {
-   componentDidMount() {
+   getUser = () => {
+      let user = '';
       firebase.auth().onAuthStateChanged((firebaseUser) => {
          user = firebaseUser.displayName.split(' ')[0];
-         console.log(user);
       });
-   }
-
+      return user;
+   };
    render() {
       return (
          <Box direction="column" overflowX="hidden" bg="#81e6d91c">
             <Flex direction="column" padding="2rem 4rem">
                <Flex align="center">
                   <Text fontSize="3rem" color="teal" as="b" marginRight="10px">
-                     Good {tod()}, {user}!
+                     Good {tod()}, {this.getUser()}!
                   </Text>
                   {todIcon}
                </Flex>
