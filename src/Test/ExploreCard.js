@@ -5,13 +5,12 @@ const ExploreCard = (props) => {
    return (
       <PseudoBox
          w={props.size === 'sm' ? '43%' : '55%'}
-         style={{
-            transition: 'all 0.2s',
-            cursor: 'pointer'
-         }}
+         transition="0.5s ease-in-out"
+         cursor="pointer"
          _hover={{
             boxShadow: '0px 0px 20px rgba(115, 108, 124, 0.58)',
-            transform: 'scale(1.01)'
+            transform: 'scale(1.02)',
+            transition: '0.5s ease-in-out'
          }}
          h="100%"
          borderRadius="0.5rem"

@@ -1,7 +1,17 @@
 import React from 'react';
-import { Badge, Box, Flex, Stack, Text, Icon } from '@chakra-ui/core';
-import { motion } from 'framer-motion';
+import {
+   Badge,
+   Box,
+   Flex,
+   Stack,
+   Text,
+   Icon,
+   PseudoBox,
+   Heading,
+   Button
+} from '@chakra-ui/core';
 
+import { Link } from 'react-router-dom';
 import { FaChartLine, FaMoon, FaThumbsUp } from 'react-icons/fa';
 import { WiSunrise } from 'react-icons/wi';
 
@@ -27,12 +37,17 @@ const tod = () => {
 };
 
 export class ExplorePage extends React.Component {
-   getUser = () => {
-      let user = '';
+   state = {
+      user: ''
+   };
+   componentDidMount = () => {
       firebase.auth().onAuthStateChanged((firebaseUser) => {
-         user = firebaseUser.displayName.split(' ')[0];
+         if (firebaseUser) {
+            this.setState({
+               user: firebaseUser.displayName.split(' ')[0]
+            });
+         }
       });
-      return user;
    };
    render() {
       return (
@@ -40,89 +55,74 @@ export class ExplorePage extends React.Component {
             <Flex direction="column" padding="2rem 4rem">
                <Flex align="center">
                   <Text fontSize="3rem" color="teal" as="b" marginRight="10px">
-                     Good {tod()}, {this.getUser()}!
+                     Good {tod()}, {this.state.user}!
                   </Text>
                   {todIcon}
                </Flex>
             </Flex>
             <Box w="95%" align="center" display="block" mx="auto">
-               <motion.div
+               <PseudoBox
+                  transition="transform 0.5s"
+                  _hover={{
+                     transform: 'scale(1.01)',
+                     transition: '0.5s ease-in-out'
+                  }}
+                  backgroundImage={
+                     'url(https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/BlogThumbnail%2Fales-nesetril-Im7lZjxeLhg-unsplash.jpg?alt=media&token=de296acd-f57e-4108-8f52-fb3dfa9ee966)'
+                  }
+                  h="30rem"
                   style={{
-                     borderRadius: '1.5rem',
-                     marginRight: 'auto',
-                     marginLeft: 'auto',
-                     width: '100%',
-                     marginTop: '15px',
-                     boxShadow: '0px 0px 5px 5px rgba(0, 0, 0, 0.9)'
+                     backgroundSize: 'cover',
+                     backgroundPosition: 'center center'
                   }}
-                  whileHover={{
-                     scale: 1.02,
-                     boxShadow: '0px 0px 20px rgba(115, 108, 124, 0.58)'
-                  }}
-                  // transition={{ duration: 0.25 }}
+                  justifyContent="center"
+                  padding="3rem"
+                  direction="column"
+                  borderRadius="1.5rem"
                >
-                  <Box
-                     backgroundImage={
-                        'url(https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/BlogThumbnail%2Fales-nesetril-Im7lZjxeLhg-unsplash.jpg?alt=media&token=de296acd-f57e-4108-8f52-fb3dfa9ee966)'
-                     }
-                     h="30rem"
-                     style={{
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center center'
-                     }}
-                     justifyContent="center"
-                     // boxShadow="0px 0px 20px 5px rgba(0, 0, 0, 0.9)"
-                     padding="3rem"
-                     direction="column"
-                     borderRadius="1.5rem"
-                  >
-                     <Text
-                        color="rgba(255, 255, 255, 0.61);"
-                        fontSize="0.75rem"
+                  <Text color="rgba(255, 255, 255, 0.61);" fontSize="0.75rem">
+                     Featured Article Of The Week
+                  </Text>
+                  <Text fontSize="3rem" as="b" color="red.50">
+                     Article Title
+                  </Text>
+                  <Text fontSize="1.5rem" color="red.50">
+                     Article Description
+                  </Text>
+                  <Flex marginTop="auto">
+                     <Badge
+                        variant="solid"
+                        padding="0.2rem 0.6rem"
+                        borderRadius="999px"
+                        style={{ textTransform: 'lowercase' }}
+                        marginRight="10px"
                      >
-                        Featured Article Of The Week
-                     </Text>
-                     <Text fontSize="3rem" as="b" color="red.50">
-                        Article Title
-                     </Text>
-                     <Text fontSize="1.5rem" color="red.50">
-                        Article Description
-                     </Text>
-                     <Flex marginTop="auto">
-                        <Badge
-                           variant="solid"
-                           padding="0.2rem 0.6rem"
-                           borderRadius="999px"
-                           style={{ textTransform: 'lowercase' }}
-                           marginRight="10px"
-                        >
-                           #sealife
-                        </Badge>
-                        <Badge
-                           variant="solid"
-                           padding="0.2rem 0.6rem"
-                           borderRadius="999px"
-                           style={{ textTransform: 'lowercase' }}
-                           marginRight="10px"
-                        >
-                           #abstract
-                        </Badge>
-                        <Badge
-                           variant="solid"
-                           padding="0.2rem 0.6rem"
-                           borderRadius="999px"
-                           bg="rgba(252, 129, 129, 0.41);"
-                           style={{ textTransform: 'lowercase' }}
-                           marginRight="10px"
-                        >
-                           <Flex align="center" justify="center">
-                              <Box marginRight="2.5px">{/* Icon */}</Box>
-                              featured
-                           </Flex>
-                        </Badge>
-                     </Flex>
-                  </Box>
-               </motion.div>
+                        #sealife
+                     </Badge>
+                     <Badge
+                        variant="solid"
+                        padding="0.2rem 0.6rem"
+                        borderRadius="999px"
+                        style={{ textTransform: 'lowercase' }}
+                        marginRight="10px"
+                     >
+                        #abstract
+                     </Badge>
+                     <Badge
+                        variant="solid"
+                        padding="0.2rem 0.6rem"
+                        borderRadius="999px"
+                        bg="rgba(252, 129, 129, 0.41);"
+                        style={{ textTransform: 'lowercase' }}
+                        marginRight="10px"
+                     >
+                        <Flex align="center" justify="center">
+                           <Box marginRight="2.5px">{/* Icon */}</Box>
+                           featured
+                        </Flex>
+                     </Badge>
+                  </Flex>
+               </PseudoBox>
             </Box>
             <Stack
                w="90%"
@@ -145,7 +145,7 @@ export class ExplorePage extends React.Component {
                      marginRight="7px"
                      marginBottom="10px"
                   >
-                     the best communities, curated for you.
+                     What's going viral!
                   </Text>
                   <TrendingGrid />
                </Flex>
@@ -162,11 +162,68 @@ export class ExplorePage extends React.Component {
                      marginRight="7px"
                      marginBottom="10px"
                   >
-                     the best picks by our in-house jellyfish!
+                     Read and discover the next big thing!
                   </Text>
                   <TrendingGrid />
                </Flex>
             </Stack>
+            {/* <Box bg="black" padding="50px" mt="25px">
+               <Heading
+                  fontSize="3rem"
+                  letterSpacing="tight"
+                  fontWeight="bold"
+                  lineHeight="1.2"
+                  textAlign="center"
+               >
+                  Our Mission
+               </Heading>
+               <Text
+                  fontSize="1.5rem"
+                  mt="6"
+                  width="75%"
+                  textAlign="center"
+                  display="block"
+                  mx="auto"
+               >
+                  Our mission is to provide a platform for teenagers to create
+                  quality media about various topics in the modern world to
+                  educate and inform the public.
+               </Text>
+            </Box> */}
+            <Box bg="#7289DA">
+               <Box py="10" px="10" h="150px">
+                  <Flex align="center" justify="space-between">
+                     <Flex color="white">
+                        <Box>
+                           <Heading size="md" lineHeight="1.2" mb="1">
+                              Start Reading More
+                           </Heading>
+                           <Text opacity={0.7}>
+                              There are more articles waiting for you to read!
+                              So get going!
+                           </Text>
+                        </Box>
+                     </Flex>
+                     <Link to="/articles">
+                        <Button
+                           my="auto"
+                           as="a"
+                           justifyContent="center"
+                           alignItems="center"
+                           fontWeight="bold"
+                           shadow="md"
+                           variantColor="teal"
+                           px="24px"
+                           h="56px"
+                           rounded="lg"
+                           fontSize="md"
+                        >
+                           Go To Articles
+                        </Button>
+                     </Link>
+                  </Flex>
+               </Box>
+            </Box>
          </Box>
       );
    }

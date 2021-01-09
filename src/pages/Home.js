@@ -22,7 +22,7 @@ export class Home extends React.Component {
          if (firebaseUser) {
             this.setState({
                currentNav: <VerifiedNav />,
-               page: <ExplorePage user={this.state.user} />
+               page: <ExplorePage />
             });
          } else {
             this.setState({
