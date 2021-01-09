@@ -54,13 +54,13 @@ export class ExplorePage extends React.Component {
          <Box direction="column" overflowX="hidden" bg="#81e6d91c">
             <Flex direction="column" padding="2rem 4rem">
                <Flex align="center">
-                  <Text fontSize="3rem" color="teal" as="b" marginRight="10px">
+                  <Text fontSize="3rem" color="teal" as="b" ml="75px" mr="25px">
                      Good {tod()}, {this.state.user}!
                   </Text>
                   {todIcon}
                </Flex>
             </Flex>
-            <Box w="95%" align="center" display="block" mx="auto">
+            <Box w="85%" align="center" display="block" mx="auto">
                <PseudoBox
                   transition="transform 0.5s"
                   _hover={{
