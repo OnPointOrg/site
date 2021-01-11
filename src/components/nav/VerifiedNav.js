@@ -138,7 +138,7 @@ export const VerifiedNav = (props) => {
                               <MenuDivider />
                               <MenuGroup title="Actions">
                                  <MenuItem>
-                                    <Link to="newstory">New Story</Link>
+                                    <Link to="/newstory">New Story</Link>
                                  </MenuItem>
                               </MenuGroup>
                               <MenuDivider />

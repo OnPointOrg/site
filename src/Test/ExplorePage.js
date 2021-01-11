@@ -64,7 +64,7 @@ export class ExplorePage extends React.Component {
                <PseudoBox
                   transition="transform 0.5s"
                   _hover={{
-                     transform: 'scale(1.01)',
+                     transform: 'scale(1.07, 1.05)',
                      transition: '0.5s ease-in-out'
                   }}
                   backgroundImage={
