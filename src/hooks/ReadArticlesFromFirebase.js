@@ -39,10 +39,12 @@ const getDocs = async (articleID) => {
          articleHtmlInformation.push(article.category);
          articleHtmlInformation.push(convertFromUnix(article.content.time));
          articleHtmlInformation.push(article.thumbnailImage);
+         articleHtmlInformation.push(article.uuid);
 
          caseChecks(article);
       })
       .then(() => {
+         console.log(articleHtmlBody[6]);
          return articleHtmlBody;
       });
 };

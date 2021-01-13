@@ -23,6 +23,8 @@ import VerifiedNav from '../nav/VerifiedNav';
 
 let currentArticleHtmlBody = [];
 
+let authorProfile = '';
+
 export class ArticleContentPost extends Component {
    state = {
       article: null,
@@ -31,6 +33,8 @@ export class ArticleContentPost extends Component {
       articleSummary: null,
       articleDate: null,
       articleContent: [],
+      articleAuthorUuid: null,
+      articleAuthorProfile: '',
       currentNav: <DefaultNav />
    };
 
@@ -61,20 +65,24 @@ export class ArticleContentPost extends Component {
             console.log(
                'Get Docs Article Content:' + this.state.articleContent
             );
-            console.log(currentArticleHtmlBody);
+
             this.setState({
                articleTitle: articleHtmlInformation[0],
                articleAuthor: articleHtmlInformation[1],
                articleSummary: articleHtmlInformation[2],
                articleDate: articleHtmlInformation[4],
                articleImage: articleHtmlInformation[5],
-               articleContent: currentArticleHtmlBody
+               articleContent: articleHtmlBody
             });
          })
          .then(() => {
-            currentArticleHtmlBody = [];
-            console.log(articleHtmlBody);
-            console.log(currentArticleHtmlBody);
+            authorProfile = this.state.articleAuthor
+               .toLowerCase()
+               .split(' ')
+               .join('');
+            this.setState({
+               articleAuthorProfile: authorProfile
+            });
          });
    };
 
@@ -109,7 +117,7 @@ export class ArticleContentPost extends Component {
                         <Box ml="75px" textAlign="left" fontSize="20px">
                            By{' '}
                            <ChakraLink color="teal.500">
-                              <Link to={`/${this.state.articleAuthor}`}>
+                              <Link to={`/${this.state.articleAuthorProfile}`}>
                                  {this.state.articleAuthor}
                               </Link>
                            </ChakraLink>
