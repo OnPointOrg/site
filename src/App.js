@@ -10,10 +10,6 @@ import ForgotPassword from './pages/ForgotPassword';
 import ArticleContentPost from './components/article/ArticleContentPost';
 
 export class App extends Component {
-   componentDidMount = () => {
-      console.log('Loaded');
-   };
-
    render() {
       return (
          <Router>
