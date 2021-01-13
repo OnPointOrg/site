@@ -50,6 +50,7 @@ export class ArticleGrid extends Component {
                            summary={document.data().summary}
                            date={document.data().content.time}
                            user={document.data().username}
+                           category={document.data().category}
                            thumbnailImage={document.data().thumbnailImage}
                         />
                      );

@@ -30,7 +30,9 @@ let authorProfile = '';
 const calculateReadingTime = (numOfWords) => {
    const averageReadingSpeed = 200;
    let readingTime = 0;
-   if (numOfWords > 0) {
+   if (numOfWords > 0 && numOfWords < 200) {
+      readingTime = '<1';
+   } else if (numOfWords > 200) {
       readingTime = Math.ceil(numOfWords / averageReadingSpeed);
    }
    return readingTime;

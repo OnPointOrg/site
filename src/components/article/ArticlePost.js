@@ -46,10 +46,7 @@ export class ArticlePost extends React.Component {
                   <Box d="flex" alignItems="baseline">
                      <Stack isInline>
                         <Badge rounded="md" py="1" px="2" variantColor="teal">
-                           Trending
-                        </Badge>
-                        <Badge rounded="md" py="1" px="2" variantColor="teal">
-                           Featured
+                           {this.props.category}
                         </Badge>
                      </Stack>
                      <Box
