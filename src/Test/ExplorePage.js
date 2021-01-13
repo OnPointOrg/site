@@ -167,35 +167,17 @@ export class ExplorePage extends React.Component {
                   <TrendingGrid />
                </Flex>
             </Stack>
-            {/* <Box bg="black" padding="50px" mt="25px">
-               <Heading
-                  fontSize="3rem"
-                  letterSpacing="tight"
-                  fontWeight="bold"
-                  lineHeight="1.2"
-                  textAlign="center"
-               >
-                  Our Mission
-               </Heading>
-               <Text
-                  fontSize="1.5rem"
-                  mt="6"
-                  width="75%"
-                  textAlign="center"
-                  display="block"
-                  mx="auto"
-               >
-                  Our mission is to provide a platform for teenagers to create
-                  quality media about various topics in the modern world to
-                  educate and inform the public.
-               </Text>
-            </Box> */}
             <Box bg="#7289DA">
-               <Box py="10" px="10" h="150px">
-                  <Flex align="center" justify="space-between">
+               <Box py="10" px="20" h="150px">
+                  <Flex
+                     align="center"
+                     justify="space-between"
+                     m="auto"
+                     px="75px"
+                  >
                      <Flex color="white">
                         <Box>
-                           <Heading size="md" lineHeight="1.2" mb="1">
+                           <Heading size="lg" lineHeight="1.2" mb="1">
                               Start Reading More
                            </Heading>
                            <Text opacity={0.7}>
@@ -217,6 +199,7 @@ export class ExplorePage extends React.Component {
                            h="56px"
                            rounded="lg"
                            fontSize="md"
+                           w="200px"
                         >
                            Go To Articles
                         </Button>

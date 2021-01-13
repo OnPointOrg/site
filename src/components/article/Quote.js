@@ -10,7 +10,7 @@ export class Quote extends Component {
             border="1px"
             rounded="lg"
             overflow="hidden"
-            width="50%"
+            width="75%"
             my="25px"
             display="block"
             mx="auto"
