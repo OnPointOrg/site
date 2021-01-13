@@ -27,7 +27,7 @@ const TrendingGrid = (props) => {
             />
          </Flex>
 
-         <Flex justify="space-between" h="12.5rem" marginBottom="1rem">
+         <Flex justify="space-between" marginBottom="1rem">
             <ExploreCard
                image={
                   'https://images.unsplash.com/photo-1535083252457-6080fe29be45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
