@@ -51,7 +51,7 @@ export class ExplorePage extends React.Component {
    };
    render() {
       return (
-         <Box direction="column" overflowX="hidden" bg="#81e6d91c">
+         <Box direction="column" overflow="hidden" bg="#81e6d91c">
             <Flex direction="column" padding="2rem 4rem">
                <Flex align="center">
                   <Text fontSize="3rem" color="teal" as="b" ml="75px" mr="25px">
