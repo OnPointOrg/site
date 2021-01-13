@@ -24,6 +24,7 @@ const convertFromUnix = (date) => {
 
 export const articleHtmlInformation = [];
 export const articleHtmlBody = [];
+export let words = 0;
 
 const getDocs = async (articleID) => {
    await firestoreDatabase
@@ -44,7 +45,6 @@ const getDocs = async (articleID) => {
          caseChecks(article);
       })
       .then(() => {
-         console.log(articleHtmlBody[6]);
          return articleHtmlBody;
       });
 };
@@ -60,15 +60,21 @@ const caseChecks = (article) => {
          case 'paragraph':
             const paragraphText = article.content.blocks[i].data.text;
             articleHtmlBody.push(<Text fontSize="20px">{paragraphText}</Text>);
+            words += paragraphText.split(' ').length;
+            console.log(words);
             break;
 
          case 'header':
             const headerText = article.content.blocks[i].data.text;
             articleHtmlBody.push(<Heading>{headerText}</Heading>);
+            words += headerText.split(' ').length;
+            console.log(words);
             break;
 
          case 'list':
             const items = article.content.blocks[i].data.items;
+            words += items.split(' ').split(' ').length;
+            console.log(words);
             const allItems = [];
             for (let j = 0; j < items.length; j++) {
                allItems.push(items[j]);
@@ -86,6 +92,8 @@ const caseChecks = (article) => {
          case 'warning':
             const warningText = article.content.blocks[i].data.message;
             const warningTitle = article.content.blocks[i].data.title;
+            words += warningTitle.split(' ').length;
+            words += warningText.split(' ').length;
             articleHtmlBody.push(
                <Alert status="error">
                   <AlertIcon />
@@ -98,6 +106,7 @@ const caseChecks = (article) => {
 
          case 'code':
             const codeContent = article.content.blocks[i].data.code;
+            words += codeContent.split(' ').length;
             articleHtmlBody.push(<Code>{codeContent}</Code>);
 
             break;
@@ -112,6 +121,8 @@ const caseChecks = (article) => {
          case 'quote':
             const quote = article.content.blocks[i].data.text;
             const credits = article.content.blocks[i].data.caption;
+            words += quote.split(' ').length;
+            words += credits.split(' ').length;
             articleHtmlBody.push(<Quote quote={quote} credits={credits} />);
             break;
 
@@ -122,7 +133,7 @@ const caseChecks = (article) => {
             break;
       }
    }
-   return articleHtmlBody;
+   return articleHtmlBody && words;
 };
 
 export default getDocs;

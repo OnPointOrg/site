@@ -5,9 +5,9 @@ import {
    Text,
    Divider,
    Image,
-   SimpleGrid,
    Stack,
-   Link as ChakraLink
+   Link as ChakraLink,
+   Avatar
 } from '@chakra-ui/core';
 
 import { Link } from 'react-router-dom';
@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import getDocs, {
    articleHtmlBody,
+   words,
    articleHtmlInformation
 } from '../../hooks/ReadArticlesFromFirebase';
 
@@ -23,14 +24,23 @@ import VerifiedNav from '../nav/VerifiedNav';
 
 let currentArticleHtmlBody = [];
 
+let email = '';
 let authorProfile = '';
+
+const calculateReadingTime = (numOfWords) => {
+   const averageReadingSpeed = 200;
+   let readingTime = 0;
+   if (numOfWords > 0) {
+      readingTime = Math.ceil(numOfWords / averageReadingSpeed);
+   }
+   return readingTime;
+};
 
 export class ArticleContentPost extends Component {
    state = {
       article: null,
       articleTitle: null,
       articleAuthor: null,
-      articleSummary: null,
       articleDate: null,
       articleContent: [],
       articleAuthorUuid: null,
@@ -39,8 +49,6 @@ export class ArticleContentPost extends Component {
    };
 
    componentDidMount = async () => {
-      currentArticleHtmlBody = [];
-      currentArticleHtmlBody = articleHtmlBody;
       this.setState({
          articleContent: currentArticleHtmlBody
       });
@@ -76,6 +84,7 @@ export class ArticleContentPost extends Component {
             });
          })
          .then(() => {
+            console.log(words);
             authorProfile = this.state.articleAuthor
                .toLowerCase()
                .split(' ')
@@ -83,6 +92,7 @@ export class ArticleContentPost extends Component {
             this.setState({
                articleAuthorProfile: authorProfile
             });
+            email = firebase.auth().currentUser.email;
          });
    };
 
@@ -91,57 +101,57 @@ export class ArticleContentPost extends Component {
          <div>
             {this.state.currentNav}
             <Box />
-            <SimpleGrid minChildWidth="120px" spacing="100px" columns={2}>
-               <Box
-                  alignItems="center"
+            <Box
+               alignItems="center"
+               display="block"
+               mx="auto"
+               width="75%"
+               mt="25px"
+               overflow="hidden"
+            >
+               <Box>
+                  <Box width="80%" mx="auto">
+                     <Heading as="h1" fontSize="50px" textAlign="center">
+                        {this.state.articleTitle}
+                     </Heading>
+                  </Box>
+               </Box>
+
+               <Box>
+                  <Stack isInline mt="35px" width="65%" mx="auto">
+                     <Box textAlign="left" fontSize="15px" width="75%">
+                        <ChakraLink color="teal.500">
+                           <Link to={`/${this.state.articleAuthorProfile}`}>
+                              <Avatar
+                                 src={`https://unavatar.now.sh/gravatar/${email}`}
+                                 size="sm"
+                                 mx="10px"
+                              />
+                              <Text fontSize="20px" as="span">
+                                 {this.state.articleAuthor}
+                              </Text>
+                           </Link>
+                        </ChakraLink>
+                     </Box>
+                     <Box width="50%" textAlign="right">
+                        <Text fontSize="20px">
+                           {this.state.articleDate} &bull;{' '}
+                           {`${calculateReadingTime(words)} min reading`}
+                        </Text>
+                     </Box>
+                  </Stack>
+               </Box>
+            </Box>
+            <Box width="50%" mx="auto" textAlign="center">
+               <Image
+                  my="50px"
+                  src={this.state.articleImage}
                   display="block"
                   mx="auto"
-                  width="75%"
-                  mt="25px"
-               >
-                  <Box mt="75px">
-                     <Box width="100%" ml="25px">
-                        <Heading
-                           as="h1"
-                           fontSize="50px"
-                           textAlign="left"
-                           mx="50px"
-                        >
-                           {this.state.articleTitle}
-                        </Heading>
-                     </Box>
-                  </Box>
-
-                  <Box>
-                     <Stack isInline my="35px">
-                        <Box ml="75px" textAlign="left" fontSize="20px">
-                           By{' '}
-                           <ChakraLink color="teal.500">
-                              <Link to={`/${this.state.articleAuthorProfile}`}>
-                                 {this.state.articleAuthor}
-                              </Link>
-                           </ChakraLink>
-                        </Box>
-                        <Text fontSize="20px">
-                           <span>&bull;&bull;&bull;</span>
-                        </Text>
-                        <Text fontSize="20px">{this.state.articleDate}</Text>
-                     </Stack>
-                  </Box>
-                  <Text paddingLeft="75px" marginTop="25px" width="125%">
-                     {this.state.articleSummary}
-                  </Text>
-               </Box>
-               <Box width="75%" my="auto">
-                  <Image
-                     my="75px"
-                     src={this.state.articleImage}
-                     display="block"
-                     mx="auto"
-                     rounded="lg"
-                  />
-               </Box>
-            </SimpleGrid>
+                  justifyContent="center"
+                  rounded="lg"
+               />
+            </Box>
             <Box />
             <Box />
             <Divider mx="100px" my="50px" />
