@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
    Box,
    Flex,
@@ -277,4 +277,4 @@ class SignIn extends React.Component {
    }
 }
 
-export default withRouter(SignIn);
+export default SignIn;
