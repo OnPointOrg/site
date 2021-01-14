@@ -94,10 +94,10 @@ export class ArticleContentPost extends Component {
 
    render() {
       return (
-         <div>
+         <Box>
             {this.state.currentNav}
-            <Box />
             <Box
+               as="section"
                alignItems="center"
                display="block"
                mx="auto"
@@ -157,7 +157,7 @@ export class ArticleContentPost extends Component {
                   <Box margin="25px">{element}</Box>
                ))}
             </Box>
-         </div>
+         </Box>
       );
    }
 }
