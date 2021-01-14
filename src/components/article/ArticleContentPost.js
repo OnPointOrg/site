@@ -157,6 +157,20 @@ export class ArticleContentPost extends Component {
                   <Box margin="25px">{element}</Box>
                ))}
             </Box>
+
+            <Box
+               as="section"
+               alignItems="center"
+               display="block"
+               mx="auto"
+               width="75%"
+               mt="25px"
+               overflow="hidden"
+            >
+               <Heading textAlign="center">
+                  More Articles By {this.state.articleAuthor}
+               </Heading>
+            </Box>
          </Box>
       );
    }
