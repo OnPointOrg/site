@@ -13,6 +13,8 @@ const ExploreCard = (props) => {
             transition: '0.5s ease-in-out'
          }}
          h="15rem"
+         borderColor="black"
+         borderWidth="2px"
          borderRadius="0.5rem"
       >
          <Flex
@@ -41,14 +43,17 @@ const ExploreCard = (props) => {
                   );
                })}
             </Flex>
-            <Text my="auto" color="white" fontWeight="600" fontSize="1.5rem">
+            <Text
+               my="auto"
+               color="white"
+               fontWeight="600"
+               fontSize="1.5rem"
+               backgroundColor="rgba(0, 0, 0, 0.6)"
+               borderRadius="md"
+               padding="10px"
+            >
                {props.title}
             </Text>
-            {/* {props.desc && (
-               <Text color="white" fontSize="1rem">
-                  {props.desc}
-               </Text>
-            )} */}
          </Flex>
       </PseudoBox>
    );

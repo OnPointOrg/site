@@ -97,6 +97,7 @@ export class ArticlePost extends React.Component {
                            onClick={this.handleToggle}
                            mt="1rem"
                            variant="outline"
+                           variantColor="teal"
                         >
                            Show {this.state.show ? 'Less' : 'More'}
                         </Button>
@@ -109,7 +110,13 @@ export class ArticlePost extends React.Component {
                            }, 5);
                         }}
                      >
-                        <Button size="sm" ml="10px" mt="1rem" variant="ghost">
+                        <Button
+                           size="sm"
+                           ml="10px"
+                           mt="1rem"
+                           variant="ghost"
+                           variantColor="teal"
+                        >
                            {console.log(
                               'PROPS DOC ID ===================' +
                                  this.props.docId

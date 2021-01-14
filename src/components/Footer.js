@@ -22,12 +22,12 @@ const Footer = () => {
       >
          <Stack pt={5} direction="row" justify="center" mt="25px">
             <Link to="/about">
-               <Button variant="ghost" mx="15px">
+               <Button variant="ghost" variantColor="teal" mx="15px">
                   About
                </Button>
             </Link>
             <Link to="/articles">
-               <Button variant="ghost" mx="15px">
+               <Button variant="ghost" variantColor="teal" mx="15px">
                   Articles
                </Button>
             </Link>
@@ -37,7 +37,7 @@ const Footer = () => {
                href="mailto:aditya1rawat@gmail.com"
                // isExternal
             >
-               <Button variant="ghost" mx="15px">
+               <Button variant="ghost" variantColor="teal" mx="15px">
                   Contact
                </Button>
             </Text>

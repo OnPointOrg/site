@@ -40,6 +40,7 @@ export class CreateStory extends Component {
       articleContent: '',
       useruid: '',
       username: '',
+      email: '',
       thumbnailImage: '',
       currentNav: <DefaultNav />,
       loadingState: false,
@@ -66,10 +67,12 @@ export class CreateStory extends Component {
       if (firebaseUser != null) {
          const name = firebaseUser.displayName;
          const uid = firebaseUser.uid;
+         const email = firebaseUser.email;
          console.log(uid);
          this.setState({
             useruid: uid,
-            username: name
+            username: name,
+            email: email
          });
       } else {
          alert('Please Sign In!');
@@ -120,6 +123,7 @@ export class CreateStory extends Component {
             content: this.state.articleContent,
             useruid: this.state.useruid,
             username: this.state.username,
+            email: this.state.email,
             thumbnailImage: this.state.thumbnailImage
          })
          .then((docRef) => {
