@@ -8,9 +8,7 @@ const TrendingGrid = (props) => {
       <Stack direction="column">
          <Flex justify="space-between" marginBottom="1rem" width="100%">
             <ExploreCard
-               image={
-                  'https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/BlogThumbnail%2Fcyber-security.jpg?alt=media&token=42c8409e-14d5-4b8d-9f6b-c470515ecf9d'
-               }
+               image={'http://u.filein.io/5anStmrA3j.jpeg'}
                tags={['Technology']}
                size="lg"
                title={
@@ -18,9 +16,7 @@ const TrendingGrid = (props) => {
                }
             />
             <ExploreCard
-               image={
-                  'https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/BlogThumbnail%2Fdiv-turakhia%20.jpeg?alt=media&token=71169241-9ed1-4d98-8bfc-6e0b0c117ec6'
-               }
+               image={'http://u.filein.io/VMBau__oBU.jpeg'}
                tags={['Politics']}
                size="sm"
                title={"Donald Trump's Lack Of Response To BLM"}
@@ -29,9 +25,7 @@ const TrendingGrid = (props) => {
 
          <Flex justify="space-between" marginBottom="1rem">
             <ExploreCard
-               image={
-                  'https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/BlogThumbnail%2Fme.png?alt=media&token=8b370ef8-c89c-47b4-8d37-1111b6da94d8'
-               }
+               image={'http://u.filein.io/RrS5zNT_dA.jpeg'}
                tags={['Technology', 'Politics']}
                size="sm"
                title={'Internal & External Threats'}

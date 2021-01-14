@@ -68,7 +68,6 @@ export class ArticlePost extends React.Component {
                      fontWeight="semibold"
                      as="h4"
                      lineHeight="tight"
-                     isTruncated
                   >
                      {this.props.title}
                   </Box>
