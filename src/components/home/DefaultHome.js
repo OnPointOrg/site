@@ -17,6 +17,8 @@ import paypallogo from '../../images/paypallogo.png';
 import hcbanklogo from '../../images/hcbanklogo.svg';
 import { motion } from 'framer-motion';
 
+import GetStarted from '../GetStarted';
+
 import {
    FaSearch,
    FaPlay,
@@ -343,56 +345,7 @@ export const DefaultHome = () => {
             </Box>
          </Box>
 
-         <Box
-            as="section"
-            bg={'#81e6d91c'}
-            bgPos="bottom center"
-            bgSize="120px"
-            bgRepeat="repeat no-repeat"
-            borderTopColor="teal.500"
-            borderTopWidth="10px"
-            borderBottomColor="teal.500"
-            borderBottomWidth="10px"
-         >
-            <Box
-               pt="12rem"
-               maxW="50rem"
-               height="735px"
-               mx="auto"
-               textAlign="center"
-            >
-               <Flex direction="column" align="center" mx="auto">
-                  <FaCheckCircle fontSize="75px" />
-                  <Heading textStyle="heading" mt="6" mb="6">
-                     Get Started!
-                  </Heading>
-                  <Text mb="40px" fontSize="lg" opacity={0.7}>
-                     Make your free account to start writing the next big story!
-                     If you have any other questions, contact us by{' '}
-                     <ChakraLink
-                        href="mailto:aditya1rawat@gmail.com"
-                        textDecoration="underline"
-                        isExternal
-                     >
-                        email <Icon name="external-link" mx="2px" />
-                     </ChakraLink>{' '}
-                  </Text>
-               </Flex>
-               <Link to="/signup">
-                  <Button
-                     h="4rem"
-                     px="40px"
-                     fontSize="1.2rem"
-                     as="a"
-                     size="lg"
-                     colorScheme="teal"
-                     rightIcon={'arrow-forward'}
-                  >
-                     Get Started Now
-                  </Button>
-               </Link>
-            </Box>
-         </Box>
+         <GetStarted text="Make your free account to start writing the next big story!" />
       </Box>
    );
 };

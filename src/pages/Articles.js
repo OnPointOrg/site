@@ -24,7 +24,12 @@ class Articles extends Component {
          } else {
             this.setState({
                currentNav: <DefaultNav />,
-               page: <GetStarted />
+               page: (
+                  <GetStarted
+                     text="You cannot view our collection of articles without an account!
+               Make your free account to view all of our articles!"
+                  />
+               )
             });
          }
       });

@@ -14,7 +14,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 
 import { Link } from 'react-router-dom';
 
-export const GetStarted = () => {
+export const GetStarted = (props) => {
    return (
       <Box
          bg={'#81e6d91c'}
@@ -28,16 +28,14 @@ export const GetStarted = () => {
          minH="100%"
          width="100%"
       >
-         <Box py="12rem" w="100%" mx="auto" textAlign="center">
+         <Box py="10rem" w="100%" mx="auto" textAlign="center">
             <Flex direction="column" align="center" mx="auto">
                <FaCheckCircle fontSize="75px" />
-               <Heading textStyle="heading" my="atuo">
+               <Heading textStyle="heading" my="25px">
                   Get Started!
                </Heading>
                <Text mb="40px" fontSize="lg" opacity={0.7} width="50%">
-                  You cannot view our collection of articles without an account!
-                  Make your free account to view all of our articles! If you
-                  have any other questions, contact us by{' '}
+                  {props.text} If you have any other questions, contact us by{' '}
                   <ChakraLink
                      href="mailto:aditya1rawat@gmail.com"
                      textDecoration="underline"
@@ -59,7 +57,8 @@ export const GetStarted = () => {
                   fontSize="1.2rem"
                   as="a"
                   size="lg"
-                  colorScheme="teal"
+                  variantColor="teal"
+                  variant="outline"
                   rightIcon={'arrow-forward'}
                >
                   Get Started Now
