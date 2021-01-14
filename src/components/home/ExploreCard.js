@@ -23,7 +23,8 @@ const ExploreCard = (props) => {
             style={{
                backgroundImage: `url(${props.image})`,
                backgroundSize: 'cover',
-               backgroundPosition: 'center center'
+               backgroundPosition: 'center center',
+               cursor: 'pointer'
             }}
             padding="1rem 1rem"
             direction="column"

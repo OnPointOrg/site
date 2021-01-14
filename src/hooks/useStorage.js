@@ -12,7 +12,7 @@ const useStorage = (file, location) => {
 
    useEffect(() => {
       const storageRef = projectStorage.ref(`${location}/` + file.name);
-      const collectionRef = firestoreDatabase.collection('images');
+      const collectionRef = firestoreDatabase.collection('ArticleThumbnail');
 
       storageRef.put(file).on(
          'state_changed',

@@ -16,7 +16,6 @@ const TrendingGrid = (props) => {
                title={
                   'Wireless Lifestyle Consequences & Mobile Devices, Risk, and Attacks'
                }
-               desc={'Description Big'}
             />
             <ExploreCard
                image={
@@ -25,7 +24,6 @@ const TrendingGrid = (props) => {
                tags={['Politics']}
                size="sm"
                title={"Donald Trump's Lack Of Response To BLM"}
-               desc={'Small Description'}
             />
          </Flex>
 
@@ -37,16 +35,14 @@ const TrendingGrid = (props) => {
                tags={['Technology', 'Politics']}
                size="sm"
                title={'Internal & External Threats'}
-               desc={'Small Description'}
             />
             <ExploreCard
                image={
-                  'https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/placeholder.jpg?alt=media&token=d818ce78-464a-4993-9f53-ee459d135d29'
+                  'https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/imageplaceholder.png?alt=media&token=ce8b4cfa-b3c5-4177-9431-deedad0383ce'
                }
                tags={['Sports', 'Politics']}
                size="lg"
                title={'New New Placeholder Image Test'}
-               desc={'Description Big'}
             />
          </Flex>
       </Stack>
