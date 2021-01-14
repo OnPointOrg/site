@@ -3,7 +3,6 @@ import { IconButton, useColorMode, Tooltip } from '@chakra-ui/core';
 
 const ThemeButton = () => {
    const { colorMode } = useColorMode();
-   // const { toggleColorMode } = useColorMode();
 
    return (
       <Tooltip
