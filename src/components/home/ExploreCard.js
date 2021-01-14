@@ -12,7 +12,7 @@ const ExploreCard = (props) => {
             transform: 'scale(1.02)',
             transition: '0.5s ease-in-out'
          }}
-         h="auto"
+         h="15rem"
          borderRadius="0.5rem"
       >
          <Flex
@@ -28,7 +28,7 @@ const ExploreCard = (props) => {
          >
             <Flex direction="row">
                <Badge rounded="md" py="1" px="2" backgroundColor="black">
-                  Technology
+                  <Text color="white">Technology</Text>
                </Badge>
             </Flex>
             <Text my="auto" color="white" fontWeight="600" fontSize="2rem">

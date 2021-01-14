@@ -6,7 +6,7 @@ import firebase from 'firebase';
 
 import Footer from '../components/Footer';
 
-import ExplorePage from '../Test/ExplorePage';
+import ExplorePage from '../components/home/ExplorePage';
 import Loading from '../components/home/Loading';
 import DefaultHome from '../components/home/DefaultHome';
 

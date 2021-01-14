@@ -8,8 +8,7 @@ import {
    Stack,
    Image,
    Text,
-   Grid,
-   Icon
+   Grid
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
@@ -26,7 +25,6 @@ import {
    FaComment,
    FaUsers,
    FaCalendar,
-   FaCheckCircle,
    FaScroll
 } from 'react-icons/fa';
 import Feature from '../Feature';
