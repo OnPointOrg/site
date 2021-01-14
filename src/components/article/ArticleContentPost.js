@@ -10,8 +10,6 @@ import {
    Avatar
 } from '@chakra-ui/core';
 
-import { Link } from 'react-router-dom';
-
 import firebase from 'firebase';
 import getDocs, {
    articleHtmlBody,
@@ -23,7 +21,7 @@ import DefaultNav from '../nav/DefaultNav';
 import VerifiedNav from '../nav/VerifiedNav';
 
 let currentArticleHtmlBody = [];
-let authorProfile = '';
+// let authorProfile = '';
 
 const calculateReadingTime = (numOfWords) => {
    const averageReadingSpeed = 200;
@@ -45,7 +43,7 @@ export class ArticleContentPost extends Component {
       articleDate: null,
       articleContent: [],
       articleAuthorUuid: null,
-      articleAuthorProfile: '',
+      // articleAuthorProfile: '',
       currentNav: <DefaultNav />
    };
 
@@ -68,33 +66,30 @@ export class ArticleContentPost extends Component {
 
       let docId = this.props.match.params.docId;
 
-      await getDocs(docId)
-         .then(() => {
-            this.setState({ articleContent: [] });
-            console.log(
-               'Get Docs Article Content:' + this.state.articleContent
-            );
+      await getDocs(docId).then(() => {
+         this.setState({ articleContent: [] });
+         console.log('Get Docs Article Content:' + this.state.articleContent);
 
-            this.setState({
-               articleTitle: articleHtmlInformation[0],
-               articleAuthor: articleHtmlInformation[1],
-               articleSummary: articleHtmlInformation[2],
-               articleDate: articleHtmlInformation[4],
-               articleImage: articleHtmlInformation[5],
-               articleAuthorEmail: articleHtmlInformation[6],
-               articleContent: articleHtmlBody
-            });
-         })
-         .then(() => {
-            console.log(words);
-            authorProfile = this.state.articleAuthor
-               .toLowerCase()
-               .split(' ')
-               .join('');
-            this.setState({
-               articleAuthorProfile: authorProfile
-            });
+         this.setState({
+            articleTitle: articleHtmlInformation[0],
+            articleAuthor: articleHtmlInformation[1],
+            articleSummary: articleHtmlInformation[2],
+            articleDate: articleHtmlInformation[4],
+            articleImage: articleHtmlInformation[5],
+            articleAuthorEmail: articleHtmlInformation[6],
+            articleContent: articleHtmlBody
          });
+      });
+      // .then(() => {
+      //    console.log(words);
+      //    authorProfile = this.state.articleAuthor
+      //       .toLowerCase()
+      //       .split(' ')
+      //       .join('');
+      //    this.setState({
+      //       articleAuthorProfile: authorProfile
+      //    });
+      // });
    };
 
    render() {
@@ -121,17 +116,18 @@ export class ArticleContentPost extends Component {
                <Box>
                   <Stack isInline mt="35px" width="65%" mx="auto">
                      <Box textAlign="left" fontSize="15px" width="75%">
-                        <ChakraLink color="teal.500">
-                           <Link to={`/${this.state.articleAuthorProfile}`}>
-                              <Avatar
-                                 src={`https://unavatar.now.sh/gravatar/${this.state.articleAuthorEmail}`}
-                                 size="sm"
-                                 mx="10px"
-                              />
-                              <Text fontSize="20px" as="span">
-                                 {this.state.articleAuthor}
-                              </Text>
-                           </Link>
+                        <ChakraLink
+                           color="teal.500"
+                           href={`mailto:${this.state.articleAuthorEmail}`}
+                        >
+                           <Avatar
+                              src={`https://unavatar.now.sh/gravatar/${this.state.articleAuthorEmail}`}
+                              size="sm"
+                              mx="10px"
+                           />
+                           <Text fontSize="20px" as="span">
+                              {this.state.articleAuthor}
+                           </Text>
                         </ChakraLink>
                      </Box>
                      <Box width="50%" textAlign="right">
