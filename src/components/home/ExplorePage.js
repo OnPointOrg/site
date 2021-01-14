@@ -141,7 +141,6 @@ export class ExplorePage extends React.Component {
                   </Flex>
                   <Text
                      fontSize="1.125rem"
-                     color="red.300"
                      marginRight="7px"
                      marginBottom="10px"
                   >
@@ -158,7 +157,6 @@ export class ExplorePage extends React.Component {
                   </Flex>
                   <Text
                      fontSize="1.125rem"
-                     color="red.300"
                      marginRight="7px"
                      marginBottom="10px"
                   >

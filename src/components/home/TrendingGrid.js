@@ -11,18 +11,20 @@ const TrendingGrid = (props) => {
                image={
                   'https://images.unsplash.com/photo-1555448248-2571daf6344b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
                }
-               tags={['BigTag1', 'BigTag2']}
+               tags={['Technology']}
                size="lg"
-               title={'Big Title'}
+               title={
+                  'Wireless Lifestyle Consequences & Mobile Devices, Risk, and Attacks'
+               }
                desc={'Description Big'}
             />
             <ExploreCard
                image={
                   'https://images.unsplash.com/photo-1535083252457-6080fe29be45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
                }
-               tags={['SmallTag1', 'SmallTag2']}
+               tags={['Politics']}
                size="sm"
-               title={'Small Title'}
+               title={"Donald Trump's Lack Of Response To BLM"}
                desc={'Small Description'}
             />
          </Flex>
@@ -32,18 +34,18 @@ const TrendingGrid = (props) => {
                image={
                   'https://images.unsplash.com/photo-1535083252457-6080fe29be45?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
                }
-               tags={['SmallTag1', 'SmallTag2']}
+               tags={['Technology', 'Politics']}
                size="sm"
-               title={'Small Title'}
+               title={'Internal & External Threats'}
                desc={'Small Description'}
             />
             <ExploreCard
                image={
                   'https://images.unsplash.com/photo-1555448248-2571daf6344b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9'
                }
-               tags={['BigTag1', 'BigTag2']}
+               tags={['Sports', 'Politics']}
                size="lg"
-               title={'Big Title'}
+               title={'New New Placeholder Image Test'}
                desc={'Description Big'}
             />
          </Flex>

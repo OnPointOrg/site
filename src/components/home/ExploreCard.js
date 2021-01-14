@@ -27,18 +27,28 @@ const ExploreCard = (props) => {
             direction="column"
          >
             <Flex direction="row">
-               <Badge rounded="md" py="1" px="2" backgroundColor="black">
-                  <Text color="white">Technology</Text>
-               </Badge>
+               {props.tags.map((tag) => {
+                  return (
+                     <Badge
+                        rounded="md"
+                        py="1"
+                        px="2"
+                        mx="1"
+                        backgroundColor="black"
+                     >
+                        <Text color="white">{tag}</Text>
+                     </Badge>
+                  );
+               })}
             </Flex>
-            <Text my="auto" color="white" fontWeight="600" fontSize="2rem">
+            <Text my="auto" color="white" fontWeight="600" fontSize="1.5rem">
                {props.title}
             </Text>
-            {props.desc && (
+            {/* {props.desc && (
                <Text color="white" fontSize="1rem">
                   {props.desc}
                </Text>
-            )}
+            )} */}
          </Flex>
       </PseudoBox>
    );
