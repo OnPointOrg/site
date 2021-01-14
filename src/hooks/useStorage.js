@@ -8,7 +8,6 @@ const useStorage = (file, location) => {
 
    useEffect(() => {
       const storageRef = projectStorage.ref(`${location}/` + file.name);
-      // const collectionRef = firestoreDatabase.collection('ArticleThumbnails');
 
       storageRef.put(file).on(
          'state_changed',
@@ -21,7 +20,6 @@ const useStorage = (file, location) => {
          },
          async () => {
             const url = await storageRef.getDownloadURL();
-            // await collectionRef.add({ url, createdAt });
             setUrl(url);
          }
       );
