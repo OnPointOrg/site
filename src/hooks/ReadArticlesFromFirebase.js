@@ -40,7 +40,7 @@ const getDocs = async (articleID) => {
          articleHtmlInformation.push(article.category);
          articleHtmlInformation.push(convertFromUnix(article.content.time));
          articleHtmlInformation.push(article.thumbnailImage);
-         articleHtmlInformation.push(article.uuid);
+         articleHtmlInformation.push(article.email);
 
          caseChecks(article);
       })

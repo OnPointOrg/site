@@ -23,8 +23,6 @@ import DefaultNav from '../nav/DefaultNav';
 import VerifiedNav from '../nav/VerifiedNav';
 
 let currentArticleHtmlBody = [];
-
-let email = '';
 let authorProfile = '';
 
 const calculateReadingTime = (numOfWords) => {
@@ -43,6 +41,7 @@ export class ArticleContentPost extends Component {
       article: null,
       articleTitle: null,
       articleAuthor: null,
+      articleAuthorEmail: null,
       articleDate: null,
       articleContent: [],
       articleAuthorUuid: null,
@@ -82,6 +81,7 @@ export class ArticleContentPost extends Component {
                articleSummary: articleHtmlInformation[2],
                articleDate: articleHtmlInformation[4],
                articleImage: articleHtmlInformation[5],
+               articleAuthorEmail: articleHtmlInformation[6],
                articleContent: articleHtmlBody
             });
          })
@@ -94,7 +94,6 @@ export class ArticleContentPost extends Component {
             this.setState({
                articleAuthorProfile: authorProfile
             });
-            email = firebase.auth().currentUser.email;
          });
    };
 
@@ -125,7 +124,7 @@ export class ArticleContentPost extends Component {
                         <ChakraLink color="teal.500">
                            <Link to={`/${this.state.articleAuthorProfile}`}>
                               <Avatar
-                                 src={`https://unavatar.now.sh/gravatar/${email}`}
+                                 src={`https://unavatar.now.sh/gravatar/${this.state.articleAuthorEmail}`}
                                  size="sm"
                                  mx="10px"
                               />
