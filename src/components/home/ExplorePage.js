@@ -54,7 +54,13 @@ export class ExplorePage extends React.Component {
          <Box direction="column" overflow="hidden" bg="#81e6d91c">
             <Flex direction="column" padding="2rem 4rem">
                <Flex align="center">
-                  <Text fontSize="3rem" color="teal" as="b" ml="75px" mr="25px">
+                  <Text
+                     fontSize="3rem"
+                     as="b"
+                     ml="75px"
+                     mr="25px"
+                     color="white"
+                  >
                      Good {tod()}, {this.state.user}!
                   </Text>
                   {todIcon}
@@ -89,35 +95,31 @@ export class ExplorePage extends React.Component {
                   </Text>
                   <Flex marginTop="auto">
                      <Badge
-                        variant="solid"
-                        padding="0.2rem 0.6rem"
-                        borderRadius="999px"
-                        style={{ textTransform: 'lowercase' }}
-                        marginRight="10px"
+                        rounded="md"
+                        py="1"
+                        px="2"
+                        mx="1"
+                        backgroundColor="black"
                      >
-                        #sealife
+                        <Text color="white">Technology</Text>
                      </Badge>
                      <Badge
-                        variant="solid"
-                        padding="0.2rem 0.6rem"
-                        borderRadius="999px"
-                        style={{ textTransform: 'lowercase' }}
-                        marginRight="10px"
+                        rounded="md"
+                        py="1"
+                        px="2"
+                        mx="1"
+                        backgroundColor="black"
                      >
-                        #abstract
+                        <Text color="white">Politics</Text>
                      </Badge>
                      <Badge
-                        variant="solid"
-                        padding="0.2rem 0.6rem"
-                        borderRadius="999px"
-                        bg="rgba(252, 129, 129, 0.41);"
-                        style={{ textTransform: 'lowercase' }}
-                        marginRight="10px"
+                        rounded="md"
+                        py="1"
+                        px="2"
+                        mx="1"
+                        backgroundColor="black"
                      >
-                        <Flex align="center" justify="center">
-                           <Box marginRight="2.5px">{/* Icon */}</Box>
-                           featured
-                        </Flex>
+                        <Text color="white">Sports</Text>
                      </Badge>
                   </Flex>
                </PseudoBox>
