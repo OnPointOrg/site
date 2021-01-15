@@ -17,6 +17,7 @@ class Profile extends React.Component {
             width="100%"
             borderWidth="5px"
             borderRadius="10px"
+            borderColor="#3F444E"
             shadow="xl"
             bg="teal"
             padding="15px"
@@ -24,7 +25,7 @@ class Profile extends React.Component {
             <Stack direction="row" spacing={6}>
                <Avatar size="xl" src={this.props.img} />
                <Stack spacing={3} maxW="320px">
-                  <Text fontWeight="bold" fontSize="xl">
+                  <Text fontWeight="bold" fontSize="xl" color="teal.200">
                      {this.props.name}
                   </Text>
 
@@ -120,7 +121,9 @@ class Profile extends React.Component {
                   </Stack>
                </Stack>
             </Stack>
-            <Text margin="20px">{this.props.bio}</Text>
+            <Text margin="20px" color="white">
+               {this.props.bio}
+            </Text>
          </Box>
       );
    }

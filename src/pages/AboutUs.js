@@ -52,6 +52,7 @@ export class AboutUs extends React.Component {
                         fontWeight="bold"
                         mb="16px"
                         lineHeight="1.2"
+                        color="white"
                      >
                         About Us
                      </Heading>
@@ -74,6 +75,7 @@ export class AboutUs extends React.Component {
                         fontWeight="bold"
                         lineHeight="1.2"
                         textAlign="center"
+                        color="white"
                      >
                         Our Mission
                      </Heading>
@@ -84,6 +86,7 @@ export class AboutUs extends React.Component {
                         textAlign="center"
                         display="block"
                         mx="auto"
+                        color="white"
                      >
                         Our mission is to provide a platform for teenagers to
                         create quality media about various topics in the modern
