@@ -31,12 +31,7 @@ const Footer = () => {
                   Articles
                </Button>
             </Link>
-            <Text
-               as="a"
-               textDecor="none"
-               href="mailto:aditya1rawat@gmail.com"
-               // isExternal
-            >
+            <Text as="a" textDecor="none" href="mailto:aditya1rawat@gmail.com">
                <Button variant="ghost" variantColor="teal" mx="15px">
                   Contact
                </Button>
@@ -112,10 +107,16 @@ const Footer = () => {
                />
             </ChakraLink>
          </Stack>
-         <Text mt="15px" mb="25px" fontSize="lg" textAlign="center">
+         <Text
+            mt="15px"
+            mb="25px"
+            fontSize="lg"
+            textAlign="center"
+            color="white"
+         >
             Copyright &copy; {new Date().getFullYear()}. OnPoint News.
          </Text>
-         <Text m={3} fontSize="xs" textAlign="center" mb="50px">
+         <Text mx={3} fontSize="xs" textAlign="center" pb="50px" color="white">
             Developed With{' '}
             <span role="img" aria-label="heart">
                ❤️

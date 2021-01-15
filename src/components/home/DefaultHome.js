@@ -7,8 +7,7 @@ import {
    Flex,
    Stack,
    Image,
-   Text,
-   Grid
+   Text
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
@@ -18,21 +17,13 @@ import { motion } from 'framer-motion';
 
 import GetStarted from '../GetStarted';
 
-import {
-   FaSearch,
-   FaPlay,
-   FaNewspaper,
-   FaComment,
-   FaUsers,
-   FaCalendar,
-   FaScroll
-} from 'react-icons/fa';
-import Feature from '../Feature';
+import { FaScroll } from 'react-icons/fa';
+import FeatureGrid from './FeatureGrid';
 
 export const DefaultHome = () => {
    return (
       <Box>
-         <Box as="section" width="100%" bg="teal.700" py="35px">
+         <Box as="section" width="100%" bg="#285E61" py="35px">
             <Flex
                direction="column"
                align="center"
@@ -50,8 +41,8 @@ export const DefaultHome = () => {
                         size="xl"
                         fontSize="6rem"
                         fontWeight="bold"
-                        color="primary.800"
                         width="80%"
+                        color="white"
                      >
                         This Is OnPoint.
                      </Heading>
@@ -79,6 +70,7 @@ export const DefaultHome = () => {
                               size="lg"
                               bg="teal.900"
                               rightIcon={'arrow-forward'}
+                              color="white"
                            >
                               Get Started
                            </Button>
@@ -93,6 +85,8 @@ export const DefaultHome = () => {
                               px="40px"
                               fontSize="1.5rem"
                               leftIcon={FaScroll}
+                              bg="teal.500"
+                              color="white"
                            >
                               Start Reading
                            </Button>
@@ -103,8 +97,8 @@ export const DefaultHome = () => {
                            <ChakraLink
                               fontSize="20px"
                               textAlign="center"
-                              color="primary.800"
                               opacity="0.6"
+                              color="white"
                            >
                               Learn More
                            </ChakraLink>
@@ -140,72 +134,8 @@ export const DefaultHome = () => {
                </Flex>
             </Flex>
          </Box>
-         <Box
-            width="90%"
-            display="block"
-            mx="auto"
-            height="auto"
-            align="center"
-            justifyContent="center"
-         >
-            <Box pb="120px">
-               <Box
-                  maxW="760px"
-                  mx="auto"
-                  textAlign="center"
-                  mb="56px"
-                  mt="5rem"
-               >
-                  <Heading as="h2" fontSize="50px" mb="5">
-                     Redefine The Media
-                  </Heading>
-                  <Text opacity={0.7} fontSize="lg">
-                     Well Maybe Not Redefine, But You'll Still Make An Impact
-                  </Text>
-               </Box>
-               <Grid
-                  templateColumns={{
-                     base: 'repeat(1, 1fr)',
-                     md: 'repeat(3, 1fr)'
-                  }}
-                  gap={10}
-                  px={{ md: 12 }}
-                  mx="auto"
-                  height="auto"
-                  align="center"
-                  justifyContent="center"
-               >
-                  <Feature icon={<FaCalendar />} title="Daily Articles">
-                     Articles about relevant topics that are concise yet
-                     detailed and include visual aids. Crafted for precision.
-                  </Feature>
-                  <Feature icon={<FaSearch />} title="Analytic Articles">
-                     Long articles containing deep analysis about certain topics
-                     such as how sport drafts work or how the electoral college
-                     functions.
-                  </Feature>
-                  <Feature icon={<FaPlay />} title="Weekly Videos">
-                     Weekly videos provide a brief description of the events we
-                     covered during the week.
-                  </Feature>
-                  <Feature icon={<FaNewspaper />} title="Newsletter">
-                     Important articles are sent out every week to users. It is
-                     customizable to the user’s preference.
-                  </Feature>
-                  <Feature
-                     icon={<FaComment />}
-                     title="Guest Speakers / Interviews"
-                  >
-                     We will conduct interviews and hold speaker events to
-                     further educate the public about specific topics.
-                  </Feature>
-                  <Feature icon={<FaUsers />} title="Active Community">
-                     We want to use our platform to allow others to provide
-                     opportunities that will benefit our community.
-                  </Feature>
-               </Grid>
-            </Box>
-         </Box>
+
+         <FeatureGrid />
 
          <Box bg="teal.500" as="section">
             <Box py="120px" px="32px" color="white">

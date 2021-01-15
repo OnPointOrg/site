@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 export const GetStarted = (props) => {
    return (
       <Box
-         bg={'#81e6d91c'}
+         backgroundColor="#25353F"
          bgPos="bottom center"
          bgSize="120px"
          bgRepeat="repeat no-repeat"
@@ -30,11 +30,17 @@ export const GetStarted = (props) => {
       >
          <Box py="10rem" w="100%" mx="auto" textAlign="center">
             <Flex direction="column" align="center" mx="auto">
-               <FaCheckCircle fontSize="75px" />
-               <Heading textStyle="heading" my="25px">
+               <FaCheckCircle fontSize="75px" color="white" />
+               <Heading textStyle="heading" my="25px" color="white">
                   Get Started!
                </Heading>
-               <Text mb="40px" fontSize="lg" opacity={0.7} width="50%">
+               <Text
+                  mb="40px"
+                  fontSize="lg"
+                  opacity={0.7}
+                  width="50%"
+                  color="white"
+               >
                   {props.text} If you have any other questions, contact us by{' '}
                   <ChakraLink
                      href="mailto:aditya1rawat@gmail.com"

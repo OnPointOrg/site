@@ -9,6 +9,7 @@ const Feature = ({ title, icon, children, ...props }) => {
             rounded="12px"
             boxShadow="lg"
             borderWidth="5px"
+            borderColor="#3F444E"
             p="40px"
             {...props}
             minH="300px"
@@ -20,6 +21,7 @@ const Feature = ({ title, icon, children, ...props }) => {
                align="center"
                justify="center"
                bg="teal.500"
+               color="white"
             >
                {icon}
             </Flex>
@@ -29,10 +31,11 @@ const Feature = ({ title, icon, children, ...props }) => {
                fontWeight="semibold"
                mt="1em"
                mb="0.5em"
+               color="white"
             >
                {title}
             </Heading>
-            <Text fontSize="lg" opacity={0.7}>
+            <Text fontSize="lg" opacity={0.7} color="white">
                {children}
             </Text>
          </Box>
