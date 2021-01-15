@@ -198,20 +198,23 @@ class SignIn extends React.Component {
                <Box>
                   <Box p={4}>
                      <Box textAlign="center">
-                        <Text>Sign In</Text>
-                        <Heading>Continue Your Journey</Heading>
-                        <Heading>@ Onpoint</Heading>
+                        <Text color="white">Sign In</Text>
+                        <Heading color="teal.500">
+                           Continue Your Journey
+                        </Heading>
+                        <Heading color="teal.500">@ Onpoint</Heading>
                      </Box>
                      <Box my={8} textAlign="left">
                         <form onSubmit={this.handleSubmit}>
                            <FormControl isRequired mt={4}>
-                              <FormLabel>Email</FormLabel>
+                              <FormLabel color="white">Email</FormLabel>
                               <InputGroup>
                                  <InputLeftElement
                                     children={<Icon name="email" />}
                                  />
                                  <Input
                                     autoComplete="on"
+                                    color="teal.200"
                                     onChange={this.handleChange}
                                     id="email"
                                     name="email"
@@ -220,10 +223,12 @@ class SignIn extends React.Component {
                                     value={this.state.email}
                                  />
                               </InputGroup>
-                              <Text fontSize="xs">{this.state.emailError}</Text>
+                              <Text fontSize="xs" color="red">
+                                 {this.state.emailError}
+                              </Text>
                            </FormControl>
                            <FormControl isRequired mt={4}>
-                              <FormLabel>Password</FormLabel>
+                              <FormLabel color="white">Password</FormLabel>
                               <InputGroup>
                                  <InputLeftElement
                                     children={<Icon name="lock" />}
@@ -248,12 +253,13 @@ class SignIn extends React.Component {
                                  checked={this.state.isChecked}
                                  name="lsRememberMe"
                                  onChange={this.onChangeCheckbox}
+                                 color="white"
                               >
                                  Remember Me
                               </Checkbox>
                            </Box>
 
-                           <Box mt={1}>
+                           <Box mt={1} color="white">
                               Need An Account?{' '}
                               <ChakraLink color={`${VARIANT_COLOR}.500`}>
                                  <Link to="/signup">Sign Up Here</Link>

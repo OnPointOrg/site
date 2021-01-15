@@ -239,14 +239,14 @@ class SignUp extends Component {
                <Box>
                   <Box>
                      <Box textAlign="center">
-                        <Text>Sign Up</Text>
-                        <Heading>Start Your Journey</Heading>
-                        <Heading>@ Onpoint</Heading>
+                        <Text color="white">Sign Up</Text>
+                        <Heading color="teal.500">Start Your Journey</Heading>
+                        <Heading color="teal.500">@ Onpoint</Heading>
                      </Box>
                      <Box my={8} textAlign="left">
                         <form onSubmit={this.handleSubmit}>
                            <FormControl isRequired>
-                              <FormLabel>Full Name</FormLabel>
+                              <FormLabel color="white">Full Name</FormLabel>
                               <InputGroup>
                                  <InputLeftElement
                                     children={<Icon name="view" />}
@@ -260,11 +260,13 @@ class SignUp extends Component {
                                     value={this.state.fullName}
                                  />
                               </InputGroup>
-                              <Text fontSize="xs">{this.state.error}</Text>
+                              <Text fontSize="xs" color="red">
+                                 {this.state.error}
+                              </Text>
                            </FormControl>
 
                            <FormControl isRequired mt={4}>
-                              <FormLabel>Email</FormLabel>
+                              <FormLabel color="white">Email</FormLabel>
                               <InputGroup>
                                  <InputLeftElement
                                     children={<Icon name="email" />}
@@ -278,10 +280,12 @@ class SignUp extends Component {
                                     value={this.state.email}
                                  />
                               </InputGroup>
-                              <Text fontSize="xs">{this.state.emailError}</Text>
+                              <Text fontSize="xs" color="red">
+                                 {this.state.emailError}
+                              </Text>
                            </FormControl>
                            <FormControl isRequired mt={4}>
-                              <FormLabel>Password</FormLabel>
+                              <FormLabel color="white">Password</FormLabel>
                               <InputGroup>
                                  <InputLeftElement
                                     children={<Icon name="lock" />}
@@ -295,7 +299,7 @@ class SignUp extends Component {
                                     value={this.state.password}
                                  />
                               </InputGroup>
-                              <Text fontSize="xs">
+                              <Text fontSize="xs" color="red">
                                  {this.state.passwordError}
                               </Text>
                            </FormControl>
@@ -307,7 +311,9 @@ class SignUp extends Component {
                            ></Stack>
 
                            {this.state.signButton}
-                           <Text fontSize="xs">{this.state.signUpSuccess}</Text>
+                           <Text fontSize="xs" color="green">
+                              {this.state.signUpSuccess}
+                           </Text>
                            <Text fontSize="xs">{this.state.redirect}</Text>
 
                            <Box mt={1}>
@@ -315,12 +321,13 @@ class SignUp extends Component {
                                  checked={this.state.isChecked}
                                  name="lsRememberMe"
                                  onChange={this.onChangeCheckbox}
+                                 color="white"
                               >
                                  Remember Me
                               </Checkbox>
                            </Box>
 
-                           <Box mt={1}>
+                           <Box mt={1} color="white">
                               Already Have An Account?{' '}
                               <ChakraLink color={`${VARIANT_COLOR}.500`}>
                                  <Link to="/signin">Sign In Here.</Link>
