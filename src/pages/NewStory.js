@@ -185,6 +185,8 @@ export class CreateStory extends Component {
                                        value={this.state.title}
                                        onChange={this.handleChange}
                                        type="text"
+                                       color="white"
+                                       background="black"
                                        placeholder="A Very Interesting Title"
                                     />
                                  </InputGroup>
@@ -197,11 +199,11 @@ export class CreateStory extends Component {
                                        width="100%"
                                        id="category"
                                        type="text"
+                                       color="white"
+                                       background="black"
                                        placeholder="Select Category"
                                     >
                                        <option
-                                          background="black"
-                                          color="white"
                                           value="politics"
                                           onClick={() => {
                                              this.setState({
@@ -248,6 +250,8 @@ export class CreateStory extends Component {
                                  />
                                  <Input
                                     id="summary"
+                                    color="white"
+                                    background="black"
                                     value={this.state.summary}
                                     onChange={this.handleChange}
                                     width="100%"

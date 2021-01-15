@@ -70,6 +70,8 @@ const UploadForm = () => {
                      onClick={handleClick}
                      onChange={changeHandler}
                      width="400px"
+                     color="white"
+                     background="black"
                   >
                      <input
                         type="file"

@@ -117,6 +117,8 @@ class ForgotPassword extends React.Component {
                                     children={<Icon name="email" />}
                                  />
                                  <Input
+                                    color="white"
+                                    background="black"
                                     onChange={this.handleChange}
                                     id="email"
                                     type="email"

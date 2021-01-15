@@ -214,7 +214,8 @@ class SignIn extends React.Component {
                                  />
                                  <Input
                                     autoComplete="on"
-                                    color="teal.200"
+                                    color="white"
+                                    background="black"
                                     onChange={this.handleChange}
                                     id="email"
                                     name="email"
@@ -235,6 +236,8 @@ class SignIn extends React.Component {
                                  />
                                  <Input
                                     onChange={this.handleChange}
+                                    color="white"
+                                    background="black"
                                     id="password"
                                     name="email"
                                     type="password"

@@ -252,6 +252,8 @@ class SignUp extends Component {
                                     children={<Icon name="view" />}
                                  />
                                  <Input
+                                    color="white"
+                                    background="black"
                                     onChange={this.handleChange}
                                     id="fullName"
                                     type="text"
@@ -272,6 +274,8 @@ class SignUp extends Component {
                                     children={<Icon name="email" />}
                                  />
                                  <Input
+                                    color="white"
+                                    background="black"
                                     onChange={this.handleChange}
                                     id="email"
                                     type="email"
@@ -291,6 +295,8 @@ class SignUp extends Component {
                                     children={<Icon name="lock" />}
                                  />
                                  <Input
+                                    color="white"
+                                    background="black"
                                     onChange={this.handleChange}
                                     id="password"
                                     type="password"
