@@ -43,7 +43,6 @@ export class ArticleContentPost extends Component {
       articleDate: null,
       articleContent: [],
       articleAuthorUuid: null,
-      // articleAuthorProfile: '',
       currentNav: <DefaultNav />
    };
 
@@ -107,7 +106,7 @@ export class ArticleContentPost extends Component {
             >
                <Box>
                   <Box width="80%" mx="auto">
-                     <Heading as="h1" fontSize="50px" textAlign="center">
+                     <Heading color="white" fontSize="50px" textAlign="center">
                         {this.state.articleTitle}
                      </Heading>
                   </Box>
@@ -131,7 +130,7 @@ export class ArticleContentPost extends Component {
                         </ChakraLink>
                      </Box>
                      <Box width="50%" textAlign="right">
-                        <Text fontSize="20px">
+                        <Text fontSize="20px" color="white">
                            {this.state.articleDate} &bull;{' '}
                            {`${calculateReadingTime(words)} min reading`}
                         </Text>
@@ -154,7 +153,9 @@ export class ArticleContentPost extends Component {
             <Divider mx="100px" my="50px" />
             <Box marginBottom="75px" display="block" mx="auto" width="55%">
                {this.state.articleContent.map((element) => (
-                  <Box margin="25px">{element}</Box>
+                  <Box margin="25px" color="white">
+                     {element}
+                  </Box>
                ))}
             </Box>
 
@@ -167,7 +168,7 @@ export class ArticleContentPost extends Component {
                mt="25px"
                overflow="hidden"
             >
-               <Heading textAlign="center">
+               <Heading textAlign="center" color="white">
                   More Articles By {this.state.articleAuthor}
                </Heading>
             </Box>

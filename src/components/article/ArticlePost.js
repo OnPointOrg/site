@@ -68,6 +68,7 @@ export class ArticlePost extends React.Component {
                      fontWeight="semibold"
                      as="h4"
                      lineHeight="tight"
+                     color="white"
                   >
                      {this.props.title}
                   </Box>
@@ -87,7 +88,7 @@ export class ArticlePost extends React.Component {
                      {this.convertFromUnix(this.props.date)}
                   </Box>
                   <Box marginTop="3">
-                     <Box as="span" color="white.600" fontSize="sm">
+                     <Box as="span" fontSize="sm" color="white">
                         <Collapse startingHeight={20} isOpen={this.state.show}>
                            {this.props.summary}
                         </Collapse>
