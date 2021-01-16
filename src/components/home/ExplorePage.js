@@ -19,7 +19,7 @@ import TrendingGrid from './TrendingGrid';
 
 import firebase from 'firebase';
 
-let todIcon = <WiSunrise size="4rem" />;
+let todIcon = <WiSunrise size="4rem" color="white" />;
 
 const tod = () => {
    const today = new Date();
@@ -28,10 +28,10 @@ const tod = () => {
    if (hr < 12) {
       return 'Morning';
    } else if (hr < 18) {
-      todIcon = <Icon name="sun" size="3rem" />;
+      todIcon = <Icon name="sun" size="3rem" color="white" />;
       return 'Afternoon';
    } else {
-      todIcon = <FaMoon size="2rem" />;
+      todIcon = <FaMoon size="2rem" color="white" />;
       return 'Evening';
    }
 };
@@ -65,6 +65,7 @@ export class ExplorePage extends React.Component {
                   </Text>
                   {todIcon}
                </Flex>
+               z
             </Flex>
             <Box w="85%" align="center" display="block" mx="auto">
                <PseudoBox
@@ -134,15 +135,21 @@ export class ExplorePage extends React.Component {
             >
                <Flex direction="column" w="100%" marginRight="47px">
                   <Flex align="center">
-                     <Text fontSize="2.25rem" as="b" marginRight="15px">
+                     <Text
+                        fontSize="2.25rem"
+                        as="b"
+                        marginRight="15px"
+                        color="white"
+                     >
                         Trending
                      </Text>
-                     <FaChartLine size="2.3rem" />
+                     <FaChartLine size="2.3rem" color="white" />
                   </Flex>
                   <Text
                      fontSize="1.125rem"
                      marginRight="7px"
                      marginBottom="10px"
+                     color="white"
                   >
                      What's going viral!
                   </Text>
@@ -150,15 +157,21 @@ export class ExplorePage extends React.Component {
                </Flex>
                <Flex direction="column" w="100%" marginLeft="47px">
                   <Flex align="center">
-                     <Text fontSize="2.25rem" as="b" marginRight="15px">
+                     <Text
+                        fontSize="2.25rem"
+                        as="b"
+                        marginRight="15px"
+                        color="white"
+                     >
                         Recommended
                      </Text>
-                     <FaThumbsUp size="2.3rem" />
+                     <FaThumbsUp size="2.3rem" color="white" />
                   </Flex>
                   <Text
                      fontSize="1.125rem"
                      marginRight="7px"
                      marginBottom="10px"
+                     color="white"
                   >
                      Read and discover the next big thing!
                   </Text>
