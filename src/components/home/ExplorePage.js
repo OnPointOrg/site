@@ -65,7 +65,6 @@ export class ExplorePage extends React.Component {
                   </Text>
                   {todIcon}
                </Flex>
-               z
             </Flex>
             <Box w="85%" align="center" display="block" mx="auto">
                <PseudoBox

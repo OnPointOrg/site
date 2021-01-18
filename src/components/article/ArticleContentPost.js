@@ -7,10 +7,12 @@ import {
    Image,
    Stack,
    Link as ChakraLink,
-   Avatar
+   Avatar,
+   SimpleGrid
 } from '@chakra-ui/core';
 
 import firebase from 'firebase';
+
 import getDocs, {
    articleHtmlBody,
    words,
@@ -19,9 +21,10 @@ import getDocs, {
 
 import DefaultNav from '../nav/DefaultNav';
 import VerifiedNav from '../nav/VerifiedNav';
+import ArticlePost from './ArticlePost';
+import firestoreDatabase from '../../firebase/config';
 
 let currentArticleHtmlBody = [];
-// let authorProfile = '';
 
 const calculateReadingTime = (numOfWords) => {
    const averageReadingSpeed = 200;
@@ -43,6 +46,7 @@ export class ArticleContentPost extends Component {
       articleDate: null,
       articleContent: [],
       articleAuthorUuid: null,
+      articlesByAuthor: null,
       currentNav: <DefaultNav />
    };
 
@@ -53,6 +57,7 @@ export class ArticleContentPost extends Component {
       console.log(this.props.timestamp);
       firebase.auth().onAuthStateChanged((user) => {
          if (user) {
+            console.log(articleHtmlInformation[1]);
             this.setState({
                currentNav: <VerifiedNav />
             });
@@ -79,16 +84,21 @@ export class ArticleContentPost extends Component {
             articleContent: articleHtmlBody
          });
       });
-      // .then(() => {
-      //    console.log(words);
-      //    authorProfile = this.state.articleAuthor
-      //       .toLowerCase()
-      //       .split(' ')
-      //       .join('');
-      //    this.setState({
-      //       articleAuthorProfile: authorProfile
-      //    });
-      // });
+
+      firestoreDatabase
+         .collection('articles')
+         .where('username', '==', this.state.articleAuthor)
+         .get()
+         .then((querySnapshot) => {
+            const articles = [];
+            querySnapshot.forEach((doc) => {
+               const article = doc.data();
+               articles.push(article);
+            });
+            this.setState({
+               articlesByAuthor: articles
+            });
+         });
    };
 
    render() {
@@ -171,6 +181,23 @@ export class ArticleContentPost extends Component {
                <Heading textAlign="center" color="white">
                   More Articles By {this.state.articleAuthor}
                </Heading>
+               <SimpleGrid>
+                  {this.state.articlesByAuthor != null &&
+                     this.state.articlesByAuthor.slice(0, 4).map((article) => {
+                        console.log(article);
+                        console.log('DOCUMENT ID =====================');
+                        console.log(article.documentId);
+                        return (
+                           <ArticlePost
+                              title={article.title}
+                              summary={article.summary}
+                              time={article.content.time}
+                              username={article.username}
+                              docId={article.documentId}
+                           />
+                        );
+                     })}
+               </SimpleGrid>
             </Box>
          </Box>
       );
