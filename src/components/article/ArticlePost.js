@@ -49,18 +49,7 @@ export class ArticlePost extends React.Component {
                            {this.props.category}
                         </Badge>
                      </Stack>
-                     <Box
-                        color="gray.500"
-                        fontWeight="semibold"
-                        letterSpacing="wide"
-                        fontSize="xs"
-                        textTransform="uppercase"
-                        ml="2"
-                     >
-                        {console.log(this.props.user)}
-                     </Box>
                   </Box>
-
                   <Box
                      marginTop="5"
                      marginBottom="2.5"

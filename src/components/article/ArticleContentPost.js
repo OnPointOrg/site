@@ -8,7 +8,7 @@ import {
    Stack,
    Link as ChakraLink,
    Avatar,
-   SimpleGrid
+   Grid
 } from '@chakra-ui/core';
 
 import firebase from 'firebase';
@@ -47,6 +47,7 @@ export class ArticleContentPost extends Component {
       articleContent: [],
       articleAuthorUuid: null,
       articlesByAuthor: null,
+      documentId: null,
       currentNav: <DefaultNav />
    };
 
@@ -71,7 +72,7 @@ export class ArticleContentPost extends Component {
       let docId = this.props.match.params.docId;
 
       await getDocs(docId).then(() => {
-         this.setState({ articleContent: [] });
+         this.setState({ articleContent: [], documentId: docId });
          console.log('Get Docs Article Content:' + this.state.articleContent);
 
          this.setState({
@@ -92,9 +93,9 @@ export class ArticleContentPost extends Component {
          .then((querySnapshot) => {
             const articles = [];
             querySnapshot.forEach((doc) => {
-               const article = doc.data();
+               console.log(doc.id);
                console.log(doc.data);
-               articles.push(article);
+               articles.push(doc);
             });
             this.setState({
                articlesByAuthor: articles
@@ -176,29 +177,32 @@ export class ArticleContentPost extends Component {
                display="block"
                mx="auto"
                width="75%"
-               mt="25px"
                overflow="hidden"
             >
-               <Heading textAlign="center" color="white">
+               <Heading textAlign="center" color="white" my="50px">
                   More Articles By {this.state.articleAuthor}
                </Heading>
-               <SimpleGrid columns={[2, null, 3]} spacing="40px" mt="50px">
+               <Grid templateColumns="repeat(3, 1fr)" gap={6} mb="50px">
                   {this.state.articlesByAuthor != null &&
                      this.state.articlesByAuthor.slice(0, 4).map((article) => {
-                        console.log(article);
+                        console.log(article.data());
                         console.log('DOCUMENT ID =====================');
-                        console.log(article.documentId);
-                        return (
-                           <ArticlePost
-                              title={article.title}
-                              summary={article.summary}
-                              date={article.content.time}
-                              user={article.username}
-                              docId={article.documentId}
-                           />
-                        );
+                        console.log(article.id);
+                        if (article.id !== this.state.documentId) {
+                           return (
+                              <ArticlePost
+                                 title={article.data().title}
+                                 summary={article.data().summary}
+                                 date={article.data().content.time}
+                                 user={article.data().username}
+                                 thumbnailImage={article.data().thumbnailImage}
+                                 docId={article.id}
+                                 category={article.data().category}
+                              />
+                           );
+                        }
                      })}
-               </SimpleGrid>
+               </Grid>
             </Box>
          </Box>
       );
