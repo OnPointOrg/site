@@ -37,6 +37,8 @@ const calculateReadingTime = (numOfWords) => {
    return readingTime;
 };
 
+const articles = [];
+
 export class ArticleContentPost extends Component {
    state = {
       article: null,
@@ -49,6 +51,16 @@ export class ArticleContentPost extends Component {
       articlesByAuthor: null,
       documentId: null,
       currentNav: <DefaultNav />
+   };
+
+   gridCol = () => {
+      const numOfArticles = articles.length;
+      console.log(numOfArticles);
+      if (numOfArticles < 3) {
+         return numOfArticles;
+      } else {
+         return 3;
+      }
    };
 
    componentDidMount = async () => {
@@ -91,11 +103,12 @@ export class ArticleContentPost extends Component {
          .where('username', '==', this.state.articleAuthor)
          .get()
          .then((querySnapshot) => {
-            const articles = [];
             querySnapshot.forEach((doc) => {
                console.log(doc.id);
                console.log(doc.data);
-               articles.push(doc);
+               if (doc.id !== docId) {
+                  articles.push(doc);
+               }
             });
             this.setState({
                articlesByAuthor: articles
@@ -182,25 +195,28 @@ export class ArticleContentPost extends Component {
                <Heading textAlign="center" color="white" my="50px">
                   More Articles By {this.state.articleAuthor}
                </Heading>
-               <Grid templateColumns="repeat(3, 1fr)" gap={6} mb="50px">
+               <Grid
+                  templateColumns={`repeat(${this.gridCol()}, 1fr)`}
+                  gap={6}
+                  mb="50px"
+               >
                   {this.state.articlesByAuthor != null &&
-                     this.state.articlesByAuthor.slice(0, 4).map((article) => {
+                     this.state.articlesByAuthor.slice().map((article) => {
                         console.log(article.data());
                         console.log('DOCUMENT ID =====================');
                         console.log(article.id);
-                        if (article.id !== this.state.documentId) {
-                           return (
-                              <ArticlePost
-                                 title={article.data().title}
-                                 summary={article.data().summary}
-                                 date={article.data().content.time}
-                                 user={article.data().username}
-                                 thumbnailImage={article.data().thumbnailImage}
-                                 docId={article.id}
-                                 category={article.data().category}
-                              />
-                           );
-                        }
+
+                        return (
+                           <ArticlePost
+                              title={article.data().title}
+                              summary={article.data().summary}
+                              date={article.data().content.time}
+                              user={article.data().username}
+                              thumbnailImage={article.data().thumbnailImage}
+                              docId={article.id}
+                              category={article.data().category}
+                           />
+                        );
                      })}
                </Grid>
             </Box>
