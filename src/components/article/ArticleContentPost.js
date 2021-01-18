@@ -93,6 +93,7 @@ export class ArticleContentPost extends Component {
             const articles = [];
             querySnapshot.forEach((doc) => {
                const article = doc.data();
+               console.log(doc.data);
                articles.push(article);
             });
             this.setState({
@@ -191,8 +192,8 @@ export class ArticleContentPost extends Component {
                            <ArticlePost
                               title={article.title}
                               summary={article.summary}
-                              time={article.content.time}
-                              username={article.username}
+                              date={article.content.time}
+                              user={article.username}
                               docId={article.documentId}
                            />
                         );
