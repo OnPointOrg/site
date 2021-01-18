@@ -181,7 +181,7 @@ export class ArticleContentPost extends Component {
                <Heading textAlign="center" color="white">
                   More Articles By {this.state.articleAuthor}
                </Heading>
-               <SimpleGrid>
+               <SimpleGrid columns={[2, null, 3]} spacing="40px" mt="50px">
                   {this.state.articlesByAuthor != null &&
                      this.state.articlesByAuthor.slice(0, 4).map((article) => {
                         console.log(article);
