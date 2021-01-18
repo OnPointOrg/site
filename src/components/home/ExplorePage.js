@@ -51,22 +51,22 @@ export class ExplorePage extends React.Component {
    };
    render() {
       return (
-         <Box direction="column" overflow="hidden" bg="#81e6d91c">
-            <Flex direction="column" padding="2rem 4rem">
-               <Flex align="center">
-                  <Text
-                     fontSize="3rem"
-                     as="b"
-                     ml="75px"
-                     mr="25px"
-                     color="white"
-                  >
-                     Good {tod()}, {this.state.user}!
-                  </Text>
+         <Box overflow="hidden" bg="#81e6d91c">
+            <Flex padding="2rem 4rem">
+               <Text
+                  fontSize="3rem"
+                  as="b"
+                  mr="25px"
+                  color="white"
+                  textAlign="center"
+               >
+                  Good {tod()}, {this.state.user}!
+               </Text>
+               <Text as="span" mt="10px">
                   {todIcon}
-               </Flex>
+               </Text>
             </Flex>
-            <Box w="85%" align="center" display="block" mx="auto">
+            <Box w="85%" align="center" display="block" mx="auto" mt="25px">
                <PseudoBox
                   transition="transform 0.5s"
                   _hover={{
@@ -177,28 +177,26 @@ export class ExplorePage extends React.Component {
                   <TrendingGrid />
                </Flex>
             </Stack>
-            <Box bg="#7289DA">
-               <Box py="10" px="20" h="150px">
+
+            <Box as="section" bg="#7289DA">
+               <Box px="20" h="160px">
                   <Flex
                      align="center"
                      justify="space-between"
-                     m="auto"
+                     pt="50px"
                      px="75px"
                   >
-                     <Flex color="white">
-                        <Box>
-                           <Heading size="lg" lineHeight="1.2" mb="1">
-                              Start Reading More
-                           </Heading>
-                           <Text opacity={0.7}>
-                              There are more articles waiting for you to read!
-                              So get going!
-                           </Text>
-                        </Box>
-                     </Flex>
+                     <Box>
+                        <Heading size="lg" lineHeight="1.2">
+                           Start Reading More
+                        </Heading>
+                        <Text opacity={0.7}>
+                           There are more articles waiting for you to read! So
+                           get going!
+                        </Text>
+                     </Box>
                      <Link to="/articles">
                         <Button
-                           my="auto"
                            as="a"
                            justifyContent="center"
                            alignItems="center"
