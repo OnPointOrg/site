@@ -30,7 +30,7 @@ export const Profile = () => {
                backgroundColor="#25353F"
                width="50%"
                padding="20px"
-               height="100%"
+               height={window.screen.height - 163}
             >
                <Image
                   justifyContent="center"
@@ -66,7 +66,7 @@ export const Profile = () => {
                   </Text>
                </ChakraLink>
             </Box>
-            <Box width="100%">
+            <Box width="100%" mt="10px">
                <Tabs isFitted variant="enclosed">
                   <TabList>
                      <Tab>Articles</Tab>
