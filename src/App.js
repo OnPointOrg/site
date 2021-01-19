@@ -8,7 +8,9 @@ import Articles from './pages/Articles';
 import NewStory from './pages/NewStory';
 import ForgotPassword from './pages/ForgotPassword';
 import ArticleContentPost from './components/article/ArticleContentPost';
+import Profile from './components/profile/Profile';
 import { DarkMode, Box } from '@chakra-ui/core';
+// import { Profile } from './components/profile/Profile';
 
 export class App extends Component {
    render() {
@@ -28,6 +30,7 @@ export class App extends Component {
                         exact
                         component={ArticleContentPost}
                      />
+                     <Route path="/profile" exact component={Profile} />
                      <Route path="/forgotpassword" component={ForgotPassword} />
                   </Switch>
                </Router>

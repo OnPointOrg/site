@@ -12,7 +12,7 @@ import adityahari from '../images/team/adityahari.jpg';
 import adityaguntupalli from '../images/team/adityaguntupalli.png';
 import yashkhot from '../images/team/yashkhot.jpg';
 
-import Profile from '../components/Profile';
+import Profile from '../components/AboutProfileCard';
 
 export class AboutUs extends React.Component {
    state = {
