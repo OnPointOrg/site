@@ -1,6 +1,14 @@
 import React from 'react';
 
-import { Badge, Box, Image, Collapse, Button, Stack } from '@chakra-ui/core';
+import {
+   Badge,
+   Box,
+   Image,
+   Collapse,
+   Button,
+   Stack,
+   Heading
+} from '@chakra-ui/core';
 import firebase from 'firebase';
 import { Link } from 'react-router-dom';
 
@@ -59,7 +67,7 @@ export class ArticlePost extends React.Component {
                      lineHeight="tight"
                      color="white"
                   >
-                     {this.props.title}
+                     <Heading fontSize="20px">{this.props.title}</Heading>
                   </Box>
                   <Box
                      marginTop="3"
