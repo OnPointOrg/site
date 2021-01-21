@@ -52,7 +52,7 @@ export class ExplorePage extends React.Component {
    render() {
       return (
          <Box overflow="hidden" bg="#81e6d91c">
-            <Flex padding="2rem 4rem">
+            <Flex padding="2rem 2rem" justify="center" mx="auto">
                <Text
                   fontSize="3rem"
                   as="b"
@@ -62,15 +62,16 @@ export class ExplorePage extends React.Component {
                >
                   Good {tod()}, {this.state.user}!
                </Text>
-               <Text as="span" mt="10px">
+               <Text as="span" mt="15px">
                   {todIcon}
                </Text>
             </Flex>
-            <Box w="85%" align="center" display="block" mx="auto" mt="25px">
+            <Box w="85%" align="center" display="block" mx="auto" mt="15px">
                <PseudoBox
                   transition="transform 0.5s"
+                  cursor="pointer"
                   _hover={{
-                     transform: 'scale(1.07, 1.05)',
+                     transform: 'scale(1.07)',
                      transition: '0.5s ease-in-out'
                   }}
                   backgroundImage={'url(http://u.filein.io/hAVS2J6jdY.jpeg)'}

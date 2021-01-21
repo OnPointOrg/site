@@ -50,7 +50,8 @@ export class ArticleContentPost extends Component {
       articleAuthorUuid: null,
       articlesByAuthor: null,
       documentId: null,
-      currentNav: <DefaultNav />
+      currentNav: <DefaultNav />,
+      articleViews: 0
    };
 
    gridCol = () => {
@@ -94,6 +95,7 @@ export class ArticleContentPost extends Component {
             articleDate: articleHtmlInformation[4],
             articleImage: articleHtmlInformation[5],
             articleAuthorEmail: articleHtmlInformation[6],
+            articleViews: articleHtmlInformation[7] + 1,
             articleContent: articleHtmlBody
          });
       });
@@ -130,7 +132,7 @@ export class ArticleContentPost extends Component {
                overflow="hidden"
             >
                <Box>
-                  <Box width="80%" mx="auto">
+                  <Box width="85%" mx="auto">
                      <Heading color="white" fontSize="50px" textAlign="center">
                         {this.state.articleTitle}
                      </Heading>
@@ -138,8 +140,8 @@ export class ArticleContentPost extends Component {
                </Box>
 
                <Box>
-                  <Stack isInline mt="35px" width="65%" mx="auto">
-                     <Box textAlign="left" fontSize="15px" width="75%">
+                  <Stack isInline mt="35px" width="70%" mx="auto">
+                     <Box textAlign="left" fontSize="15px" width="50%">
                         <ChakraLink
                            color="teal.500"
                            href={`mailto:${this.state.articleAuthorEmail}`}
@@ -154,10 +156,13 @@ export class ArticleContentPost extends Component {
                            </Text>
                         </ChakraLink>
                      </Box>
-                     <Box width="50%" textAlign="right">
+                     <Box width="75%" textAlign="right">
                         <Text fontSize="20px" color="white">
                            {this.state.articleDate} &bull;{' '}
-                           {`${calculateReadingTime(words)} min reading`}
+                           {`${calculateReadingTime(words)} min reading`} &bull;{' '}
+                           {this.state.articleViews === 1
+                              ? this.state.articleViews + 'View'
+                              : this.state.articleViews + 'Views'}
                         </Text>
                      </Box>
                   </Stack>

@@ -11,6 +11,7 @@ import CheckList from '@editorjs/checklist';
 import Delimiter from '@editorjs/delimiter';
 import InlineCode from '@editorjs/inline-code';
 
+import urlMetadata from 'url-metadata';
 import {
    projectStorage,
    firestoreDatabase,
@@ -25,7 +26,28 @@ export const EDITOR_JS_TOOLS = {
    list: List,
    warning: Warning,
    code: Code,
-   linkTool: LinkTool,
+   linkTool: {
+      class: LinkTool
+      // config: {
+      //    endpoint: (link) => {
+      //       urlMetadata(link).then((metadata) => {
+      //          console.log(metadata);
+      //          return {
+      //             success: 1,
+      //             link: link,
+      //             meta: {
+      //                title: metadata.title,
+      //                site_name: metadata['og:site_name'],
+      //                description: metadata.description,
+      //                image: {
+      //                   url: metadata.image
+      //                }
+      //             }
+      //          };
+      //       });
+      //    }
+      // }
+   },
    header: Header,
    quote: Quote,
    checklist: CheckList,

@@ -124,7 +124,8 @@ export class CreateStory extends Component {
             useruid: this.state.useruid,
             username: this.state.username,
             email: this.state.email,
-            thumbnailImage: this.state.thumbnailImage
+            thumbnailImage: this.state.thumbnailImage,
+            views: 0
          })
          .then((docRef) => {
             console.log('Document written with ID: ', docRef.id);

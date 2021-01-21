@@ -82,7 +82,8 @@ export class ArticlePost extends React.Component {
                      isTruncated
                   >
                      {this.props.user} &bull;&bull;&bull;{' '}
-                     {this.convertFromUnix(this.props.date)}
+                     {this.convertFromUnix(this.props.date)} &bull;&bull;&bull;{' '}
+                     {this.props.views} Views
                   </Box>
                   <Box marginTop="3">
                      <Box as="span" fontSize="sm" color="white">

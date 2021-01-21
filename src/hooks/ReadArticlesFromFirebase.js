@@ -16,6 +16,8 @@ import {
 } from '@chakra-ui/core';
 import Quote from '../components/article/Quote';
 
+import parse from 'html-react-parser';
+
 const convertFromUnix = (date) => {
    const dateObject = new Date(date);
    date = dateObject.toLocaleDateString('en-US');
@@ -41,6 +43,7 @@ const getDocs = async (articleID) => {
          articleHtmlInformation.push(convertFromUnix(article.content.time));
          articleHtmlInformation.push(article.thumbnailImage);
          articleHtmlInformation.push(article.email);
+         articleHtmlInformation.push(article.views);
 
          caseChecks(article);
       })
@@ -59,6 +62,7 @@ const caseChecks = (article) => {
 
          case 'paragraph':
             const paragraphText = article.content.blocks[i].data.text;
+            console.log(paragraphText);
             articleHtmlBody.push(<Text fontSize="20px">{paragraphText}</Text>);
             words += paragraphText.split(' ').length;
             console.log(words);
@@ -66,7 +70,7 @@ const caseChecks = (article) => {
 
          case 'header':
             const headerText = article.content.blocks[i].data.text;
-            articleHtmlBody.push(<Heading>{headerText}</Heading>);
+            articleHtmlBody.push(<Heading pt="50px">{headerText}</Heading>);
             words += headerText.split(' ').length;
             console.log(words);
             break;
