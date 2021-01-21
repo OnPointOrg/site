@@ -16,6 +16,8 @@ import {
 } from '@chakra-ui/core';
 import Quote from '../components/article/Quote';
 
+let views = 0;
+
 const convertFromUnix = (date) => {
    const dateObject = new Date(date);
    date = dateObject.toLocaleDateString('en-US');
@@ -33,7 +35,7 @@ const getDocs = async (articleID) => {
       .get()
       .then((querySnapshot) => {
          const article = querySnapshot.data();
-
+         views = article.views + 1;
          articleHtmlInformation.push(article.title);
          articleHtmlInformation.push(article.username);
          articleHtmlInformation.push(article.summary);
@@ -41,9 +43,14 @@ const getDocs = async (articleID) => {
          articleHtmlInformation.push(convertFromUnix(article.content.time));
          articleHtmlInformation.push(article.thumbnailImage);
          articleHtmlInformation.push(article.email);
-         articleHtmlInformation.push(article.views);
+         articleHtmlInformation.push(views);
 
          caseChecks(article);
+      })
+      .then(() => {
+         firestoreDatabase.collection('articles').doc(articleID).update({
+            views: views
+         });
       })
       .then(() => {
          return articleHtmlBody;
@@ -61,7 +68,7 @@ const caseChecks = (article) => {
          case 'paragraph':
             const paragraphText = article.content.blocks[i].data.text;
             console.log(paragraphText);
-            articleHtmlBody.push(<Text fontSize="20px">{paragraphText}</Text>);
+            articleHtmlBody.push(paragraphText);
             words += paragraphText.split(' ').length;
             console.log(words);
             break;

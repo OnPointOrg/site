@@ -11,6 +11,8 @@ import {
    Grid
 } from '@chakra-ui/core';
 
+import Loading from '../home/Loading';
+
 import firebase from 'firebase';
 
 import getDocs, {
@@ -50,8 +52,8 @@ export class ArticleContentPost extends Component {
       articleAuthorUuid: null,
       articlesByAuthor: null,
       documentId: null,
-      currentNav: <DefaultNav />,
-      articleViews: 0
+      currentNav: <Loading />,
+      articleViews: null
    };
 
    gridCol = () => {
@@ -95,7 +97,7 @@ export class ArticleContentPost extends Component {
             articleDate: articleHtmlInformation[4],
             articleImage: articleHtmlInformation[5],
             articleAuthorEmail: articleHtmlInformation[6],
-            articleViews: articleHtmlInformation[7] + 1,
+            articleViews: articleHtmlInformation[7],
             articleContent: articleHtmlBody
          });
       });
@@ -161,8 +163,8 @@ export class ArticleContentPost extends Component {
                            {this.state.articleDate} &bull;{' '}
                            {`${calculateReadingTime(words)} min reading`} &bull;{' '}
                            {this.state.articleViews === 1
-                              ? this.state.articleViews + 'View'
-                              : this.state.articleViews + 'Views'}
+                              ? this.state.articleViews + ' View'
+                              : this.state.articleViews + ' Views'}
                         </Text>
                      </Box>
                   </Stack>
