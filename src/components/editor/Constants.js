@@ -27,26 +27,26 @@ export const EDITOR_JS_TOOLS = {
    warning: Warning,
    code: Code,
    linkTool: {
-      class: LinkTool
-      // config: {
-      //    endpoint: (link) => {
-      //       urlMetadata(link).then((metadata) => {
-      //          console.log(metadata);
-      //          return {
-      //             success: 1,
-      //             link: link,
-      //             meta: {
-      //                title: metadata.title,
-      //                site_name: metadata['og:site_name'],
-      //                description: metadata.description,
-      //                image: {
-      //                   url: metadata.image
-      //                }
-      //             }
-      //          };
-      //       });
-      //    }
-      // }
+      class: LinkTool,
+      config: {
+         endpoint: (link) => {
+            urlMetadata(link).then((metadata) => {
+               console.log(metadata);
+               return {
+                  success: 1,
+                  link: link,
+                  meta: {
+                     title: metadata.title,
+                     site_name: metadata['og:site_name'],
+                     description: metadata.description,
+                     image: {
+                        url: metadata.image
+                     }
+                  }
+               };
+            });
+         }
+      }
    },
    header: Header,
    quote: Quote,

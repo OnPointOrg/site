@@ -16,8 +16,6 @@ import {
 } from '@chakra-ui/core';
 import Quote from '../components/article/Quote';
 
-import parse from 'html-react-parser';
-
 const convertFromUnix = (date) => {
    const dateObject = new Date(date);
    date = dateObject.toLocaleDateString('en-US');
