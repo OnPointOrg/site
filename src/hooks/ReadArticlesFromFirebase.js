@@ -68,7 +68,7 @@ const caseChecks = (article) => {
          case 'paragraph':
             const paragraphText = article.content.blocks[i].data.text;
             console.log(paragraphText);
-            articleHtmlBody.push(paragraphText);
+            articleHtmlBody.push(<Text fontSize="20px">{paragraphText}</Text>);
             words += paragraphText.split(' ').length;
             console.log(words);
             break;

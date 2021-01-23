@@ -18,17 +18,14 @@ import firebase from 'firebase';
 import firestoreDatabase from '../../firebase/config';
 
 import { FaEnvelope } from 'react-icons/fa';
+import Loading from '../home/Loading';
 
 const articles = [];
 
 export class Profile extends React.Component {
    state = {
-      currentNav: <DefaultNav />,
-      user: firebase.auth().onAuthStateChanged((user) => {
-         this.setState({
-            user: user.displayName
-         });
-      }),
+      currentNav: <Loading />,
+      user: null,
       articlesByUser: null
    };
 
@@ -40,10 +37,11 @@ export class Profile extends React.Component {
             });
          }
       });
+      console.log(this.state.user);
 
-      firestoreDatabase
+      await firestoreDatabase
          .collection('articles')
-         .where('username', '==', this.state.user.toString())
+         .where('username', '==', this.state.user)
          .get()
          .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {

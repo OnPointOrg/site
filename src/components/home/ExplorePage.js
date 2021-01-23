@@ -62,7 +62,7 @@ export class ExplorePage extends React.Component {
                >
                   Good {tod()}, {this.state.user}!
                </Text>
-               <Text as="span" mt="15px">
+               <Text as="span" mt="20px">
                   {todIcon}
                </Text>
             </Flex>
@@ -71,7 +71,7 @@ export class ExplorePage extends React.Component {
                   transition="transform 0.5s"
                   cursor="pointer"
                   _hover={{
-                     transform: 'scale(1.07)',
+                     transform: 'scale(1.02)',
                      transition: '0.5s ease-in-out'
                   }}
                   backgroundImage={'url(http://u.filein.io/hAVS2J6jdY.jpeg)'}
