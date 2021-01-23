@@ -16,7 +16,7 @@ import {
 } from '@chakra-ui/core';
 import Quote from '../components/article/Quote';
 
-let views = 0;
+let views = null;
 
 const convertFromUnix = (date) => {
    const dateObject = new Date(date);

@@ -29,28 +29,36 @@ export class Profile extends React.Component {
       articlesByUser: null
    };
 
-   componentDidMount = async () => {
+   componentDidMount = () => {
       firebase.auth().onAuthStateChanged((user) => {
          if (user) {
             this.setState({
-               currentNav: <VerifiedNav />
+               currentNav: <VerifiedNav />,
+               user: user.displayName
+            });
+            firestoreDatabase
+               .collection('articles')
+               .where('username', '==', this.state.user)
+               .get()
+               .then((querySnapshot) => {
+                  console.log(this.state.user);
+                  console.log(querySnapshot);
+                  querySnapshot.forEach((doc) => {
+                     console.log('DOC' + doc);
+                     articles.push(doc);
+                  });
+                  this.setState({
+                     articlesByAuthor: articles
+                  });
+               });
+         } else {
+            this.setState({
+               currentNav: <DefaultNav />
             });
          }
       });
-      console.log(this.state.user);
 
-      await firestoreDatabase
-         .collection('articles')
-         .where('username', '==', this.state.user)
-         .get()
-         .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-               articles.push(doc);
-            });
-            this.setState({
-               articlesByAuthor: articles
-            });
-         });
+      // console.log(this.state.user);
    };
 
    render() {
@@ -107,8 +115,8 @@ export class Profile extends React.Component {
                      mb="50px"
                      padding="25px"
                   >
-                     {this.state.articlesByUser != null &&
-                        this.state.articlesByUser.slice().map((article) => {
+                     {articles != null &&
+                        articles.map((article) => {
                            console.log(article.data());
                            console.log('DOCUMENT ID =====================');
                            console.log(article.id);
