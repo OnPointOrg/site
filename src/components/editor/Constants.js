@@ -67,7 +67,7 @@ export const EDITOR_JS_TOOLS = {
                   const url = await storageRef.getDownloadURL();
                   const createdAt = timestamp();
 
-                  await collectionRef.add({ url, createdAt }).then(() => {
+                  collectionRef.add({ url, createdAt }).then(() => {
                      console.log('---- IMAGE INSIDE THEN ----');
                      console.log(url);
                      console.log(typeof url);

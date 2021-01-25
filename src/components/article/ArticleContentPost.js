@@ -109,7 +109,7 @@ export class ArticleContentPost extends Component {
          .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                console.log(doc.id);
-               console.log(doc.data);
+               console.log(doc.f_.path.segments[0]);
                if (doc.id !== docId) {
                   articles.push(doc);
                }
@@ -184,9 +184,10 @@ export class ArticleContentPost extends Component {
             <Box />
             <Divider mx="100px" my="50px" />
             <Box marginBottom="75px" display="block" mx="auto" width="55%">
-               {this.state.articleContent.map((element) => (
-                  <Box margin="25px">{element}</Box>
-               ))}
+               {this.state.articleContent.map((element) => {
+                  console.log(element);
+                  return <Box margin="25px">{element}</Box>;
+               })}
             </Box>
 
             <Box

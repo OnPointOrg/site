@@ -14,6 +14,7 @@ import {
    Image
 } from '@chakra-ui/core';
 import Quote from '../components/article/Quote';
+import ImageCaption from '../components/article/ImageCaption';
 
 let views = null;
 
@@ -60,6 +61,7 @@ const caseChecks = (article) => {
    let contentBlockLength = article.content.blocks.length;
    for (let i = 0; i < contentBlockLength; i++) {
       const contentType = article.content.blocks[i].type;
+      console.log(contentType);
       switch (contentType) {
          default:
             break;
@@ -138,8 +140,10 @@ const caseChecks = (article) => {
 
          case 'image':
             console.log('--------- Image URL Inside The Image Case ---------');
-            console.log(this.imageUrl);
-            articleHtmlBody.push(<Image src="" alt="" />);
+            console.log(article.content.blocks[i].data.file);
+            const imageUrl = article.content.blocks[i].data.file.url;
+            const imageCaption = article.content.blocks[i].data.caption;
+            articleHtmlBody.push(<Image src={imageUrl} alt={imageCaption} />);
             break;
       }
    }
