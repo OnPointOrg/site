@@ -143,7 +143,18 @@ const caseChecks = (article) => {
             console.log(article.content.blocks[i].data.file);
             const imageUrl = article.content.blocks[i].data.file.url;
             const imageCaption = article.content.blocks[i].data.caption;
-            articleHtmlBody.push(<Image src={imageUrl} alt={imageCaption} />);
+            articleHtmlBody.push(
+               <figure>
+                  <img
+                     src={imageUrl}
+                     alt={imageCaption}
+                     style={{ borderRadius: '10px' }}
+                  />
+                  <figcaption style={{ textAlign: 'center' }}>
+                     {imageCaption}
+                  </figcaption>
+               </figure>
+            );
             break;
       }
    }
