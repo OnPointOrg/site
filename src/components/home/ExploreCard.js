@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Flex, PseudoBox, Text } from '@chakra-ui/core';
+import { Badge, Box, Flex, PseudoBox, Text } from '@chakra-ui/core';
 
 const ExploreCard = (props) => {
    return (
@@ -29,7 +29,7 @@ const ExploreCard = (props) => {
             padding="1rem 1rem"
             direction="column"
          >
-            <Flex direction="row">
+            <Box>
                {props.tags.map((tag) => {
                   return (
                      <Badge
@@ -38,17 +38,18 @@ const ExploreCard = (props) => {
                         px="2"
                         mx="1"
                         backgroundColor="black"
+                        width="auto"
                      >
                         <Text color="white">{tag}</Text>
                      </Badge>
                   );
                })}
-            </Flex>
+            </Box>
             <Text
                my="auto"
                color="white"
                fontWeight="600"
-               fontSize="1.5rem"
+               fontSize="1rem"
                backgroundColor="rgba(0, 0, 0, 0.6)"
                borderRadius="md"
                padding="10px"

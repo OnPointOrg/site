@@ -4,7 +4,6 @@ import {
    Heading,
    List,
    ListItem,
-   Text,
    CloseButton,
    Alert,
    AlertIcon,
