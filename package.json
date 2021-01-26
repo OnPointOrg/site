@@ -53,7 +53,6 @@
    },
    "devDependencies": {
       "@editorjs/attaches": "^1.0.1",
-      "@editorjs/checklist": "^1.1.0",
       "@editorjs/code": "^2.5.0",
       "@editorjs/delimiter": "^1.1.0",
       "@editorjs/editorjs": "^2.18.0",

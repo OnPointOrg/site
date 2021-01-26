@@ -7,7 +7,6 @@ import ImageTool from '@editorjs/image';
 import Header from '@editorjs/header';
 import Quote from '@editorjs/quote';
 import Marker from '@editorjs/marker';
-import CheckList from '@editorjs/checklist';
 import Delimiter from '@editorjs/delimiter';
 import InlineCode from '@editorjs/inline-code';
 
@@ -50,7 +49,6 @@ export const EDITOR_JS_TOOLS = {
    },
    header: Header,
    quote: Quote,
-   checklist: CheckList,
    delimiter: Delimiter,
    inlineCode: InlineCode,
    image: {

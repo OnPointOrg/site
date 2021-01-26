@@ -1757,11 +1757,6 @@
   resolved "https://registry.yarnpkg.com/@editorjs/attaches/-/attaches-1.0.1.tgz#1932f89173496b02783db166464a4239a1513246"
   integrity sha512-jCCIQixivzZ6ZbDC8z4WAkEwzOJk+yxyPDDq4w3xmBMUTgZoIBFCzp7HEKwM13YFfC1SS4KVJGIFbcdDZBswFg==
 
-"@editorjs/checklist@^1.1.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@editorjs/checklist/-/checklist-1.2.0.tgz#be66a591449ee3871e654803280dc43e14a0ad4e"
-  integrity sha512-guvhP6YB8ha8JpzlHeNOdYSCFoqjumofbcGkLXheW9laU6HTzT9wDNtaCWd6O5rr677UMrJxEntA7CRsnOzrxQ==
-
 "@editorjs/code@^2.5.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@editorjs/code/-/code-2.6.0.tgz#402df60d788e211894fde755c5435ba26cc075da"

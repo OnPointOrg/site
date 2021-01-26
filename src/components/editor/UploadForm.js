@@ -32,6 +32,7 @@ const ProgressBar = ({ file, setFile }) => {
 const UploadForm = () => {
    const [file, setFile] = useState(null);
    const [error, setError] = useState(null);
+   const [fileName, setFileName] = useState('');
 
    const hiddenFileInput = React.useRef(null);
 
@@ -49,6 +50,7 @@ const UploadForm = () => {
       if (selected && types.includes(selected.type)) {
          setFile(selected);
          console.log(selected.name);
+         setFileName(selected.name);
          setError('');
       } else {
          setFile(null);
@@ -87,8 +89,12 @@ const UploadForm = () => {
                </InputGroup>
             </FormControl>
          </Flex>
+         <Text textAlign="center">{fileName}</Text>
+
          <div className="output">
-            {file && <ProgressBar file={file} setFile={setFile} />}
+            {file && (
+               <ProgressBar file={file} setFile={setFile} fileName={fileName} />
+            )}
             {error && (
                <Text textAlign="center" color="tomato">
                   {error}
