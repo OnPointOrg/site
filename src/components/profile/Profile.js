@@ -95,14 +95,24 @@ export class Profile extends React.Component {
                      </Button>
                   </ChakraLink>
                </Box>
-               <Box width="100%" mt="10px" overflow="scroll" overflowX="hidden">
-                  <Heading textAlign="center">Articles</Heading>
-
+               <Box width="100%" overflow="scroll" overflowX="hidden">
+                  <Box
+                     width="100%"
+                     position="sticky"
+                     background="black"
+                     zIndex="100"
+                     py="25px"
+                     top="0"
+                     transition="background-color 0.1 ease-in-out"
+                  >
+                     <Heading textAlign="center">Articles</Heading>
+                  </Box>
                   <Grid
                      templateColumns="repeat(3, 1fr)"
                      gap={6}
-                     my="25px"
+                     my="15px"
                      padding="25px"
+                     mt="10px"
                   >
                      {articles != null &&
                         articles.map((article) => {
