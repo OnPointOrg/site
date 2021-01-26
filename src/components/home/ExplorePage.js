@@ -74,7 +74,9 @@ export class ExplorePage extends React.Component {
                      transform: 'scale(1.02)',
                      transition: '0.5s ease-in-out'
                   }}
-                  backgroundImage={'url(http://u.filein.io/hAVS2J6jdY.jpeg)'}
+                  backgroundImage={
+                     'url(https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/rip.jpeg?alt=media&token=26b4753c-e063-4e67-8070-65608c82fd21)'
+                  }
                   h="30rem"
                   style={{
                      backgroundSize: 'cover',
