@@ -56,6 +56,7 @@ export const VerifiedNav = (props) => {
             justifyContent="space-between"
             alignItems="center"
             width="100%"
+            height="12vh"
             as="nav"
          >
             <Stack

@@ -7,7 +7,8 @@ import {
    Heading,
    Grid,
    Link as ChakraLink,
-   IconButton
+   IconButton,
+   Button
 } from '@chakra-ui/core';
 import ArticlePost from '../article/ArticlePost';
 import VerifiedNav from '../nav/VerifiedNav';
@@ -26,7 +27,8 @@ export class Profile extends React.Component {
    state = {
       currentNav: <Loading />,
       user: null,
-      articlesByUser: null
+      articlesByUser: null,
+      email: null
    };
 
    componentDidMount = () => {
@@ -34,8 +36,10 @@ export class Profile extends React.Component {
          if (user) {
             this.setState({
                currentNav: <VerifiedNav />,
-               user: user.displayName
+               user: user.displayName,
+               email: user.email
             });
+
             firestoreDatabase
                .collection('articles')
                .where('username', '==', this.state.user)
@@ -63,56 +67,41 @@ export class Profile extends React.Component {
 
    render() {
       return (
-         <Box>
+         <Box height="88vh" overflow="none">
             {this.state.currentNav}
-            <Flex>
-               <Box
-                  backgroundColor="#25353F"
-                  width="50%"
-                  height={window.screen.height}
-               >
+            <Flex overflowY="hidden" height="100%">
+               <Box backgroundColor="#25353F" width="50%">
                   <Image
+                     my="25px"
                      justifyContent="center"
                      mx="auto"
                      size="350px"
                      src="https://unavatar.now.sh/gravatar/aditya1rawat@gmail.com"
                   />
                   <Heading textAlign="center" my="25px">
-                     Aditya Rawat
+                     {this.state.user}
                   </Heading>
                   <ChakraLink
-                     href="mailto:aditya1rawat@gmail.com"
+                     href={`mailto:${this.state.email}`}
                      title="Email"
                      color="teal.500"
                      isExternal
-                     width="50%"
+                     textAlign="center"
+                     display="block"
+                     textDecoration="none"
                   >
-                     <Text
-                        fontSize="20px"
-                        textAlign="center"
-                        width="50%"
-                        mx="auto"
-                     >
-                        Email{' '}
-                        <IconButton
-                           color="gray.500"
-                           variant="ghost"
-                           aria-label="Email"
-                           name="email"
-                           fontSize="20px"
-                           padding="10px"
-                           icon={FaEnvelope}
-                        />
-                     </Text>
+                     <Button>
+                        Email <FaEnvelope style={{ marginLeft: '15px' }} />
+                     </Button>
                   </ChakraLink>
                </Box>
-               <Box width="100%" mt="10px">
+               <Box width="100%" mt="10px" overflow="scroll" overflowX="hidden">
                   <Heading textAlign="center">Articles</Heading>
 
                   <Grid
                      templateColumns="repeat(3, 1fr)"
                      gap={6}
-                     mb="50px"
+                     my="25px"
                      padding="25px"
                   >
                      {articles != null &&
@@ -130,6 +119,7 @@ export class Profile extends React.Component {
                                  thumbnailImage={article.data().thumbnailImage}
                                  docId={article.id}
                                  category={article.data().category}
+                                 views={article.data().views}
                               />
                            );
                         })}
