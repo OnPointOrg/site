@@ -7,6 +7,7 @@ import {
    Collapse,
    Button,
    Stack,
+   Tooltip,
    Heading
 } from '@chakra-ui/core';
 import firebase from 'firebase';
@@ -67,7 +68,11 @@ export class ArticlePost extends React.Component {
                      lineHeight="tight"
                      color="white"
                   >
-                     <Heading fontSize="20px">{this.props.title}</Heading>
+                     <Tooltip label={this.props.title} placement="top-start">
+                        <Heading fontSize="20px" isTruncated>
+                           {this.props.title}
+                        </Heading>
+                     </Tooltip>
                   </Box>
                   <Box
                      marginTop="3"

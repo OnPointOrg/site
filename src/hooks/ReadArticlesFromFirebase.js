@@ -10,11 +10,9 @@ import {
    AlertTitle,
    AlertDescription,
    Code,
-   Divider,
-   Image
+   Divider
 } from '@chakra-ui/core';
 import Quote from '../components/article/Quote';
-import ImageCaption from '../components/article/ImageCaption';
 
 let views = null;
 
@@ -85,20 +83,33 @@ const caseChecks = (article) => {
 
          case 'list':
             const items = article.content.blocks[i].data.items;
-            words += items.split(' ').split(' ').length;
+            console.log(items);
+            items.map(() => {
+               words += 1;
+            });
             console.log(words);
             const allItems = [];
             for (let j = 0; j < items.length; j++) {
                allItems.push(items[j]);
             }
 
-            articleHtmlBody.push(
-               <List styleType="disc">
-                  {allItems.map((listItem) => (
-                     <ListItem>{listItem}</ListItem>
-                  ))}
-               </List>
-            );
+            if (article.content.blocks[i].data.style === 'ordered') {
+               articleHtmlBody.push(
+                  <List as="ol" styleType="decimal">
+                     {allItems.map((listItem) => (
+                        <ListItem>{listItem}</ListItem>
+                     ))}
+                  </List>
+               );
+            } else {
+               articleHtmlBody.push(
+                  <List styleType="disc">
+                     {allItems.map((listItem) => (
+                        <ListItem>{listItem}</ListItem>
+                     ))}
+                  </List>
+               );
+            }
             break;
 
          case 'warning':
@@ -119,7 +130,16 @@ const caseChecks = (article) => {
          case 'code':
             const codeContent = article.content.blocks[i].data.code;
             words += codeContent.split(' ').length;
-            articleHtmlBody.push(<Code>{codeContent}</Code>);
+            articleHtmlBody.push(
+               <Code
+                  display="block"
+                  whiteSpace="pre"
+                  fontFamily="Source Code Pro"
+                  p="10px"
+                  borderRadius="5px"
+                  children={codeContent}
+               />
+            );
 
             break;
 
@@ -150,7 +170,13 @@ const caseChecks = (article) => {
                      alt={imageCaption}
                      style={{ borderRadius: '10px' }}
                   />
-                  <figcaption style={{ textAlign: 'center' }}>
+                  <figcaption
+                     style={{
+                        textAlign: 'center',
+                        marginTop: '5px',
+                        fontSize: '20px'
+                     }}
+                  >
                      {imageCaption}
                   </figcaption>
                </figure>

@@ -79,7 +79,10 @@ const UploadForm = () => {
                         style={{ display: 'none' }}
                         ref={hiddenFileInput}
                      />
-                     Upload Thumbnail File
+                     {fileURL !==
+                     'https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/imageplaceholder.png?alt=media&token=ce8b4cfa-b3c5-4177-9431-deedad0383ce'
+                        ? 'File Uploaded!'
+                        : 'Upload Thumbnail Image'}
                   </Button>
                </InputGroup>
             </FormControl>
