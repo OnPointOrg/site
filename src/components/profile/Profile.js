@@ -3,11 +3,9 @@ import {
    Box,
    Flex,
    Image,
-   Text,
    Heading,
    Grid,
    Link as ChakraLink,
-   IconButton,
    Button
 } from '@chakra-ui/core';
 import ArticlePost from '../article/ArticlePost';
