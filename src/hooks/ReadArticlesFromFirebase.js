@@ -84,9 +84,7 @@ const caseChecks = (article) => {
          case 'list':
             const items = article.content.blocks[i].data.items;
             console.log(items);
-            items.map(() => {
-               words += 1;
-            });
+            items.map((words += 1));
             console.log(words);
             const allItems = [];
             for (let j = 0; j < items.length; j++) {

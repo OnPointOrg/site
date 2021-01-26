@@ -165,6 +165,7 @@ export class AboutUs extends React.Component {
                         img={sujithsanniboyina}
                         instagram="sujith.sanniboyina"
                         email="22sanniboysujith@gmail.com"
+                        github="Sujith-Sanniboyina"
                      />
                      <Profile
                         name="Yash Khot"

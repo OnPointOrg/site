@@ -257,7 +257,7 @@ export class CreateStory extends Component {
                                     onChange={this.handleChange}
                                     width="100%"
                                     type="text"
-                                    placeholder="A Summary Of What You Are Talking About. Make It Catchy If You Want Your Articles To Be Read!"
+                                    placeholder="This Summary Should Be A Short 1 Sentence On What Your Article Is About!"
                                  />
                               </InputGroup>
                            </FormControl>
