@@ -157,7 +157,19 @@ export class ExplorePage extends React.Component {
                   </Text>
                   <TrendingGrid />
                </Flex>
-               <Flex direction="column" w="100%" marginLeft="47px">
+               <Flex direction="column" w="100%" marginLeft="47px" mt="auto">
+                  <TrendingGrid />
+               </Flex>
+            </Stack>
+            <Stack
+               w="90%"
+               padding="2rem 4rem"
+               direction="row"
+               align="center"
+               mt="2.5rem"
+               mx="auto"
+            >
+               <Flex direction="column" w="100%" marginRight="47px">
                   <Flex align="center">
                      <Text
                         fontSize="2.25rem"
@@ -177,6 +189,9 @@ export class ExplorePage extends React.Component {
                   >
                      Read and discover the next big thing!
                   </Text>
+                  <TrendingGrid />
+               </Flex>
+               <Flex direction="column" w="100%" marginLeft="47px" mt="auto">
                   <TrendingGrid />
                </Flex>
             </Stack>
