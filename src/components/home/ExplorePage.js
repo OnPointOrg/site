@@ -181,7 +181,46 @@ export class ExplorePage extends React.Component {
                </Flex>
             </Stack>
 
-            <Box as="section" bg="#7289DA">
+            <Box
+               as="section"
+               backgroundColor="#81e6d91c"
+               width={'50%'}
+               height={'25%'}
+               my="175px"
+               mx="auto"
+               boxShadow="1px 5px 0 13px #81e6d91c"
+               borderRadius="15px"
+            >
+               <Stack isInline spacing={8} p={10} mx="auto">
+                  <Box align="center" my="15px">
+                     <Heading>Check Out The Rest Of Our Articles!</Heading>
+                  </Box>
+                  <Box align="center" mt="30px">
+                     <Link to="/articles">
+                        <Button
+                           as="a"
+                           my="auto"
+                           mx="auto"
+                           rightIcon="arrow-forward"
+                           justifyContent="center"
+                           alignItems="center"
+                           fontWeight="bold"
+                           shadow="md"
+                           variantColor="teal"
+                           px="24px"
+                           h="56px"
+                           rounded="lg"
+                           fontSize="md"
+                           w="200px"
+                        >
+                           Go To Articles
+                        </Button>
+                     </Link>
+                  </Box>
+               </Stack>
+            </Box>
+
+            {/* <Box as="section" bg="#7289DA">
                <Box px="20" h="160px">
                   <Flex
                      align="center"
@@ -217,7 +256,7 @@ export class ExplorePage extends React.Component {
                      </Link>
                   </Flex>
                </Box>
-            </Box>
+            </Box> */}
          </Box>
       );
    }
