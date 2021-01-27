@@ -15,7 +15,7 @@ import {
    projectStorage,
    firestoreDatabase,
    timestamp
-} from '../../firebase/config';
+} from '../../firebase';
 
 let imageUrl = '';
 

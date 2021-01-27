@@ -21,7 +21,7 @@ import EditorJs from 'react-editor-js';
 
 import { EDITOR_JS_TOOLS } from '../components/editor/Constants';
 
-import firestoreDatabase from '../firebase/config';
+import firestoreDatabase from '../firebase';
 import firebase from 'firebase';
 
 import UploadForm, { fileURL } from '../components/editor/UploadForm';

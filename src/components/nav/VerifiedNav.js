@@ -24,6 +24,8 @@ import NavLink from './NavLink';
 
 import styled from '@emotion/styled';
 
+// import { Link } from 'react-router-dom';
+
 const breakpoints = ['360px', '768px', '1024px', '1440px'];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
@@ -97,19 +99,13 @@ export const VerifiedNav = (props) => {
                               />
                            </MenuButton>
                            <MenuList>
-                              <MenuGroup title="Profile">
-                                 <MenuItem isTruncated isDisabled>
-                                    <Text>
-                                       Email:{' '}
-                                       {firebase.auth().currentUser.email}
-                                    </Text>
+                              <MenuGroup>
+                                 <MenuItem>
+                                    <Link to="/profile">
+                                       <Text>Profile</Text>
+                                    </Link>
                                  </MenuItem>
-                                 <MenuItem isTruncated>
-                                    <Text>
-                                       Name:{' '}
-                                       {firebase.auth().currentUser.displayName}
-                                    </Text>
-                                 </MenuItem>
+
                                  <MenuItem>
                                     <Text
                                        onClick={() => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import firestoreDatabase from '../firebase/config';
+import firestoreDatabase from '../firebase';
 import {
    Heading,
    List,

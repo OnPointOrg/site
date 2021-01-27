@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Heading, Box, Divider } from '@chakra-ui/core';
 import ArticlePost from './ArticlePost';
-import firestoreDatabase from '../../firebase/config';
+import firestoreDatabase from '../../firebase';
 
 export class ArticleGrid extends Component {
    state = {

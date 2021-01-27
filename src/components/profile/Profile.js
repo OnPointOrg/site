@@ -13,8 +13,9 @@ import VerifiedNav from '../nav/VerifiedNav';
 import DefaultNav from '../nav/DefaultNav';
 
 import firebase from 'firebase';
+import * as admin from 'firebase-admin';
 
-import firestoreDatabase from '../../firebase/config';
+import firestoreDatabase from '../../firebase';
 
 import { FaEnvelope } from 'react-icons/fa';
 import Loading from '../home/Loading';
@@ -30,37 +31,48 @@ export class Profile extends React.Component {
    };
 
    componentDidMount = () => {
-      firebase.auth().onAuthStateChanged((user) => {
-         if (user) {
-            this.setState({
-               currentNav: <VerifiedNav />,
-               user: user.displayName,
-               email: user.email
-            });
-
-            firestoreDatabase
-               .collection('articles')
-               .where('username', '==', this.state.user)
-               .get()
-               .then((querySnapshot) => {
-                  console.log(this.state.user);
-                  console.log(querySnapshot);
-                  querySnapshot.forEach((doc) => {
-                     console.log('DOC' + doc);
-                     articles.push(doc);
-                  });
-                  this.setState({
-                     articlesByAuthor: articles
-                  });
+      let uuid = this.props.match.params.uuid;
+      console.log(this.props.match.params.uuid);
+      if (uuid) {
+         firebase.auth().onAuthStateChanged(async (user) => {
+            if (user) {
+               this.setState({
+                  currentNav: <VerifiedNav />
                });
-         } else {
-            this.setState({
-               currentNav: <DefaultNav />
-            });
-         }
-      });
+               console.log(admin.auth().getUser(uuid));
+            }
+         });
+      } else {
+         firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+               this.setState({
+                  currentNav: <VerifiedNav />,
+                  user: user.displayName,
+                  email: user.email
+               });
 
-      // console.log(this.state.user);
+               firestoreDatabase
+                  .collection('articles')
+                  .where('username', '==', this.state.user)
+                  .get()
+                  .then((querySnapshot) => {
+                     console.log(this.state.user);
+                     console.log(querySnapshot);
+                     querySnapshot.forEach((doc) => {
+                        console.log('DOC' + doc);
+                        articles.push(doc);
+                     });
+                     this.setState({
+                        articlesByAuthor: articles
+                     });
+                  });
+            } else {
+               this.setState({
+                  currentNav: <DefaultNav />
+               });
+            }
+         });
+      }
    };
 
    render() {
@@ -98,7 +110,7 @@ export class Profile extends React.Component {
                      width="100%"
                      position="sticky"
                      background="black"
-                     zIndex="100"
+                     zIndex="9"
                      py="25px"
                      top="0"
                      transition="background-color 0.1 ease-in-out"

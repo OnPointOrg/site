@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import admin from 'firebase-admin';
 
 const config = {
    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -10,6 +11,25 @@ const config = {
    appId: process.env.REACT_APP_FIREBASE_APP_ID,
    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
+
+console.log(
+   JSON.parse(
+      Buffer.from(process.env.REACT_APP_FIREBASE_ADMIN_KEY, 'base64').toString()
+   )
+);
+
+admin.initializeApp({
+   credential: admin.credential.cert(
+      JSON.parse(
+         Buffer.from(
+            process.env.REACT_APP_FIREBASE_ADMIN_KEY,
+            'base64'
+         ).toString()
+      )
+   ),
+   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET
+});
 
 firebase.initializeApp(config);
 firebase.analytics();

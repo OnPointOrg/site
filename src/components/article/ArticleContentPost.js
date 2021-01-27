@@ -24,7 +24,7 @@ import getDocs, {
 import DefaultNav from '../nav/DefaultNav';
 import VerifiedNav from '../nav/VerifiedNav';
 import ArticlePost from './ArticlePost';
-import firestoreDatabase from '../../firebase/config';
+import firestoreDatabase from '../../firebase';
 
 let currentArticleHtmlBody = [];
 
