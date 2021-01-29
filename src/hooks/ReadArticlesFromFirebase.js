@@ -34,6 +34,7 @@ const getDocs = async (articleID) => {
       .then((querySnapshot) => {
          const article = querySnapshot.data();
          views = article.views + 1;
+         console.log(article);
          articleHtmlInformation.push(article.title);
          articleHtmlInformation.push(article.username);
          articleHtmlInformation.push(article.summary);
@@ -42,6 +43,7 @@ const getDocs = async (articleID) => {
          articleHtmlInformation.push(article.thumbnailImage);
          articleHtmlInformation.push(article.email);
          articleHtmlInformation.push(views);
+         articleHtmlInformation.push(article.useruid);
 
          caseChecks(article);
       })

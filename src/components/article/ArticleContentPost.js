@@ -25,6 +25,7 @@ import DefaultNav from '../nav/DefaultNav';
 import VerifiedNav from '../nav/VerifiedNav';
 import ArticlePost from './ArticlePost';
 import firestoreDatabase from '../../firebase';
+import { Link } from 'react-router-dom';
 
 let currentArticleHtmlBody = [];
 
@@ -53,12 +54,13 @@ export class ArticleContentPost extends Component {
       articlesByAuthor: null,
       documentId: null,
       currentNav: <Loading />,
-      articleViews: null
+      articleViews: null,
+      useruid: null
    };
 
    gridCol = () => {
       const numOfArticles = articles.length;
-      console.log(numOfArticles);
+      // console.log(numOfArticles);
       if (numOfArticles < 3) {
          return numOfArticles;
       } else {
@@ -70,10 +72,10 @@ export class ArticleContentPost extends Component {
       this.setState({
          articleContent: currentArticleHtmlBody
       });
+      console.log(articleHtmlInformation);
       console.log(this.props.timestamp);
       firebase.auth().onAuthStateChanged((user) => {
          if (user) {
-            console.log(articleHtmlInformation[1]);
             this.setState({
                currentNav: <VerifiedNav />
             });
@@ -98,6 +100,7 @@ export class ArticleContentPost extends Component {
             articleImage: articleHtmlInformation[5],
             articleAuthorEmail: articleHtmlInformation[6],
             articleViews: articleHtmlInformation[7],
+            articleAuthorUid: articleHtmlInformation[8],
             articleContent: articleHtmlBody
          });
       });
@@ -108,8 +111,8 @@ export class ArticleContentPost extends Component {
          .get()
          .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-               console.log(doc.id);
-               console.log(doc.f_.path.segments[0]);
+               // console.log(doc.id);
+               // console.log(doc.f_.path.segments[0]);
                if (doc.id !== docId) {
                   articles.push(doc);
                }
@@ -144,19 +147,18 @@ export class ArticleContentPost extends Component {
                <Box>
                   <Stack isInline mt="35px" width="70%" mx="auto">
                      <Box textAlign="left" fontSize="15px" width="50%">
-                        <ChakraLink
-                           color="teal.500"
-                           href={`mailto:${this.state.articleAuthorEmail}`}
-                        >
-                           <Avatar
-                              src={`https://unavatar.now.sh/gravatar/${this.state.articleAuthorEmail}`}
-                              size="sm"
-                              mx="10px"
-                           />
-                           <Text fontSize="20px" as="span">
-                              {this.state.articleAuthor}
-                           </Text>
-                        </ChakraLink>
+                        <Link to={`/profile/${articleHtmlInformation[8]}`}>
+                           <ChakraLink color="teal.500">
+                              <Avatar
+                                 src={`https://unavatar.now.sh/gravatar/${this.state.articleAuthorEmail}`}
+                                 size="sm"
+                                 mx="10px"
+                              />
+                              <Text fontSize="20px" as="span">
+                                 {this.state.articleAuthor}
+                              </Text>
+                           </ChakraLink>
+                        </Link>
                      </Box>
                      <Box width="75%" textAlign="right">
                         <Text fontSize="20px" color="white">
@@ -185,7 +187,6 @@ export class ArticleContentPost extends Component {
             <Divider mx="100px" my="50px" />
             <Box marginBottom="75px" display="block" mx="auto" width="55%">
                {this.state.articleContent.map((element) => {
-                  console.log(element);
                   return <Box margin="25px">{element}</Box>;
                })}
             </Box>
@@ -208,9 +209,9 @@ export class ArticleContentPost extends Component {
                >
                   {this.state.articlesByAuthor != null &&
                      this.state.articlesByAuthor.slice().map((article) => {
-                        console.log(article.data());
-                        console.log('DOCUMENT ID =====================');
-                        console.log(article.id);
+                        // console.log(article.data());
+                        // console.log('DOCUMENT ID =====================');
+                        // console.log(article.id);
 
                         return (
                            <ArticlePost

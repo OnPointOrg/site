@@ -8,8 +8,7 @@ const Feature = ({ title, icon, children, ...props }) => {
          <Box
             rounded="12px"
             boxShadow="lg"
-            borderWidth="5px"
-            borderColor="#3F444E"
+            bg="#285E61"
             p="40px"
             {...props}
             minH="300px"

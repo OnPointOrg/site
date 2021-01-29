@@ -234,44 +234,6 @@ export class ExplorePage extends React.Component {
                   </Box>
                </Stack>
             </Box>
-
-            {/* <Box as="section" bg="#7289DA">
-               <Box px="20" h="160px">
-                  <Flex
-                     align="center"
-                     justify="space-between"
-                     pt="50px"
-                     px="75px"
-                  >
-                     <Box>
-                        <Heading size="lg" lineHeight="1.2">
-                           Start Reading More
-                        </Heading>
-                        <Text opacity={0.7}>
-                           There are more articles waiting for you to read! So
-                           get going!
-                        </Text>
-                     </Box>
-                     <Link to="/articles">
-                        <Button
-                           as="a"
-                           justifyContent="center"
-                           alignItems="center"
-                           fontWeight="bold"
-                           shadow="md"
-                           variantColor="teal"
-                           px="24px"
-                           h="56px"
-                           rounded="lg"
-                           fontSize="md"
-                           w="200px"
-                        >
-                           Go To Articles
-                        </Button>
-                     </Link>
-                  </Flex>
-               </Box>
-            </Box> */}
          </Box>
       );
    }

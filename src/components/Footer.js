@@ -36,6 +36,11 @@ const Footer = () => {
                   Contact
                </Button>
             </Text>
+            <Text as="a" textDecor="none" href="mailto:aditya1rawat@gmail.com">
+               <Button variant="ghost" variantColor="teal" mx="15px">
+                  Support
+               </Button>
+            </Text>
          </Stack>
          <Stack my={2} direction="row" justify="center">
             <ChakraLink
