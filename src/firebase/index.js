@@ -12,11 +12,7 @@ const config = {
    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
-console.log(
-   JSON.parse(
-      Buffer.from(process.env.REACT_APP_FIREBASE_ADMIN_KEY, 'base64').toString()
-   )
-);
+console.log(process.env.REACT_APP_FIREBASE_ADMIN_KEY);
 
 admin.initializeApp({
    credential: admin.credential.cert(
