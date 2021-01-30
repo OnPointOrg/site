@@ -100,11 +100,11 @@ export const VerifiedNav = (props) => {
                            </MenuButton>
                            <MenuList>
                               <MenuGroup>
-                                 <MenuItem>
-                                    <Link to="/profile">
+                                 <Link to="/profile">
+                                    <MenuItem>
                                        <Text>Profile</Text>
-                                    </Link>
-                                 </MenuItem>
+                                    </MenuItem>
+                                 </Link>
                               </MenuGroup>
                               <MenuDivider />
                               <MenuGroup title="Actions">

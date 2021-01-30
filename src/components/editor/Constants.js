@@ -11,11 +11,7 @@ import Delimiter from '@editorjs/delimiter';
 import InlineCode from '@editorjs/inline-code';
 
 import urlMetadata from 'url-metadata';
-import {
-   projectStorage,
-   firestoreDatabase,
-   timestamp
-} from '../../firebase';
+import { projectStorage, firestoreDatabase, timestamp } from '../../firebase';
 
 let imageUrl = '';
 
@@ -59,18 +55,11 @@ export const EDITOR_JS_TOOLS = {
                const storageRef = projectStorage.ref(
                   `ContentImage/` + file.name
                );
-               const collectionRef = firestoreDatabase.collection('images');
 
                storageRef.put(file).on('state_changed', async () => {
                   const url = await storageRef.getDownloadURL();
-                  const createdAt = timestamp();
 
-                  collectionRef.add({ url, createdAt }).then(() => {
-                     console.log('---- IMAGE INSIDE THEN ----');
-                     console.log(url);
-                     console.log(typeof url);
-                     imageUrl = url;
-                  });
+                  imageUrl = url;
                });
                return {
                   success: 1,
