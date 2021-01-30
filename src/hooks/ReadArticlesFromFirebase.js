@@ -4,16 +4,13 @@ import {
    Heading,
    List,
    ListItem,
-   CloseButton,
    Alert,
    AlertIcon,
    AlertTitle,
    AlertDescription,
-   Code,
    Divider
 } from '@chakra-ui/core';
 import Quote from '../components/article/Quote';
-import CodeBlock from '../components/article/CodeBlock';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { xt256 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
@@ -130,7 +127,6 @@ const caseChecks = (article) => {
                   <AlertIcon />
                   <AlertTitle mr={2}>{warningTitle}</AlertTitle>
                   <AlertDescription>{warningText}</AlertDescription>
-                  <CloseButton position="absolute" right="8px" top="8px" />
                </Alert>
             );
             break;
