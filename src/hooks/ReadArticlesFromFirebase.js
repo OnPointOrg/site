@@ -13,6 +13,9 @@ import {
    Divider
 } from '@chakra-ui/core';
 import Quote from '../components/article/Quote';
+import CodeBlock from '../components/article/CodeBlock';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { xt256 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 let views = null;
 
@@ -135,15 +138,15 @@ const caseChecks = (article) => {
          case 'code':
             const codeContent = article.content.blocks[i].data.code;
             words += codeContent.split(' ').length;
+            console.log(codeContent);
             articleHtmlBody.push(
-               <Code
-                  display="block"
-                  whiteSpace="pre"
-                  fontFamily="Source Code Pro"
-                  p="10px"
-                  borderRadius="5px"
-                  children={codeContent}
-               />
+               <SyntaxHighlighter
+                  language="javascript"
+                  style={xt256}
+                  showLineNumbers
+               >
+                  {codeContent}
+               </SyntaxHighlighter>
             );
 
             break;

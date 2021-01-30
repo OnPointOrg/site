@@ -7,7 +7,7 @@ const customTheme = {
       ...theme.fonts,
       body: 'Ubuntu',
       heading: 'Merriweather Sans',
-      mono: 'Ubuntu'
+      mono: 'Space Mono'
    }
 };
 
