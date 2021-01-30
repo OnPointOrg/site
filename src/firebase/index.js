@@ -1,5 +1,6 @@
 import * as firebase from 'firebase';
 import admin from 'firebase-admin';
+import serviceToken from './servicetoken.json';
 
 const config = {
    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,14 +16,7 @@ const config = {
 console.log(process.env.REACT_APP_FIREBASE_ADMIN_KEY);
 
 admin.initializeApp({
-   credential: admin.credential.cert(
-      JSON.parse(
-         Buffer.from(
-            process.env.REACT_APP_FIREBASE_ADMIN_KEY,
-            'base64'
-         ).toString()
-      )
-   ),
+   credential: admin.credential.cert(serviceToken),
    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET
 });

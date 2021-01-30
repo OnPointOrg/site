@@ -8,7 +8,8 @@ import {
    Button,
    Stack,
    Tooltip,
-   Heading
+   Heading,
+   Link as ChakraLink
 } from '@chakra-ui/core';
 import firebase from 'firebase';
 import { Link } from 'react-router-dom';
@@ -86,8 +87,11 @@ export class ArticlePost extends React.Component {
                      lineHeight="tight"
                      isTruncated
                   >
-                     {this.props.user} &bull;&bull;&bull;{' '}
-                     {this.convertFromUnix(this.props.date)} &bull;&bull;&bull;{' '}
+                     <Link to={`/profile/${this.props.userUuid}`}>
+                        <ChakraLink>{this.props.user}</ChakraLink>{' '}
+                     </Link>
+                     &bull;&bull;&bull; {this.convertFromUnix(this.props.date)}{' '}
+                     &bull;&bull;&bull;{' '}
                      {this.props.views === 1
                         ? this.props.views + ' View'
                         : this.props.views + ' Views'}
