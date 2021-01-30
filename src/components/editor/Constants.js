@@ -11,7 +11,7 @@ import Delimiter from '@editorjs/delimiter';
 import InlineCode from '@editorjs/inline-code';
 
 import urlMetadata from 'url-metadata';
-import { projectStorage, firestoreDatabase, timestamp } from '../../firebase';
+import { projectStorage } from '../../firebase';
 
 let imageUrl = '';
 

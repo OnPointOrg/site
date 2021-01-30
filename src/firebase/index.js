@@ -1,6 +1,5 @@
 import * as firebase from 'firebase';
 import admin from 'firebase-admin';
-// import serviceToken from './servicetoken.json';
 
 const config = {
    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
