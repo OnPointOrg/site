@@ -70,7 +70,10 @@ const caseChecks = (article) => {
             const paragraphText = article.content.blocks[i].data.text;
             console.log(paragraphText);
             articleHtmlBody.push(
-               <p dangerouslySetInnerHTML={{ __html: paragraphText }} />
+               <p
+                  style={{ fontSize: '20px' }}
+                  dangerouslySetInnerHTML={{ __html: paragraphText }}
+               />
             );
             words += paragraphText.split(' ').length;
             console.log(words);
@@ -86,7 +89,9 @@ const caseChecks = (article) => {
          case 'list':
             const items = article.content.blocks[i].data.items;
             console.log(items);
-            items.map((words += 1));
+            items.map(() => {
+               words += 1;
+            });
             console.log(words);
             const allItems = [];
             for (let j = 0; j < items.length; j++) {
@@ -97,7 +102,7 @@ const caseChecks = (article) => {
                articleHtmlBody.push(
                   <List as="ol" styleType="decimal">
                      {allItems.map((listItem) => (
-                        <ListItem>{listItem}</ListItem>
+                        <ListItem fontSize="20px">{listItem}</ListItem>
                      ))}
                   </List>
                );
@@ -105,7 +110,7 @@ const caseChecks = (article) => {
                articleHtmlBody.push(
                   <List styleType="disc">
                      {allItems.map((listItem) => (
-                        <ListItem>{listItem}</ListItem>
+                        <ListItem fontSize="20px">{listItem}</ListItem>
                      ))}
                   </List>
                );

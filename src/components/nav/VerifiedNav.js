@@ -105,7 +105,15 @@ export const VerifiedNav = (props) => {
                                        <Text>Profile</Text>
                                     </Link>
                                  </MenuItem>
-
+                              </MenuGroup>
+                              <MenuDivider />
+                              <MenuGroup title="Actions">
+                                 <MenuItem>
+                                    <Link to="/newstory">New Story</Link>
+                                 </MenuItem>
+                              </MenuGroup>
+                              <MenuDivider />
+                              <MenuGroup title="Danger Zone">
                                  <MenuItem>
                                     <Text
                                        onClick={() => {
@@ -131,15 +139,6 @@ export const VerifiedNav = (props) => {
                                        Reset Password
                                     </Text>
                                  </MenuItem>
-                              </MenuGroup>
-                              <MenuDivider />
-                              <MenuGroup title="Actions">
-                                 <MenuItem>
-                                    <Link to="/newstory">New Story</Link>
-                                 </MenuItem>
-                              </MenuGroup>
-                              <MenuDivider />
-                              <MenuGroup title="Danger Zone">
                                  <MenuItem
                                     onClick={() => {
                                        firebase

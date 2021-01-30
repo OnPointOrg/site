@@ -54,8 +54,7 @@ export class ArticleContentPost extends Component {
       articlesByAuthor: null,
       documentId: null,
       currentNav: <Loading />,
-      articleViews: null,
-      useruid: null
+      articleViews: null
    };
 
    gridCol = () => {
@@ -100,7 +99,7 @@ export class ArticleContentPost extends Component {
             articleImage: articleHtmlInformation[5],
             articleAuthorEmail: articleHtmlInformation[6],
             articleViews: articleHtmlInformation[7],
-            articleAuthorUid: articleHtmlInformation[8],
+            articleAuthorUuid: articleHtmlInformation[8],
             articleContent: articleHtmlBody
          });
       });
@@ -147,7 +146,7 @@ export class ArticleContentPost extends Component {
                <Box>
                   <Stack isInline mt="35px" width="70%" mx="auto">
                      <Box textAlign="left" fontSize="15px" width="50%">
-                        <Link to={`/profile/${articleHtmlInformation[8]}`}>
+                        <Link to={`/profile/${this.state.articleAuthorUuid}`}>
                            <ChakraLink color="teal.500">
                               <Avatar
                                  src={`https://unavatar.now.sh/gravatar/${this.state.articleAuthorEmail}`}
