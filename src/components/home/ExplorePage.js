@@ -18,7 +18,6 @@ import { WiSunrise } from 'react-icons/wi';
 import TrendingGrid from './TrendingGrid';
 
 import firebase from 'firebase';
-import firestoreDatabase from '../../firebase';
 import { FeaturedArticle } from './FeaturedArticle';
 
 let todIcon = <WiSunrise size="4rem" color="white" />;
@@ -49,20 +48,6 @@ export class ExplorePage extends React.Component {
             this.setState({
                user: firebaseUser.displayName.split(' ')[0]
             });
-            firestoreDatabase
-               .collection('articles')
-               .where('featured', '==', true)
-               .get()
-               .then((querySnapshot) => {
-                  console.log(this.state.user);
-                  console.log(querySnapshot);
-                  querySnapshot.forEach((doc) => {
-                     console.log(doc.data());
-                     this.setState({
-                        featured: doc.data()
-                     });
-                  });
-               });
          }
       });
    };

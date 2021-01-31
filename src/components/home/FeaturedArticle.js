@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Text, PseudoBox, Flex, Badge } from '@chakra-ui/core';
 
+import firestoreDatabase from '../../firebase';
+
 export const FeaturedArticle = () => {
+   const [featured, setFeatured] = useState(null);
+
+   useEffect(() => {
+      firestoreDatabase
+         .collection('articles')
+         .where('featured', '==', true)
+         .get()
+         .then((querySnapshot) => {
+            console.log(querySnapshot);
+            querySnapshot.forEach((doc) => {
+               setFeatured(doc.data());
+               console.log(doc.data());
+               console.log(featured);
+            });
+         });
+   }, [firestoreDatabase]);
    return (
       <Box w="85%" align="center" display="block" mx="auto" mt="15px">
          <PseudoBox
