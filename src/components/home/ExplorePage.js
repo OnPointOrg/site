@@ -19,6 +19,7 @@ import TrendingGrid from './TrendingGrid';
 
 import firebase from 'firebase';
 import firestoreDatabase from '../../firebase';
+import { FeaturedArticle } from './FeaturedArticle';
 
 let todIcon = <WiSunrise size="4rem" color="white" />;
 
@@ -37,11 +38,10 @@ const tod = () => {
    }
 };
 
-const featured = null;
-
 export class ExplorePage extends React.Component {
    state = {
-      user: ''
+      user: '',
+      featured: null
    };
    componentDidMount = () => {
       firebase.auth().onAuthStateChanged((firebaseUser) => {
@@ -49,20 +49,22 @@ export class ExplorePage extends React.Component {
             this.setState({
                user: firebaseUser.displayName.split(' ')[0]
             });
+            firestoreDatabase
+               .collection('articles')
+               .where('featured', '==', true)
+               .get()
+               .then((querySnapshot) => {
+                  console.log(this.state.user);
+                  console.log(querySnapshot);
+                  querySnapshot.forEach((doc) => {
+                     console.log(doc.data());
+                     this.setState({
+                        featured: doc.data()
+                     });
+                  });
+               });
          }
       });
-      firestoreDatabase
-         .collection('articles')
-         .where('username', '==', this.state.user)
-         .get()
-         .then((querySnapshot) => {
-            console.log(this.state.user);
-            console.log(querySnapshot);
-            querySnapshot.forEach((doc) => {
-               console.log('DOC' + doc);
-               featured = doc;
-            });
-         });
    };
    render() {
       return (
@@ -81,67 +83,7 @@ export class ExplorePage extends React.Component {
                   {todIcon}
                </Text>
             </Flex>
-            <Box w="85%" align="center" display="block" mx="auto" mt="15px">
-               <PseudoBox
-                  transition="transform 0.5s"
-                  cursor="pointer"
-                  _hover={{
-                     transform: 'scale(1.02)',
-                     transition: '0.5s ease-in-out'
-                  }}
-                  backgroundImage={
-                     'url(https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/rip.jpeg?alt=media&token=26b4753c-e063-4e67-8070-65608c82fd21)'
-                  }
-                  h="30rem"
-                  style={{
-                     backgroundSize: 'cover',
-                     backgroundPosition: 'center center'
-                  }}
-                  justifyContent="center"
-                  padding="3rem"
-                  direction="column"
-                  borderRadius="1.5rem"
-               >
-                  <Text color="rgba(255, 255, 255, 0.61);" fontSize="0.75rem">
-                     Featured Article Of The Week
-                  </Text>
-                  <Text fontSize="3rem" as="b" color="red.50">
-                     Article Title
-                  </Text>
-                  <Text fontSize="1.5rem" color="red.50">
-                     Article Description
-                  </Text>
-                  <Flex marginTop="auto">
-                     <Badge
-                        rounded="md"
-                        py="1"
-                        px="2"
-                        mx="1"
-                        backgroundColor="black"
-                     >
-                        <Text color="white">Technology</Text>
-                     </Badge>
-                     <Badge
-                        rounded="md"
-                        py="1"
-                        px="2"
-                        mx="1"
-                        backgroundColor="black"
-                     >
-                        <Text color="white">Politics</Text>
-                     </Badge>
-                     <Badge
-                        rounded="md"
-                        py="1"
-                        px="2"
-                        mx="1"
-                        backgroundColor="black"
-                     >
-                        <Text color="white">Sports</Text>
-                     </Badge>
-                  </Flex>
-               </PseudoBox>
-            </Box>
+            <FeaturedArticle />
             <Stack
                w="90%"
                padding="2rem 4rem"
@@ -172,11 +114,11 @@ export class ExplorePage extends React.Component {
                   </Text>
                   <TrendingGrid />
                </Flex>
-               <Flex direction="column" w="100%" marginLeft="47px" mt="auto">
+               <Flex direction="column" w="100%" mt="auto">
                   <TrendingGrid />
                </Flex>
             </Stack>
-            <Stack
+            {/* <Stack
                w="90%"
                padding="2rem 4rem"
                direction="row"
@@ -209,7 +151,7 @@ export class ExplorePage extends React.Component {
                <Flex direction="column" w="100%" marginLeft="47px" mt="auto">
                   <TrendingGrid />
                </Flex>
-            </Stack>
+            </Stack> */}
 
             <Box
                as="section"
