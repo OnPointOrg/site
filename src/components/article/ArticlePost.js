@@ -87,7 +87,14 @@ export class ArticlePost extends React.Component {
                      lineHeight="tight"
                      isTruncated
                   >
-                     <Link to={`/profile/${this.props.userUuid}`}>
+                     <Link
+                        to={`/profile/${this.props.userUuid}`}
+                        onClick={() => {
+                           setTimeout(() => {
+                              window.location.reload();
+                           }, 5);
+                        }}
+                     >
                         <ChakraLink>{this.props.user}</ChakraLink>{' '}
                      </Link>
                      &bull;&bull;&bull; {this.convertFromUnix(this.props.date)}{' '}

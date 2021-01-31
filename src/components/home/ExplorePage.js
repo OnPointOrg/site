@@ -18,6 +18,7 @@ import { WiSunrise } from 'react-icons/wi';
 import TrendingGrid from './TrendingGrid';
 
 import firebase from 'firebase';
+import firestoreDatabase from '../../firebase';
 
 let todIcon = <WiSunrise size="4rem" color="white" />;
 
@@ -36,6 +37,8 @@ const tod = () => {
    }
 };
 
+const featured = null;
+
 export class ExplorePage extends React.Component {
    state = {
       user: ''
@@ -48,6 +51,18 @@ export class ExplorePage extends React.Component {
             });
          }
       });
+      firestoreDatabase
+         .collection('articles')
+         .where('username', '==', this.state.user)
+         .get()
+         .then((querySnapshot) => {
+            console.log(this.state.user);
+            console.log(querySnapshot);
+            querySnapshot.forEach((doc) => {
+               console.log('DOC' + doc);
+               featured = doc;
+            });
+         });
    };
    render() {
       return (

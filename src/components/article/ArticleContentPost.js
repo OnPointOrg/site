@@ -146,7 +146,14 @@ export class ArticleContentPost extends Component {
                <Box>
                   <Stack isInline mt="35px" width="70%" mx="auto">
                      <Box textAlign="left" fontSize="15px" width="50%">
-                        <Link to={`/profile/${this.state.articleAuthorUuid}`}>
+                        <Link
+                           to={`/profile/${this.state.articleAuthorUuid}`}
+                           onClick={() => {
+                              setTimeout(() => {
+                                 window.location.reload();
+                              }, 5);
+                           }}
+                        >
                            <ChakraLink color="teal.500">
                               <Avatar
                                  src={`https://unavatar.now.sh/gravatar/${this.state.articleAuthorEmail}`}

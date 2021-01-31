@@ -10,7 +10,7 @@ export class Quote extends Component {
             border="1px"
             rounded="lg"
             overflow="hidden"
-            width="75%"
+            // width="80%"
             my="25px"
             display="block"
             mx="auto"
@@ -27,7 +27,7 @@ export class Quote extends Component {
                   as="h4"
                   lineHeight="tight"
                >
-                  <Text fontSize="xl" mx="100px">
+                  <Text fontSize="xl" mx="75px">
                      {this.props.quote}
                   </Text>
                   <Box

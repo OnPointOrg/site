@@ -100,7 +100,14 @@ export const VerifiedNav = (props) => {
                            </MenuButton>
                            <MenuList>
                               <MenuGroup>
-                                 <Link to="/profile">
+                                 <Link
+                                    to="/profile"
+                                    onClick={() => {
+                                       setTimeout(() => {
+                                          window.location.reload();
+                                       }, 5);
+                                    }}
+                                 >
                                     <MenuItem>
                                        <Text>Profile</Text>
                                     </MenuItem>
