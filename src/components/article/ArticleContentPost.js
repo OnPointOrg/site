@@ -228,6 +228,7 @@ export class ArticleContentPost extends Component {
                               thumbnailImage={article.data().thumbnailImage}
                               docId={article.id}
                               category={article.data().category}
+                              views={article.data().views}
                            />
                         );
                      })}
