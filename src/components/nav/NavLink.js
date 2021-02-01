@@ -5,7 +5,14 @@ import { Link } from 'react-router-dom';
 const NavLink = (props) => {
    return (
       <Box mx={3}>
-         <Link to={`/${props.link}`}>
+         <Link
+            to={`/${props.link}`}
+            onClick={() => {
+               setTimeout(() => {
+                  window.location.reload();
+               }, 1);
+            }}
+         >
             <Button size="md" variant="ghost">
                <Text fontSize="lg">{props.name}</Text>
             </Button>
