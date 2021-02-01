@@ -19,6 +19,8 @@ import firestoreDatabase from '../../firebase';
 
 import { FaEnvelope } from 'react-icons/fa';
 import Loading from '../home/Loading';
+import { Redirect } from 'react-router';
+import ProfileArticle from './ProfileArticle';
 
 const articles = [];
 
@@ -27,24 +29,30 @@ export class Profile extends React.Component {
       currentNav: <Loading />,
       user: null,
       articlesByUser: null,
-      email: null
+      email: null,
+      redirect: null
    };
 
    componentDidMount = () => {
       let uuid = this.props.match.params.uuid;
       console.log(this.props.match.params.uuid);
-      if (uuid) {
-         firebase.auth().onAuthStateChanged(async (user) => {
-            if (user) {
-               this.setState({
-                  currentNav: <VerifiedNav />
-               });
-               console.log(admin.auth().getUser(uuid));
-            }
-         });
-      } else {
-         firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
+
+      firebase.auth().onAuthStateChanged(async (user) => {
+         if (user) {
+            if (uuid) {
+               console.log(user.uid + ' ' + uuid);
+               if (uuid === user.uid) {
+                  console.log('Inside');
+                  this.setState({
+                     redirect: <Redirect to="/profile" />
+                  });
+               } else {
+                  this.setState({
+                     currentNav: <VerifiedNav />
+                  });
+                  console.log(admin.auth().getUser(uuid));
+               }
+            } else {
                this.setState({
                   currentNav: <VerifiedNav />,
                   user: user.displayName,
@@ -66,6 +74,22 @@ export class Profile extends React.Component {
                         articlesByAuthor: articles
                      });
                   });
+            }
+         } else {
+            this.setState({
+               currentNav: <DefaultNav />
+            });
+         }
+      });
+
+      if (uuid) {
+         firebase.auth().onAuthStateChanged(async (user) => {
+            if (user) {
+            }
+         });
+      } else {
+         firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
             } else {
                this.setState({
                   currentNav: <DefaultNav />
@@ -86,7 +110,7 @@ export class Profile extends React.Component {
                      justifyContent="center"
                      mx="auto"
                      size="350px"
-                     src="https://unavatar.now.sh/gravatar/aditya1rawat@gmail.com"
+                     src={`https://unavatar.now.sh/gravatar/${this.state.email}`}
                   />
                   <Heading textAlign="center" my="25px">
                      {this.state.user}
@@ -131,14 +155,14 @@ export class Profile extends React.Component {
                            console.log(article.id);
 
                            return (
-                              <ArticlePost
+                              <ProfileArticle
+                                 docId={article.id}
                                  title={article.data().title}
                                  summary={article.data().summary}
                                  date={article.data().content.time}
                                  user={article.data().username}
-                                 thumbnailImage={article.data().thumbnailImage}
-                                 docId={article.id}
                                  category={article.data().category}
+                                 thumbnailImage={article.data().thumbnailImage}
                                  views={article.data().views}
                               />
                            );
@@ -146,6 +170,7 @@ export class Profile extends React.Component {
                   </Grid>
                </Box>
             </Flex>
+            {this.state.redirect}
          </Box>
       );
    }

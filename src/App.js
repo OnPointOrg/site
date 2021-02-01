@@ -30,7 +30,7 @@ export class App extends Component {
                         component={ArticleContentPost}
                      />
                      <Route path="/profile" exact component={Profile} />
-                     <Route path="/profile/:uuid" exact component={Profile} />
+                     <Route path="/profile/:uuid" component={Profile} />
                      <Route path="/forgotpassword" component={ForgotPassword} />
                   </Switch>
                </Router>

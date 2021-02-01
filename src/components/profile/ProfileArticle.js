@@ -14,7 +14,7 @@ import {
 import firebase from 'firebase';
 import { Link } from 'react-router-dom';
 
-export class ArticlePost extends React.Component {
+export class ProfileArticle extends React.Component {
    state = {
       show: false
    };
@@ -87,26 +87,8 @@ export class ArticlePost extends React.Component {
                      lineHeight="tight"
                      isTruncated
                   >
-                     <Link
-                        to={`/profile/${this.props.userUuid}`}
-                        onClick={() => {
-                           setTimeout(() => {
-                              window.location.reload();
-                           }, 5);
-                        }}
-                     >
-                        <ChakraLink
-                           onClick={() => {
-                              setTimeout(() => {
-                                 window.location.reload();
-                              }, 5);
-                           }}
-                        >
-                           {this.props.user}
-                        </ChakraLink>{' '}
-                     </Link>
-                     &bull;&bull;&bull; {this.convertFromUnix(this.props.date)}{' '}
-                     &bull;&bull;&bull;{' '}
+                     {this.props.user} &bull;&bull;&bull;{' '}
+                     {this.convertFromUnix(this.props.date)} &bull;&bull;&bull;{' '}
                      {this.props.views === 1
                         ? this.props.views + ' View'
                         : this.props.views + ' Views'}
@@ -156,4 +138,4 @@ export class ArticlePost extends React.Component {
    }
 }
 
-export default ArticlePost;
+export default ProfileArticle;
