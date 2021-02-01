@@ -193,7 +193,7 @@ export class ArticleContentPost extends Component {
             <Divider mx="100px" my="50px" />
             <Box marginBottom="75px" display="block" mx="auto" width="55%">
                {this.state.articleContent.map((element) => {
-                  return <Box margin="25px">{element}</Box>;
+                  return <div style={{ margin: '25px' }}>{element}</div>;
                })}
             </Box>
 
@@ -215,10 +215,6 @@ export class ArticleContentPost extends Component {
                >
                   {this.state.articlesByAuthor != null &&
                      this.state.articlesByAuthor.slice().map((article) => {
-                        // console.log(article.data());
-                        // console.log('DOCUMENT ID =====================');
-                        // console.log(article.id);
-
                         return (
                            <ArticlePost
                               title={article.data().title}
