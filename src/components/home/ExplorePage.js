@@ -93,47 +93,13 @@ export class ExplorePage extends React.Component {
                   <TrendingGrid />
                </Flex>
             </Stack>
-            {/* <Stack
-               w="90%"
-               padding="2rem 4rem"
-               direction="row"
-               align="center"
-               mt="2.5rem"
-               mx="auto"
-            >
-               <Flex direction="column" w="100%" marginRight="47px">
-                  <Flex align="center">
-                     <Text
-                        fontSize="2.25rem"
-                        as="b"
-                        marginRight="15px"
-                        color="white"
-                     >
-                        Recommended
-                     </Text>
-                     <FaThumbsUp size="2.3rem" color="white" />
-                  </Flex>
-                  <Text
-                     fontSize="1.125rem"
-                     marginRight="7px"
-                     marginBottom="10px"
-                     color="white"
-                  >
-                     Read and discover the next big thing!
-                  </Text>
-                  <TrendingGrid />
-               </Flex>
-               <Flex direction="column" w="100%" marginLeft="47px" mt="auto">
-                  <TrendingGrid />
-               </Flex>
-            </Stack> */}
 
             <Box
                as="section"
                backgroundColor="#81e6d91c"
                width={'50%'}
                height={'25%'}
-               my="175px"
+               my="100px"
                mx="auto"
                boxShadow="1px 5px 0 13px #81e6d91c"
                borderRadius="15px"
@@ -143,7 +109,14 @@ export class ExplorePage extends React.Component {
                      <Heading>Check Out The Rest Of Our Articles!</Heading>
                   </Box>
                   <Box align="center" mt="30px">
-                     <Link to="/articles">
+                     <Link
+                        to="/articles"
+                        onClick={() => {
+                           setTimeout(() => {
+                              window.location.reload();
+                           }, 5);
+                        }}
+                     >
                         <Button
                            as="a"
                            my="auto"
