@@ -115,36 +115,34 @@ export const VerifiedNav = (props) => {
                               </MenuGroup>
                               <MenuDivider />
                               <MenuGroup title="Actions">
-                                 <MenuItem>
-                                    <Link to="/newstory">New Story</Link>
-                                 </MenuItem>
+                                 <Link to="/newstory">
+                                    <MenuItem>New Story</MenuItem>
+                                 </Link>
                               </MenuGroup>
                               <MenuDivider />
                               <MenuGroup title="Danger Zone">
-                                 <MenuItem>
-                                    <Text
-                                       onClick={() => {
-                                          firebase
-                                             .auth()
-                                             .sendPasswordResetEmail(email)
-                                             .then(() => {
-                                                toast({
-                                                   title:
-                                                      'Password Reset Email Has Been Sent',
-                                                   description:
-                                                      'In Order To Reset Your Password, Please Check Your Email',
-                                                   status: 'success',
-                                                   duration: 5000,
-                                                   isClosable: true
-                                                });
-                                             })
-                                             .catch(function (e) {
-                                                console.log(e);
+                                 <MenuItem
+                                    onClick={() => {
+                                       firebase
+                                          .auth()
+                                          .sendPasswordResetEmail(email)
+                                          .then(() => {
+                                             toast({
+                                                title:
+                                                   'Password Reset Email Has Been Sent',
+                                                description:
+                                                   'In Order To Reset Your Password, Please Check Your Email',
+                                                status: 'success',
+                                                duration: 5000,
+                                                isClosable: true
                                              });
-                                       }}
-                                    >
-                                       Reset Password
-                                    </Text>
+                                          })
+                                          .catch(function (e) {
+                                             console.log(e);
+                                          });
+                                    }}
+                                 >
+                                    <Text>Reset Password</Text>
                                  </MenuItem>
                                  <MenuItem
                                     onClick={() => {

@@ -1,18 +1,8 @@
 import React from 'react';
-import {
-   Badge,
-   Box,
-   Flex,
-   Stack,
-   Text,
-   Icon,
-   PseudoBox,
-   Heading,
-   Button
-} from '@chakra-ui/core';
+import { Box, Flex, Stack, Text, Icon, Heading, Button } from '@chakra-ui/core';
 
 import { Link } from 'react-router-dom';
-import { FaChartLine, FaMoon, FaThumbsUp } from 'react-icons/fa';
+import { FaChartLine, FaMoon } from 'react-icons/fa';
 import { WiSunrise } from 'react-icons/wi';
 
 import TrendingGrid from './TrendingGrid';
