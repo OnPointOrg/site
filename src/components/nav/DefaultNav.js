@@ -78,7 +78,11 @@ const DefaultNav = (props) => {
                            ml="15px"
                         >
                            <Link to="/signin">
-                              <Button size="md" variant="solid" rounded="full">
+                              <Button
+                                 size="md"
+                                 variant="outline"
+                                 rounded="full"
+                              >
                                  Sign In
                               </Button>
                            </Link>

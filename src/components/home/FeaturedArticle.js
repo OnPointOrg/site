@@ -37,7 +37,7 @@ export const FeaturedArticle = () => {
                      transform: 'scale(1.02)',
                      transition: '0.5s ease-in-out'
                   }}
-                  backgroundImage={`url(https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/ArticleThumbnail%2Ftrump.jpeg?alt=media&token=f5cb4d87-2a0c-4b43-8f0d-dce2e7c6a93a)`}
+                  backgroundImage={`url(${featured.thumbnailImage})`}
                   h="30rem"
                   style={{
                      backgroundSize: 'cover',
@@ -54,7 +54,7 @@ export const FeaturedArticle = () => {
                   <Text fontSize="3rem" as="b" color="red.50">
                      {featured.title}
                   </Text>
-                  <Text fontSize="1.5rem" color="red.50">
+                  <Text fontSize="1.5rem" color="red.50" my="10px">
                      {featured.summary}
                   </Text>
                   <Flex marginTop="auto">
@@ -62,10 +62,12 @@ export const FeaturedArticle = () => {
                         rounded="md"
                         py="1"
                         px="2"
-                        mx="1"
+                        my="1"
                         backgroundColor="black"
                      >
-                        <Text color="white">{featured.category}</Text>
+                        <Text color="white" fontSize="15px">
+                           {featured.category}
+                        </Text>
                      </Badge>
                   </Flex>
                </PseudoBox>

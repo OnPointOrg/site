@@ -60,6 +60,7 @@ export const VerifiedNav = (props) => {
             width="100%"
             height="12vh"
             as="nav"
+            overflow="hidden"
          >
             <Stack
                isInline

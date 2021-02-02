@@ -34,7 +34,7 @@ export const DefaultHome = () => {
                justifyContent="center"
             >
                <Flex align="center" px={8} mb={16}>
-                  <Stack spacing={4} height="100%">
+                  <Stack spacing={4} height="100%" width="70%">
                      <Heading
                         mt="10px"
                         as="h2"
@@ -54,10 +54,11 @@ export const DefaultHome = () => {
                         opacity="0.8"
                         fontWeight="normal"
                         lineHeight={1.5}
+                        width="70%"
                      >
-                        This Is What We Do
+                        We're Chaning The Way You See Media Forever
                      </Heading>
-                     <div mt="10" spacing="3" justify="center" direction="row">
+                     <Box mt="10" spacing="3" justify="center" direction="row">
                         <Link to="/signup">
                            <Button
                               h="5rem"
@@ -91,7 +92,7 @@ export const DefaultHome = () => {
                               Start Reading
                            </Button>
                         </Link>
-                     </div>
+                     </Box>
                      <Box mt={5}>
                         <Link to="/about">
                            <ChakraLink
@@ -191,7 +192,7 @@ export const DefaultHome = () => {
                      target="_blank"
                      color="white"
                   >
-                     Sponsor
+                     <Text color="white">Sponsor</Text>
                   </Button>
                </Flex>
 
@@ -237,7 +238,7 @@ export const DefaultHome = () => {
                      target="_blank"
                      color="white"
                   >
-                     Sponsor
+                     <Text color="white">Sponsor</Text>
                   </Button>
                </Flex>
 
