@@ -8,7 +8,6 @@ import {
    Link as ChakraLink,
    Button
 } from '@chakra-ui/core';
-import ArticlePost from '../article/ArticlePost';
 import VerifiedNav from '../nav/VerifiedNav';
 import DefaultNav from '../nav/DefaultNav';
 

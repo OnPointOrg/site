@@ -110,14 +110,14 @@ export const VerifiedNav = (props) => {
                                     }}
                                  >
                                     <MenuItem>
-                                       <Text>Profile</Text>
+                                       <Text color="white">Profile</Text>
                                     </MenuItem>
                                  </Link>
                               </MenuGroup>
                               <MenuDivider />
                               <MenuGroup title="Actions">
                                  <Link to="/newstory">
-                                    <MenuItem>New Story</MenuItem>
+                                    <MenuItem color="white">New Story</MenuItem>
                                  </Link>
                               </MenuGroup>
                               <MenuDivider />

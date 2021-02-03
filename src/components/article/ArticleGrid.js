@@ -48,7 +48,7 @@ export class ArticleGrid extends Component {
                            docId={document.id}
                            title={document.data().title}
                            summary={document.data().summary}
-                           date={document.data().content.time}
+                           date={document.data().date}
                            user={document.data().username}
                            category={document.data().category}
                            thumbnailImage={document.data().thumbnailImage}

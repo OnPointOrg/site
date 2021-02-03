@@ -51,7 +51,7 @@ export class ArticleContentPost extends Component {
       articleDate: null,
       articleContent: [],
       articleAuthorUuid: null,
-      articlesByAuthor: null,
+      articlesByAuthor: [],
       documentId: null,
       currentNav: <Loading />,
       articleViews: null
@@ -107,8 +107,9 @@ export class ArticleContentPost extends Component {
       firestoreDatabase
          .collection('articles')
          .where('username', '==', this.state.articleAuthor)
+         // .orderBy('')
          .get()
-         .then((querySnapshot) => {
+         .then(async (querySnapshot) => {
             querySnapshot.forEach((doc) => {
                // console.log(doc.id);
                // console.log(doc.f_.path.segments[0]);
@@ -197,29 +198,29 @@ export class ArticleContentPost extends Component {
                })}
             </Box>
 
-            <Box
-               as="section"
-               alignItems="center"
-               display="block"
-               mx="auto"
-               width="75%"
-               overflow="hidden"
-            >
-               <Heading textAlign="center" color="white" my="50px">
-                  More Articles By {this.state.articleAuthor}
-               </Heading>
-               <Grid
-                  templateColumns={`repeat(${this.gridCol()}, 1fr)`}
-                  gap={6}
-                  mb="50px"
+            {this.state.articlesByAuthor.length > 0 ? (
+               <Box
+                  as="section"
+                  alignItems="center"
+                  display="block"
+                  mx="auto"
+                  width="75%"
+                  overflow="hidden"
                >
-                  {this.state.articlesByAuthor != null &&
-                     this.state.articlesByAuthor.slice().map((article) => {
+                  <Heading textAlign="center" color="white" my="50px">
+                     More Articles By {this.state.articleAuthor}
+                  </Heading>
+                  <Grid
+                     templateColumns={`repeat(${this.gridCol()}, 1fr)`}
+                     gap={6}
+                     mb="50px"
+                  >
+                     {this.state.articlesByAuthor.slice().map((article) => {
                         return (
                            <ArticlePost
                               title={article.data().title}
                               summary={article.data().summary}
-                              date={article.data().content.time}
+                              date={article.data().date}
                               user={article.data().username}
                               thumbnailImage={article.data().thumbnailImage}
                               docId={article.id}
@@ -228,8 +229,11 @@ export class ArticleContentPost extends Component {
                            />
                         );
                      })}
-               </Grid>
-            </Box>
+                  </Grid>
+               </Box>
+            ) : (
+               <div></div>
+            )}
          </Box>
       );
    }

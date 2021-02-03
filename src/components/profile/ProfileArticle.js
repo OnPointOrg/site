@@ -8,8 +8,7 @@ import {
    Button,
    Stack,
    Tooltip,
-   Heading,
-   Link as ChakraLink
+   Heading
 } from '@chakra-ui/core';
 import firebase from 'firebase';
 import { Link } from 'react-router-dom';

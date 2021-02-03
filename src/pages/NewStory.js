@@ -124,6 +124,7 @@ export class CreateStory extends Component {
             useruid: this.state.useruid,
             username: this.state.username,
             email: this.state.email,
+            date: Date.now(),
             thumbnailImage: this.state.thumbnailImage,
             views: 0
          })

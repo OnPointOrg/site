@@ -10,7 +10,6 @@ import {
    Tooltip,
    Heading,
    Link as ChakraLink,
-   Icon,
    IconButton,
    PseudoBox
 } from '@chakra-ui/core';
