@@ -30,20 +30,6 @@ class AboutProfileCard extends React.Component {
                   </Text>
 
                   <Stack isInline align="center" spacing={2}>
-                     {this.props.roles.map((role) => {
-                        return (
-                           <Tag
-                              size={'sm'}
-                              key={'sm'}
-                              variantColor="gray"
-                              mr={'5px'}
-                           >
-                              {role}
-                           </Tag>
-                        );
-                     })}
-                  </Stack>
-                  <Stack isInline align="center" spacing={2}>
                      {this.props.github ? (
                         <ChakraLink
                            href={`https://github.com/${this.props.github}`}
@@ -118,6 +104,20 @@ class AboutProfileCard extends React.Component {
                            />
                         </ChakraLink>
                      ) : null}
+                  </Stack>
+                  <Stack isInline={[true, false]} align="center" spacing={2}>
+                     {this.props.roles.map((role) => {
+                        return (
+                           <Tag
+                              size={'sm'}
+                              key={'sm'}
+                              variantColor="gray"
+                              m={'5px'}
+                           >
+                              {role}
+                           </Tag>
+                        );
+                     })}
                   </Stack>
                </Stack>
             </Stack>

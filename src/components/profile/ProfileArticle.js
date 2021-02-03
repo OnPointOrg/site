@@ -47,9 +47,18 @@ export class ProfileArticle extends React.Component {
    render() {
       return (
          <Box borderWidth="1px" shadow="md" rounded="lg" overflow="hidden">
-            <Box height="200px" overflow="hidden">
-               <Image src={this.props.thumbnailImage} width="100%" />
-            </Box>
+            <Link
+               to={() => `/articles/${this.props.docId}`}
+               onClick={() => {
+                  setTimeout(() => {
+                     window.location.reload();
+                  }, 5);
+               }}
+            >
+               <Box height="200px" overflow="hidden">
+                  <Image src={this.props.thumbnailImage} width="100%" />
+               </Box>
+            </Link>
             <Box>
                <Box p="6">
                   <Box d="flex" alignItems="baseline">

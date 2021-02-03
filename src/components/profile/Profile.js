@@ -117,13 +117,12 @@ export class Profile extends React.Component {
                   <ChakraLink
                      href={`mailto:${this.state.email}`}
                      title="Email"
-                     color="teal.500"
                      isExternal
                      textAlign="center"
                      display="block"
                      textDecoration="none"
                   >
-                     <Button>
+                     <Button color="white">
                         Email <FaEnvelope style={{ marginLeft: '15px' }} />
                      </Button>
                   </ChakraLink>
@@ -158,7 +157,7 @@ export class Profile extends React.Component {
                                  docId={article.id}
                                  title={article.data().title}
                                  summary={article.data().summary}
-                                 date={article.data().content.time}
+                                 date={article.data().date}
                                  user={article.data().username}
                                  category={article.data().category}
                                  thumbnailImage={article.data().thumbnailImage}

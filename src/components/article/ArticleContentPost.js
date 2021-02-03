@@ -107,7 +107,7 @@ export class ArticleContentPost extends Component {
       firestoreDatabase
          .collection('articles')
          .where('username', '==', this.state.articleAuthor)
-         .orderBy('date')
+         // .orderBy('date')
          .limit(3)
          .get()
          .then((querySnapshot) => {
@@ -199,43 +199,39 @@ export class ArticleContentPost extends Component {
                })}
             </Box>
 
-            {this.state.articlesByAuthor.length > 0 ? (
-               <Box
-                  as="section"
-                  alignItems="center"
-                  display="block"
-                  mx="auto"
-                  width="75%"
-                  overflow="hidden"
+            <Box
+               as="section"
+               alignItems="center"
+               display="block"
+               mx="auto"
+               width="75%"
+               overflow="hidden"
+            >
+               <Heading textAlign="center" color="white" my="50px">
+                  More Articles By {this.state.articleAuthor}
+               </Heading>
+               <Grid
+                  templateColumns={`repeat(${this.gridCol()}, 1fr)`}
+                  gap={6}
+                  mb="50px"
                >
-                  <Heading textAlign="center" color="white" my="50px">
-                     More Articles By {this.state.articleAuthor}
-                  </Heading>
-                  <Grid
-                     templateColumns={`repeat(${this.gridCol()}, 1fr)`}
-                     gap={6}
-                     mb="50px"
-                  >
-                     {this.state.articlesByAuthor.slice().map((article) => {
-                        console.log(this.state.articleAuthor.length);
-                        return (
-                           <ArticlePost
-                              title={article.data().title}
-                              summary={article.data().summary}
-                              date={article.data().date}
-                              user={article.data().username}
-                              thumbnailImage={article.data().thumbnailImage}
-                              docId={article.id}
-                              category={article.data().category}
-                              views={article.data().views}
-                           />
-                        );
-                     })}
-                  </Grid>
-               </Box>
-            ) : (
-               <div></div>
-            )}
+                  {this.state.articlesByAuthor.slice().map((article) => {
+                     console.log(this.state.articleAuthor.length);
+                     return (
+                        <ArticlePost
+                           title={article.data().title}
+                           summary={article.data().summary}
+                           date={article.data().date}
+                           user={article.data().username}
+                           thumbnailImage={article.data().thumbnailImage}
+                           docId={article.id}
+                           category={article.data().category}
+                           views={article.data().views}
+                        />
+                     );
+                  })}
+               </Grid>
+            </Box>
          </Box>
       );
    }
