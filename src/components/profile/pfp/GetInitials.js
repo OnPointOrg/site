@@ -1,7 +1,7 @@
 import React from 'react';
 
-export const getInitials = (name) => {
-   let initials;
+export const GetInitials = (name) => {
+   let initials = '';
    const nameSplit = name.split(' ');
    const nameLength = nameSplit.length;
    if (nameLength > 1) {
@@ -14,3 +14,5 @@ export const getInitials = (name) => {
 
    return initials.toUpperCase();
 };
+
+export default GetInitials;
