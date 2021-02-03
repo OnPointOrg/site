@@ -107,9 +107,10 @@ export class ArticleContentPost extends Component {
       firestoreDatabase
          .collection('articles')
          .where('username', '==', this.state.articleAuthor)
-         // .orderBy('')
+         .orderBy('date')
+         .limit(3)
          .get()
-         .then(async (querySnapshot) => {
+         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                // console.log(doc.id);
                // console.log(doc.f_.path.segments[0]);
@@ -157,7 +158,7 @@ export class ArticleContentPost extends Component {
                         >
                            <ChakraLink color="teal.500">
                               <Avatar
-                                 src={`https://unavatar.now.sh/gravatar/${this.state.articleAuthorEmail}`}
+                                 src={`https://unavatar.now.sh/${this.state.articleAuthorEmail}?fallback=https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/logo.png?alt=media&token=b44edc97-5872-4e8f-ae7c-b8d00306645b`}
                                  size="sm"
                                  mx="10px"
                               />
@@ -216,6 +217,7 @@ export class ArticleContentPost extends Component {
                      mb="50px"
                   >
                      {this.state.articlesByAuthor.slice().map((article) => {
+                        console.log(this.state.articleAuthor.length);
                         return (
                            <ArticlePost
                               title={article.data().title}

@@ -109,7 +109,7 @@ export class Profile extends React.Component {
                      justifyContent="center"
                      mx="auto"
                      size="350px"
-                     src={`https://unavatar.now.sh/gravatar/${this.state.email}`}
+                     src={`https://unavatar.now.sh/${this.state.email}?fallback=https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/logo.png?alt=media&token=b44edc97-5872-4e8f-ae7c-b8d00306645b`}
                   />
                   <Heading textAlign="center" my="25px">
                      {this.state.user}

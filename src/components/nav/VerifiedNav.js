@@ -96,7 +96,7 @@ export const VerifiedNav = (props) => {
                            >
                               <Avatar
                                  size="sm"
-                                 src={`https://unavatar.now.sh/gravatar/${email}`}
+                                 src={`https://unavatar.now.sh/${email}?fallback=https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/logo.png?alt=media&token=b44edc97-5872-4e8f-ae7c-b8d00306645b`}
                               />
                            </MenuButton>
                            <MenuList>
