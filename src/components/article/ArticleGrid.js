@@ -11,6 +11,7 @@ export class ArticleGrid extends Component {
    componentDidMount = () => {
       firestoreDatabase
          .collection('articles')
+         .orderBy('date', 'desc')
          .get()
          .then((querySnapshot) => {
             const documents = [];

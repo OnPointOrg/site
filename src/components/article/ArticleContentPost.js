@@ -107,8 +107,7 @@ export class ArticleContentPost extends Component {
       firestoreDatabase
          .collection('articles')
          .where('username', '==', this.state.articleAuthor)
-         // .orderBy('date')
-         .limit(3)
+         .limit(6)
          .get()
          .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {

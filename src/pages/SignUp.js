@@ -334,7 +334,7 @@ class SignUp extends Component {
                            </Box>
 
                            <Box mt={1} color="white">
-                              Already Have An Account?{' '}
+                              Already Have An Account?
                               <ChakraLink color={`${VARIANT_COLOR}.500`}>
                                  <Link to="/signin">Sign In Here.</Link>
                               </ChakraLink>

@@ -12,7 +12,6 @@ import VerifiedNav from '../nav/VerifiedNav';
 import DefaultNav from '../nav/DefaultNav';
 
 import firebase from 'firebase';
-import * as admin from 'firebase-admin';
 
 import firestoreDatabase from '../../firebase';
 
@@ -49,7 +48,6 @@ export class Profile extends React.Component {
                   this.setState({
                      currentNav: <VerifiedNav />
                   });
-                  console.log(admin.auth().getUser(uuid));
                }
             } else {
                this.setState({
