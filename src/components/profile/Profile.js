@@ -144,6 +144,13 @@ export class Profile extends React.Component {
                      padding="25px"
                      mt="10px"
                   >
+                     <Button
+                        onClick={() => {
+                           console.log(firebase.auth().currentUser);
+                        }}
+                     >
+                        User Data
+                     </Button>
                      {articles != null &&
                         articles.map((article) => {
                            console.log(article.data());
