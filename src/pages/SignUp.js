@@ -20,6 +20,12 @@ import {
 
 import * as firebase from 'firebase';
 
+import {
+   createImageFromInitials,
+   getInitials,
+   getRandomColor
+} from '../components/profile/Pfp';
+
 import DefaultNav from '../components/nav/DefaultNav';
 import VerifiedNav from '../components/nav/VerifiedNav';
 import Footer from '../components/Footer';
@@ -218,8 +224,15 @@ class SignUp extends Component {
                      'Account Created Successfully! You Are Now Logged In!',
                   redirect: history.push('/')
                });
+
+               const pfp = createImageFromInitials(
+                  500,
+                  fullName,
+                  getRandomColor()
+               );
                console.log(user);
                user.updateProfile({ displayName: fullName });
+               user.updateProfile({ photoURL: pfp });
                console.log(user);
             }
          });

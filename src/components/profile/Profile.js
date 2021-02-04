@@ -20,7 +20,11 @@ import Loading from '../home/Loading';
 import { Redirect } from 'react-router';
 import ProfileArticle from './ProfileArticle';
 
+import { createImageFromInitials, getInitials, getRandomColor } from './Pfp';
+
 const articles = [];
+let name = 'Aditya Rawat(School Account)';
+let imgSrc = '';
 
 export class Profile extends React.Component {
    state = {
@@ -102,12 +106,19 @@ export class Profile extends React.Component {
             {this.state.currentNav}
             <Flex overflowY="hidden" height="100%">
                <Box backgroundColor="#25353F" width="50%">
-                  <Image
+                  {/* <Image
                      my="25px"
                      justifyContent="center"
                      mx="auto"
                      size="350px"
                      src={`https://unavatar.now.sh/${this.state.email}?fallback=https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/logo.png?alt=media&token=b44edc97-5872-4e8f-ae7c-b8d00306645b`}
+                  /> */}
+                  <Image
+                     my="25px"
+                     justifyContent="center"
+                     mx="auto"
+                     size="350px"
+                     src={createImageFromInitials(500, name, getRandomColor())}
                   />
                   <Heading textAlign="center" my="25px">
                      {this.state.user}
