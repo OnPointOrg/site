@@ -109,10 +109,12 @@ class AboutProfileCard extends React.Component {
                      {this.props.roles.map((role) => {
                         return (
                            <Tag
-                              size={'sm'}
-                              key={'sm'}
+                              size="xs"
+                              key="sm"
+                              isTruncated
+                              padding="5px"
+                              fontSize="15px"
                               variantColor="gray"
-                              m={'5px'}
                            >
                               {role}
                            </Tag>

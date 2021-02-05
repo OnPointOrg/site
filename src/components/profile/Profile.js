@@ -20,11 +20,10 @@ import Loading from '../home/Loading';
 import { Redirect } from 'react-router';
 import ProfileArticle from './ProfileArticle';
 
-import { createImageFromInitials, getInitials, getRandomColor } from './Pfp';
+import { createImageFromInitials, getRandomColor } from './Pfp';
 
 const articles = [];
-let name = 'Aditya Rawat(School Account)';
-let imgSrc = '';
+let name = 'Aditya Rawat';
 
 export class Profile extends React.Component {
    state = {
@@ -32,6 +31,7 @@ export class Profile extends React.Component {
       user: null,
       articlesByUser: null,
       email: null,
+      pfp: null,
       redirect: null
    };
 
@@ -54,10 +54,12 @@ export class Profile extends React.Component {
                   });
                }
             } else {
+               console.log(user);
                this.setState({
                   currentNav: <VerifiedNav />,
                   user: user.displayName,
-                  email: user.email
+                  email: user.email,
+                  pfp: user.photoURL
                });
 
                firestoreDatabase
@@ -86,6 +88,7 @@ export class Profile extends React.Component {
       if (uuid) {
          firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
+               // Add firebase admin stuff here for profile stuff
             }
          });
       } else {
@@ -106,19 +109,13 @@ export class Profile extends React.Component {
             {this.state.currentNav}
             <Flex overflowY="hidden" height="100%">
                <Box backgroundColor="#25353F" width="50%">
-                  {/* <Image
-                     my="25px"
-                     justifyContent="center"
-                     mx="auto"
-                     size="350px"
-                     src={`https://unavatar.now.sh/${this.state.email}?fallback=https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/logo.png?alt=media&token=b44edc97-5872-4e8f-ae7c-b8d00306645b`}
-                  /> */}
                   <Image
                      my="25px"
                      justifyContent="center"
                      mx="auto"
                      size="350px"
-                     src={createImageFromInitials(500, name, getRandomColor())}
+                     // src={createImageFromInitials(500, name, getRandomColor())}
+                     src={this.state.pfp}
                   />
                   <Heading textAlign="center" my="25px">
                      {this.state.user}
@@ -157,10 +154,24 @@ export class Profile extends React.Component {
                   >
                      <Button
                         onClick={() => {
-                           console.log(firebase.auth().currentUser);
+                           console.log(firebase.auth().currentUser.displayName);
+                           firebase.auth().currentUser.updateProfile({
+                              photoURL: createImageFromInitials(
+                                 500,
+                                 name,
+                                 getRandomColor()
+                              )
+                           });
                         }}
                      >
-                        User Data
+                        Click To Set
+                     </Button>
+                     <Button
+                        onClick={() => {
+                           console.log(firebase.auth().currentUser.photoURL);
+                        }}
+                     >
+                        Click To Get
                      </Button>
                      {articles != null &&
                         articles.map((article) => {

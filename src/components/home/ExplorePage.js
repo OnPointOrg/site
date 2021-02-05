@@ -34,7 +34,9 @@ export class ExplorePage extends React.Component {
    };
    componentDidMount = () => {
       firebase.auth().onAuthStateChanged((firebaseUser) => {
-         if (firebaseUser) {
+         console.log(firebaseUser.displayName);
+         console.log(firebaseUser.photoURL);
+         if (firebaseUser !== null) {
             this.setState({
                user: firebaseUser.displayName.split(' ')[0]
             });

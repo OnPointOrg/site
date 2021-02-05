@@ -1,4 +1,3 @@
-import React from 'react';
 import { projectStorage } from '../../firebase';
 
 export const getRandomColor = () => {
@@ -58,5 +57,6 @@ export const createImageFromInitials = async (size, name, color) => {
          });
       });
    console.log(pfpUrl);
+   console.log(typeof pfpUrl);
    return pfpUrl;
 };

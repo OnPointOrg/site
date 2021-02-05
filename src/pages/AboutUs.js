@@ -4,6 +4,8 @@ import DefaultNav from '../components/nav/DefaultNav';
 import VerifiedNav from '../components/nav/VerifiedNav';
 import Footer from '../components/Footer';
 import firebase from 'firebase';
+
+// Team Pictures
 import adityaverma from '../images/team/adityaverma.png';
 import sujithsanniboyina from '../images/team/sujith1.jpg';
 import adityarawat from '../images/team/adityarawat1.jpg';
@@ -58,7 +60,6 @@ export class AboutUs extends React.Component {
                      </Heading>
 
                      <Heading
-                        // fontSize="3.5rem"
                         letterSpacing="tight"
                         fontWeight="bold"
                         lineHeight="1.2"
@@ -94,7 +95,7 @@ export class AboutUs extends React.Component {
                      </Text>
                   </Box>
                </Box>
-               <Box mx="25px" height="100%" mt={'50px'} justifyContent="center">
+               <Box mx="auto" height="90%" mt={'50px'} justifyContent="center">
                   <Heading
                      fontSize="3rem"
                      letterSpacing="tight"
@@ -105,7 +106,7 @@ export class AboutUs extends React.Component {
                   >
                      Our Team
                   </Heading>
-                  <SimpleGrid columns={[2, null, 3]} spacing="20px">
+                  <SimpleGrid columns={[2, null, 3]}>
                      <Profile
                         name="Aditya Verma"
                         roles={['CEO', 'Founder']}
@@ -136,6 +137,7 @@ export class AboutUs extends React.Component {
                         img={adityagirish}
                         instagram="aditya.girish"
                         email="adityagirish@gmail.com"
+                        github="CurryLion"
                      />
                      <Profile
                         name="Aditya Guntupalli"

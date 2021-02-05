@@ -22,7 +22,6 @@ import * as firebase from 'firebase';
 
 import {
    createImageFromInitials,
-   getInitials,
    getRandomColor
 } from '../components/profile/Pfp';
 
@@ -96,22 +95,6 @@ class SignUp extends Component {
          isChecked: event.target.checked
       });
       console.log(this.state.isChecked);
-   };
-
-   setUserInfo = () => {
-      const user = firebase.auth().currentUser;
-
-      user
-         .updateProfile({
-            displayName: this.state.fullName
-         })
-         .then(function () {
-            console.log('Info Saved');
-            console.log('displayName: ' + user.displayName);
-         })
-         .catch((error) => {
-            console.log('User Info Error: ' + error);
-         });
    };
 
    signUpSubmit = () => {
@@ -225,14 +208,15 @@ class SignUp extends Component {
                   redirect: history.push('/')
                });
 
-               const pfp = createImageFromInitials(
-                  500,
-                  fullName,
-                  getRandomColor()
-               );
                console.log(user);
                user.updateProfile({ displayName: fullName });
-               user.updateProfile({ photoURL: pfp });
+               user.updateProfile({
+                  photoURL: createImageFromInitials(
+                     500,
+                     fullName,
+                     getRandomColor()
+                  )
+               });
                console.log(user);
             }
          });
