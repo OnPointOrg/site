@@ -208,17 +208,20 @@ class SignUp extends Component {
                   // redirect: history.push('/')
                });
 
-               console.log(user);
-               user.updateProfile({ displayName: fullName });
-               user.updateProfile({
-                  photoURL: createImageFromInitials(
-                     500,
-                     fullName,
-                     getRandomColor()
-                  )
-               });
-               console.log(user);
-               history.push('/');
+               console.log(fullName);
+               user
+                  .updateProfile({
+                     displayName: fullName,
+                     photoURL: createImageFromInitials(
+                        500,
+                        fullName,
+                        getRandomColor()
+                     )
+                  })
+                  .then(() => {
+                     console.log(user);
+                     history.push('/');
+                  });
             }
          });
    };
@@ -318,7 +321,6 @@ class SignUp extends Component {
                            <Text fontSize="xs" color="green">
                               {this.state.signUpSuccess}
                            </Text>
-                           <Text fontSize="xs">{this.state.redirect}</Text>
 
                            <Box mt={1}>
                               <Checkbox
