@@ -8,15 +8,16 @@ import firestoreDatabase from '../../firebase';
 export const FeaturedArticle = () => {
    const [featured, setFeatured] = useState(null);
    const [featuredId, setFeatureId] = useState(0);
-   useEffect(async () => {
-      let querySnapshot = await firestoreDatabase
+   useEffect(() => {
+      firestoreDatabase
          .collection('articles')
          .where('featured', '==', true)
-         .get();
-
-      console.log(querySnapshot.docs[0].id);
-      setFeatureId(querySnapshot.docs[0].id);
-      setFeatured(querySnapshot.docs[0].data());
+         .get()
+         .then((querySnapshot) => {
+            console.log(querySnapshot.docs[0].id);
+            setFeatureId(querySnapshot.docs[0].id);
+            setFeatured(querySnapshot.docs[0].data());
+         });
    }, []);
 
    if (featured && featuredId !== 0) {

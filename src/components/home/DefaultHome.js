@@ -56,7 +56,7 @@ export const DefaultHome = () => {
                         lineHeight={1.5}
                         width="70%"
                      >
-                        We're Chaning The Way You See Media Forever
+                        We're Changing The Way You See Media Forever
                      </Heading>
                      <Box mt="10" spacing="3" justify="center" direction="row">
                         <Link to="/signup">

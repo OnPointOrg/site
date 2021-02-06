@@ -204,8 +204,8 @@ class SignUp extends Component {
                   emailError: '',
                   passwordError: '',
                   signUpSuccess:
-                     'Account Created Successfully! You Are Now Logged In!',
-                  redirect: history.push('/')
+                     'Account Created Successfully! You Are Now Logged In!'
+                  // redirect: history.push('/')
                });
 
                console.log(user);
@@ -218,6 +218,7 @@ class SignUp extends Component {
                   )
                });
                console.log(user);
+               history.push('/');
             }
          });
    };
