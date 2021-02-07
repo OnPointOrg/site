@@ -198,6 +198,7 @@ class SignUp extends Component {
                localStorage.checkbox = sessionStorage.getItem('checkbox');
             }
             const user = firebase.auth().currentUser;
+            const photoUrl = '';
             if (user) {
                const { history } = this.props;
                this.setState({
@@ -207,16 +208,17 @@ class SignUp extends Component {
                      'Account Created Successfully! You Are Now Logged In!'
                   // redirect: history.push('/')
                });
+               photoUrl = createImageFromInitials(
+                  500,
+                  fullName,
+                  getRandomColor()
+               );
 
                console.log(fullName);
                user
                   .updateProfile({
                      displayName: fullName,
-                     photoURL: createImageFromInitials(
-                        500,
-                        fullName,
-                        getRandomColor()
-                     )
+                     photoURL: photoUrl
                   })
                   .then(() => {
                      console.log(user);

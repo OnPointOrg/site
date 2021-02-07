@@ -80,7 +80,8 @@ export class Profile extends React.Component {
             }
          } else {
             this.setState({
-               currentNav: <DefaultNav />
+               currentNav: <DefaultNav />,
+               redirect: <Redirect to="/" />
             });
          }
       });
