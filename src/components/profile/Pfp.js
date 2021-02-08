@@ -1,4 +1,5 @@
 import { projectStorage } from '../../firebase';
+import firebase from 'firebase';
 
 export const getRandomColor = () => {
    var letters = '0123456789ABCDEF';
@@ -54,9 +55,17 @@ export const createImageFromInitials = async (size, name, color) => {
          await storageRef.getDownloadURL().then((url) => {
             console.log(url);
             pfpUrl = url;
+            console.log(firebase.auth().currentUser);
+            console.log(pfpUrl);
+            console.log(typeof pfpUrl);
+            firebase
+               .auth()
+               .currentUser.updateProfile({
+                  photoURL: pfpUrl
+               })
+               .then(() => {
+                  console.log(firebase.auth().currentUser.photoURL);
+               });
          });
       });
-   console.log(pfpUrl);
-   console.log(typeof pfpUrl);
-   return pfpUrl;
 };
