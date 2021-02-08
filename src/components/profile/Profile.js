@@ -165,7 +165,6 @@ export class Profile extends React.Component {
                                  title={article.data().title}
                                  summary={article.data().summary}
                                  date={article.data().date}
-                                 user={article.data().username}
                                  category={article.data().category}
                                  thumbnailImage={article.data().thumbnailImage}
                                  views={article.data().views}

@@ -95,7 +95,6 @@ export class ProfileArticle extends React.Component {
                      lineHeight="tight"
                      isTruncated
                   >
-                     {this.props.user} &bull;&bull;&bull;{' '}
                      {this.convertFromUnix(this.props.date)} &bull;&bull;&bull;{' '}
                      {this.props.views === 1
                         ? this.props.views + ' View'
