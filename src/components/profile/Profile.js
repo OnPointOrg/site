@@ -6,8 +6,7 @@ import {
    Heading,
    Grid,
    Link as ChakraLink,
-   Button,
-   Text
+   Button
 } from '@chakra-ui/core';
 import VerifiedNav from '../nav/VerifiedNav';
 import DefaultNav from '../nav/DefaultNav';
