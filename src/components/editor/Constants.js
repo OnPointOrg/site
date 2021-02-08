@@ -16,59 +16,59 @@ import { projectStorage } from '../../firebase';
 let imageUrl = '';
 
 export const EDITOR_JS_TOOLS = {
-   embed: Embed,
-   marker: Marker,
-   list: List,
-   warning: Warning,
-   code: Code,
-   // linkTool: {
-   //    class: LinkTool,
-   //    config: {
-   //       endpoint: (link) => {
-   //          urlMetadata(link).then((metadata) => {
-   //             console.log(metadata);
-   //             return {
-   //                success: 1,
-   //                link: link,
-   //                meta: {
-   //                   title: metadata.title,
-   //                   site_name: metadata['og:site_name'],
-   //                   description: metadata.description,
-   //                   image: {
-   //                      url: metadata.image
-   //                   }
-   //                }
-   //             };
-   //          });
-   //       }
-   //    }
-   // },
-   header: Header,
-   quote: Quote,
-   delimiter: Delimiter,
-   inlineCode: InlineCode,
-   image: {
-      class: ImageTool,
-      config: {
-         uploader: {
-            uploadByFile(file) {
-               const storageRef = projectStorage.ref(
-                  `ContentImage/` + file.name
-               );
+    embed: Embed,
+    marker: Marker,
+    list: List,
+    warning: Warning,
+    code: Code,
+    // linkTool: {
+    //    class: LinkTool,
+    //    config: {
+    //       endpoint: (link) => {
+    //          urlMetadata(link).then((metadata) => {
+    //             console.log(metadata);
+    //             return {
+    //                success: 1,
+    //                link: link,
+    //                meta: {
+    //                   title: metadata.title,
+    //                   site_name: metadata['og:site_name'],
+    //                   description: metadata.description,
+    //                   image: {
+    //                      url: metadata.image
+    //                   }
+    //                }
+    //             };
+    //          });
+    //       }
+    //    }
+    // },
+    header: Header,
+    quote: Quote,
+    delimiter: Delimiter,
+    inlineCode: InlineCode,
+    image: {
+        class: ImageTool,
+        config: {
+            uploader: {
+                uploadByFile(file) {
+                    const storageRef = projectStorage.ref(
+                        `ContentImage/` + file.name
+                    );
 
-               storageRef.put(file).on('state_changed', async () => {
-                  const url = await storageRef.getDownloadURL();
+                    storageRef.put(file).on('state_changed', async () => {
+                        const url = await storageRef.getDownloadURL();
 
-                  imageUrl = url;
-               });
-               return {
-                  success: 1,
-                  file: {
-                     url: imageUrl
-                  }
-               };
+                        imageUrl = url;
+                    });
+                    return {
+                        success: 1,
+                        file: {
+                            url: imageUrl
+                        }
+                    };
+                }
             }
-         }
-      }
-   }
+        }
+    }
 };

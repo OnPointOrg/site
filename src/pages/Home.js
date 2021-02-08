@@ -11,37 +11,37 @@ import Loading from '../components/home/Loading';
 import DefaultHome from '../components/home/DefaultHome';
 
 export class Home extends React.Component {
-   state = {
-      currentNav: <DefaultNav />,
-      user: '',
-      page: <Loading />
-   };
+    state = {
+        currentNav: <DefaultNav />,
+        user: '',
+        page: <Loading />
+    };
 
-   componentDidMount = () => {
-      firebase.auth().onAuthStateChanged((firebaseUser) => {
-         if (firebaseUser) {
-            this.setState({
-               currentNav: <VerifiedNav />,
-               page: <ExplorePage />
-            });
-         } else {
-            this.setState({
-               currentNav: <DefaultNav />,
-               page: <DefaultHome />
-            });
-         }
-      });
-   };
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged((firebaseUser) => {
+            if (firebaseUser) {
+                this.setState({
+                    currentNav: <VerifiedNav />,
+                    page: <ExplorePage />
+                });
+            } else {
+                this.setState({
+                    currentNav: <DefaultNav />,
+                    page: <DefaultHome />
+                });
+            }
+        });
+    };
 
-   render() {
-      return (
-         <Box width="100%">
-            {this.state.currentNav}
-            {this.state.page}
-            <Footer />
-         </Box>
-      );
-   }
+    render() {
+        return (
+            <Box width="100%">
+                {this.state.currentNav}
+                {this.state.page}
+                <Footer />
+            </Box>
+        );
+    }
 }
 
 export default Home;
