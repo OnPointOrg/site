@@ -6,7 +6,8 @@ import {
    Heading,
    Grid,
    Link as ChakraLink,
-   Button
+   Button,
+   Text
 } from '@chakra-ui/core';
 import VerifiedNav from '../nav/VerifiedNav';
 import DefaultNav from '../nav/DefaultNav';
@@ -20,11 +21,7 @@ import Loading from '../home/Loading';
 import { Redirect } from 'react-router';
 import ProfileArticle from './ProfileArticle';
 
-import { createImageFromInitials, getRandomColor } from './Pfp';
-
 const articles = [];
-let name = 'Aditya Rawat';
-
 export class Profile extends React.Component {
    state = {
       currentNav: <Loading />,
@@ -69,12 +66,13 @@ export class Profile extends React.Component {
                   .then((querySnapshot) => {
                      console.log(this.state.user);
                      console.log(querySnapshot);
+                     console.log(this.state.articlesByUser);
                      querySnapshot.forEach((doc) => {
                         console.log('DOC' + doc);
                         articles.push(doc);
                      });
                      this.setState({
-                        articlesByAuthor: articles
+                        articlesByUser: articles
                      });
                   });
             }
@@ -114,8 +112,9 @@ export class Profile extends React.Component {
                      my="25px"
                      justifyContent="center"
                      mx="auto"
-                     size="350px"
-                     // src={createImageFromInitials(500, name, getRandomColor())}
+                     width="75%"
+                     height="auto"
+                     rounded="lg"
                      src={this.state.pfp}
                   />
                   <Heading textAlign="center" my="25px">
@@ -153,28 +152,9 @@ export class Profile extends React.Component {
                      padding="25px"
                      mt="10px"
                   >
-                     <Button
-                        onClick={() => {
-                           console.log(firebase.auth().currentUser.displayName);
-                           firebase.auth().currentUser.updateProfile({
-                              photoURL: createImageFromInitials(
-                                 500,
-                                 name,
-                                 getRandomColor()
-                              )
-                           });
-                        }}
-                     >
-                        Click To Set
-                     </Button>
-                     <Button
-                        onClick={() => {
-                           console.log(firebase.auth().currentUser.photoURL);
-                        }}
-                     >
-                        Click To Get
-                     </Button>
-                     {articles != null &&
+                     {articles.length === 0 ? (
+                        <Heading>Thingy</Heading>
+                     ) : (
                         articles.map((article) => {
                            console.log(article.data());
                            console.log('DOCUMENT ID =====================');
@@ -192,7 +172,8 @@ export class Profile extends React.Component {
                                  views={article.data().views}
                               />
                            );
-                        })}
+                        })
+                     )}
                   </Grid>
                </Box>
             </Flex>
