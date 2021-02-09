@@ -14,7 +14,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 
 import { Link } from 'react-router-dom';
 
-export const GetStarted = (props) => {
+export const GetStarted = props => {
     return (
         <Box
             backgroundColor="#25353F"

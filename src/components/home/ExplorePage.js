@@ -33,7 +33,7 @@ export class ExplorePage extends React.Component {
         featured: null
     };
     componentDidMount = () => {
-        firebase.auth().onAuthStateChanged((firebaseUser) => {
+        firebase.auth().onAuthStateChanged(firebaseUser => {
             console.log(firebaseUser.displayName);
             console.log(firebaseUser.photoURL);
             if (firebaseUser !== null) {
@@ -91,9 +91,9 @@ export class ExplorePage extends React.Component {
                         </Text>
                         <TrendingGrid />
                     </Flex>
-                    <Flex direction="column" w="100%" mt="auto">
+                    {/* <Flex direction="column" w="100%" mt="auto">
                         <TrendingGrid />
-                    </Flex>
+                    </Flex> */}
                 </Stack>
 
                 <Box

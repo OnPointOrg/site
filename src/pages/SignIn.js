@@ -46,7 +46,7 @@ class SignIn extends React.Component {
     };
 
     componentDidMount = () => {
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
                     currentNav: <VerifiedNav />
@@ -66,13 +66,13 @@ class SignIn extends React.Component {
         }
     };
 
-    handleChange = (e) => {
+    handleChange = e => {
         this.setState({
             [e.target.id]: e.target.value
         });
     };
 
-    handleSubmit = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
         this.setState({
             signButton: (
@@ -88,7 +88,7 @@ class SignIn extends React.Component {
         console.log(this.state);
     };
 
-    onChangeCheckbox = (event) => {
+    onChangeCheckbox = event => {
         // console.log(this.state.isChecked);
         this.setState({
             isChecked: event.target.checked
@@ -107,7 +107,7 @@ class SignIn extends React.Component {
                 firebase
                     .auth()
                     .signInWithEmailAndPassword(email, password)
-                    .catch((error) => {
+                    .catch(error => {
                         const errorCode = error.code;
                         const errorMessage = error.message;
                         if (errorCode === 'auth/wrong-password') {

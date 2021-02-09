@@ -34,7 +34,7 @@ class ForgotPassword extends React.Component {
     };
 
     componentDidMount = () => {
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
                     currentNav: <VerifiedNav />
@@ -63,7 +63,7 @@ class ForgotPassword extends React.Component {
                     )
                 });
             })
-            .catch((error) => {
+            .catch(error => {
                 if (error.code === 'auth/user-not-found') {
                     this.setState({
                         submitStatus: (
@@ -76,13 +76,13 @@ class ForgotPassword extends React.Component {
             });
     };
 
-    handleChange = (e) => {
+    handleChange = e => {
         this.setState({
             [e.target.id]: e.target.value
         });
     };
 
-    handleSubmit = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
         this.setState({
             submitStatus: (

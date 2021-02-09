@@ -10,7 +10,7 @@ export const getRandomColor = () => {
     return color;
 };
 
-const getInitials = (name) => {
+const getInitials = name => {
     let initials;
     const nameSplit = name.split(' ');
     const nameLength = nameSplit.length;
@@ -49,10 +49,10 @@ export const createImageFromInitials = async (size, name, color) => {
     const storageRef = projectStorage.ref(`users/` + name);
     await storageRef
         .putString(canvas.toDataURL(), 'data_url')
-        .then(async (snapshot) => {
+        .then(async snapshot => {
             console.log(snapshot);
             console.log('Uploaded');
-            await storageRef.getDownloadURL().then((url) => {
+            await storageRef.getDownloadURL().then(url => {
                 console.log(url);
                 pfpUrl = url;
                 console.log(firebase.auth().currentUser);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Text } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 
-const NavLink = (props) => {
+const NavLink = props => {
     return (
         <Box mx={3}>
             <Link

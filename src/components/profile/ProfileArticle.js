@@ -24,7 +24,7 @@ export class ProfileArticle extends React.Component {
         });
     };
 
-    convertFromUnix = (date) => {
+    convertFromUnix = date => {
         const dateObject = new Date(date);
         date = dateObject.toLocaleDateString('en-US');
         return date;
@@ -34,7 +34,7 @@ export class ProfileArticle extends React.Component {
         const user = firebase.auth().currentUser;
 
         if (user != null) {
-            user.providerData.forEach((profile) => {
+            user.providerData.forEach(profile => {
                 console.log('Sign-in provider: ' + profile.providerId);
                 console.log('  Provider-specific UID: ' + profile.uid);
                 console.log('  Name: ' + profile.displayName);

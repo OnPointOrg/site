@@ -110,7 +110,7 @@ class AboutProfileCard extends React.Component {
                             align="center"
                             spacing={2}
                         >
-                            {this.props.roles.map((role) => {
+                            {this.props.roles.map(role => {
                                 return (
                                     <Tag
                                         size="xs"

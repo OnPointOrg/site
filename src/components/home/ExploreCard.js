@@ -1,7 +1,7 @@
 import React from 'react';
 import { Badge, Box, Flex, PseudoBox, Text } from '@chakra-ui/core';
 
-const ExploreCard = (props) => {
+const ExploreCard = props => {
     return (
         <PseudoBox
             w={props.size === 'sm' ? '43%' : '55%'}
@@ -16,6 +16,7 @@ const ExploreCard = (props) => {
             borderColor="black"
             borderWidth="2px"
             borderRadius="0.5rem"
+            mx="10px"
         >
             <Flex
                 h="100%"
@@ -30,7 +31,7 @@ const ExploreCard = (props) => {
                 direction="column"
             >
                 <Box>
-                    {props.tags.map((tag) => {
+                    {props.tags.map(tag => {
                         return (
                             <Badge
                                 rounded="md"

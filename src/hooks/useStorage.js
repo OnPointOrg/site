@@ -11,12 +11,12 @@ const useStorage = (file, location) => {
 
         storageRef.put(file).on(
             'state_changed',
-            (snap) => {
+            snap => {
                 let percentage =
                     (snap.bytesTransferred / snap.totalBytes) * 100;
                 setProgress(percentage);
             },
-            (err) => {
+            err => {
                 setError(err);
             },
             async () => {

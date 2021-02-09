@@ -22,7 +22,7 @@ export class AboutUs extends React.Component {
     };
 
     componentDidMount = () => {
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
                     currentNav: <VerifiedNav />
@@ -112,7 +112,11 @@ export class AboutUs extends React.Component {
                         >
                             Our Team
                         </Heading>
-                        <SimpleGrid columns={[2, null, 3]}>
+                        <SimpleGrid
+                            columns={[2, 1, 3]}
+                            spacing="20px"
+                            mx="25px"
+                        >
                             <Profile
                                 name="Aditya Verma"
                                 roles={['CEO', 'Founder']}

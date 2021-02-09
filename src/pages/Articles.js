@@ -15,7 +15,7 @@ class Articles extends Component {
     };
 
     componentDidMount = () => {
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
                     currentNav: <VerifiedNav />,

@@ -42,7 +42,7 @@ const UploadForm = () => {
 
     const types = ['image/png', 'image/jpeg', 'image/jpg', 'image/gif'];
 
-    const changeHandler = (e) => {
+    const changeHandler = e => {
         let selected = e.target.files[0];
         console.log(selected);
         console.log('changed');

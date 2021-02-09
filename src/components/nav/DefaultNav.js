@@ -30,7 +30,7 @@ const StickyNav = styled(Flex)`
     transition: background-color 0.1 ease-in-out;
 `;
 
-const DefaultNav = (props) => {
+const DefaultNav = props => {
     const bgColor = {
         light: 'rgb(76, 110, 245, 0.8)',
         dark: 'rgb(26, 32, 44, 0.5)'

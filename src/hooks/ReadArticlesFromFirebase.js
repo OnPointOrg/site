@@ -16,7 +16,7 @@ import { xt256 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 let views = null;
 
-const convertFromUnix = (date) => {
+const convertFromUnix = date => {
     const dateObject = new Date(date);
     date = dateObject.toLocaleDateString('en-US');
     return date;
@@ -26,12 +26,12 @@ export const articleHtmlInformation = [];
 export const articleHtmlBody = [];
 export let words = 0;
 
-const getDocs = async (articleID) => {
+const getDocs = async articleID => {
     await firestoreDatabase
         .collection('articles')
         .doc(articleID)
         .get()
-        .then((querySnapshot) => {
+        .then(querySnapshot => {
             const article = querySnapshot.data();
             views = article.views + 1;
             console.log(article);
@@ -57,7 +57,7 @@ const getDocs = async (articleID) => {
         });
 };
 
-const caseChecks = (article) => {
+const caseChecks = article => {
     let contentBlockLength = article.content.blocks.length;
     for (let i = 0; i < contentBlockLength; i++) {
         const contentType = article.content.blocks[i].type;
@@ -89,7 +89,7 @@ const caseChecks = (article) => {
             case 'list':
                 const items = article.content.blocks[i].data.items;
                 console.log(items);
-                items.map((item) => {
+                items.map(item => {
                     words += item.split(' ').length;
                 });
                 console.log(words);
@@ -101,7 +101,7 @@ const caseChecks = (article) => {
                 if (article.content.blocks[i].data.style === 'ordered') {
                     articleHtmlBody.push(
                         <List as="ol" styleType="decimal">
-                            {allItems.map((listItem) => (
+                            {allItems.map(listItem => (
                                 <ListItem fontSize="20px">{listItem}</ListItem>
                             ))}
                         </List>
@@ -109,7 +109,7 @@ const caseChecks = (article) => {
                 } else {
                     articleHtmlBody.push(
                         <List styleType="disc">
-                            {allItems.map((listItem) => (
+                            {allItems.map(listItem => (
                                 <ListItem fontSize="20px">{listItem}</ListItem>
                             ))}
                         </List>

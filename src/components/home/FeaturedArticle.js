@@ -13,7 +13,7 @@ export const FeaturedArticle = () => {
             .collection('articles')
             .where('featured', '==', true)
             .get()
-            .then((querySnapshot) => {
+            .then(querySnapshot => {
                 console.log(querySnapshot.docs[0].id);
                 setFeatureId(querySnapshot.docs[0].id);
                 setFeatured(querySnapshot.docs[0].data());

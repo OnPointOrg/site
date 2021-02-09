@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Heading, Box, Divider } from '@chakra-ui/core';
+import { Heading, Box, Divider, SimpleGrid } from '@chakra-ui/core';
 import ArticlePost from './ArticlePost';
 import firestoreDatabase from '../../firebase';
 
@@ -13,9 +13,9 @@ export class ArticleGrid extends Component {
             .collection('articles')
             .orderBy('date', 'desc')
             .get()
-            .then((querySnapshot) => {
+            .then(querySnapshot => {
                 const documents = [];
-                querySnapshot.forEach((doc) => {
+                querySnapshot.forEach(doc => {
                     console.log('ARTICLE ID: ==========================');
                     console.log(doc.id);
                     documents.push(doc);
@@ -39,9 +39,9 @@ export class ArticleGrid extends Component {
                     All Articles
                 </Heading>
                 <Divider />
-                <Grid templateColumns="repeat(4, 1fr)" gap={6} margin="15px">
+                <SimpleGrid columns={[1, 2, 3, 4]} spacing="6" margin="15px">
                     {this.state.documents != null &&
-                        this.state.documents.map((document) => {
+                        this.state.documents.map(document => {
                             console.log('DOCUMENT ID =====================');
                             console.log(document.id);
                             return (
@@ -60,7 +60,7 @@ export class ArticleGrid extends Component {
                                 />
                             );
                         })}
-                </Grid>
+                </SimpleGrid>
             </Box>
         );
     }

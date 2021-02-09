@@ -29,7 +29,7 @@ import { Link } from 'react-router-dom';
 
 let currentArticleHtmlBody = [];
 
-const calculateReadingTime = (numOfWords) => {
+const calculateReadingTime = numOfWords => {
     const averageReadingSpeed = 200;
     let readingTime = 0;
     if (numOfWords > 0 && numOfWords < 200) {
@@ -73,7 +73,7 @@ export class ArticleContentPost extends Component {
         });
         console.log(articleHtmlInformation);
         console.log(this.props.timestamp);
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
                     currentNav: <VerifiedNav />
@@ -111,8 +111,8 @@ export class ArticleContentPost extends Component {
             .where('username', '==', this.state.articleAuthor)
             .limit(6)
             .get()
-            .then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
+            .then(querySnapshot => {
+                querySnapshot.forEach(doc => {
                     // console.log(doc.id);
                     // console.log(doc.f_.path.segments[0]);
                     if (doc.id !== docId) {
@@ -202,7 +202,7 @@ export class ArticleContentPost extends Component {
                 <Box />
                 <Divider mx="100px" my="50px" />
                 <Box marginBottom="75px" display="block" mx="auto" width="55%">
-                    {this.state.articleContent.map((element) => {
+                    {this.state.articleContent.map(element => {
                         return <div style={{ margin: '25px' }}>{element}</div>;
                     })}
                 </Box>
@@ -223,7 +223,7 @@ export class ArticleContentPost extends Component {
                         gap={6}
                         mb="50px"
                     >
-                        {this.state.articlesByAuthor.slice().map((article) => {
+                        {this.state.articlesByAuthor.slice().map(article => {
                             console.log(this.state.articleAuthor.length);
                             return (
                                 <ArticlePost

@@ -57,7 +57,7 @@ class SignUp extends Component {
     };
 
     componentDidMount = () => {
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
                     currentNav: <VerifiedNav />
@@ -70,13 +70,13 @@ class SignUp extends Component {
         });
     };
 
-    handleChange = (e) => {
+    handleChange = e => {
         this.setState({
             [e.target.id]: e.target.value
         });
     };
 
-    handleSubmit = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
         this.setState({
             signButton: (
@@ -94,7 +94,7 @@ class SignUp extends Component {
         this.signUpSubmit(this.state);
     };
 
-    onChangeCheckbox = (event) => {
+    onChangeCheckbox = event => {
         // console.log(this.state.isChecked);
         this.setState({
             isChecked: event.target.checked
@@ -109,7 +109,7 @@ class SignUp extends Component {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
-            .catch((error) => {
+            .catch(error => {
                 const errorCode = error.code;
                 if (errorCode === 'auth/email-already-in-use') {
                     this.setState({

@@ -40,7 +40,7 @@ const StickyNav = styled(Flex)`
     transition: background-color 0.1 ease-in-out;
 `;
 
-export const VerifiedNav = (props) => {
+export const VerifiedNav = () => {
     const toast = useToast();
     const email = firebase.auth().currentUser.email;
 
@@ -70,7 +70,7 @@ export const VerifiedNav = (props) => {
                     display="flex"
                 >
                     <Box ml="100px">
-                        <Flex align="center" ml={5}>
+                        <Flex align="left" ml={5}>
                             <Link to="/">
                                 <Heading
                                     as="h1"
@@ -177,7 +177,7 @@ export const VerifiedNav = (props) => {
                                                                 'Signed Out'
                                                             );
                                                         })
-                                                        .catch((error) => {
+                                                        .catch(error => {
                                                             console.log(error);
                                                         }) &&
                                                         toast({

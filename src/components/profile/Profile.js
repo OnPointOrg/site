@@ -4,7 +4,7 @@ import {
     Flex,
     Image,
     Heading,
-    Grid,
+    SimpleGrid,
     Link as ChakraLink,
     Button
 } from '@chakra-ui/core';
@@ -35,7 +35,7 @@ export class Profile extends React.Component {
         let uuid = this.props.match.params.uuid;
         console.log(this.props.match.params.uuid);
 
-        firebase.auth().onAuthStateChanged(async (user) => {
+        firebase.auth().onAuthStateChanged(async user => {
             if (user) {
                 if (uuid) {
                     console.log(user.uid + ' ' + uuid);
@@ -46,7 +46,8 @@ export class Profile extends React.Component {
                         });
                     } else {
                         this.setState({
-                            currentNav: <VerifiedNav />
+                            currentNav: <VerifiedNav />,
+                            user: 'new user'
                         });
                     }
                 } else {
@@ -62,11 +63,11 @@ export class Profile extends React.Component {
                         .collection('articles')
                         .where('username', '==', this.state.user)
                         .get()
-                        .then((querySnapshot) => {
+                        .then(querySnapshot => {
                             console.log(this.state.user);
                             console.log(querySnapshot);
                             console.log(this.state.articlesByUser);
-                            querySnapshot.forEach((doc) => {
+                            querySnapshot.forEach(doc => {
                                 console.log('DOC' + doc);
                                 articles.push(doc);
                             });
@@ -84,13 +85,13 @@ export class Profile extends React.Component {
         });
 
         if (uuid) {
-            firebase.auth().onAuthStateChanged(async (user) => {
+            firebase.auth().onAuthStateChanged(async user => {
                 if (user) {
                     // Add firebase admin stuff here for profile stuff
                 }
             });
         } else {
-            firebase.auth().onAuthStateChanged((user) => {
+            firebase.auth().onAuthStateChanged(user => {
                 if (user) {
                 } else {
                     this.setState({
@@ -145,9 +146,9 @@ export class Profile extends React.Component {
                         >
                             <Heading textAlign="center">Articles</Heading>
                         </Box>
-                        <Grid
-                            templateColumns="repeat(3, 1fr)"
-                            gap={6}
+                        <SimpleGrid
+                            spacing={6}
+                            columns={[1, 1, 1, 2, 3]}
                             my="15px"
                             padding="25px"
                             mt="10px"
@@ -155,7 +156,7 @@ export class Profile extends React.Component {
                             {articles.length === 0 ? (
                                 <Heading>Thingy</Heading>
                             ) : (
-                                articles.map((article) => {
+                                articles.map(article => {
                                     console.log(article.data());
                                     console.log(
                                         'DOCUMENT ID ====================='
@@ -177,7 +178,7 @@ export class Profile extends React.Component {
                                     );
                                 })
                             )}
-                        </Grid>
+                        </SimpleGrid>
                     </Box>
                 </Flex>
                 {this.state.redirect}

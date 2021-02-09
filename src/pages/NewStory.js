@@ -48,7 +48,7 @@ export class CreateStory extends Component {
     };
 
     componentDidMount = () => {
-        firebase.auth().onAuthStateChanged((user) => {
+        firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
                     currentNav: <VerifiedNav />
@@ -79,7 +79,7 @@ export class CreateStory extends Component {
         }
     };
 
-    handleChange = (e) => {
+    handleChange = e => {
         this.setState({
             [e.target.id]: e.target.value,
             thumbnailImage: fileURL
@@ -87,7 +87,7 @@ export class CreateStory extends Component {
         console.log(this.state.thumbnailImage);
     };
 
-    handleSubmit = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
         console.log(this.state);
         this.setState({
@@ -102,13 +102,13 @@ export class CreateStory extends Component {
         const savedData = instanceRef.current.save();
         console.log('Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ');
         savedData
-            .then((outputData) => {
+            .then(outputData => {
                 console.log('Article data: ', outputData);
                 this.setState({
                     articleContent: outputData
                 });
             })
-            .catch((error) => {
+            .catch(error => {
                 console.log('Saving failed: ', error);
             });
     };
@@ -128,13 +128,13 @@ export class CreateStory extends Component {
                 thumbnailImage: this.state.thumbnailImage,
                 views: 0
             })
-            .then((docRef) => {
+            .then(docRef => {
                 console.log('Document written with ID: ', docRef.id);
                 const { history } = this.props;
                 history.push(`/articles/${docRef.id}`);
                 window.location.reload();
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error('Error adding document: ', error);
             });
     }
@@ -279,14 +279,14 @@ export class CreateStory extends Component {
                                         color="black"
                                     >
                                         <EditorJs
-                                            instanceRef={(instance) =>
+                                            instanceRef={instance =>
                                                 (instanceRef.current = instance)
                                             }
                                             id="content"
                                             value={this.state.content}
                                             color="black"
                                             autofocus
-                                            onChange={(data) =>
+                                            onChange={data =>
                                                 this.setState({
                                                     articleContent: data
                                                 })
