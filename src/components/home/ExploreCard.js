@@ -4,7 +4,7 @@ import { Badge, Box, Flex, PseudoBox, Text } from '@chakra-ui/core';
 const ExploreCard = props => {
     return (
         <PseudoBox
-            w={props.size === 'sm' ? '43%' : '55%'}
+            w={props.size === 'sm' ? '40%' : '60%'}
             transition="0.5s ease-in-out"
             cursor="pointer"
             _hover={{

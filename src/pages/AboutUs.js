@@ -113,7 +113,7 @@ export class AboutUs extends React.Component {
                             Our Team
                         </Heading>
                         <SimpleGrid
-                            columns={[2, 1, 3]}
+                            columns={[1, 1, 2, 3]}
                             spacing="20px"
                             mx="25px"
                         >

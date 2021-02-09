@@ -61,29 +61,22 @@ export class ExplorePage extends React.Component {
                     </Text>
                 </Flex>
                 <FeaturedArticle />
-                <Stack
-                    w="90%"
-                    padding="2rem 4rem"
-                    direction="row"
-                    align="center"
-                    mt="2.5rem"
-                    mx="auto"
-                >
-                    <Flex direction="column" w="100%" marginRight="47px">
+                <Stack w="95%" px="auto" mt="2.5rem" mx="auto">
+                    <Flex direction="column" w="100%">
                         <Flex align="center">
                             <Text
-                                fontSize="2.25rem"
+                                fontSize="2.5rem"
                                 as="b"
-                                marginRight="15px"
+                                mx="15px"
                                 color="white"
                             >
                                 Trending
                             </Text>
-                            <FaChartLine size="2.3rem" color="white" />
+                            <FaChartLine size="2.5rem" color="white" />
                         </Flex>
                         <Text
-                            fontSize="1.125rem"
-                            marginRight="7px"
+                            fontSize="1.25rem"
+                            ml="20px"
                             marginBottom="10px"
                             color="white"
                         >
@@ -91,56 +84,101 @@ export class ExplorePage extends React.Component {
                         </Text>
                         <TrendingGrid />
                     </Flex>
-                    {/* <Flex direction="column" w="100%" mt="auto">
-                        <TrendingGrid />
-                    </Flex> */}
                 </Stack>
 
                 <Box
                     as="section"
                     backgroundColor="#81e6d91c"
-                    width={'50%'}
-                    height={'25%'}
+                    width={'60%'}
                     my="100px"
                     mx="auto"
-                    boxShadow="1px 5px 0 13px #81e6d91c"
                     borderRadius="15px"
                 >
-                    <Stack isInline spacing={8} p={10} mx="auto">
-                        <Box align="center" my="15px">
-                            <Heading>
-                                Check Out The Rest Of Our Articles!
-                            </Heading>
-                        </Box>
-                        <Box align="center" mt="30px">
-                            <Link
-                                to="/articles"
-                                onClick={() => {
-                                    setTimeout(() => {
-                                        window.location.reload();
-                                    }, 5);
-                                }}
-                            >
-                                <Button
-                                    as="a"
-                                    my="auto"
-                                    mx="auto"
-                                    rightIcon="arrow-forward"
-                                    justifyContent="center"
-                                    alignItems="center"
-                                    fontWeight="bold"
-                                    shadow="md"
-                                    variantColor="teal"
-                                    px="24px"
-                                    h="56px"
-                                    rounded="lg"
-                                    fontSize="md"
-                                    w="200px"
-                                >
-                                    Go To Articles
-                                </Button>
-                            </Link>
-                        </Box>
+                    <Stack isInline spacing={8} mx="auto">
+                        <Flex
+                            p={25}
+                            w="full"
+                            alignItems="center"
+                            justifyContent="center"
+                        >
+                            <Box pos="relative" overflow="hidden">
+                                <Box mx="auto">
+                                    <Box
+                                        pos="relative"
+                                        pb="8"
+                                        w="full"
+                                        border="solid 1px transparent"
+                                    >
+                                        <Box mt="10" mx="auto" px="4">
+                                            <Box
+                                                textAlign="center"
+                                                w="full"
+                                                mx="auto"
+                                            >
+                                                <Heading
+                                                    fontSize="5xl"
+                                                    letterSpacing="tight"
+                                                    lineHeight="short"
+                                                    fontWeight="extrabold"
+                                                    color="white"
+                                                >
+                                                    Read The Rest Of Our
+                                                    Catalog!
+                                                </Heading>
+                                                <Text
+                                                    mt="3"
+                                                    mx="auto"
+                                                    mb={6}
+                                                    fontSize="lg"
+                                                    color="gray.500"
+                                                    lineHeight="base"
+                                                    w="75%"
+                                                >
+                                                    Our endless library of
+                                                    articles cover current
+                                                    events to all of your
+                                                    favorite topics! Get
+                                                    reading!
+                                                </Text>
+                                                <Stack
+                                                    direction="row"
+                                                    mb="4"
+                                                    spacing="4"
+                                                    justifyContent="center"
+                                                >
+                                                    <Box rounded="full">
+                                                        <Link to="/articles">
+                                                            <Button
+                                                                w="full"
+                                                                display="flex"
+                                                                alignItems="center"
+                                                                justifyContent="center"
+                                                                px="8"
+                                                                py="3"
+                                                                fontSize="md"
+                                                                rounded="md"
+                                                                bg="black"
+                                                                color="white"
+                                                                as="a"
+                                                                my="auto"
+                                                                mx="auto"
+                                                                rightIcon="arrow-forward"
+                                                                fontWeight="bold"
+                                                                shadow="md"
+                                                                variantColor="teal"
+                                                                h="56px"
+                                                            >
+                                                                Get Started
+                                                            </Button>
+                                                        </Link>
+                                                    </Box>
+                                                </Stack>
+                                            </Box>
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Flex>
                     </Stack>
                 </Box>
             </Box>

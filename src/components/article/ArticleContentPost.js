@@ -8,7 +8,9 @@ import {
     Stack,
     Link as ChakraLink,
     Avatar,
-    Grid
+    Grid,
+    Icon,
+    Flex
 } from '@chakra-ui/core';
 
 import Loading from '../home/Loading';
@@ -26,6 +28,8 @@ import VerifiedNav from '../nav/VerifiedNav';
 import ArticlePost from './ArticlePost';
 import firestoreDatabase from '../../firebase';
 import { Link } from 'react-router-dom';
+
+import { FaShareSquare } from 'react-icons/fa';
 
 let currentArticleHtmlBody = [];
 
@@ -173,7 +177,7 @@ export class ArticleContentPost extends Component {
                                     </ChakraLink>
                                 </Link>
                             </Box>
-                            <Box width="75%" textAlign="right">
+                            <Flex width="85%" textAlign="right">
                                 <Text fontSize="20px" color="white">
                                     {this.state.articleDate} &bull;{' '}
                                     {`${calculateReadingTime(
@@ -182,9 +186,11 @@ export class ArticleContentPost extends Component {
                                     &bull;{' '}
                                     {this.state.articleViews === 1
                                         ? this.state.articleViews + ' View'
-                                        : this.state.articleViews + ' Views'}
+                                        : this.state.articleViews +
+                                          ' Views'}{' '}
+                                    &bull; <FaShareSquare color="white" />
                                 </Text>
-                            </Box>
+                            </Flex>
                         </Stack>
                     </Box>
                 </Box>

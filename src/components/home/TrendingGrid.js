@@ -3,10 +3,10 @@ import React from 'react';
 
 import ExploreCard from './ExploreCard';
 
-const TrendingGrid = props => {
+const TrendingGrid = () => {
     return (
         <Box>
-            <Stack direction="row">
+            <Box>
                 <Flex justify="space-between" marginBottom="1rem" width="100%">
                     <ExploreCard
                         image={
@@ -43,10 +43,8 @@ const TrendingGrid = props => {
                         title={'Internal & External Threats'}
                     />
                 </Flex>
-
-                <Flex justify="space-between" marginBottom="1rem"></Flex>
-            </Stack>
-            <Stack direction="row">
+            </Box>
+            <Box>
                 <Flex justify="space-between" marginBottom="1rem" width="100%">
                     <ExploreCard
                         image={
@@ -84,7 +82,7 @@ const TrendingGrid = props => {
                         title={'New New Placeholder Image Test'}
                     />
                 </Flex>
-            </Stack>
+            </Box>
         </Box>
     );
 };
