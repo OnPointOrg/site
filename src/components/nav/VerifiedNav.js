@@ -38,6 +38,7 @@ const StickyNav = styled(Flex)`
     top: 0;
     backdrop-filter: saturate(180%) blur(20px);
     transition: background-color 0.1 ease-in-out;
+    overflow: hidden;
 `;
 
 export const VerifiedNav = () => {
@@ -70,7 +71,7 @@ export const VerifiedNav = () => {
                     display="flex"
                 >
                     <Box>
-                        <Flex align="left" ml={['0px', '50px', '100px']}>
+                        <Flex align="left" ml={['10px', '50px', '100px']}>
                             <Link to="/">
                                 <Heading
                                     as="h1"
@@ -91,7 +92,7 @@ export const VerifiedNav = () => {
                         <Stack
                             isInline
                             alignItems="center"
-                            mr={['0px', '50px', '100px']}
+                            mr={['10px', '50px', '100px']}
                         >
                             <Flex
                                 // justifyContent="space-between"

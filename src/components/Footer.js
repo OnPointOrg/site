@@ -19,6 +19,7 @@ const Footer = () => {
             borderTopColor="teal"
             borderTopWidth="5px"
             display="block"
+            overflow="hidden"
         >
             <Stack pt={5} direction="row" justify="center" mt="25px">
                 <Link to="/about">

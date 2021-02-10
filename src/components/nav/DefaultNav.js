@@ -55,7 +55,7 @@ const DefaultNav = props => {
                     display="flex"
                 >
                     <Box>
-                        <Flex align="center" ml={['0px', '50px', '100px']}>
+                        <Flex align="center" ml={['10px', '50px', '100px']}>
                             <Link to="/">
                                 <Heading
                                     as="h1"
@@ -76,7 +76,7 @@ const DefaultNav = props => {
                         <Stack
                             isInline
                             alignItems="center"
-                            mr={['0px', '50px', '100px']}
+                            mr={['10px', '50px', '100px']}
                         >
                             <Flex
                                 justifyContent="space-between"

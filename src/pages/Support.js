@@ -35,7 +35,7 @@ export const Support = () => {
     return (
         <Box>
             {currentNav}
-            <Box bg="teal.500" as="section">
+            <Box bg="teal.500" as="section" h={['150vh', '88vh', '88vh']}>
                 <Box py="120px" px="32px" color="white">
                     <Box mx="auto" textAlign="center" mb="56px" width="75%">
                         <Heading as="h2" fontSize="50px" mb="5">
@@ -49,7 +49,7 @@ export const Support = () => {
                     </Box>
 
                     <Flex
-                        direction={{ base: 'column', md: 'row' }}
+                        direction="row"
                         spacing="6"
                         maxW="600px"
                         mx="auto"
@@ -65,7 +65,7 @@ export const Support = () => {
                                 w="50px"
                                 src={hcbanklogo}
                                 mr="20px"
-                                mt="1px"
+                                my="auto"
                             />
                             <Box flex="1">
                                 <Text fontSize="lg" fontWeight="bold" mt="-1">
@@ -77,7 +77,6 @@ export const Support = () => {
                             </Box>
                         </Flex>
                         <Button
-                            w={{ base: '100%', md: 'auto' }}
                             alignSelf="center"
                             as="a"
                             minW="7rem"
@@ -94,7 +93,7 @@ export const Support = () => {
                     </Flex>
 
                     <Flex
-                        direction={{ base: 'column', md: 'row' }}
+                        direction="row"
                         spacing="6"
                         maxW="600px"
                         mx="auto"
@@ -103,7 +102,7 @@ export const Support = () => {
                         shadow="md"
                         rounded="lg"
                         p="6"
-                        mt="6"
+                        my="6"
                     >
                         <Flex flex="1" isInline spacing="6">
                             <Image
@@ -111,7 +110,7 @@ export const Support = () => {
                                 w="50px"
                                 src={paypallogo}
                                 mr="20px"
-                                mt="1px"
+                                my="auto"
                             />
                             <Box flex="1">
                                 <Text fontSize="lg" fontWeight="bold" mt="-1">
@@ -123,7 +122,6 @@ export const Support = () => {
                             </Box>
                         </Flex>
                         <Button
-                            w={{ base: '100%', md: 'auto' }}
                             alignSelf="center"
                             as="a"
                             minW="7rem"
