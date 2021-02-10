@@ -9,7 +9,6 @@ import {
     Link as ChakraLink,
     Avatar,
     Grid,
-    Icon,
     Flex
 } from '@chakra-ui/core';
 

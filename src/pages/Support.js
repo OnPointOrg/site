@@ -1,18 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-import {
-    Box,
-    Heading,
-    Text,
-    Flex,
-    Image,
-    Button,
-    Link as ChakraLink
-} from '@chakra-ui/core';
+import { Box, Heading, Text, Flex, Image, Button } from '@chakra-ui/core';
 
 import paypallogo from '../images/paypallogo.png';
 import hcbanklogo from '../images/hcbanklogo.svg';
-import { motion } from 'framer-motion';
 import Loading from '../components/home/Loading';
 import VerifiedNav from '../components/nav/VerifiedNav';
 import DefaultNav from '../components/nav/DefaultNav';

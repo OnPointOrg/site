@@ -1,5 +1,5 @@
-import { Box, Flex, Stack } from '@chakra-ui/core';
 import React from 'react';
+import { Box, Flex } from '@chakra-ui/core';
 
 import ExploreCard from './ExploreCard';
 
