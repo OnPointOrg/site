@@ -10,6 +10,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import ArticleContentPost from './components/article/ArticleContentPost';
 import Profile from './components/profile/Profile';
 import { DarkMode, Box } from '@chakra-ui/core';
+import Support from './pages/Support';
 
 export class App extends Component {
     render() {
@@ -22,6 +23,7 @@ export class App extends Component {
                             <Route path="/signup" component={SignUp} />
                             <Route path="/signin" component={SignIn} />
                             <Route path="/about" component={AboutUs} />
+                            <Route path="/support" component={Support} />
                             <Route
                                 path="/articles"
                                 exact
