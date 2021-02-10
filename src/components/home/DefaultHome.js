@@ -111,10 +111,7 @@ export const DefaultHome = () => {
                                 </Link>
                             </Box>
                         </Stack>
-                        <Box
-                            w={{ base: '80%', sm: '60%', md: '50%' }}
-                            mb={{ base: 12, md: 0 }}
-                        >
+                        <Box mb={{ base: 12, md: 0 }}>
                             <motion.div
                                 initial={{ scale: 0 }}
                                 animate={{ rotate: 360, scale: 0.8 }}
@@ -157,7 +154,7 @@ export const DefaultHome = () => {
                     </Box>
 
                     <Flex
-                        direction={{ base: 'column', md: 'row' }}
+                        direction="row"
                         spacing="6"
                         maxW="600px"
                         mx="auto"
@@ -173,7 +170,7 @@ export const DefaultHome = () => {
                                 w="50px"
                                 src={hcbanklogo}
                                 mr="20px"
-                                mt="1px"
+                                my="auto"
                             />
                             <Box flex="1">
                                 <Text fontSize="lg" fontWeight="bold" mt="-1">
@@ -185,7 +182,6 @@ export const DefaultHome = () => {
                             </Box>
                         </Flex>
                         <Button
-                            w={{ base: '100%', md: 'auto' }}
                             alignSelf="center"
                             as="a"
                             minW="7rem"
@@ -202,7 +198,7 @@ export const DefaultHome = () => {
                     </Flex>
 
                     <Flex
-                        direction={{ base: 'column', md: 'row' }}
+                        direction="row"
                         spacing="6"
                         maxW="600px"
                         mx="auto"
@@ -219,7 +215,7 @@ export const DefaultHome = () => {
                                 w="50px"
                                 src={paypallogo}
                                 mr="20px"
-                                mt="1px"
+                                my="auto"
                             />
                             <Box flex="1">
                                 <Text fontSize="lg" fontWeight="bold" mt="-1">
@@ -231,7 +227,6 @@ export const DefaultHome = () => {
                             </Box>
                         </Flex>
                         <Button
-                            w={{ base: '100%', md: 'auto' }}
                             alignSelf="center"
                             as="a"
                             minW="7rem"
