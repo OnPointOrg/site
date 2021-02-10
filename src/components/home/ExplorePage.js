@@ -61,7 +61,7 @@ export class ExplorePage extends React.Component {
                     </Text>
                 </Flex>
                 <FeaturedArticle />
-                <Stack w="95%" px="auto" mt="2.5rem" mx="auto">
+                <Stack w="85%" px="auto" mt="2.5rem" mx="auto">
                     <Flex direction="column" w="100%">
                         <Flex align="center">
                             <Text

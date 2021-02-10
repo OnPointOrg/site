@@ -58,7 +58,7 @@ export const VerifiedNav = () => {
                 justifyContent="space-between"
                 alignItems="center"
                 width="100%"
-                height="12vh"
+                height={['12vh', '10vh', '12vh']}
                 as="nav"
                 overflow="hidden"
             >
@@ -69,8 +69,8 @@ export const VerifiedNav = () => {
                     py={4}
                     display="flex"
                 >
-                    <Box ml="100px">
-                        <Flex align="left" ml={5}>
+                    <Box>
+                        <Flex align="left" ml={['0px', '50px', '100px']}>
                             <Link to="/">
                                 <Heading
                                     as="h1"
@@ -88,9 +88,13 @@ export const VerifiedNav = () => {
                     </Box>
 
                     <Box>
-                        <Stack isInline alignItems="center" mr="100px">
+                        <Stack
+                            isInline
+                            alignItems="center"
+                            mr={['0px', '50px', '100px']}
+                        >
                             <Flex
-                                justifyContent="space-between"
+                                // justifyContent="space-between"
                                 color="gray.500"
                             >
                                 <NavLink name="About" link="about" />

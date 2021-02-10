@@ -138,36 +138,6 @@ export const Support = () => {
                             <Text color="white">Sponsor</Text>
                         </Button>
                     </Flex>
-
-                    <Box maxW="600px" mx="auto" textAlign="center">
-                        <Text textStyle="caps" mb="8" mt="4rem">
-                            Sponsors{' '}
-                            <span role="img" aria-label="emoji building">
-                                🏦
-                            </span>
-                        </Text>
-                        <Flex justify="center">
-                            <Box>
-                                <motion.div whileHover={{ scale: 1.1 }}>
-                                    <ChakraLink
-                                        href="https://hackclub.com"
-                                        target="_blank"
-                                        _hover=""
-                                    >
-                                        <Image
-                                            w="56px"
-                                            h="56px"
-                                            alt={'alt'}
-                                            src={
-                                                'https://assets.hackclub.com/icon-rounded.png'
-                                            }
-                                            loading="lazy"
-                                        />
-                                    </ChakraLink>
-                                </motion.div>
-                            </Box>
-                        </Flex>
-                    </Box>
                 </Box>
             </Box>
             <Footer />

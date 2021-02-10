@@ -43,6 +43,7 @@ const DefaultNav = props => {
                 flexDirection="row"
                 justifyContent="space-between"
                 alignItems="center"
+                height={['12vh', '10vh', '12vh']}
                 width="100%"
                 as="nav"
             >
@@ -53,8 +54,8 @@ const DefaultNav = props => {
                     py={4}
                     display="flex"
                 >
-                    <Box ml="100px">
-                        <Flex align="center" ml={5}>
+                    <Box>
+                        <Flex align="center" ml={['0px', '50px', '100px']}>
                             <Link to="/">
                                 <Heading
                                     as="h1"
@@ -72,7 +73,11 @@ const DefaultNav = props => {
                     </Box>
 
                     <Box>
-                        <Stack isInline alignItems="center" mr="100px">
+                        <Stack
+                            isInline
+                            alignItems="center"
+                            mr={['0px', '50px', '100px']}
+                        >
                             <Flex
                                 justifyContent="space-between"
                                 color="gray.500"
