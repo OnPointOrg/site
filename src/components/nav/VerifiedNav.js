@@ -34,11 +34,10 @@ breakpoints.xl = breakpoints[3];
 
 const StickyNav = styled(Flex)`
     position: sticky;
-    z-index: 10;
+    z-index: 99;
     top: 0;
     backdrop-filter: saturate(180%) blur(20px);
     transition: background-color 0.1 ease-in-out;
-    overflow: hidden;
 `;
 
 export const VerifiedNav = () => {
@@ -100,7 +99,7 @@ export const VerifiedNav = () => {
                             >
                                 <NavLink name="About" link="about" />
                                 <NavLink name="Articles" link="articles" />
-                                <Menu closeOnSelect="false" overflow="hidden">
+                                <Menu closeOnSelect="false">
                                     <MenuButton
                                         mx="25px"
                                         transition="all 0.2s"
