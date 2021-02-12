@@ -46,18 +46,7 @@ export const DefaultHome = () => {
                             >
                                 This Is OnPoint.
                             </Heading>
-                            <Heading
-                                as="h2"
-                                size="md"
-                                color="primary.800"
-                                fontSize="3rem"
-                                opacity="0.8"
-                                fontWeight="normal"
-                                lineHeight={1.5}
-                                width="70%"
-                            >
-                                We're Changing The Way You See Media Forever
-                            </Heading>
+
                             <Box
                                 mt="10"
                                 spacing="3"
