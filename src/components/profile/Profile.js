@@ -19,6 +19,7 @@ import { FaEnvelope } from 'react-icons/fa';
 import Loading from '../home/Loading';
 import { Redirect } from 'react-router';
 import ProfileArticle from './ProfileArticle';
+import { getUser } from '../../hooks/getUser';
 
 const articles = [];
 export class Profile extends React.Component {
@@ -45,6 +46,7 @@ export class Profile extends React.Component {
                             redirect: <Redirect to="/profile" />
                         });
                     } else {
+                        // getUser(uuid);
                         this.setState({
                             currentNav: <VerifiedNav />,
                             user: 'new user'
