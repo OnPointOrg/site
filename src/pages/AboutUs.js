@@ -172,8 +172,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Sujith Sanniboyina"
                                 roles={['Co-Founder', 'Secretary']}
-                                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                                bio="Sujith Sanniboyina is a junior at Northwood High School and is the secretary @ OnPoint. He is interested in Biotech and other medical fields"
                                 img={sujithsanniboyina}
                                 instagram="sujith.sanniboyina"
                                 email="22sanniboysujith@gmail.com"

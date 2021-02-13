@@ -19,7 +19,7 @@ import { FaEnvelope } from 'react-icons/fa';
 import Loading from '../home/Loading';
 import { Redirect } from 'react-router';
 import ProfileArticle from './ProfileArticle';
-import { getUser } from '../../hooks/getUser';
+// import { getUser } from '../../hooks/getUser';
 
 const articles = [];
 export class Profile extends React.Component {

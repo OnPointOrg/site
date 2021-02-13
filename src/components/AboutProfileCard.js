@@ -127,7 +127,7 @@ class AboutProfileCard extends React.Component {
                         </Stack>
                     </Stack>
                 </Stack>
-                <Text margin="20px" color="white">
+                <Text margin="20px" fontSize="18px" color="white">
                     {this.props.bio}
                 </Text>
             </Box>
