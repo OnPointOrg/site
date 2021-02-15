@@ -120,8 +120,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Aditya Verma"
                                 roles={['CEO', 'Founder']}
-                                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                                bio="Aditya Verma is a sophomore at NHS and the founder of OnPoint. Some of his interests include soccer, biology, and chess!"
                                 img={adityaverma}
                                 github="adiviusd"
                                 instagram="_adityavermaaa"
@@ -172,7 +171,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Sujith Sanniboyina"
                                 roles={['Co-Founder', 'Secretary']}
-                                bio="Sujith Sanniboyina is a junior at Northwood High School and is the secretary @ OnPoint. He is interested in Biotech and other medical fields"
+                                bio="Sujith Sanniboyina is a junior at Northwood High School and is the secretary @ OnPoint. He is interested and passionate about computer science and aerospace engineering"
                                 img={sujithsanniboyina}
                                 instagram="sujith.sanniboyina"
                                 email="22sanniboysujith@gmail.com"
@@ -181,8 +180,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Yash Khot"
                                 roles={['Co-Founder', 'Entertainment']}
-                                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                                bio="Yash Khot is a sophmore at Northwood High School and is the entertainment lead. He takes interest in many different arts"
                                 img={yashkhot}
                                 instagram="yashhkhott"
                                 email="yash.khot@gmail.com"
