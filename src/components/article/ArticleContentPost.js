@@ -9,7 +9,12 @@ import {
     Link as ChakraLink,
     Avatar,
     Grid,
-    Flex
+    Flex,
+    Menu,
+    MenuButton,
+    Button,
+    MenuItem,
+    MenuList
 } from '@chakra-ui/core';
 
 import Loading from '../home/Loading';
@@ -28,7 +33,7 @@ import ArticlePost from './ArticlePost';
 import firestoreDatabase from '../../firebase';
 import { Link } from 'react-router-dom';
 
-import { FaShareSquare } from 'react-icons/fa';
+import { FaLink, FaShareSquare } from 'react-icons/fa';
 
 let currentArticleHtmlBody = [];
 
@@ -154,7 +159,13 @@ export class ArticleContentPost extends Component {
                     </Box>
 
                     <Box>
-                        <Stack isInline mt="35px" width="70%" mx="auto">
+                        <Stack
+                            isInline
+                            my="10px"
+                            mt="35px"
+                            width="70%"
+                            mx="auto"
+                        >
                             <Box textAlign="left" fontSize="15px" width="50%">
                                 <Link
                                     to={`/profile/${this.state.articleAuthorUuid}`}
@@ -176,18 +187,62 @@ export class ArticleContentPost extends Component {
                                     </ChakraLink>
                                 </Link>
                             </Box>
-                            <Flex width="85%" textAlign="right">
+                            <Flex width="75%" textAlign="right">
                                 <Text fontSize="20px" color="white">
-                                    {this.state.articleDate} &bull;{' '}
-                                    {`${calculateReadingTime(
-                                        words
-                                    )} min reading`}{' '}
-                                    &bull;{' '}
-                                    {this.state.articleViews === 1
-                                        ? this.state.articleViews + ' View'
-                                        : this.state.articleViews +
-                                          ' Views'}{' '}
-                                    &bull; <FaShareSquare color="white" />
+                                    <Stack isInline>
+                                        <Box>
+                                            {this.state.articleDate} &bull;{' '}
+                                            {`${calculateReadingTime(
+                                                words
+                                            )} min reading`}{' '}
+                                            &bull;{' '}
+                                            {this.state.articleViews === 1
+                                                ? this.state.articleViews +
+                                                  ' View'
+                                                : this.state.articleViews +
+                                                  ' Views'}{' '}
+                                        </Box>
+                                        <Stack isInline>
+                                            <span
+                                                style={{ marginRight: '10px' }}
+                                            >
+                                                &bull;{' '}
+                                            </span>
+                                            <Box>
+                                                <Menu>
+                                                    <MenuButton
+                                                        as={Button}
+                                                        variant="ghost"
+                                                        size="sm"
+                                                    >
+                                                        <FaShareSquare
+                                                            size="1rem"
+                                                            color="white"
+                                                        />
+                                                    </MenuButton>
+                                                    <MenuList>
+                                                        <MenuItem minH="48px">
+                                                            <FaLink
+                                                                style={{
+                                                                    marginRight:
+                                                                        '10px'
+                                                                }}
+                                                            />
+                                                            Copy Link
+                                                        </MenuItem>
+                                                        <MenuItem minH="40px">
+                                                            <Image
+                                                                size="2rem"
+                                                                rounded="full"
+                                                                src="https://placekitten.com/120/120"
+                                                                alt="Simon the pensive"
+                                                            />
+                                                        </MenuItem>
+                                                    </MenuList>
+                                                </Menu>
+                                            </Box>
+                                        </Stack>
+                                    </Stack>
                                 </Text>
                             </Flex>
                         </Stack>
