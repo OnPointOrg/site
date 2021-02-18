@@ -216,27 +216,33 @@ export class ArticleContentPost extends Component {
                                                         size="sm"
                                                     >
                                                         <FaShareSquare
-                                                            size="1rem"
+                                                            size="1.5rem"
                                                             color="white"
                                                         />
                                                     </MenuButton>
                                                     <MenuList>
-                                                        <MenuItem minH="48px">
+                                                        <MenuItem
+                                                            minH="48px"
+                                                            onClick={() => {
+                                                                navigator.clipboard.writeText(
+                                                                    window
+                                                                        .location
+                                                                        .href
+                                                                );
+                                                                console.log(
+                                                                    window
+                                                                        .location
+                                                                        .href
+                                                                );
+                                                            }}
+                                                        >
                                                             <FaLink
                                                                 style={{
                                                                     marginRight:
-                                                                        '10px'
+                                                                        '15px'
                                                                 }}
                                                             />
                                                             Copy Link
-                                                        </MenuItem>
-                                                        <MenuItem minH="40px">
-                                                            <Image
-                                                                size="2rem"
-                                                                rounded="full"
-                                                                src="https://placekitten.com/120/120"
-                                                                alt="Simon the pensive"
-                                                            />
                                                         </MenuItem>
                                                     </MenuList>
                                                 </Menu>
