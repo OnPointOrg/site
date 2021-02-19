@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Heading,
     Box,
@@ -10,11 +10,8 @@ import {
     Avatar,
     Grid,
     Flex,
-    Menu,
-    MenuButton,
     Button,
-    MenuItem,
-    MenuList
+    useToast
 } from '@chakra-ui/core';
 
 import Loading from '../home/Loading';
@@ -32,8 +29,7 @@ import VerifiedNav from '../nav/VerifiedNav';
 import ArticlePost from './ArticlePost';
 import firestoreDatabase from '../../firebase';
 import { Link } from 'react-router-dom';
-
-import { FaLink, FaShareSquare } from 'react-icons/fa';
+import ShareButton from './ShareButton';
 
 let currentArticleHtmlBody = [];
 
@@ -50,7 +46,7 @@ const calculateReadingTime = numOfWords => {
 
 const articles = [];
 
-export class ArticleContentPost extends Component {
+export class ArticleContentPost extends React.Component {
     state = {
         article: null,
         articleTitle: null,
@@ -203,49 +199,25 @@ export class ArticleContentPost extends Component {
                                                   ' Views'}{' '}
                                         </Box>
                                         <Stack isInline>
-                                            <span
-                                                style={{ marginRight: '10px' }}
-                                            >
-                                                &bull;{' '}
-                                            </span>
                                             <Box>
-                                                <Menu>
-                                                    <MenuButton
-                                                        as={Button}
-                                                        variant="ghost"
-                                                        size="sm"
-                                                    >
-                                                        <FaShareSquare
-                                                            size="1.5rem"
-                                                            color="white"
-                                                        />
-                                                    </MenuButton>
-                                                    <MenuList>
-                                                        <MenuItem
-                                                            minH="48px"
-                                                            onClick={() => {
-                                                                navigator.clipboard.writeText(
-                                                                    window
-                                                                        .location
-                                                                        .href
-                                                                );
-                                                                console.log(
-                                                                    window
-                                                                        .location
-                                                                        .href
-                                                                );
-                                                            }}
-                                                        >
-                                                            <FaLink
-                                                                style={{
-                                                                    marginRight:
-                                                                        '15px'
-                                                                }}
-                                                            />
-                                                            Copy Link
-                                                        </MenuItem>
-                                                    </MenuList>
-                                                </Menu>
+                                                {/* <Button
+                                                    variant="ghost"
+                                                    size="sm"
+                                                    onClick={() => {
+                                                        navigator.clipboard.writeText(
+                                                            window.location.href
+                                                        );
+                                                        console.log(
+                                                            window.location.href
+                                                        );
+                                                    }}
+                                                >
+                                                    <FaShareSquare
+                                                        size="1.5rem"
+                                                        color="white"
+                                                    />
+                                                </Button> */}
+                                                <ShareButton />
                                             </Box>
                                         </Stack>
                                     </Stack>
