@@ -58,7 +58,7 @@ export const VerifiedNav = () => {
                 justifyContent="space-between"
                 alignItems="center"
                 width="100%"
-                height={['5vh', '12vh', '10vh', '12vh']}
+                height="12vh"
                 as="nav"
                 overflow="hidden"
             >
