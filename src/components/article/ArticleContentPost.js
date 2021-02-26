@@ -9,9 +9,7 @@ import {
     Link as ChakraLink,
     Avatar,
     Grid,
-    Flex,
-    Button,
-    useToast
+    Flex
 } from '@chakra-ui/core';
 
 import Loading from '../home/Loading';
@@ -200,23 +198,6 @@ export class ArticleContentPost extends React.Component {
                                         </Box>
                                         <Stack isInline>
                                             <Box>
-                                                {/* <Button
-                                                    variant="ghost"
-                                                    size="sm"
-                                                    onClick={() => {
-                                                        navigator.clipboard.writeText(
-                                                            window.location.href
-                                                        );
-                                                        console.log(
-                                                            window.location.href
-                                                        );
-                                                    }}
-                                                >
-                                                    <FaShareSquare
-                                                        size="1.5rem"
-                                                        color="white"
-                                                    />
-                                                </Button> */}
                                                 <ShareButton />
                                             </Box>
                                         </Stack>

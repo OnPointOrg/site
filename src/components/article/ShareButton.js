@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, toast, useToast } from '@chakra-ui/core';
+import { Button, useToast } from '@chakra-ui/core';
 
 import { FaShareSquare } from 'react-icons/fa';
 
