@@ -1,5 +1,6 @@
 import { projectStorage } from '../../firebase';
 import firebase from 'firebase';
+import firestoreDatabase from '../../firebase';
 
 export const getRandomColor = () => {
     var letters = '0123456789ABCDEF';
@@ -65,6 +66,12 @@ export const createImageFromInitials = async (size, name, color) => {
                     })
                     .then(() => {
                         console.log(firebase.auth().currentUser.photoURL);
+                        firestoreDatabase
+                            .collection('users')
+                            .doc(`${firebase.auth().currentUser.uid}`)
+                            .update({
+                                pfp: firebase.auth().currentUser.photoURL
+                            });
                     });
             });
         });

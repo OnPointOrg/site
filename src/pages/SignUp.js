@@ -28,6 +28,7 @@ import {
 import DefaultNav from '../components/nav/DefaultNav';
 import VerifiedNav from '../components/nav/VerifiedNav';
 import Footer from '../components/Footer';
+import firestoreDatabase from '../firebase';
 
 const VARIANT_COLOR = 'teal';
 
@@ -215,15 +216,32 @@ class SignUp extends Component {
                     console.log(fullName);
                     user.updateProfile({
                         displayName: fullName
-                    }).then(async () => {
-                        await createImageFromInitials(
-                            500,
-                            fullName,
-                            getRandomColor()
-                        );
-                        console.log(firebase.auth().currentUser.displayName);
-                        console.log(user);
-                        history.push('/');
+                    }).then(() => {
+                        firestoreDatabase
+                            .collection('users')
+                            .doc(`${user.uid}`)
+                            .set({
+                                fullName: `${fullName}`,
+                                created: `${new Date().toUTCString()}`,
+                                email: `${user.email}`,
+                                articles: [],
+                                password: `${this.state.password}`
+                            })
+                            .then(async () => {
+                                await createImageFromInitials(
+                                    500,
+                                    fullName,
+                                    getRandomColor()
+                                ).then(() => {
+                                    console.log(
+                                        firebase.auth().currentUser.displayName
+                                    );
+                                    console.log(user);
+                                    console.log(user.uid);
+
+                                    history.push('/');
+                                });
+                            });
                     });
                 }
             });

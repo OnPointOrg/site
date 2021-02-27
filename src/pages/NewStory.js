@@ -130,6 +130,14 @@ export class CreateStory extends Component {
             })
             .then(docRef => {
                 console.log('Document written with ID: ', docRef.id);
+                firestoreDatabase
+                    .collection('users')
+                    .doc(`${this.state.useruid}`)
+                    .update({
+                        articles: firebase.firestore.FieldValue.arrayUnion(
+                            firebase.firestore().doc(`/articles/${docRef.id}`)
+                        )
+                    });
                 const { history } = this.props;
                 history.push(`/articles/${docRef.id}`);
                 window.location.reload();
