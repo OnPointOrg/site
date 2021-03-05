@@ -220,9 +220,9 @@ export class ArticleContentPost extends React.Component {
                 <Box />
                 <Box />
                 <Divider mx="100px" my="50px" />
-                <Box marginBottom="75px" display="block" mx="auto" width="55%">
+                <Box marginBottom="75px" display="block" mx="auto" width="60%">
                     {this.state.articleContent.map(element => {
-                        return <div style={{ margin: '25px' }}>{element}</div>;
+                        return <Box>{element}</Box>;
                     })}
                 </Box>
 
