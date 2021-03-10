@@ -15,10 +15,11 @@ import firebase from 'firebase';
 
 import firestoreDatabase from '../../firebase';
 
-import { FaEnvelope } from 'react-icons/fa';
+import { FaEnvelope, FaArrowRight } from 'react-icons/fa';
 import Loading from '../home/Loading';
 import { Redirect } from 'react-router';
 import ProfileArticle from './ProfileArticle';
+import { Link } from 'react-router-dom';
 // import { getUser } from '../../hooks/getUser';
 
 const articles = [];
@@ -26,10 +27,12 @@ export class Profile extends React.Component {
     state = {
         currentNav: <Loading />,
         user: null,
+        uid: null,
         articlesByUser: null,
         email: null,
         pfp: null,
-        redirect: null
+        redirect: null,
+        noArticleState: null
     };
 
     componentDidMount = () => {
@@ -46,10 +49,58 @@ export class Profile extends React.Component {
                             redirect: <Redirect to="/profile" />
                         });
                     } else {
-                        // getUser(uuid);
+                        firestoreDatabase
+                            .collection('users')
+                            .doc(uuid)
+                            .get()
+                            .then(userProfile => {
+                                console.log(userProfile.data());
+                                this.setState({
+                                    currentNav: <VerifiedNav />,
+                                    user: userProfile.data().fullName,
+                                    uid: uuid,
+                                    email: userProfile.data().email,
+                                    pfp: userProfile.data().pfp
+                                });
+
+                                console.log(userProfile.data().articles);
+
+                                console.log(userProfile.data().articles.length);
+                                if (userProfile.data().articles.length !== 0) {
+                                    userProfile.data().articles.map(article => {
+                                        firestoreDatabase
+                                            .collection('articles')
+                                            .doc(article)
+                                            .get()
+                                            .then(querySnapshot => {
+                                                console.log(
+                                                    querySnapshot.data()
+                                                );
+                                                articles.push(querySnapshot);
+                                            })
+                                            .then(() => {
+                                                console.log(articles);
+                                                this.setState({
+                                                    articlesByUser: articles
+                                                });
+                                            });
+                                    });
+                                } else {
+                                    console.log('inside');
+                                    this.setState({
+                                        noArticleState: (
+                                            <Box textAlign="center">
+                                                <Heading mt="25px">
+                                                    {this.state.user} Doesn't
+                                                    Have Any Articles Uploaded!
+                                                </Heading>
+                                            </Box>
+                                        )
+                                    });
+                                }
+                            });
                         this.setState({
-                            currentNav: <VerifiedNav />,
-                            user: 'new user'
+                            currentNav: <VerifiedNav />
                         });
                     }
                 } else {
@@ -57,25 +108,47 @@ export class Profile extends React.Component {
                     this.setState({
                         currentNav: <VerifiedNav />,
                         user: user.displayName,
+                        uid: user.uid,
                         email: user.email,
                         pfp: user.photoURL
                     });
 
                     firestoreDatabase
                         .collection('articles')
-                        .where('username', '==', this.state.user)
+                        .where('useruid', '==', this.state.uid)
                         .get()
                         .then(querySnapshot => {
                             console.log(this.state.user);
-                            console.log(querySnapshot);
+                            console.log(querySnapshot.docs.length);
                             console.log(this.state.articlesByUser);
-                            querySnapshot.forEach(doc => {
-                                console.log('DOC' + doc);
-                                articles.push(doc);
-                            });
-                            this.setState({
-                                articlesByUser: articles
-                            });
+                            if (querySnapshot.docs.length !== 0) {
+                                querySnapshot.forEach(doc => {
+                                    console.log('DOC' + doc.data);
+                                    articles.push(doc);
+                                });
+                                this.setState({
+                                    articlesByUser: articles
+                                });
+                            } else {
+                                this.setState({
+                                    noArticleState: (
+                                        <Box textAlign="center">
+                                            <Heading my="25px">
+                                                You Have No Articles Uploaded!
+                                            </Heading>
+                                            <Link to="/newstory">
+                                                <Button
+                                                    variant="outline"
+                                                    variantColor="teal"
+                                                    rightIcon={FaArrowRight}
+                                                >
+                                                    Write One Now!
+                                                </Button>
+                                            </Link>
+                                        </Box>
+                                    )
+                                });
+                            }
                         });
                 }
             } else {
@@ -148,17 +221,18 @@ export class Profile extends React.Component {
                         >
                             <Heading textAlign="center">Articles</Heading>
                         </Box>
-                        <SimpleGrid
-                            spacing={6}
-                            columns={[1, 1, 1, 2, 3]}
-                            my="15px"
-                            padding="25px"
-                            mt="10px"
-                        >
-                            {articles.length === 0 ? (
-                                <Heading>Thingy</Heading>
-                            ) : (
-                                articles.map(article => {
+
+                        {this.state.noArticleState ? (
+                            this.state.noArticleState
+                        ) : (
+                            <SimpleGrid
+                                spacing={6}
+                                columns={[1, 1, 1, 2, 3]}
+                                my="15px"
+                                padding="25px"
+                                mt="10px"
+                            >
+                                {articles.map(article => {
                                     console.log(article.data());
                                     console.log(
                                         'DOCUMENT ID ====================='
@@ -178,9 +252,9 @@ export class Profile extends React.Component {
                                             views={article.data().views}
                                         />
                                     );
-                                })
-                            )}
-                        </SimpleGrid>
+                                })}
+                            </SimpleGrid>
+                        )}
                     </Box>
                 </Flex>
                 {this.state.redirect}

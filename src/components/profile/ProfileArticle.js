@@ -8,10 +8,12 @@ import {
     Button,
     Stack,
     Tooltip,
-    Heading
+    Heading,
+    IconButton
 } from '@chakra-ui/core';
 import firebase from 'firebase';
 import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 
 export class ProfileArticle extends React.Component {
     state = {
@@ -135,19 +137,14 @@ export class ProfileArticle extends React.Component {
                                     }, 5);
                                 }}
                             >
-                                <Button
+                                <IconButton
                                     size="sm"
                                     ml="10px"
                                     mt="1rem"
-                                    variant="ghost"
+                                    variant="solid"
                                     variantColor="teal"
-                                >
-                                    {console.log(
-                                        'PROPS DOC ID ===================' +
-                                            this.props.docId
-                                    )}
-                                    Read More
-                                </Button>
+                                    icon={FaArrowRight}
+                                />
                             </Link>
                         </Box>
                     </Box>
