@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import {
     Box,
     Flex,
@@ -49,7 +49,8 @@ class SignIn extends React.Component {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
-                    currentNav: <VerifiedNav />
+                    currentNav: <VerifiedNav />,
+                    redirect: <Redirect to="/" />
                 });
             } else {
                 this.setState({

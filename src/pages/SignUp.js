@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import {
     Box,
     Flex,
@@ -61,7 +61,8 @@ class SignUp extends Component {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
-                    currentNav: <VerifiedNav />
+                    currentNav: <VerifiedNav />,
+                    redirect: <Redirect to="/" />
                 });
             } else {
                 this.setState({
@@ -250,6 +251,7 @@ class SignUp extends Component {
     render() {
         return (
             <Box height="100%">
+                {this.state.redirect}
                 {this.state.currentNav}
                 <Flex
                     my={'5rem'}

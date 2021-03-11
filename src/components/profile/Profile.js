@@ -153,8 +153,7 @@ export class Profile extends React.Component {
                 }
             } else {
                 this.setState({
-                    currentNav: <DefaultNav />,
-                    redirect: <Redirect to="/" />
+                    currentNav: <DefaultNav />
                 });
             }
         });
