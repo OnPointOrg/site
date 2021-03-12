@@ -28,6 +28,7 @@ import UploadForm, { fileURL } from '../components/editor/UploadForm';
 
 import VerifiedNav from '../components/nav/VerifiedNav';
 import DefaultNav from '../components/nav/DefaultNav';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 const VARIANT_COLOR = 'teal';
 const instanceRef = createRef();
@@ -44,7 +45,8 @@ export class CreateStory extends Component {
         thumbnailImage: '',
         currentNav: <DefaultNav />,
         loadingState: false,
-        disabledState: false
+        disabledState: false,
+        redirect: null
     };
 
     componentDidMount = () => {
@@ -55,7 +57,8 @@ export class CreateStory extends Component {
                 });
             } else {
                 this.setState({
-                    currentNav: <DefaultNav />
+                    currentNav: <DefaultNav />,
+                    redirect: <Redirect to="/signup" />
                 });
             }
         });
@@ -74,8 +77,6 @@ export class CreateStory extends Component {
                 username: name,
                 email: email
             });
-        } else {
-            alert('Please Sign In!');
         }
     };
 
@@ -154,6 +155,7 @@ export class CreateStory extends Component {
     render() {
         return (
             <Box width="100%">
+                {this.state.redirect}
                 {this.state.currentNav}
                 <Flex
                     height="50%"

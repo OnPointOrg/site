@@ -56,7 +56,8 @@ export class ArticleContentPost extends React.Component {
         articlesByAuthor: [],
         documentId: null,
         currentNav: <Loading />,
-        articleViews: null
+        articleViews: null,
+        authorPfp: null
     };
 
     gridCol = () => {
@@ -110,7 +111,7 @@ export class ArticleContentPost extends React.Component {
 
         firestoreDatabase
             .collection('articles')
-            .where('username', '==', this.state.articleAuthor)
+            .where('useruid', '==', this.state.articleAuthorUuid)
             .limit(6)
             .get()
             .then(querySnapshot => {
@@ -124,6 +125,16 @@ export class ArticleContentPost extends React.Component {
                 this.setState({
                     articlesByAuthor: articles
                 });
+            })
+            .then(() => {
+                firestoreDatabase
+                    .collection('users')
+                    .doc(`${this.state.articleAuthorUuid}`)
+                    .get()
+                    .then(authorData => {
+                        console.log(authorData.data());
+                        this.setState({ authorPfp: authorData.data().pfp });
+                    });
             });
     };
 
@@ -171,7 +182,7 @@ export class ArticleContentPost extends React.Component {
                                 >
                                     <ChakraLink color="teal.500">
                                         <Avatar
-                                            src={`https://unavatar.now.sh/${this.state.articleAuthorEmail}?fallback=https://firebasestorage.googleapis.com/v0/b/onpointnewsorg.appspot.com/o/logo.png?alt=media&token=b44edc97-5872-4e8f-ae7c-b8d00306645b`}
+                                            src={`${this.state.authorPfp}`}
                                             size="sm"
                                             mx="10px"
                                         />
