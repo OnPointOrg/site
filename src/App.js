@@ -12,12 +12,34 @@ import Profile from './components/profile/Profile';
 import { DarkMode, Box } from '@chakra-ui/core';
 import Support from './pages/Support';
 
+import DefaultNav from './components/nav/DefaultNav';
+import VerifiedNav from './components/nav/VerifiedNav';
+import firebase from 'firebase';
+
 export class App extends Component {
+    state = {
+        currentNav: <DefaultNav />
+    };
+
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                this.setState({
+                    currentNav: <VerifiedNav />
+                });
+            } else {
+                this.setState({
+                    currentNav: <DefaultNav />
+                });
+            }
+        });
+    };
     render() {
         return (
             <Box backgroundColor="#1a202c">
                 <DarkMode>
                     <Router>
+                        {this.state.currentNav}
                         <Switch>
                             <Route path="/" exact component={Home} />
                             <Route path="/signup" component={SignUp} />
