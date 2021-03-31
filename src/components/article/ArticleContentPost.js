@@ -22,8 +22,6 @@ import getDocs, {
     articleHtmlInformation
 } from '../../hooks/ReadArticlesFromFirebase';
 
-import DefaultNav from '../nav/DefaultNav';
-import VerifiedNav from '../nav/VerifiedNav';
 import ArticlePost from './ArticlePost';
 import firestoreDatabase from '../../firebase';
 import { Link } from 'react-router-dom';
@@ -55,7 +53,7 @@ export class ArticleContentPost extends React.Component {
         articleAuthorUuid: null,
         articlesByAuthor: [],
         documentId: null,
-        currentNav: <Loading />,
+
         articleViews: null,
         authorPfp: null
     };
@@ -76,17 +74,6 @@ export class ArticleContentPost extends React.Component {
         });
         console.log(articleHtmlInformation);
         console.log(this.props.timestamp);
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.setState({
-                    currentNav: <VerifiedNav />
-                });
-            } else {
-                this.setState({
-                    currentNav: <DefaultNav />
-                });
-            }
-        });
 
         let docId = this.props.match.params.docId;
 
@@ -141,7 +128,6 @@ export class ArticleContentPost extends React.Component {
     render() {
         return (
             <Box>
-                {this.state.currentNav}
                 <Box
                     as="section"
                     alignItems="center"

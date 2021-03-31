@@ -16,9 +16,6 @@ import {
     Checkbox
 } from '@chakra-ui/core';
 
-import DefaultNav from '../components/nav/DefaultNav';
-import VerifiedNav from '../components/nav/VerifiedNav';
-
 import * as firebase from 'firebase';
 import Footer from '../components/Footer';
 
@@ -41,20 +38,14 @@ class SignIn extends React.Component {
                 Sign In
             </Button>
         ),
-        redirect: null,
-        currentNav: <DefaultNav />
+        redirect: null
     };
 
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
-                    currentNav: <VerifiedNav />,
                     redirect: <Redirect to="/" />
-                });
-            } else {
-                this.setState({
-                    currentNav: <DefaultNav />
                 });
             }
         });
@@ -213,7 +204,6 @@ class SignIn extends React.Component {
     render() {
         return (
             <Box>
-                {this.state.currentNav}
                 <Flex
                     my="7rem"
                     minHeight="50vh"

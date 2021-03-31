@@ -8,8 +8,6 @@ import {
     Link as ChakraLink,
     Button
 } from '@chakra-ui/core';
-import VerifiedNav from '../nav/VerifiedNav';
-import DefaultNav from '../nav/DefaultNav';
 
 import firebase from 'firebase';
 
@@ -20,12 +18,10 @@ import Loading from '../home/Loading';
 import { Redirect } from 'react-router';
 import ProfileArticle from './ProfileArticle';
 import { Link } from 'react-router-dom';
-// import { getUser } from '../../hooks/getUser';
 
 const articles = [];
 export class Profile extends React.Component {
     state = {
-        currentNav: <Loading />,
         user: null,
         uid: null,
         articlesByUser: null,
@@ -56,7 +52,6 @@ export class Profile extends React.Component {
                             .then(userProfile => {
                                 console.log(userProfile.data());
                                 this.setState({
-                                    currentNav: <VerifiedNav />,
                                     user: userProfile.data().fullName,
                                     uid: uuid,
                                     email: userProfile.data().email,
@@ -68,9 +63,10 @@ export class Profile extends React.Component {
                                 console.log(userProfile.data().articles.length);
                                 if (userProfile.data().articles.length !== 0) {
                                     userProfile.data().articles.map(article => {
+                                        console.log(article.id);
                                         firestoreDatabase
                                             .collection('articles')
-                                            .doc(article)
+                                            .doc(article.id)
                                             .get()
                                             .then(querySnapshot => {
                                                 console.log(
@@ -99,14 +95,10 @@ export class Profile extends React.Component {
                                     });
                                 }
                             });
-                        this.setState({
-                            currentNav: <VerifiedNav />
-                        });
                     }
                 } else {
                     console.log(user);
                     this.setState({
-                        currentNav: <VerifiedNav />,
                         user: user.displayName,
                         uid: user.uid,
                         email: user.email,
@@ -153,33 +145,15 @@ export class Profile extends React.Component {
                 }
             } else {
                 this.setState({
-                    currentNav: <DefaultNav />
+                    redirect: <Redirect to="/" />
                 });
             }
         });
-
-        if (uuid) {
-            firebase.auth().onAuthStateChanged(async user => {
-                if (user) {
-                    // Add firebase admin stuff here for profile stuff
-                }
-            });
-        } else {
-            firebase.auth().onAuthStateChanged(user => {
-                if (user) {
-                } else {
-                    this.setState({
-                        currentNav: <DefaultNav />
-                    });
-                }
-            });
-        }
     };
 
     render() {
         return (
             <Box height="88vh" overflow="none">
-                {this.state.currentNav}
                 <Flex overflowY="hidden" height="100%">
                     <Box backgroundColor="#25353F" width="50%">
                         <Image

@@ -1,7 +1,5 @@
 import React from 'react';
 import { Heading, Text, Box, SimpleGrid } from '@chakra-ui/core';
-import DefaultNav from '../components/nav/DefaultNav';
-import VerifiedNav from '../components/nav/VerifiedNav';
 import Footer from '../components/Footer';
 import firebase from 'firebase';
 
@@ -17,28 +15,9 @@ import yashkhot from '../images/team/yashkhot.jpg';
 import Profile from '../components/AboutProfileCard';
 
 export class AboutUs extends React.Component {
-    state = {
-        currentNav: <DefaultNav />
-    };
-
-    componentDidMount = () => {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.setState({
-                    currentNav: <VerifiedNav />
-                });
-            } else {
-                this.setState({
-                    currentNav: <DefaultNav />
-                });
-            }
-        });
-    };
-
     render() {
         return (
             <Box width="100%">
-                {this.state.currentNav}
                 <Box mb={20} overflow="hidden" my="5rem" as="section">
                     <Box as="section">
                         <Box

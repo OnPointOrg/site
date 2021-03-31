@@ -25,8 +25,6 @@ import {
     getRandomColor
 } from '../components/profile/Pfp';
 
-import DefaultNav from '../components/nav/DefaultNav';
-import VerifiedNav from '../components/nav/VerifiedNav';
 import Footer from '../components/Footer';
 import firestoreDatabase from '../firebase';
 
@@ -44,7 +42,7 @@ class SignUp extends Component {
         passwordError: '',
         signUpSuccess: '',
         redirect: null,
-        currentNav: <DefaultNav />,
+
         signButton: (
             <Button
                 type="submit"
@@ -61,12 +59,7 @@ class SignUp extends Component {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({
-                    currentNav: <VerifiedNav />,
                     redirect: <Redirect to="/" />
-                });
-            } else {
-                this.setState({
-                    currentNav: <DefaultNav />
                 });
             }
         });
@@ -97,7 +90,6 @@ class SignUp extends Component {
     };
 
     onChangeCheckbox = event => {
-        // console.log(this.state.isChecked);
         this.setState({
             isChecked: event.target.checked
         });
@@ -252,7 +244,7 @@ class SignUp extends Component {
         return (
             <Box height="100%">
                 {this.state.redirect}
-                {this.state.currentNav}
+
                 <Flex
                     my={'5rem'}
                     minHeight="50vh"

@@ -26,8 +26,6 @@ import firebase from 'firebase';
 
 import UploadForm, { fileURL } from '../components/editor/UploadForm';
 
-import VerifiedNav from '../components/nav/VerifiedNav';
-import DefaultNav from '../components/nav/DefaultNav';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 const VARIANT_COLOR = 'teal';
@@ -43,7 +41,7 @@ export class CreateStory extends Component {
         username: '',
         email: '',
         thumbnailImage: '',
-        currentNav: <DefaultNav />,
+
         loadingState: false,
         disabledState: false,
         redirect: null
@@ -51,13 +49,8 @@ export class CreateStory extends Component {
 
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(user => {
-            if (user) {
+            if (!user) {
                 this.setState({
-                    currentNav: <VerifiedNav />
-                });
-            } else {
-                this.setState({
-                    currentNav: <DefaultNav />,
                     redirect: <Redirect to="/signup" />
                 });
             }
@@ -156,7 +149,6 @@ export class CreateStory extends Component {
         return (
             <Box width="100%">
                 {this.state.redirect}
-                {this.state.currentNav}
                 <Flex
                     height="50%"
                     width="100%"

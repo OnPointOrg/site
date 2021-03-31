@@ -1,31 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import { Box, Heading, Text, Flex, Image, Button } from '@chakra-ui/core';
 
 import paypallogo from '../images/paypallogo.png';
 import hcbanklogo from '../images/hcbanklogo.svg';
 import Loading from '../components/home/Loading';
-import VerifiedNav from '../components/nav/VerifiedNav';
-import DefaultNav from '../components/nav/DefaultNav';
-import firebase from 'firebase';
+
 import Footer from '../components/Footer';
 
 export const Support = () => {
-    const [currentNav, setCurrentNav] = useState(<Loading />);
-
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged(firebaseUser => {
-            if (firebaseUser) {
-                setCurrentNav(<VerifiedNav />);
-            } else {
-                setCurrentNav(<DefaultNav />);
-            }
-        });
-    }, []);
-
     return (
         <Box>
-            {currentNav}
             <Box bg="teal.500" as="section" h={['150vh', '88vh', '88vh']}>
                 <Box py="120px" px="32px" color="white">
                     <Box mx="auto" textAlign="center" mb="56px" width="75%">

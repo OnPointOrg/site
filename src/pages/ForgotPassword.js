@@ -15,9 +15,6 @@ import {
     Link as ChakraLink
 } from '@chakra-ui/core';
 
-import DefaultNav from '../components/nav/DefaultNav';
-import VerifiedNav from '../components/nav/VerifiedNav';
-
 import * as firebase from 'firebase';
 
 class ForgotPassword extends React.Component {
@@ -29,22 +26,7 @@ class ForgotPassword extends React.Component {
             <Button type="submit" variantColor="teal" width="full" mt={5}>
                 Send
             </Button>
-        ),
-        currentNav: <DefaultNav />
-    };
-
-    componentDidMount = () => {
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                this.setState({
-                    currentNav: <VerifiedNav />
-                });
-            } else {
-                this.setState({
-                    currentNav: <DefaultNav />
-                });
-            }
-        });
+        )
     };
 
     signInSubmit = () => {
@@ -101,7 +83,6 @@ class ForgotPassword extends React.Component {
     render() {
         return (
             <Box width="100%">
-                {this.state.currentNav}
                 <Flex
                     marginTop="5rem"
                     minHeight="50vh"
