@@ -1,7 +1,6 @@
 import React from 'react';
 import { Heading, Text, Box, SimpleGrid } from '@chakra-ui/core';
 import Footer from '../components/Footer';
-import firebase from 'firebase';
 
 // Team Pictures
 import adityaverma from '../images/team/adityaverma.png';

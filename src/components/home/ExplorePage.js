@@ -2,10 +2,10 @@ import React from 'react';
 import { Box, Flex, Stack, Text, Icon, Heading, Button } from '@chakra-ui/core';
 
 import { Link } from 'react-router-dom';
-import { FaChartLine, FaMoon } from 'react-icons/fa';
+import { /*FaChartLine,*/ FaMoon } from 'react-icons/fa';
 import { WiSunrise } from 'react-icons/wi';
 
-import TrendingGrid from './TrendingGrid';
+// import TrendingGrid from './TrendingGrid';
 
 import firebase from 'firebase';
 import { FeaturedArticle } from './FeaturedArticle';
@@ -61,7 +61,7 @@ export class ExplorePage extends React.Component {
                     </Text>
                 </Flex>
                 <FeaturedArticle />
-                <Stack w="85%" px="auto" mt="2.5rem" mx="auto">
+                {/* <Stack w="85%" px="auto" mt="2.5rem" mx="auto">
                     <Flex direction="column" w="100%">
                         <Flex align="center">
                             <Text
@@ -84,7 +84,7 @@ export class ExplorePage extends React.Component {
                         </Text>
                         <TrendingGrid />
                     </Flex>
-                </Stack>
+                </Stack> */}
 
                 <Box
                     as="section"

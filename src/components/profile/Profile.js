@@ -14,7 +14,6 @@ import firebase from 'firebase';
 import firestoreDatabase from '../../firebase';
 
 import { FaEnvelope, FaArrowRight } from 'react-icons/fa';
-import Loading from '../home/Loading';
 import { Redirect } from 'react-router';
 import ProfileArticle from './ProfileArticle';
 import { Link } from 'react-router-dom';

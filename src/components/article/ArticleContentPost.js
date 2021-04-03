@@ -12,10 +12,6 @@ import {
     Flex
 } from '@chakra-ui/core';
 
-import Loading from '../home/Loading';
-
-import firebase from 'firebase';
-
 import getDocs, {
     articleHtmlBody,
     words,

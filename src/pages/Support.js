@@ -4,7 +4,6 @@ import { Box, Heading, Text, Flex, Image, Button } from '@chakra-ui/core';
 
 import paypallogo from '../images/paypallogo.png';
 import hcbanklogo from '../images/hcbanklogo.svg';
-import Loading from '../components/home/Loading';
 
 import Footer from '../components/Footer';
 

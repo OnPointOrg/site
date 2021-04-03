@@ -194,8 +194,11 @@ export const VerifiedNav = () => {
                                                             isClosable: true
                                                         });
                                                 }}
+                                                background="red.100"
                                             >
-                                                Sign Out
+                                                <Text color="red.500">
+                                                    Sign Out
+                                                </Text>
                                             </MenuItem>
                                         </MenuGroup>
                                     </MenuList>
