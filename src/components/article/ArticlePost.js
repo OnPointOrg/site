@@ -96,14 +96,23 @@ export class ArticlePost extends React.Component {
                             lineHeight="tight"
                             color="white"
                         >
-                            <Tooltip
-                                label={this.props.title}
-                                placement="top-start"
+                            <Link
+                                to={() => `/articles/${this.props.docId}`}
+                                onClick={() => {
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 5);
+                                }}
                             >
-                                <Heading fontSize="20px" isTruncated>
-                                    {this.props.title}
-                                </Heading>
-                            </Tooltip>
+                                <Tooltip
+                                    label={this.props.title}
+                                    placement="top-start"
+                                >
+                                    <Heading fontSize="20px" isTruncated>
+                                        {this.props.title}
+                                    </Heading>
+                                </Tooltip>
+                            </Link>
                         </Box>
                         <Box
                             marginTop="3"
