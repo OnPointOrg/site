@@ -6,13 +6,11 @@ import {
     Box,
     Flex,
     Stack,
-    Image,
-    Text
+    Image
 } from '@chakra-ui/core';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
-import paypallogo from '../../images/paypallogo.png';
-import hcbanklogo from '../../images/hcbanklogo.svg';
+
 import { motion } from 'framer-motion';
 
 import GetStarted from '../GetStarted';
