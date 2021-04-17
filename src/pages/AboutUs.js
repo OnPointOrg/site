@@ -11,7 +11,7 @@ import adityahari from '../images/team/adityahari.jpg';
 import adityaguntupalli from '../images/team/adityaguntupalli.png';
 import yashkhot from '../images/team/yashkhot.jpg';
 
-import Profile from '../components/AboutProfileCard';
+import Profile from '../components/about/AboutProfileCard';
 
 export class AboutUs extends React.Component {
     render() {
