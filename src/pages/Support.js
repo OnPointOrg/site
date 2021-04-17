@@ -5,8 +5,6 @@ import { Box, Heading, Text, Flex, Image, Button } from '@chakra-ui/core';
 import paypallogo from '../images/paypallogo.png';
 import hcbanklogo from '../images/hcbanklogo.svg';
 
-import Footer from '../components/Footer';
-
 export const Support = () => {
     return (
         <Box>
@@ -113,7 +111,6 @@ export const Support = () => {
                     </Flex>
                 </Box>
             </Box>
-            <Footer />
         </Box>
     );
 };

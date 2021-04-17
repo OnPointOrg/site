@@ -1,6 +1,5 @@
 import React from 'react';
 import { Heading, Text, Box, SimpleGrid } from '@chakra-ui/core';
-import Footer from '../components/Footer';
 
 // Team Pictures
 import adityaverma from '../images/team/adityaverma.png';
@@ -166,7 +165,6 @@ export class AboutUs extends React.Component {
                         </SimpleGrid>
                     </Box>
                 </Box>
-                <Footer />
             </Box>
         );
     }

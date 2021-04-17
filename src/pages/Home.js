@@ -2,8 +2,6 @@ import React from 'react';
 import { Box } from '@chakra-ui/core';
 import firebase from 'firebase';
 
-import Footer from '../components/Footer';
-
 import ExplorePage from '../components/home/ExplorePage';
 import Loading from '../components/home/Loading';
 import DefaultHome from '../components/home/DefaultHome';
@@ -28,12 +26,7 @@ export class Home extends React.Component {
     };
 
     render() {
-        return (
-            <Box width="100%">
-                {this.state.page}
-                <Footer />
-            </Box>
-        );
+        return <Box width="100%">{this.state.page}</Box>;
     }
 }
 

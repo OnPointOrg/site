@@ -15,6 +15,7 @@ import Support from './pages/Support';
 import DefaultNav from './components/nav/DefaultNav';
 import VerifiedNav from './components/nav/VerifiedNav';
 import firebase from 'firebase';
+import Footer from './components/Footer';
 
 export class App extends Component {
     state = {
@@ -64,6 +65,7 @@ export class App extends Component {
                                 component={ForgotPassword}
                             />
                         </Switch>
+                        <Footer />
                     </Router>
                 </DarkMode>
             </Box>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import ArticleGrid from '../components/article/ArticleGrid';
-import Footer from '../components/Footer';
 import firebase from 'firebase';
 import { Box } from '@chakra-ui/core';
 import Loading from '../components/home/Loading';
@@ -32,12 +31,7 @@ class Articles extends Component {
     };
 
     render() {
-        return (
-            <Box width="100%">
-                {this.state.page}
-                <Footer />
-            </Box>
-        );
+        return <Box width="100%">{this.state.page}</Box>;
     }
 }
 

@@ -25,7 +25,6 @@ import {
     getRandomColor
 } from '../components/profile/Pfp';
 
-import Footer from '../components/Footer';
 import firestoreDatabase from '../firebase';
 
 const VARIANT_COLOR = 'teal';
@@ -371,7 +370,6 @@ class SignUp extends Component {
                         </Box>
                     </Box>
                 </Flex>
-                <Footer />
             </Box>
         );
     }
