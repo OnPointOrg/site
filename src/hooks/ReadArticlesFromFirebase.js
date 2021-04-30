@@ -81,7 +81,11 @@ const caseChecks = article => {
 
             case 'header':
                 const headerText = article.content.blocks[i].data.text;
-                articleHtmlBody.push(<Heading pt="50px">{headerText}</Heading>);
+                articleHtmlBody.push(
+                    <Heading pt="50px" pb="25px">
+                        {headerText}
+                    </Heading>
+                );
                 words += headerText.split(' ').length;
                 console.log(words);
                 break;
@@ -174,12 +178,19 @@ const caseChecks = article => {
                         <img
                             src={imageUrl}
                             alt={imageCaption}
-                            style={{ borderRadius: '10px' }}
+                            style={{
+                                borderRadius: '10px',
+                                display: 'block',
+                                marginLeft: 'auto',
+                                marginRight: 'auto',
+                                width: '50%'
+                            }}
                         />
                         <figcaption
                             style={{
                                 textAlign: 'center',
                                 marginTop: '5px',
+                                marginBottom: '15px',
                                 fontSize: '20px'
                             }}
                         >
