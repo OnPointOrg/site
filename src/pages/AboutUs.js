@@ -97,7 +97,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Aditya Verma"
                                 roles={['CEO', 'Founder']}
-                                bio="Aditya Verma is a sophomore at NHS and the founder of OnPoint. Some of his interests include soccer, biology, and chess!"
+                                bio="Aditya Verma is a sophomore at NHS and the founder of OnPoint. Some of his interests include soccer, biology, and chess! Lives in constant fear of an Aditya revolution."
                                 img={adityaverma}
                                 github="adiviusd"
                                 instagram="_adityavermaaa"
@@ -108,7 +108,7 @@ export class AboutUs extends React.Component {
                                 name="Aditya Rawat"
                                 roles={['Co-Founder', 'CTO']}
                                 bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                eiusmod tempor incididunt ut labore et dolore magna aliqua."
                                 img={adityarawat}
                                 github="aditya1rawat"
                                 instagram="ad1tya_rawhaaat"
@@ -118,8 +118,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Aditya Girish"
                                 roles={['Co-Founder', 'Tech Lead']}
-                                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                                bio="Aditya Girish is a sophomore at Northwood High School. He's on the taller scale and runs a lot. Also plays League Of Legends. A lot."
                                 img={adityagirish}
                                 instagram="aditya.girish"
                                 email="adityagirish@gmail.com"
@@ -128,8 +127,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Aditya Guntupalli"
                                 roles={['Co-Founder', 'Chief Editor']}
-                                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                                bio="Aditya Guntupalli is a sophomore at Northwood High School. Turns his music way too high because he turns up to country somehow. Aspiring competitive eater. Wants to work at Hyperloop, even though he probably won't fit through the tunnel."
                                 img={adityaguntupalli}
                                 github="BilePolice"
                                 instagram="aditya.guntupalli"
@@ -139,8 +137,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Aditya Hari"
                                 roles={['Co-Founder', 'HR']}
-                                bio="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua"
+                                bio="Aditya Hari is a sophomore at Northwood High School and runs Human Resources. Why this position exists, I have no clue. He is an athelete at Northwood High School and is Boys Athletic Commissioner."
                                 img={adityahari}
                                 instagram="_aditya_hari_"
                                 email="adityah0205@gmail.com"
@@ -157,7 +154,7 @@ export class AboutUs extends React.Component {
                             <Profile
                                 name="Yash Khot"
                                 roles={['Co-Founder', 'Entertainment']}
-                                bio="Yash Khot is a sophmore at Northwood High School and is the entertainment lead. He takes interest in many different arts"
+                                bio="Yash Khot is a sophmore at Northwood High School and is the entertainment lead. He takes interest in many different arts. We freestyled a whole album. Total Gigachad."
                                 img={yashkhot}
                                 instagram="yashhkhott"
                                 email="yash.khot@gmail.com"
