@@ -125,26 +125,29 @@ export class ArticleContentPost extends React.Component {
         return (
             <Box>
                 <head>
-                    <title>OnPoint News</title>
-                    <meta name="title" content="OnPoint News" />
+                    <title>{this.state.articleTitle}</title>
+                    <meta name="title" content={this.state.articleTitle} />
                     <meta
                         name="description"
-                        content="We're Changing The Way You See The Media Forever"
+                        content={this.state.articleSummary}
                     />
 
                     <meta property="og:type" content="website" />
                     <meta
                         property="og:url"
-                        content="https://onpointnews.org/"
+                        content={`https://onpointnews.org/${this.state.documentId}`}
                     />
-                    <meta property="og:title" content="OnPoint News" />
+                    <meta
+                        property="og:title"
+                        content={this.state.articleTitle}
+                    />
                     <meta
                         property="og:description"
-                        content="We're Changing The Way You See The Media Forever"
+                        content={this.state.articleSummary}
                     />
                     <meta
                         property="og:image"
-                        content="https://onpointsite.vercel.app/static/media/logo.6cafa018.png"
+                        content={this.state.articleImage}
                     />
 
                     <meta
@@ -153,16 +156,16 @@ export class ArticleContentPost extends React.Component {
                     />
                     <meta
                         property="twitter:url"
-                        content="https://onpointnews.org/"
+                        content={`https://onpointnews.org/${this.state.documentId}`}
                     />
                     <meta property="twitter:title" content="OnPoint News" />
                     <meta
                         property="twitter:description"
-                        content="We're Changing The Way You See The Media Forever"
+                        content={this.state.articleSummary}
                     />
                     <meta
                         property="twitter:image"
-                        content="https://onpointsite.vercel.app/static/media/logo.6cafa018.png"
+                        content={this.state.articleImage}
                     />
 
                     <meta charset="utf-8" />
@@ -171,18 +174,6 @@ export class ArticleContentPost extends React.Component {
                     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
                     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
-                        rel="stylesheet"
-                    />
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@800&display=swap"
-                        rel="stylesheet"
-                    />
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
-                        rel="stylesheet"
-                    />
                 </head>
                 <Box
                     as="section"
