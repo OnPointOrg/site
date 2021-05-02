@@ -124,6 +124,66 @@ export class ArticleContentPost extends React.Component {
     render() {
         return (
             <Box>
+                <head>
+                    <title>OnPoint News</title>
+                    <meta name="title" content="OnPoint News" />
+                    <meta
+                        name="description"
+                        content="We're Changing The Way You See The Media Forever"
+                    />
+
+                    <meta property="og:type" content="website" />
+                    <meta
+                        property="og:url"
+                        content="https://onpointnews.org/"
+                    />
+                    <meta property="og:title" content="OnPoint News" />
+                    <meta
+                        property="og:description"
+                        content="We're Changing The Way You See The Media Forever"
+                    />
+                    <meta
+                        property="og:image"
+                        content="https://onpointsite.vercel.app/static/media/logo.6cafa018.png"
+                    />
+
+                    <meta
+                        property="twitter:card"
+                        content="summary_large_image"
+                    />
+                    <meta
+                        property="twitter:url"
+                        content="https://onpointnews.org/"
+                    />
+                    <meta property="twitter:title" content="OnPoint News" />
+                    <meta
+                        property="twitter:description"
+                        content="We're Changing The Way You See The Media Forever"
+                    />
+                    <meta
+                        property="twitter:image"
+                        content="https://onpointsite.vercel.app/static/media/logo.6cafa018.png"
+                    />
+
+                    <meta charset="utf-8" />
+                    <link rel="icon" href="%PUBLIC_URL%/logo.png" />
+                    <meta name="theme-color" content="#000000" />
+                    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
+                    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+                        rel="stylesheet"
+                    />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@800&display=swap"
+                        rel="stylesheet"
+                    />
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+                        rel="stylesheet"
+                    />
+                </head>
                 <Box
                     as="section"
                     alignItems="center"
