@@ -55,18 +55,14 @@ export const EDITOR_JS_TOOLS = {
                     const storageRef = projectStorage.ref(
                         `ContentImage/` + file.name
                     );
-
-                    storageRef.put(file).on('state_changed', async () => {
-                        const url = await storageRef.getDownloadURL();
-
-                        imageUrl = url;
+                    return storageRef.put(file).then(async () => {
+                        return {
+                            success: 1,
+                            file: {
+                                url: await storageRef.getDownloadURL()
+                            }
+                        };
                     });
-                    return {
-                        success: 1,
-                        file: {
-                            url: imageUrl
-                        }
-                    };
                 }
             }
         }
