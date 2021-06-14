@@ -1,11 +1,7 @@
 import React from 'react';
-import { Box, Flex, Stack, Text, Icon, Heading, Button } from '@chakra-ui/core';
+import { Box, Flex, Stack, Text, Heading, Button } from '@chakra-ui/core';
 
 import { Link } from 'react-router-dom';
-import { /*FaChartLine,*/ FaMoon } from 'react-icons/fa';
-import { WiSunrise } from 'react-icons/wi';
-
-// import TrendingGrid from './TrendingGrid';
 
 import firebase from 'firebase';
 import { FeaturedArticle } from './FeaturedArticle';

@@ -13,8 +13,6 @@ import InlineCode from '@editorjs/inline-code';
 // import urlMetadata from 'url-metadata';
 import { projectStorage } from '../../firebase';
 
-let imageUrl = '';
-
 export const EDITOR_JS_TOOLS = {
     embed: Embed,
     marker: Marker,
