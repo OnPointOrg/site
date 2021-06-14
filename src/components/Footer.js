@@ -16,19 +16,19 @@ const Footer = () => {
         <Box
             as="footer"
             justifyContent="center"
-            borderTopColor="teal"
+            borderTopColor="white"
             borderTopWidth="5px"
             display="block"
             overflow="hidden"
         >
             <Stack pt={5} direction="row" justify="center" mt="25px">
                 <Link to="/about">
-                    <Button variant="ghost" variantColor="teal" mx="15px">
+                    <Button variant="ghost" color="white" mx="15px">
                         About
                     </Button>
                 </Link>
                 <Link to="/articles">
-                    <Button variant="ghost" variantColor="teal" mx="15px">
+                    <Button variant="ghost" color="white" mx="15px">
                         Articles
                     </Button>
                 </Link>
@@ -37,12 +37,12 @@ const Footer = () => {
                     textDecor="none"
                     href="mailto:aditya1rawat@gmail.com"
                 >
-                    <Button variant="ghost" variantColor="teal" mx="15px">
+                    <Button variant="ghost" color="white" mx="15px">
                         Contact
                     </Button>
                 </Text>
                 <Link to="/support">
-                    <Button variant="ghost" variantColor="teal" mx="15px">
+                    <Button variant="ghost" color="white" mx="15px">
                         Support
                     </Button>
                 </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
                     isExternal
                 >
                     <IconButton
-                        color="gray.500"
+                        color="white"
                         variant="ghost"
                         aria-label="Github"
                         name="github"
@@ -71,7 +71,7 @@ const Footer = () => {
                     isExternal
                 >
                     <IconButton
-                        color="gray.500"
+                        color="white"
                         variant="ghost"
                         aria-label="Twitter"
                         name="twitter"
@@ -88,7 +88,7 @@ const Footer = () => {
                     isExternal
                 >
                     <IconButton
-                        color="gray.500"
+                        color="white"
                         variant="ghost"
                         aria-label="Instagram"
                         name="instagram"
@@ -105,7 +105,7 @@ const Footer = () => {
                     isExternal
                 >
                     <IconButton
-                        color="gray.500"
+                        color="white"
                         variant="ghost"
                         aria-label="Email"
                         name="email"
@@ -141,7 +141,7 @@ const Footer = () => {
                 <ChakraLink
                     href="https://github.com/aditya1rawat"
                     isExternal
-                    color="teal.400"
+                    color="white"
                 >
                     Aditya Rawat <Icon name="external-link" mx="2px" />
                 </ChakraLink>

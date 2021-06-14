@@ -65,12 +65,7 @@ export class ProfileArticle extends React.Component {
                     <Box p="6">
                         <Box d="flex" alignItems="baseline">
                             <Stack isInline>
-                                <Badge
-                                    rounded="md"
-                                    py="1"
-                                    px="2"
-                                    variantColor="teal"
-                                >
+                                <Badge rounded="md" py="1" px="2" color="white">
                                     {this.props.category}
                                 </Badge>
                             </Stack>
@@ -108,7 +103,7 @@ export class ProfileArticle extends React.Component {
                             marginBottom="3"
                             marginLeft="2px"
                             fontWeight="semibold"
-                            color="gray.500"
+                            color="white"
                             letterSpacing="wide"
                             fontSize="xs"
                             textTransform="uppercase"
@@ -134,7 +129,7 @@ export class ProfileArticle extends React.Component {
                                     onClick={this.handleToggle}
                                     mt="1rem"
                                     variant="outline"
-                                    variantColor="teal"
+                                    color="white"
                                 >
                                     Show {this.state.show ? 'Less' : 'More'}
                                 </Button>
@@ -152,7 +147,7 @@ export class ProfileArticle extends React.Component {
                                     ml="10px"
                                     mt="1rem"
                                     variant="solid"
-                                    variantColor="teal"
+                                    color="white"
                                     icon={FaArrowRight}
                                 />
                             </Link>

@@ -213,7 +213,7 @@ export class ArticleContentPost extends React.Component {
                                         }, 5);
                                     }}
                                 >
-                                    <ChakraLink color="teal.500">
+                                    <ChakraLink color="white">
                                         <Avatar
                                             src={`${this.state.authorPfp}`}
                                             size="sm"

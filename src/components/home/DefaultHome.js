@@ -22,7 +22,7 @@ import Support from '../../pages/Support';
 export const DefaultHome = () => {
     return (
         <Box>
-            <Box as="section" width="100%" bg="#285E61" py="35px">
+            <Box as="section" width="100%" bg="#000" py="35px">
                 <Flex
                     direction="column"
                     align="center"
@@ -62,7 +62,7 @@ export const DefaultHome = () => {
                                         fontSize="1.5rem"
                                         as="a"
                                         size="lg"
-                                        bg="teal.900"
+                                        bg="black"
                                         rightIcon={'arrow-forward'}
                                         color="white"
                                     >
@@ -79,7 +79,7 @@ export const DefaultHome = () => {
                                         px="40px"
                                         fontSize="1.5rem"
                                         leftIcon={FaScroll}
-                                        bg="teal.500"
+                                        bg="black"
                                         color="white"
                                     >
                                         Start Reading

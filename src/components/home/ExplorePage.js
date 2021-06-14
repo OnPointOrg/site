@@ -10,8 +10,6 @@ import { WiSunrise } from 'react-icons/wi';
 import firebase from 'firebase';
 import { FeaturedArticle } from './FeaturedArticle';
 
-let todIcon = <WiSunrise size="4rem" color="white" />;
-
 const tod = () => {
     const today = new Date();
     const hr = today.getHours();
@@ -19,10 +17,8 @@ const tod = () => {
     if (hr < 12) {
         return 'Morning';
     } else if (hr < 18) {
-        todIcon = <Icon name="sun" size="3rem" color="white" />;
         return 'Afternoon';
     } else {
-        todIcon = <FaMoon size="2rem" color="white" />;
         return 'Evening';
     }
 };
@@ -56,9 +52,6 @@ export class ExplorePage extends React.Component {
                     >
                         Good {tod()}, {this.state.user}!
                     </Text>
-                    <Text as="span" mt="20px">
-                        {todIcon}
-                    </Text>
                 </Flex>
                 <FeaturedArticle />
                 {/* <Stack w="85%" px="auto" mt="2.5rem" mx="auto">
@@ -88,7 +81,7 @@ export class ExplorePage extends React.Component {
 
                 <Box
                     as="section"
-                    backgroundColor="#81e6d91c"
+                    backgroundColor="#000"
                     width={'60%'}
                     my="100px"
                     mx="auto"
@@ -130,7 +123,7 @@ export class ExplorePage extends React.Component {
                                                     mx="auto"
                                                     mb={6}
                                                     fontSize="lg"
-                                                    color="gray.500"
+                                                    color="white"
                                                     lineHeight="base"
                                                     w="75%"
                                                 >
@@ -165,7 +158,6 @@ export class ExplorePage extends React.Component {
                                                                 rightIcon="arrow-forward"
                                                                 fontWeight="bold"
                                                                 shadow="md"
-                                                                variantColor="teal"
                                                                 h="56px"
                                                             >
                                                                 Get Started

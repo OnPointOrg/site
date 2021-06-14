@@ -37,7 +37,7 @@ export class App extends Component {
     };
     render() {
         return (
-            <Box backgroundColor="#1a202c">
+            <Box backgroundColor="#000">
                 <DarkMode>
                     <Router>
                         {this.state.currentNav}

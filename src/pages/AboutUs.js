@@ -15,9 +15,16 @@ import Profile from '../components/about/AboutProfileCard';
 export class AboutUs extends React.Component {
     render() {
         return (
-            <Box width="100%">
-                <Box mb={20} overflow="hidden" my="5rem" as="section">
-                    <Box as="section">
+            <Box>
+                <Box mb={20} overflow="hidden" as="section">
+                    <Box
+                        as="section"
+                        backgroundImage={
+                            'url(http://u.filein.io/KbnTAxAmIg.PNG)'
+                        }
+                        backgroundSize={'cover'}
+                        backgroundPosition={'center center'}
+                    >
                         <Box
                             maxW="760px"
                             mx="auto"

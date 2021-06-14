@@ -18,7 +18,7 @@ import {
 
 import * as firebase from 'firebase';
 
-const VARIANT_COLOR = 'teal';
+const VARIANT_COLOR = 'white';
 
 class SignIn extends React.Component {
     state = {
@@ -28,12 +28,7 @@ class SignIn extends React.Component {
         passwordError: '',
         isChecked: false,
         signButton: (
-            <Button
-                type="submit"
-                variantColor={VARIANT_COLOR}
-                width="full"
-                mt={5}
-            >
+            <Button type="submit" color={VARIANT_COLOR} width="full" mt={5}>
                 Sign In
             </Button>
         ),
@@ -113,7 +108,7 @@ class SignIn extends React.Component {
                                 signButton: (
                                     <Button
                                         type="submit"
-                                        variantColor={VARIANT_COLOR}
+                                        color={VARIANT_COLOR}
                                         width="full"
                                         mt={5}
                                     >
@@ -132,7 +127,7 @@ class SignIn extends React.Component {
                                 signButton: (
                                     <Button
                                         type="submit"
-                                        variantColor={VARIANT_COLOR}
+                                        color={VARIANT_COLOR}
                                         width="full"
                                         mt={5}
                                     >
@@ -153,7 +148,7 @@ class SignIn extends React.Component {
                                 signButton: (
                                     <Button
                                         type="submit"
-                                        variantColor={VARIANT_COLOR}
+                                        color={VARIANT_COLOR}
                                         width="full"
                                         mt={5}
                                     >

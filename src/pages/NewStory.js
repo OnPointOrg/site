@@ -165,7 +165,7 @@ export class CreateStory extends Component {
                                     <Tooltip label="Need To Add Document Of Requirements Here Later">
                                         <ChakraLink
                                             href="https://www.google.com"
-                                            color="teal.500"
+                                            color="white"
                                             isExternal
                                         >
                                             Check The Requirements Here{' '}

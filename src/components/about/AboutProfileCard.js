@@ -17,7 +17,7 @@ class AboutProfileCard extends React.Component {
                 width="100%"
                 borderWidth="5px"
                 borderRadius="10px"
-                borderColor="#3F444E"
+                borderColor="white"
                 shadow="xl"
                 bg="teal"
                 padding="15px"
@@ -25,7 +25,7 @@ class AboutProfileCard extends React.Component {
                 <Stack direction="row" spacing={6}>
                     <Avatar size="xl" src={this.props.img} />
                     <Stack spacing={3} maxW="320px">
-                        <Text fontWeight="bold" fontSize="xl" color="teal.200">
+                        <Text fontWeight="bold" fontSize="xl" color="white">
                             {this.props.name}
                         </Text>
 
@@ -37,7 +37,7 @@ class AboutProfileCard extends React.Component {
                                     isExternal
                                 >
                                     <IconButton
-                                        color="gray.500"
+                                        color="white"
                                         variant="ghost"
                                         aria-label="Github"
                                         name="github"
@@ -56,7 +56,7 @@ class AboutProfileCard extends React.Component {
                                     isExternal
                                 >
                                     <IconButton
-                                        color="gray.500"
+                                        color="white"
                                         variant="ghost"
                                         aria-label="Twitter"
                                         name="twitter"
@@ -75,7 +75,7 @@ class AboutProfileCard extends React.Component {
                                     isExternal
                                 >
                                     <IconButton
-                                        color="gray.500"
+                                        color="white"
                                         variant="ghost"
                                         aria-label="Instagram"
                                         name="instagram"
@@ -93,7 +93,7 @@ class AboutProfileCard extends React.Component {
                                     isExternal
                                 >
                                     <IconButton
-                                        color="gray.500"
+                                        color="white"
                                         variant="ghost"
                                         aria-label="Email"
                                         name="email"
@@ -118,7 +118,7 @@ class AboutProfileCard extends React.Component {
                                         isTruncated
                                         padding="5px"
                                         fontSize="15px"
-                                        variantColor="gray"
+                                        color="white"
                                     >
                                         {role}
                                     </Tag>

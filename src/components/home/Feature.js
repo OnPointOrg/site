@@ -8,18 +8,22 @@ const Feature = ({ title, icon, children, ...props }) => {
             <Box
                 rounded="12px"
                 boxShadow="lg"
-                bg="#285E61"
+                bg="#000"
                 p="40px"
                 {...props}
                 minH="300px"
+                borderColor="white"
+                borderWidth="1px"
             >
                 <Flex
+                    borderColor="white"
+                    borderWidth="1px"
                     rounded="full"
                     w="12"
                     h="12"
                     align="center"
                     justify="center"
-                    bg="teal.500"
+                    bg="black"
                     color="white"
                 >
                     {icon}

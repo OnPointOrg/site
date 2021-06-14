@@ -32,7 +32,7 @@ export class Quote extends Component {
                         </Text>
                         <Box
                             alignItems="center"
-                            color="gray.600"
+                            color="white"
                             margin="25px"
                             mr="50px"
                         >

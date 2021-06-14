@@ -8,7 +8,7 @@ import hcbanklogo from '../images/hcbanklogo.svg';
 export const Support = () => {
     return (
         <Box>
-            <Box bg="teal.500" as="section" h={['150vh', '88vh', '88vh']}>
+            <Box bg="black" as="section" h={['150vh', '88vh', '88vh']}>
                 <Box py="120px" px="32px" color="white">
                     <Box mx="auto" textAlign="center" mb="56px" width="75%">
                         <Heading as="h2" fontSize="50px" mb="5">
@@ -53,13 +53,14 @@ export const Support = () => {
                             alignSelf="center"
                             as="a"
                             minW="7rem"
-                            bg="teal.500"
+                            bg="black"
+                            color="white"
                             _hover={{
-                                backgroundColor: 'teal.800'
+                                backgroundColor: '#24242',
+                                color: 'black'
                             }}
                             href="https://bank.hackclub.com/donations/start/onpoint"
                             target="_blank"
-                            color="white"
                         >
                             <Text color="white">Sponsor</Text>
                         </Button>
@@ -94,17 +95,19 @@ export const Support = () => {
                                 </Text>
                             </Box>
                         </Flex>
+
                         <Button
                             alignSelf="center"
                             as="a"
                             minW="7rem"
-                            bg="teal.500"
-                            _hover={{
-                                backgroundColor: 'teal.800'
-                            }}
-                            href="#"
-                            target="_blank"
+                            bg="black"
                             color="white"
+                            _hover={{
+                                backgroundColor: '#24242',
+                                color: 'black'
+                            }}
+                            href="https://bank.hackclub.com/donations/start/onpoint"
+                            target="_blank"
                         >
                             <Text color="white">Sponsor</Text>
                         </Button>

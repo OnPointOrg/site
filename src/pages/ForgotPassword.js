@@ -23,7 +23,7 @@ class ForgotPassword extends React.Component {
         emailError: '',
         passwordError: '',
         submitStatus: (
-            <Button type="submit" variantColor="teal" width="full" mt={5}>
+            <Button type="submit" color="white" width="full" mt={5}>
                 Send
             </Button>
         )
@@ -38,7 +38,7 @@ class ForgotPassword extends React.Component {
                 console.log('Email Sent');
                 this.setState({
                     submitStatus: (
-                        <Button variantColor="teal" width="full" mt={5}>
+                        <Button color="white" width="full" mt={5}>
                             Email Sent! Please Check Your Inbox In A Few
                             Minutes!
                         </Button>
@@ -49,7 +49,7 @@ class ForgotPassword extends React.Component {
                 if (error.code === 'auth/user-not-found') {
                     this.setState({
                         submitStatus: (
-                            <Button variantColor="teal" width="full" mt={5}>
+                            <Button color="white" width="full" mt={5}>
                                 User Not Found! If This Is An Error, Contact Us!
                             </Button>
                         )
@@ -120,7 +120,7 @@ class ForgotPassword extends React.Component {
                                     {this.state.submitStatus}
 
                                     <Box mt={1}>
-                                        <ChakraLink color="teal.500">
+                                        <ChakraLink color="white">
                                             <Link to="/signin">
                                                 Back To Sign In
                                             </Link>

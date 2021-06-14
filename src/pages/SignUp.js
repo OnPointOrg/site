@@ -27,7 +27,7 @@ import {
 
 import firestoreDatabase from '../firebase';
 
-const VARIANT_COLOR = 'teal';
+const VARIANT_COLOR = 'white';
 
 class SignUp extends Component {
     state = {
@@ -43,12 +43,7 @@ class SignUp extends Component {
         redirect: null,
 
         signButton: (
-            <Button
-                type="submit"
-                variantColor={VARIANT_COLOR}
-                width="full"
-                mt={4}
-            >
+            <Button type="submit" color={VARIANT_COLOR} width="full" mt={4}>
                 Sign Up
             </Button>
         )
@@ -77,7 +72,7 @@ class SignUp extends Component {
                 <Button
                     isLoading
                     loadingText="Signing Up"
-                    variantColor={VARIANT_COLOR}
+                    color={VARIANT_COLOR}
                     width="full"
                     mt={4}
                 >
@@ -112,7 +107,7 @@ class SignUp extends Component {
                         signButton: (
                             <Button
                                 type="submit"
-                                variantColor={VARIANT_COLOR}
+                                color={VARIANT_COLOR}
                                 width="full"
                                 mt={4}
                             >
@@ -128,7 +123,7 @@ class SignUp extends Component {
                             signButton: (
                                 <Button
                                     type="submit"
-                                    variantColor={VARIANT_COLOR}
+                                    color={VARIANT_COLOR}
                                     width="full"
                                     mt={4}
                                 >
@@ -153,7 +148,7 @@ class SignUp extends Component {
                         signButton: (
                             <Button
                                 type="submit"
-                                variantColor={VARIANT_COLOR}
+                                color={VARIANT_COLOR}
                                 width="full"
                                 mt={4}
                             >
@@ -169,7 +164,7 @@ class SignUp extends Component {
                             signButton: (
                                 <Button
                                     type="submit"
-                                    variantColor={VARIANT_COLOR}
+                                    color={VARIANT_COLOR}
                                     width="full"
                                     mt={4}
                                 >
@@ -255,10 +250,10 @@ class SignUp extends Component {
                         <Box>
                             <Box textAlign="center">
                                 <Text color="white">Sign Up</Text>
-                                <Heading color="teal.500">
+                                <Heading color="white">
                                     Start Your Journey
                                 </Heading>
-                                <Heading color="teal.500">@ Onpoint</Heading>
+                                <Heading color="white">@ Onpoint</Heading>
                             </Box>
                             <Box my={8} textAlign="left">
                                 <form onSubmit={this.handleSubmit}>
@@ -357,9 +352,7 @@ class SignUp extends Component {
 
                                     <Box mt={1} color="white">
                                         Already Have An Account?
-                                        <ChakraLink
-                                            color={`${VARIANT_COLOR}.500`}
-                                        >
+                                        <ChakraLink color={`${VARIANT_COLOR}`}>
                                             <Link to="/signin">
                                                 Sign In Here.
                                             </Link>

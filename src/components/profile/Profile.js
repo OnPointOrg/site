@@ -130,7 +130,7 @@ export class Profile extends React.Component {
                                             <Link to="/newstory">
                                                 <Button
                                                     variant="outline"
-                                                    variantColor="teal"
+                                                    color="white"
                                                     rightIcon={FaArrowRight}
                                                 >
                                                     Write One Now!
@@ -154,7 +154,14 @@ export class Profile extends React.Component {
         return (
             <Box height="88vh" overflow="none">
                 <Flex overflowY="hidden" height="100%">
-                    <Box backgroundColor="#25353F" width="50%">
+                    <Box
+                        backgroundColor="#000"
+                        width="50%"
+                        borderLeft="white"
+                        borderWidth="5px"
+                        borderTop="#000"
+                        borderBottom="#000"
+                    >
                         <Image
                             my="25px"
                             justifyContent="center"

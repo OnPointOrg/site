@@ -17,13 +17,13 @@ import { Link } from 'react-router-dom';
 export const GetStarted = props => {
     return (
         <Box
-            backgroundColor="#25353F"
+            backgroundColor="#000"
             bgPos="bottom center"
             bgSize="120px"
             bgRepeat="repeat no-repeat"
-            borderTopColor="teal.500"
+            borderTopColor="white"
             borderTopWidth="10px"
-            borderBottomColor="teal.500"
+            borderBottomColor="white"
             borderBottomWidth="10px"
             minH="100%"
             width="100%"
@@ -34,13 +34,7 @@ export const GetStarted = props => {
                     <Heading textStyle="heading" my="25px" color="white">
                         Get Started!
                     </Heading>
-                    <Text
-                        mb="40px"
-                        fontSize="lg"
-                        opacity={0.7}
-                        width="50%"
-                        color="white"
-                    >
+                    <Text mb="40px" fontSize="lg" width="50%" color="white">
                         {props.text} If you have any other questions, contact us
                         by{' '}
                         <ChakraLink
@@ -51,7 +45,7 @@ export const GetStarted = props => {
                             email <Icon name="external-link" mx="2px" />
                         </ChakraLink>{' '}
                         or go{' '}
-                        <ChakraLink textDecoration="underline">
+                        <ChakraLink textDecoration="underline" color="white">
                             <Link to="/contact">here</Link>
                         </ChakraLink>
                         !
@@ -64,7 +58,7 @@ export const GetStarted = props => {
                         fontSize="1.2rem"
                         as="a"
                         size="lg"
-                        variantColor="teal"
+                        color="white"
                         variant="outline"
                         rightIcon={'arrow-forward'}
                     >

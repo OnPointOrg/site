@@ -13,7 +13,7 @@ const ExploreCard = props => {
                 transition: '0.5s ease-in-out'
             }}
             h="15rem"
-            borderColor="black"
+            borderColor="white"
             borderWidth="2px"
             borderRadius="0.5rem"
             mx="10px"
