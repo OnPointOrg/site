@@ -37,7 +37,7 @@ export class ExplorePage extends React.Component {
     };
     render() {
         return (
-            <Box overflow="hidden" bg="#81e6d91c">
+            <Box overflow="hidden" bg="#000">
                 <Flex padding="2rem 2rem" justify="center" mx="auto">
                     <Text
                         fontSize="3rem"
@@ -82,6 +82,8 @@ export class ExplorePage extends React.Component {
                     my="100px"
                     mx="auto"
                     borderRadius="15px"
+                    borderWidth="3px"
+                    borderColor="white"
                 >
                     <Stack isInline spacing={8} mx="auto">
                         <Flex
