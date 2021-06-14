@@ -81,6 +81,8 @@ export const VerifiedNav = () => {
                                         src={logo}
                                         width="60px"
                                         rounded="full"
+                                        backgroundSize={'cover'}
+                                        backgroundPosition={'center center'}
                                     />
                                 </Heading>
                             </Link>
@@ -93,10 +95,7 @@ export const VerifiedNav = () => {
                             alignItems="center"
                             mr={['10px', '50px', '100px']}
                         >
-                            <Flex
-                                // justifyContent="space-between"
-                                color="gray.500"
-                            >
+                            <Flex color="gray.500">
                                 <NavLink name="About" link="about" />
                                 <NavLink name="Articles" link="articles" />
                                 <Menu closeOnSelect="false">
