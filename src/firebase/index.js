@@ -11,8 +11,6 @@ const config = {
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
-console.log(process.env.REACT_APP_FIREBASE_ADMIN_KEY);
-
 firebase.initializeApp(config);
 firebase.analytics();
 
