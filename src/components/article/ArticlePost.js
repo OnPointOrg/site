@@ -51,7 +51,8 @@ export class ArticlePost extends React.Component {
     render() {
         return (
             <PseudoBox
-                borderWidth="1px"
+                borderWidth="3px"
+                borderColor="white"
                 shadow="md"
                 rounded="lg"
                 overflow="hidden"

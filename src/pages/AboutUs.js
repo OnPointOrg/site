@@ -19,11 +19,11 @@ export class AboutUs extends React.Component {
                 <Box mb={20} overflow="hidden" as="section">
                     <Box
                         as="section"
-                        backgroundImage={
-                            'url(http://u.filein.io/KbnTAxAmIg.PNG)'
-                        }
-                        backgroundSize={'cover'}
-                        backgroundPosition={'center center'}
+                        // backgroundImage={
+                        //     'url(http://u.filein.io/KbnTAxAmIg.PNG)'
+                        // }
+                        // backgroundSize={'cover'}
+                        // backgroundPosition={'center center'}
                     >
                         <Box
                             maxW="760px"
@@ -48,7 +48,7 @@ export class AboutUs extends React.Component {
                                 fontWeight="bold"
                                 lineHeight="1.2"
                             >
-                                <Box as="span" color="teal.500">
+                                <Box as="span">
                                     We're Changing The Way You See Media Forever
                                 </Box>
                             </Heading>
