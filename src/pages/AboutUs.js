@@ -17,14 +17,7 @@ export class AboutUs extends React.Component {
         return (
             <Box>
                 <Box mb={20} overflow="hidden" as="section">
-                    <Box
-                        as="section"
-                        // backgroundImage={
-                        //     'url(http://u.filein.io/KbnTAxAmIg.PNG)'
-                        // }
-                        // backgroundSize={'cover'}
-                        // backgroundPosition={'center center'}
-                    >
+                    <Box as="section">
                         <Box
                             maxW="760px"
                             mx="auto"
