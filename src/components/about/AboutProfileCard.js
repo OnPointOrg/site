@@ -19,7 +19,6 @@ class AboutProfileCard extends React.Component {
                 borderRadius="10px"
                 borderColor="white"
                 shadow="xl"
-                bg="teal"
                 padding="15px"
             >
                 <Stack direction="row" spacing={6}>

@@ -9,7 +9,7 @@ import {
     Stack,
     Text
 } from '@chakra-ui/core';
-import ThemeButton from './ThemeButton';
+
 import logo from '../../images/logo.png';
 
 import styled from '@emotion/styled';
@@ -31,11 +31,8 @@ const StickyNav = styled(Flex)`
 `;
 
 const DefaultNav = props => {
-    const bgColor = {
-        light: 'rgb(76, 110, 245, 0.8)',
-        dark: 'rgb(26, 32, 44, 0.5)'
-    };
-    const color = { light: 'white', dark: 'gray.800' };
+    const bgColor = 'rgb(26, 32, 44, 0.5)';
+    const color = 'gray.800';
     return (
         <StickyNav bg={bgColor} color={color}>
             <Box
@@ -112,12 +109,6 @@ const DefaultNav = props => {
                                         </Button>
                                     </Link>
                                 </Flex>
-                            </Flex>
-                            <Flex
-                                justifyContent="space-between"
-                                color="gray.500"
-                            >
-                                <ThemeButton />
                             </Flex>
                         </Stack>
                     </Box>

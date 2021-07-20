@@ -16,7 +16,7 @@ import {
     Stack,
     Avatar
 } from '@chakra-ui/core';
-import ThemeButton from './ThemeButton';
+
 import logo from '../../images/logo.png';
 import firebase from 'firebase';
 
@@ -202,12 +202,6 @@ export const VerifiedNav = () => {
                                         </MenuGroup>
                                     </MenuList>
                                 </Menu>
-                            </Flex>
-                            <Flex
-                                justifyContent="space-between"
-                                color="gray.500"
-                            >
-                                <ThemeButton />
                             </Flex>
                         </Stack>
                     </Box>

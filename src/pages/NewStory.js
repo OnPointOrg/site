@@ -28,7 +28,6 @@ import UploadForm, { fileURL } from '../components/editor/UploadForm';
 
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
-const VARIANT_COLOR = 'teal';
 const instanceRef = createRef();
 
 export class CreateStory extends Component {
@@ -312,9 +311,9 @@ export class CreateStory extends Component {
                                             }
                                             size="lg"
                                             type="submit"
-                                            variantColor={VARIANT_COLOR}
-                                            variant="solid"
-                                            width="full"
+                                            borderWidth="3px"
+                                            borderColor="white"
+                                            variant="outline"
                                             mt={4}
                                             onClick={this.handleSave}
                                         >

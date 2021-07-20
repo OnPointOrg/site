@@ -209,10 +209,8 @@ class SignIn extends React.Component {
                         <Box p={4}>
                             <Box textAlign="center">
                                 <Text color="white">Sign In</Text>
-                                <Heading color="teal.500">
-                                    Continue Your Journey
-                                </Heading>
-                                <Heading color="teal.500">@ Onpoint</Heading>
+                                <Heading>Continue Your Journey</Heading>
+                                <Heading>@ Onpoint</Heading>
                             </Box>
                             <Box my={8} textAlign="left">
                                 <form onSubmit={this.handleSubmit}>
@@ -278,16 +276,14 @@ class SignIn extends React.Component {
 
                                     <Box mt={1} color="white">
                                         Need An Account?{' '}
-                                        <ChakraLink
-                                            color={`${VARIANT_COLOR}.500`}
-                                        >
+                                        <ChakraLink color={`${VARIANT_COLOR}`}>
                                             <Link to="/signup">
                                                 Sign Up Here
                                             </Link>
                                         </ChakraLink>
                                     </Box>
                                     <Box mt={1}>
-                                        <ChakraLink color="teal.500">
+                                        <ChakraLink>
                                             <Link to="/forgotpassword">
                                                 Forgot Your Password?
                                             </Link>
