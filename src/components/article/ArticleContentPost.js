@@ -43,13 +43,12 @@ export class ArticleContentPost extends React.Component {
         article: null,
         articleTitle: null,
         articleAuthor: null,
-        articleAuthorEmail: null,
+        // articleAuthorEmail: null,
         articleDate: null,
         articleContent: [],
         articleAuthorUuid: null,
         articlesByAuthor: [],
         documentId: null,
-
         articleViews: null,
         authorPfp: null
     };
@@ -85,9 +84,11 @@ export class ArticleContentPost extends React.Component {
                 articleSummary: articleHtmlInformation[2],
                 articleDate: articleHtmlInformation[4],
                 articleImage: articleHtmlInformation[5],
-                articleAuthorEmail: articleHtmlInformation[6],
-                articleViews: articleHtmlInformation[7],
-                articleAuthorUuid: articleHtmlInformation[8],
+                // articleAuthorEmail: articleHtmlInformation[6],
+                // articleViews: articleHtmlInformation[7],
+                // articleAuthorUuid: articleHtmlInformation[8],
+                articleViews: articleHtmlInformation[6],
+                articleAuthorUuid: articleHtmlInformation[7],
                 articleContent: articleHtmlBody
             });
         });

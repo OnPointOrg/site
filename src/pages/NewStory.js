@@ -38,9 +38,8 @@ export class CreateStory extends Component {
         articleContent: '',
         useruid: '',
         username: '',
-        email: '',
+        // email: '',
         thumbnailImage: '',
-
         loadingState: false,
         disabledState: false,
         redirect: null
@@ -56,27 +55,27 @@ export class CreateStory extends Component {
         });
     };
 
-    getTheUserInformation = () => {
-        const firebaseUser = firebase.auth().currentUser;
-        console.log(firebaseUser);
-        if (firebaseUser != null) {
-            const name = firebaseUser.displayName;
-            const uid = firebaseUser.uid;
-            const email = firebaseUser.email;
-            console.log(uid);
-            this.setState({
-                useruid: uid,
-                username: name,
-                email: email
-            });
-        }
-    };
+    // getTheUserInformation = () => {
+    //     const firebaseUser = firebase.auth().currentUser;
+    //     console.log(firebaseUser);
+    //     if (firebaseUser != null) {
+    //         const name = firebaseUser.displayName;
+    //         const uid = firebaseUser.uid;
+    //         console.log(uid);
+    //         this.setState({
+    //             useruid: uid,
+    //             username: name
+    //         });
+    //     }
+    // };
 
     handleChange = e => {
         this.setState({
             [e.target.id]: e.target.value,
             thumbnailImage: fileURL
         });
+        console.log(this.state.username);
+        console.log(this.state.useruid);
         console.log(this.state.thumbnailImage);
     };
 
@@ -91,7 +90,7 @@ export class CreateStory extends Component {
     };
 
     handleSave = () => {
-        this.getTheUserInformation();
+        // this.getTheUserInformation();
         const savedData = instanceRef.current.save();
         console.log('Editor data> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>: ');
         savedData
@@ -107,6 +106,7 @@ export class CreateStory extends Component {
     };
 
     writeArticleData() {
+        console.log(this.state);
         firestoreDatabase
             .collection('articles')
             .add({
@@ -116,7 +116,7 @@ export class CreateStory extends Component {
                 content: this.state.articleContent,
                 useruid: this.state.useruid,
                 username: this.state.username,
-                email: this.state.email,
+                // email: this.state.email,
                 date: Date.now(),
                 thumbnailImage: this.state.thumbnailImage,
                 views: 0
@@ -252,6 +252,53 @@ export class CreateStory extends Component {
                                             </InputGroup>
                                         </FormControl>
                                     </SimpleGrid>
+                                    {
+                                        //might remove from here
+                                    }
+                                    <SimpleGrid columns={2} spacing={10}>
+                                        <FormControl isRequired margin="25px">
+                                            <FormLabel>Author Name</FormLabel>
+                                            <InputGroup>
+                                                <InputLeftElement
+                                                    children={
+                                                        <Icon name="view" />
+                                                    }
+                                                />
+                                                <Input
+                                                    width="100%"
+                                                    id="username"
+                                                    value={this.state.username}
+                                                    onChange={this.handleChange}
+                                                    type="text"
+                                                    color="white"
+                                                    background="black"
+                                                    placeholder="John Doe"
+                                                />
+                                            </InputGroup>
+                                        </FormControl>
+                                        <FormControl isRequired margin="25px">
+                                            <FormLabel>User UID</FormLabel>
+                                            <InputGroup>
+                                                <InputLeftElement
+                                                    children={
+                                                        <Icon name="at-sign" />
+                                                    }
+                                                />
+                                                <Input
+                                                    width="100%"
+                                                    id="useruid"
+                                                    value={this.state.useruid}
+                                                    onChange={this.handleChange}
+                                                    type="text"
+                                                    color="white"
+                                                    background="black"
+                                                />
+                                            </InputGroup>
+                                        </FormControl>
+                                    </SimpleGrid>
+                                    {
+                                        //to here
+                                    }
                                     <UploadForm />
                                     <FormControl isRequired margin="25px">
                                         <FormLabel>Summary</FormLabel>

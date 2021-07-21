@@ -41,7 +41,7 @@ const getDocs = async articleID => {
             articleHtmlInformation.push(article.category);
             articleHtmlInformation.push(convertFromUnix(article.date));
             articleHtmlInformation.push(article.thumbnailImage);
-            articleHtmlInformation.push(article.email);
+            // articleHtmlInformation.push(article.email);
             articleHtmlInformation.push(views);
             articleHtmlInformation.push(article.useruid);
 
