@@ -71,7 +71,11 @@ const caseChecks = article => {
                 console.log(paragraphText);
                 articleHtmlBody.push(
                     <div
-                        style={{ fontSize: '20px' }}
+                        style={{
+                            fontSize: '20px',
+                            marginTop: '20px',
+                            marginBottom: '20px'
+                        }}
                         dangerouslySetInnerHTML={{ __html: paragraphText }}
                     />
                 );
