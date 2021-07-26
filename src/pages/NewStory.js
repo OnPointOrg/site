@@ -212,6 +212,50 @@ export class CreateStory extends Component {
                                                     placeholder="Select Category"
                                                 >
                                                     <option
+                                                        value="art"
+                                                        onClick={() => {
+                                                            this.setState({
+                                                                category: 'Art'
+                                                            });
+                                                        }}
+                                                    >
+                                                        Art
+                                                    </option>
+                                                    <option
+                                                        value="business"
+                                                        onClick={() => {
+                                                            this.setState({
+                                                                category:
+                                                                    'Business'
+                                                            });
+                                                        }}
+                                                    >
+                                                        Business
+                                                    </option>
+                                                    <option
+                                                        value="current events"
+                                                        onClick={() => {
+                                                            this.setState({
+                                                                category:
+                                                                    'Current Events'
+                                                            });
+                                                        }}
+                                                    >
+                                                        Current Events
+                                                    </option>
+                                                    <option
+                                                        value="entertainment"
+                                                        onClick={() => {
+                                                            this.setState({
+                                                                category:
+                                                                    'Entertainment'
+                                                            });
+                                                        }}
+                                                    >
+                                                        Entertainment
+                                                    </option>
+
+                                                    <option
                                                         value="politics"
                                                         onClick={() => {
                                                             this.setState({
@@ -225,19 +269,6 @@ export class CreateStory extends Component {
                                                     <option
                                                         background="black"
                                                         color="white"
-                                                        value="technology"
-                                                        onClick={() => {
-                                                            this.setState({
-                                                                category:
-                                                                    'Technology'
-                                                            });
-                                                        }}
-                                                    >
-                                                        Technology
-                                                    </option>
-                                                    <option
-                                                        background="black"
-                                                        color="white"
                                                         value="sports"
                                                         onClick={() => {
                                                             this.setState({
@@ -247,6 +278,31 @@ export class CreateStory extends Component {
                                                         }}
                                                     >
                                                         Sports
+                                                    </option>
+                                                    <option
+                                                        value="science"
+                                                        onClick={() => {
+                                                            this.setState({
+                                                                category:
+                                                                    'Science'
+                                                            });
+                                                        }}
+                                                    >
+                                                        Science
+                                                    </option>
+
+                                                    <option
+                                                        background="black"
+                                                        color="white"
+                                                        value="technology"
+                                                        onClick={() => {
+                                                            this.setState({
+                                                                category:
+                                                                    'Technology'
+                                                            });
+                                                        }}
+                                                    >
+                                                        Technology
                                                     </option>
                                                 </Select>
                                             </InputGroup>
