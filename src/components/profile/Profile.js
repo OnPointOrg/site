@@ -212,7 +212,7 @@ export class Profile extends React.Component {
                                 mt="10px"
                             >
                                 {articles.map(article => {
-                                    console.log(article.data());
+                                    console.log(article.data().title);
                                     console.log(
                                         'DOCUMENT ID ====================='
                                     );
