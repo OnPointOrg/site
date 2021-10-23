@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import ArticleGrid from '../components/article/ArticleGrid';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 import { Box } from '@chakra-ui/core';
 import Loading from '../components/home/Loading';
-import GetStarted from '../components/GetStarted';
+// import GetStarted from '../components/GetStarted';
 
 class Articles extends Component {
     state = {
