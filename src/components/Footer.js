@@ -83,7 +83,7 @@ const Footer = () => {
                     />
                 </ChakraLink>
                 <ChakraLink
-                    href="https://www.instagram.com/ad1tya_rawhaaat/"
+                    href="https://www.instagram.com/onpoint_irvine/"
                     title="Instagram"
                     isExternal
                 >

@@ -57,21 +57,15 @@ export const DefaultHome = () => {
                                         h="5rem"
                                         borderRadius="10px"
                                         px="40px"
-                                        fontSize="1.2rem"
                                         as="a"
                                         size="lg"
                                         color="white"
                                         variant="outline"
                                         rightIcon={'arrow-forward'}
-                                        px="40px"
                                         mr="20px"
                                         mt="25px"
                                         fontSize="1.5rem"
-                                        as="a"
-                                        size="lg"
                                         bg="black"
-                                        rightIcon={'arrow-forward'}
-                                        color="white"
                                     >
                                         Get Started
                                     </Button>
