@@ -30,7 +30,19 @@ export const FeaturedArticle = () => {
                     }, 5);
                 }}
             >
-                <Box w="85%" align="center" display="block" mx="auto" mt="15px">
+                <Box
+                    w="85%"
+                    transition="transform 0.5s"
+                    cursor="pointer"
+                    align="center"
+                    display="block"
+                    mx="auto"
+                    mt="15px"
+                    // p="3"
+                    borderColor="white"
+                    borderWidth="5px"
+                    borderRadius="25px"
+                >
                     <SimpleGrid
                         columns={{ sm: 1, md: 1, lg: 2, base: 1 }}
                         spacing={10}
@@ -54,12 +66,6 @@ export const FeaturedArticle = () => {
                             borderRadius="1.5rem"
                         />
                         <Box
-                            transition="transform 0.5s"
-                            cursor="pointer"
-                            _hover={{
-                                transform: 'scale(1.02)',
-                                transition: '0.5s ease-in-out'
-                            }}
                             h="30rem"
                             style={{
                                 backgroundSize: 'cover',
