@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, PseudoBox, Flex, Badge } from '@chakra-ui/core';
+import { Box, Text, Flex, Badge, SimpleGrid } from '@chakra-ui/core';
 
 import { Link } from 'react-router-dom';
 
@@ -31,50 +31,72 @@ export const FeaturedArticle = () => {
                 }}
             >
                 <Box w="85%" align="center" display="block" mx="auto" mt="15px">
-                    <PseudoBox
-                        transition="transform 0.5s"
-                        cursor="pointer"
-                        _hover={{
-                            transform: 'scale(1.02)',
-                            transition: '0.5s ease-in-out'
-                        }}
-                        backgroundImage={`url(${featured.thumbnailImage})`}
-                        h="30rem"
-                        style={{
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center center'
-                        }}
-                        justifyContent="center"
-                        padding="3rem"
-                        direction="column"
-                        borderRadius="1.5rem"
+                    <SimpleGrid
+                        columns={{ sm: 1, md: 1, lg: 2, base: 1 }}
+                        spacing={10}
                     >
-                        <Text
-                            color="rgba(255, 255, 255, 0.61);"
-                            fontSize="0.75rem"
+                        <Box
+                            transition="transform 0.5s"
+                            cursor="pointer"
+                            _hover={{
+                                transform: 'scale(1.02)',
+                                transition: '0.5s ease-in-out'
+                            }}
+                            backgroundImage={`url(${featured.thumbnailImage})`}
+                            h="30rem"
+                            style={{
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center center'
+                            }}
+                            justifyContent="center"
+                            padding="3rem"
+                            direction="column"
+                            borderRadius="1.5rem"
+                        />
+                        <Box
+                            transition="transform 0.5s"
+                            cursor="pointer"
+                            _hover={{
+                                transform: 'scale(1.02)',
+                                transition: '0.5s ease-in-out'
+                            }}
+                            h="30rem"
+                            style={{
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center center'
+                            }}
+                            justifyContent="center"
+                            padding="3rem"
+                            direction="column"
+                            borderRadius="1.5rem"
                         >
-                            Featured Article Of The Week
-                        </Text>
-                        <Text fontSize="3rem" as="b" color="red.50">
-                            {featured.title}
-                        </Text>
-                        <Text fontSize="1.5rem" color="red.50" my="10px">
-                            {featured.summary}
-                        </Text>
-                        <Flex marginTop="auto">
-                            <Badge
-                                rounded="md"
-                                py="1"
-                                px="2"
-                                my="1"
-                                backgroundColor="black"
+                            <Text
+                                color="rgba(255, 255, 255, 0.61);"
+                                fontSize="0.75rem"
                             >
-                                <Text color="white" fontSize="15px">
-                                    {featured.category}
-                                </Text>
-                            </Badge>
-                        </Flex>
-                    </PseudoBox>
+                                Featured Article Of The Week
+                            </Text>
+                            <Text fontSize="3rem" as="b" color="red.50">
+                                {featured.title}
+                            </Text>
+                            <Text fontSize="1.5rem" color="red.50" my="10px">
+                                {featured.summary}
+                            </Text>
+                            <Flex marginTop="auto">
+                                <Badge
+                                    rounded="md"
+                                    py="1"
+                                    px="2"
+                                    my="1"
+                                    backgroundColor="black"
+                                >
+                                    <Text color="white" fontSize="15px">
+                                        {featured.category}
+                                    </Text>
+                                </Badge>
+                            </Flex>
+                        </Box>
+                    </SimpleGrid>
                 </Box>
             </Link>
         );
