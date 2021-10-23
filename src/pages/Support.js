@@ -106,10 +106,10 @@ export const Support = () => {
                                 backgroundColor: '#24242',
                                 color: 'black'
                             }}
-                            href="https://bank.hackclub.com/donations/start/onpoint"
+                            href="https://www.paypal.com/paypalme/adityarawat69420"
                             target="_blank"
                         >
-                            <Text color="white">Sponsor</Text>
+                            <Text color="white">Support</Text>
                         </Button>
                     </Flex>
                 </Box>
